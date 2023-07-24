@@ -1,0 +1,117 @@
+// Functions for other scripts
+
+ext.generateVersion = { ->
+	return generateModVersion(true);
+}
+
+ext.generateVersionWithMetadata = { ->
+	return generateModVersion(false)
+}
+
+// Reproducible builds
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    reproducibleFileOrder = true
+    preserveFileTimestamps = false
+}
+
+// Quilt Loader stuff
+
+processResources {
+    inputs.property 'version', generateVersion()
+
+    filesMatching('quilt.mod.json') {
+        expand "version": generateVersion()
+    }
+}
+
+// Java Plugin boilerplate
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
+    it.options.release = 17
+}
+
+java {
+    // Still required by IDEs such as Eclipse and Visual Studio Code
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+
+    // If this mod is going to be a library, then it should also generate Javadocs in order to aid with development.
+    // Uncomment this line to generate them.
+    // withJavadocJar()
+}
+
+// Mod version generation
+// Attaches revision info, normalizes game version
+
+import java.util.regex.Pattern;
+
+def run(String command) {
+	return command.execute().in.readLines()[0];
+}
+
+def generateModVersion(boolean bare) {
+	var version = project.mod_version;
+
+	if (!project.hasProperty("release")) {
+		version = addRevisionInfo(version);
+	}
+
+	if (bare) {
+		return version;
+	}
+
+	return "${version}+minecraft-${normalizedMinecraftVersion()}";
+}
+
+def addRevisionInfo(String version) {
+	var parts = new ArrayList<>();
+
+	if (version.contains("-")) {
+		version += ".";
+	} else {
+		version += "-";
+		parts.add("alpha");
+	}
+
+	var valid = run("git rev-parse --is-inside-work-tree");
+
+	if (!valid) {
+		parts.add("unknown");
+	} else {
+		// Number of commits, for numerical ordering
+		parts.add(run("git rev-list --count HEAD"));
+		// Revision for looking up things again later
+		parts.add(run("git rev-parse --short HEAD"));
+
+		if (run("git status --porcelain")) {
+			parts.add("dirty"); // Workdir is unclean
+		}
+	}
+
+	return version + String.join(".", parts);
+}
+
+def normalizedMinecraftVersion() {
+	var version = libs.versions.minecraft.get();
+	var matcher = Pattern.compile("^(?<version>\\d+\\.\\d+(?>\\.\\d+)?)(?<rest>-.+)?\$").matcher(version);
+
+	if (!matcher.matches()) {
+		throw new RuntimeException("Failed to parse Minecraft version!");
+	}
+
+	// Version part already has two full stops, eg. 1.19.2
+	if (matcher.group("version").matches("(\\d+\\.){2}\\d+")) {
+		return version;
+	}
+
+	// Append .0 to incomplete version, eg. 1.19 -> 1.19.0
+	var rest = matcher.group("rest");
+	return matcher.group("version").concat(".0").concat(rest != null ? rest : "");
+}
