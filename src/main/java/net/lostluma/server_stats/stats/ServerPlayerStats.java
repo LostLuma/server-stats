@@ -34,7 +34,9 @@ public class ServerPlayerStats {
     }
 
     public void increment(PlayerEntity player, Stat stat, int amount) {
-        this.set(player, stat, this.get(stat) + amount);
+        if (stat != null) {
+            this.set(player, stat, this.get(stat) + amount);
+        }
     }
 
     public void set(PlayerEntity player, Stat stat, int value) {
