@@ -5,6 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.FileAttribute;
+import java.nio.file.attribute.PosixFilePermissions;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,7 +27,9 @@ public class ServerPlayerStats {
 
     // Use Minecraft logger as it is already properly set up
     private static final Logger LOGGER = Logger.getLogger("Minecraft");
+
     private static final Path STATS = Path.of("world").resolve("stats");
+    private static final FileAttribute<?>[] DEFAULT_ATTRIBUTES = getDefaultFileAttributes();
 
     public ServerPlayerStats(PlayerEntity player) {
         this.name = player.getSourceName();
@@ -67,7 +72,7 @@ public class ServerPlayerStats {
         try {
             Files.createDirectories(STATS);
 
-            Path temp = Files.createTempFile(STATS, this.name, ".json");
+            Path temp = Files.createTempFile(STATS, this.name, ".json", DEFAULT_ATTRIBUTES);
             Files.writeString(temp, this.serialize(), StandardCharsets.UTF_8);
 
             Files.move(temp, path, StandardCopyOption.ATOMIC_MOVE); // Prevent issues on server crash
@@ -107,5 +112,13 @@ public class ServerPlayerStats {
         }
 
         return result.toString();
+    }
+
+    private static FileAttribute<?>[] getDefaultFileAttributes() {
+        if (!System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("linux")) {
+            return new FileAttribute[0];
+        }
+
+        return new FileAttribute[]{PosixFilePermissions.asFileAttribute(PosixFilePermissions.fromString("rw-r--r--"))};
     }
 }
