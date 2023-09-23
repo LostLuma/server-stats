@@ -16,8 +16,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
+          filter: tree:0 # Fetch only historic commits, no blobs or trees
           fetch-depth: 0 # Pre-release builds include commit count in version number
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
