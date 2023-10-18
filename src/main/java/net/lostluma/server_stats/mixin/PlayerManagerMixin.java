@@ -1,6 +1,7 @@
 package net.lostluma.server_stats.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -9,10 +10,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
 
+import java.util.List;
+
 @Mixin(PlayerManager.class)
 public class PlayerManagerMixin {
-    @Inject(method = "save", at = @At("TAIL"))
-    private void onSave(ServerPlayerEntity player, CallbackInfo callbackInfo) {
+    @Shadow
+    public List<ServerPlayerEntity> players;
+
+    @Inject(method = "saveAll", at = @At("TAIL"))
+    private void saveAll(CallbackInfo callbackInfo) {
+        for (var player : this.players) {
+            player.server_stats$getStats().save();
+        }
+    }
+
+    @Inject(method = "remove", at = @At("TAIL"))
+    private void remove(ServerPlayerEntity player, CallbackInfo callbackInfo) {
         player.server_stats$getStats().save();
     }
 

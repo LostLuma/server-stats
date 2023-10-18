@@ -15,12 +15,17 @@ base {
 }
 
 loom {
+	serverOnlyMinecraftJar()
 	mods {
 		"server_stats" {
 			sourceSet("main")
 			dependency(libs.gson.get())
 		}
 	}
+}
+
+ploceus {
+	serverOnlyMappings()
 }
 
 repositories {

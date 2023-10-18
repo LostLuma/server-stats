@@ -10,8 +10,8 @@ import net.minecraft.entity.Entities;
 
 @Mixin(Entities.class)
 public class EntitiesMixin {
-    @Inject(method = "registerWithSpawnEgg", at = @At("TAIL"))
-    private static void registerWithSpawnEgg(Class<?> type, String key, int id, int baseColor, int spotsColor, CallbackInfo callbackInfo) {
+    @Inject(method = "register", at = @At("TAIL"))
+    private static void registerWithSpawnEgg(Class<?> type, String key, int id, CallbackInfo callbackInfo) {
         Stats.createEntityKillStat(key);
         Stats.createKilledByEntityStat(key);
     }

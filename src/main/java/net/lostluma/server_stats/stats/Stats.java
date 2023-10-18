@@ -150,7 +150,7 @@ public class Stats {
         mergeBlockStats(stats, Block.LIT_REDSTONE_LAMP, Block.REDSTONE_LAMP);
         mergeBlockStats(stats, Block.RED_MUSHROOM, Block.BROWN_MUSHROOM);
         mergeBlockStats(stats, Block.DOUBLE_STONE_SLAB, Block.STONE_SLAB);
-        mergeBlockStats(stats, Block.DOUBLE_WOODEN_SLAB, Block.WOODEN_SLAB);
+        // mergeBlockStats(stats, Block.DOUBLE_WOODEN_SLAB, Block.WOODEN_SLAB);
         mergeBlockStats(stats, Block.GRASS, Block.DIRT);
         mergeBlockStats(stats, Block.FARMLAND, Block.DIRT);
     }

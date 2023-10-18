@@ -32,7 +32,7 @@ public class ServerPlayerStats {
     private static final FileAttribute<?>[] DEFAULT_ATTRIBUTES = getDefaultFileAttributes();
 
     public ServerPlayerStats(PlayerEntity player) {
-        this.name = player.getSourceName();
+        this.name = player.name;
         this.counters = new ConcurrentHashMap<>();
 
         this.load();

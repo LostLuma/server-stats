@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 @Mixin(ItemStack.class)
 public class ItemStackMixin {
     @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
-    private void use(PlayerEntity player, World world, int x, int y, int z, int face, float dx, float dy, float dz, CallbackInfoReturnable<?> callbackInfo) {
+    private void use(PlayerEntity player, World world, int x, int y, int z, int face, CallbackInfoReturnable<?> callbackInfo) {
         var stack = (ItemStack)(Object)this;
         player.server_stats$incrementStat(Stats.ITEMS_USED[stack.itemId], 1);
     }
@@ -35,7 +35,7 @@ public class ItemStackMixin {
     }
 
     @Inject(method = "mineBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
-    private void mineBlock(World world, int blockId, int x, int y, int z, PlayerEntity player, CallbackInfo callbackInfo) {
+    private void mineBlock(int blockId, int x, int y, int z, PlayerEntity player, CallbackInfo callbackInfo) {
         var stack = (ItemStack)(Object)this;
         player.server_stats$incrementStat(Stats.ITEMS_USED[stack.itemId], 1);
     }

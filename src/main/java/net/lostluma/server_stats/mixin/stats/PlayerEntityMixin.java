@@ -97,8 +97,8 @@ public class PlayerEntityMixin {
         }
     }
 
-    @Redirect(method = "tickNonRidingMovmentRelatedStats", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
-    private void tickNonRidingMovmentRelatedStats(PlayerEntity player, Stat stat, int amount) {
+    @Redirect(method = "tickNonRidingMovementRelatedStats", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
+    private void tickNonRidingMovementRelatedStats(PlayerEntity player, Stat stat, int amount) {
         var translation = Map.of(
             net.minecraft.stat.Stats.CM_DIVEN, Stats.CM_DIVEN,
             net.minecraft.stat.Stats.CM_SWUM, Stats.CM_SWUM,
