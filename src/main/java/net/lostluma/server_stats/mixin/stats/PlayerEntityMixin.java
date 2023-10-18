@@ -59,7 +59,7 @@ public class PlayerEntityMixin {
     }
 
     @Inject(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
-    private void damage(DamageSource source, int amount, CallbackInfoReturnable<?> callbackInfo) {
+    private void damage(DamageSource source, float amount, CallbackInfoReturnable<?> callbackInfo) {
         var world = ((PlayerEntity) (Object) this).world;
 
         if (world.difficulty == 0) {
@@ -75,25 +75,23 @@ public class PlayerEntityMixin {
         }
 
         var player = (PlayerEntity) (Object) this;
-        player.server_stats$incrementStat(Stats.DAMAGE_TAKEN, amount);
+        player.server_stats$incrementStat(Stats.DAMAGE_TAKEN, Math.round(amount * 10.0F));
     }
 
     @Inject(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void attack(Entity target, CallbackInfo callbackInfo, int damage) {
+    private void attack(Entity target, CallbackInfo callbackInfo, float damage) {
         var player = (PlayerEntity) (Object) this;
-        player.server_stats$incrementStat(Stats.DAMAGE_DEALT, damage);
+        player.server_stats$incrementStat(Stats.DAMAGE_DEALT, Math.round(damage * 10.0F));
     }
 
-    @Inject(method = "tickRidingRelatedStats", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void tickRidingRelatedStats(double x, double y, double z, CallbackInfo callbackInfo, int distance) {
-        var player = (PlayerEntity)(Object)this;
-
+    @Redirect(method = "tickRidingRelatedStats", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
+    private void tickRidingRelatedStats(PlayerEntity player, Stat stat, int amount) {
         if (player.vehicle instanceof PigEntity) {
-            player.server_stats$incrementStat(Stats.CM_PIG, distance);
+            player.server_stats$incrementStat(Stats.CM_PIG, amount);
         } else if (player.vehicle instanceof BoatEntity) {
-            player.server_stats$incrementStat(Stats.CM_SAILED, distance);
+            player.server_stats$incrementStat(Stats.CM_SAILED, amount);
         } else if (player.vehicle instanceof MinecartEntity) {
-            player.server_stats$incrementStat(Stats.CM_MINECART, distance);
+            player.server_stats$incrementStat(Stats.CM_MINECART, amount);
         }
     }
 

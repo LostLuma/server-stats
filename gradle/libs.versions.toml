@@ -1,9 +1,9 @@
 [versions]
-minecraft = "1.5.2"
+minecraft = "1.6.4"
 quilt_loader = "0.20.2"
 
-nests = "1.5.2+build.1"
-feather = "1.5.2+build.11"
+nests = "1.6.4+build.1"
+feather = "1.6.4+build.11"
 
 gson = "2.10.1"
 
