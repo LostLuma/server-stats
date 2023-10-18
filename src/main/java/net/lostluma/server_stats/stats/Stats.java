@@ -147,7 +147,7 @@ public class Stats {
         mergeBlockStats(stats, Block.POWERED_REPEATER, Block.REPEATER);
         // mergeBlockStats(stats, Block.POWERED_COMPARATOR, Block.COMPARATOR);
         mergeBlockStats(stats, Block.REDSTONE_TORCH, Block.UNLIT_REDSTONE_TORCH);
-        mergeBlockStats(stats, Block.LIT_REDSTONE_LAMP, Block.REDSTONE_LAMP);
+        // mergeBlockStats(stats, Block.LIT_REDSTONE_LAMP, Block.REDSTONE_LAMP);
         mergeBlockStats(stats, Block.RED_MUSHROOM, Block.BROWN_MUSHROOM);
         mergeBlockStats(stats, Block.DOUBLE_STONE_SLAB, Block.STONE_SLAB);
         // mergeBlockStats(stats, Block.DOUBLE_WOODEN_SLAB, Block.WOODEN_SLAB);

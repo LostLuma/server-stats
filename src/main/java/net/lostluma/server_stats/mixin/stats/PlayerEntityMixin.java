@@ -53,7 +53,7 @@ public class PlayerEntityMixin {
     }
 
     @Inject(method = "dropItem", at = @At("HEAD"))
-    private void dropItem(CallbackInfoReturnable<?> callbackInfo) {
+    private void dropItem(CallbackInfo callbackInfo) {
         var player = (PlayerEntity) (Object) this;
         player.server_stats$incrementStat(Stats.DROPS, 1); // Vanilla 1.7.10 increments this wrong, so we'll keep that
     }

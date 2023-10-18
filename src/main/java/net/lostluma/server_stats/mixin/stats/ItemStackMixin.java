@@ -1,6 +1,7 @@
 package net.lostluma.server_stats.mixin.stats;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -14,6 +15,9 @@ import net.minecraft.world.World;
 
 @Mixin(ItemStack.class)
 public class ItemStackMixin {
+    @Shadow
+    public int size;
+
     @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
     private void use(PlayerEntity player, World world, int x, int y, int z, int face, CallbackInfoReturnable<?> callbackInfo) {
         var stack = (ItemStack)(Object)this;
@@ -41,8 +45,8 @@ public class ItemStackMixin {
     }
 
     @Inject(method = "onResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"))
-    private void onResult(World world, PlayerEntity player, int amount, CallbackInfo callbackInfo) {
+    private void onResult(World world, PlayerEntity player, CallbackInfo callbackInfo) {
         var stack = (ItemStack)(Object)this;
-        player.server_stats$incrementStat(Stats.ITEMS_CRAFTED[stack.itemId], amount);
+        player.server_stats$incrementStat(Stats.ITEMS_CRAFTED[stack.itemId], this.size);
     }
 }
