@@ -1,3 +1,5 @@
+![The mod's icon](https://files.lostluma.net/ZyjaRV.png)
+
 # Server Stats
 
 Implementation of server-side statistics for legacy versions of Minecraft.
