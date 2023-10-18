@@ -14,6 +14,15 @@ base {
 	archivesName = project.archives_base_name
 }
 
+loom {
+	mods {
+		"server_stats" {
+			sourceSet("main")
+			dependency(libs.gson.get())
+		}
+	}
+}
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
@@ -28,11 +37,11 @@ dependencies {
 	minecraft libs.minecraft
 
 	mappings loom.layered {
-		mappings "net.ornithemc:feather:${libs.versions.minecraft.get()}+build.${libs.versions.feather.build.get()}:v2"
-		addLayer ploceus.nestedMappings()
+		mappings variantOf(libs.feather) { classifier("v2") }
+		addLayer ploceus.nestedMappings() // Required for nests
 	}
-	nests "net.ornithemc:nests:${libs.versions.minecraft.get()}+build.${libs.versions.nests.build.get()}"
 
+	nests libs.nests
 	modImplementation libs.quilt.loader
 
 	shadow libs.gson
