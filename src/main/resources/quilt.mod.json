@@ -19,7 +19,8 @@
                 "name": "LGPL License",
                 "id": "LGPL-3.0-or-later",
                 "url": "https://go.lostluma.net/server-stats-license"
-            }
+            },
+            "icon": "assets/server_stats/icon.png"
         },
         "intermediate_mappings": "net.fabricmc:intermediary",
         "entrypoints": {},
