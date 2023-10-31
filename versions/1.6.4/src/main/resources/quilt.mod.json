@@ -5,8 +5,8 @@
         "id": "server_stats_mixins",
         "version": "${version}",
         "metadata": {
-            "name": "Server Stats",
-            "description": "Implementation of server-side statistics for legacy versions of Minecraft.",
+            "name": "Server Stats Mixins",
+            "description": "Implementation of server-side statistics for Minecraft 1.6.4.",
             "contributors": {
                 "LostLuma": "Owner"
             },
