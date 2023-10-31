@@ -23,39 +23,13 @@
             "icon": "assets/server_stats/icon.png"
         },
         "intermediate_mappings": "net.fabricmc:intermediary",
-        "entrypoints": {},
         "depends": [
             {
-                "id": "java",
-                "versions": ">=17.0.0"
-            },
-            {
-                "id": "minecraft",
-                "versions": {
-                    "all": [
-                        ">=1.6.4-",
-                        "<=1.6.4"
-                    ]
-                }
-            },
-            {
-                "id": "quilt_loader",
-                "versions": ">=0.20.2"
+                "id": "server_stats_mixins"
             }
         ]
     },
     "minecraft": {
         "environment": "dedicated_server"
-    },
-    "mixin": [
-        "server_stats.mixins.json",
-        "server_stats.stats.mixins.json"
-    ],
-    "quilt_loom": {
-        "injected_interfaces": {
-            "net/minecraft/unmapped/C_9590849": [
-                "net/lostluma/server_stats/utils/StatsPlayer"
-            ]
-        }
     }
 }

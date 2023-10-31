@@ -67,7 +67,13 @@ def generateModVersion(boolean bare) {
 		return version;
 	}
 
-	return "${version}+minecraft-${normalizedMinecraftVersion()}";
+	if (project.displayName.contains(":versions:")) {
+		return "${version}+minecraft-${normalizedMinecraftVersion()}";
+	} else {
+		var min = project.minecraft_version_min;
+		var max = project.minecraft_version_max;
+		return "${version}+minecraft-${normalizedMinecraftVersion(min)}-to-${normalizedMinecraftVersion(max)}";
+	}
 }
 
 def addRevisionInfo(String version) {
@@ -99,7 +105,10 @@ def addRevisionInfo(String version) {
 }
 
 def normalizedMinecraftVersion() {
-	var version = libs.versions.minecraft.get();
+	return normalizedMinecraftVersion(project.minecraft_version);
+}
+
+def normalizedMinecraftVersion(String version) {
 	var matcher = Pattern.compile("^(?<version>\\d+\\.\\d+(?>\\.\\d+)?)(?<rest>-.+)?\$").matcher(version);
 
 	if (!matcher.matches()) {

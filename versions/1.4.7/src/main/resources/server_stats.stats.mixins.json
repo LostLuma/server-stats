@@ -1,0 +1,25 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.mixin.stats",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "block.BlockMixin",
+        "block.DeadBushBlockMixin",
+        "block.IceBlockMixin",
+        "block.LeavesBlockMixin",
+        "block.SnowLayerBlockMixin",
+        "block.TallPlantBlockMixin",
+        "block.VineBlockMixin",
+        "FishingBobberEntityMixin",
+        "ItemStackMixin",
+        "PlayerEntityMixin",
+        "PlayerManagerMixin",
+        "ServerPlayerEntityMixin"
+    ],
+    "client": [],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

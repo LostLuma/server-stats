@@ -1,0 +1,39 @@
+plugins {
+	id 'maven-publish'
+	alias libs.plugins.shadow
+	alias libs.plugins.quilt.loom
+	alias libs.plugins.ploceus
+}
+
+apply from: "${rootProject.projectDir}/gradle/common.gradle"
+
+group = project.maven_group
+version = generateVersionWithMetadata()
+
+base {
+	archivesName = project.archives_base_name
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+	mappings loom.layered {
+		mappings "net.ornithemc:feather:${project.feather_version}:v2"
+		addLayer ploceus.nestedMappings() // Required for nests
+	}
+
+	nests "net.ornithemc:nests:${project.nests_version}"
+	modImplementation libs.quilt.loader
+
+	implementation libs.gson
+}
+
+shadowJar {
+	configurations = [project.configurations.shadow]
+	relocate "com.google", "net.lostluma.server_stats.external"
+}
+
+remapJar {
+	inputFile.set shadowJar.archiveFile
+	dependsOn shadowJar
+}

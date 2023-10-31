@@ -14,38 +14,27 @@ base {
 	archivesName = project.archives_base_name
 }
 
-loom {
-	mods {
-		"server_stats" {
-			sourceSet("main")
-			dependency(libs.gson.get())
-		}
-	}
-}
-
-repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
-}
-
-// All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
-// See https://docs.gradle.org/current/userguide/platforms.html for information on how version catalogs work.
 dependencies {
-	minecraft libs.minecraft
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
 	mappings loom.layered {
-		mappings variantOf(libs.feather) { classifier("v2") }
+		mappings "net.ornithemc:feather:${project.feather_version}:v2"
 		addLayer ploceus.nestedMappings() // Required for nests
 	}
 
-	nests libs.nests
+	nests "net.ornithemc:nests:${project.nests_version}"
 	modImplementation libs.quilt.loader
 
 	shadow libs.gson
 	implementation libs.gson
+
+	include project(":versions:1.0.1")
+	include project(":versions:1.1.0")
+	include project(":versions:1.2.5")
+	include project(":versions:1.3.2")
+	include project(":versions:1.4.7")
+	include project(":versions:1.5.2")
+	include project(":versions:1.6.4")
 }
 
 shadowJar {
