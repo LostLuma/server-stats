@@ -25,6 +25,10 @@
         "intermediate_mappings": "net.fabricmc:intermediary",
         "depends": [
             {
+                "id": "java",
+                "versions": ">=17.0.0"
+            },
+            {
                 "id": "server_stats_mixins"
             }
         ]
