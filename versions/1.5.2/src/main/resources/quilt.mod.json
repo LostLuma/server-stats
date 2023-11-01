@@ -29,9 +29,6 @@
             }
         ]
     },
-    "minecraft": {
-        "environment": "dedicated_server"
-    },
     "mixin": [
         "server_stats.mixins.json",
         "server_stats.stats.mixins.json"

@@ -16,9 +16,9 @@ pluginManagement {
 	}
 }
 
-include(":versions:1.0.1")
-include(":versions:1.1.0")
-include(":versions:1.2.5")
+include(":versions:1.0.1-server")
+include(":versions:1.1.0-server")
+include(":versions:1.2.5-server")
 include(":versions:1.3.2")
 include(":versions:1.4.7")
 include(":versions:1.5.2")

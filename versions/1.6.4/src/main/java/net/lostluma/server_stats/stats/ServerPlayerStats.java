@@ -10,6 +10,7 @@ import java.nio.file.attribute.PosixFilePermissions;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
@@ -19,16 +20,18 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 
 import net.minecraft.entity.living.player.PlayerEntity;
+import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("squid:S2629") // Unconditional method call in log call
 public class ServerPlayerStats {
     private final String name;
     protected final Map<Stat, Integer> counters;
 
+    private static @Nullable Path STATS = null;
+
     // Use Minecraft logger as it is already properly set up
     private static final Logger LOGGER = Logger.getLogger("Minecraft");
 
-    private static final Path STATS = Path.of("world").resolve("stats");
     private static final FileAttribute<?>[] DEFAULT_ATTRIBUTES = getDefaultFileAttributes();
 
     public ServerPlayerStats(PlayerEntity player) {
@@ -36,6 +39,10 @@ public class ServerPlayerStats {
         this.counters = new ConcurrentHashMap<>();
 
         this.load();
+    }
+
+    public static void setWorldDirectory(String worldDirName) {
+        STATS = Path.of(worldDirName).resolve("stats");
     }
 
     public void increment(PlayerEntity player, Stat stat, int amount) {
@@ -53,6 +60,10 @@ public class ServerPlayerStats {
     }
 
     public void load() {
+        if (Objects.isNull(STATS)) {
+            throw new RuntimeException("Stats directory unset.");
+        }
+
         Path path = STATS.resolve(this.name + ".json");
 
         if (Files.exists(path)) {
@@ -67,6 +78,10 @@ public class ServerPlayerStats {
     }
 
     public void save() {
+        if (Objects.isNull(STATS)) {
+            throw new RuntimeException("Stats directory unset.");
+        }
+
         Path path = STATS.resolve(this.name + ".json");
 
         try {
@@ -82,6 +97,10 @@ public class ServerPlayerStats {
     }
 
     public void deserialize() throws IOException {
+        if (Objects.isNull(STATS)) {
+            throw new RuntimeException("Stats directory unset.");
+        }
+
         Path path = STATS.resolve(this.name + ".json");
         JsonElement root = JsonParser.parseString(Files.readString(path, StandardCharsets.UTF_8));
 

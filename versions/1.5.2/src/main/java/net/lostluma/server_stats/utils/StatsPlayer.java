@@ -8,7 +8,7 @@ public interface StatsPlayer {
 		throw new RuntimeException("No implementation for server_stats$incrementStat found.");
     }
 
-	public default ServerPlayerStats server_stats$getStats() {
-		throw new RuntimeException("No implementation for server_stats$getStats found.");
-	}
+    public default void server_stats$saveStats() {
+        throw new RuntimeException("No implementation for server_stats$saveStats found.");
+    }
 }

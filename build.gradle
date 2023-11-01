@@ -28,9 +28,9 @@ dependencies {
 	shadow libs.gson
 	implementation libs.gson
 
-	include project(":versions:1.0.1")
-	include project(":versions:1.1.0")
-	include project(":versions:1.2.5")
+	include project(":versions:1.0.1-server")
+	include project(":versions:1.1.0-server")
+	include project(":versions:1.2.5-server")
 	include project(":versions:1.3.2")
 	include project(":versions:1.4.7")
 	include project(":versions:1.5.2")

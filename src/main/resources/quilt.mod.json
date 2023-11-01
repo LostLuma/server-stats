@@ -32,8 +32,5 @@
                 "id": "server_stats_mixins"
             }
         ]
-    },
-    "minecraft": {
-        "environment": "dedicated_server"
     }
 }
