@@ -9,6 +9,9 @@ Implementation of server-side statistics for legacy versions of Minecraft.
 Allows recording player statistics on legacy servers using the modern statistics system.  
 This is intended to be used by players planning to eventually upgrade to 1.7.x or later.
 
+As Minecraft discards all player statistics when upgrading to 1.8 and later Server Stats
+also includes a statistics upgrade system for players in Minecraft 1.8.9 through 1.12.2.
+
 There is currently no way to view your statistics except to upgrade your world to 1.7.x.  
 
 ## Installation

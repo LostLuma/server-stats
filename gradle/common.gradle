@@ -67,7 +67,9 @@ def generateModVersion(boolean bare) {
 		return version;
 	}
 
-	if (project.displayName.contains(":versions:")) {
+	var name = project.displayName;
+
+	if (name.contains(":versions:") && !name.contains("-to-")) {
 		return "${version}+minecraft-${normalizedMinecraftVersion()}";
 	} else {
 		var min = project.minecraft_version_min;

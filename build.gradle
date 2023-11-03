@@ -35,6 +35,7 @@ dependencies {
 	include project(":versions:1.4.7")
 	include project(":versions:1.5.2")
 	include project(":versions:1.6.4")
+	include project(":versions:1.8.9-to-1.12.2")
 }
 
 shadowJar {
