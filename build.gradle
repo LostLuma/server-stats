@@ -14,6 +14,14 @@ base {
 	archivesName = project.archives_base_name
 }
 
+loom {
+	serverOnlyMinecraftJar()
+}
+
+ploceus {
+	serverOnlyMappings()
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
