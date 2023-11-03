@@ -29,6 +29,10 @@
                 "versions": ">=17.0.0"
             },
             {
+                "id": "quilt_loader",
+                "versions": ">=0.21.2-"
+            },
+            {
                 "id": "server_stats_mixins"
             }
         ]
