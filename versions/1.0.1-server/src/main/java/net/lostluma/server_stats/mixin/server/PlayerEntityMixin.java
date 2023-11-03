@@ -36,10 +36,6 @@ public class PlayerEntityMixin implements StatsPlayer {
     private @Nullable ServerPlayerStats getStats() {
         var player = (PlayerEntity)(Object)this;
 
-        if (!player.world.isMultiplayer) {
-            return null;
-        }
-
         if (this.server_stats$serverPlayerStats == null) {
             this.server_stats$serverPlayerStats = new ServerPlayerStats(player);
         }
