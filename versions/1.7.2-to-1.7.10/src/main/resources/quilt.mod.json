@@ -1,0 +1,34 @@
+{
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "net.lostluma",
+        "id": "server_stats_mixins",
+        "version": "${version}",
+        "metadata": {
+            "name": "Server Stats Mixins",
+            "description": "Bridge for Minecraft 1.7.x to increase chances of users using the datafix in 1.8.9 and later.",
+            "contributors": {
+                "LostLuma": "Owner"
+            },
+            "contact": {
+                "homepage": "https://go.lostluma.net/server-stats",
+                "issues": "https://go.lostluma.net/server-stats-issues",
+                "sources": "https://go.lostluma.net/server-stats-source"
+            },
+            "license": {
+                "name": "LGPL License",
+                "id": "LGPL-3.0-or-later",
+                "url": "https://go.lostluma.net/server-stats-license"
+            }
+        },
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "depends": [
+            {
+                "id": "minecraft",
+                "versions": {
+                    "all": [">=1.7.2", "<=1.7.10"]
+                }
+            }
+        ]
+    }
+}
