@@ -8,7 +8,6 @@
     "server": [
         "block.BlockMixin",
         "block.DeadBushBlockMixin",
-        "block.IceBlockMixin",
         "block.LeavesBlockMixin",
         "block.SnowLayerBlockMixin",
         "block.TallPlantBlockMixin",
