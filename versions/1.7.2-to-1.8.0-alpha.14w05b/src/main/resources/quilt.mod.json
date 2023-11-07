@@ -31,5 +31,8 @@
                 }
             }
         ]
+    },
+    "modmenu": {
+        "parent": "server_stats"
     }
 }

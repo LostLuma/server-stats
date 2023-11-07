@@ -43,5 +43,8 @@
                 "net/lostluma/server_stats/utils/StatsPlayer"
             ]
         }
+    },
+    "modmenu": {
+        "parent": "server_stats"
     }
 }
