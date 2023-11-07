@@ -43,8 +43,8 @@ dependencies {
 	include project(":versions:1.4.7")
 	include project(":versions:1.5.2")
 	include project(":versions:1.6.4")
-	include project(":versions:1.7.2-to-1.7.10")
-	include project(":versions:1.8.9-to-1.12.2")
+	include project(":versions:1.7.2-to-1.8.0-alpha.14w05b")
+	include project(":versions:1.8.0-alpha.14w06a-to-1.12.2")
 }
 
 shadowJar {
@@ -57,21 +57,4 @@ remapJar {
 
 	inputFile.set shadowJar.archiveFile
 	dependsOn shadowJar
-}
-
-// Configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
-	}
 }

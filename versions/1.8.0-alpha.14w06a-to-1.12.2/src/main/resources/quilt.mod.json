@@ -6,7 +6,7 @@
         "version": "${version}",
         "metadata": {
             "name": "Server Stats Mixins",
-            "description": "Bridge for Minecraft 1.7.x to increase chances of users using the datafix in 1.8.9 and later.",
+            "description": "Implementation of server-side statistics datafix for Minecraft 1.8.9 through 1.12.2.",
             "contributors": {
                 "LostLuma": "Owner"
             },
@@ -26,9 +26,12 @@
             {
                 "id": "minecraft",
                 "versions": {
-                    "all": [">=1.7.2", "<=1.7.10"]
+                    "all": [">=1.8.0-alpha.14.6.a", "<=1.12.2"]
                 }
             }
         ]
-    }
+    },
+    "mixin": [
+        "server_stats.mixins.json"
+    ]
 }
