@@ -108,10 +108,10 @@ public class ServerPlayerStatFix {
     }
 
     private static void populateIdMap() throws IOException {
-        var modId = "server_stats_mixins";
+        var modId = "server_stats";
 
         var container = QuiltLoader.getModContainer(modId).orElseThrow();
-        var path = container.getPath("assets/" + modId + "/id_map.json");
+        var path = container.getPath("assets/" + modId + "/id_to_identifier.json");
 
         Type type = new TypeToken<Map<String, String>>(){}.getType();
         ID_MAP = new Gson().fromJson(Files.readString(path, StandardCharsets.UTF_8), type);

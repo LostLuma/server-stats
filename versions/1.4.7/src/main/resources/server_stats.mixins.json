@@ -9,8 +9,10 @@
         "common.PlayerManagerMixin"
     ],
     "client": [
+        "client.ClientNetworkHandlerMixin",
         "client.IntegratedServerMixin",
-        "client.MinecraftMixin"
+        "client.MinecraftMixin",
+        "client.PlayerStatsMixin"
     ],
     "server": [
         "server.MinecraftServerMixin"

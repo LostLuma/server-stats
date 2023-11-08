@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Unique;
 
 import net.lostluma.server_stats.stats.ServerPlayerStats;
 import net.lostluma.server_stats.stats.Stat;
-import net.lostluma.server_stats.utils.StatsPlayer;
+import net.lostluma.server_stats.types.StatsPlayer;
 import net.minecraft.entity.living.player.PlayerEntity;
 
 @Mixin(PlayerEntity.class)
@@ -16,7 +16,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$incrementStat(Stat stat, int amount) {
-        var stats = this.getStats();
+        var stats = this.server_stats$getStats();
         var player = (PlayerEntity)(Object)this;
 
         if (stats != null) {
@@ -26,14 +26,15 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$saveStats() {
-        var stats = this.getStats();
+        var stats = this.server_stats$getStats();
 
         if (stats != null) {
             stats.save();
         }
     }
 
-    private @Nullable ServerPlayerStats getStats() {
+    @Override
+    public @Nullable ServerPlayerStats server_stats$getStats() {
         var player = (PlayerEntity)(Object)this;
 
         if (player.world.isClient) {

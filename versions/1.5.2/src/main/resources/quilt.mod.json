@@ -37,7 +37,10 @@
     "quilt_loom": {
         "injected_interfaces": {
             "net/minecraft/unmapped/C_9590849": [
-                "net/lostluma/server_stats/utils/StatsPlayer"
+                "net/lostluma/server_stats/types/StatsPlayer"
+            ],
+            "net/minecraft/unmapped/C_2854223": [
+                "net/lostluma/server_stats/types/OverridableStats"
             ]
         }
     },
