@@ -1,0 +1,17 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [],
+    "client": [
+        "server.EntitiesMixin",
+        "server.MinecraftMixin",
+        "server.PlayerEntityMixin",
+        "server.WorldMixin"
+	],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

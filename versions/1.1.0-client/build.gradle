@@ -15,11 +15,13 @@ base {
 }
 
 loom {
-	serverOnlyMinecraftJar()
+	clientOnlyMinecraftJar()
+
+	accessWidenerPath = file("src/main/resources/server_stats.accesswidener")
 }
 
 ploceus {
-	serverOnlyMappings()
+	clientOnlyMappings()
 }
 
 dependencies {
@@ -33,21 +35,7 @@ dependencies {
 	nests "net.ornithemc:nests:${project.nests_version}"
 	modImplementation libs.quilt.loader
 
-	shadow libs.gson
 	implementation libs.gson
-
-	include project(":versions:1.0.0-client")
-	include project(":versions:1.0.1-server")
-	include project(":versions:1.1.0-client")
-	include project(":versions:1.1.0-server")
-	include project(":versions:1.2.5-client")
-	include project(":versions:1.2.5-server")
-	include project(":versions:1.3.2")
-	include project(":versions:1.4.7")
-	include project(":versions:1.5.2")
-	include project(":versions:1.6.4")
-	include project(":versions:1.7.2-to-1.8.0-alpha.14w05b")
-	include project(":versions:1.8.0-alpha.14w06a-to-1.12.2")
 }
 
 shadowJar {
@@ -56,8 +44,6 @@ shadowJar {
 }
 
 remapJar {
-	from('LICENSE') // Include license
-
 	inputFile.set shadowJar.archiveFile
 	dependsOn shadowJar
 }
