@@ -22,38 +22,43 @@ import net.minecraft.smelting.SmeltingManager;
 @SuppressWarnings({ "squid:S3008", "squid:S2386" })
 public class Stats {
     protected static Map<String, Stat> BY_KEY = new HashMap<>();
+    protected static Map<Integer, Stat> BY_VANILLA_ID = new HashMap<>();
+
     public static List<Stat> ALL = new ArrayList<>();
     public static List<Stat> GENERAL = new ArrayList<>();
     public static List<Stat> USED = new ArrayList<>();
     public static List<Stat> MINED = new ArrayList<>();
-    public static Stat GAMES_LEFT = new GeneralStat("stat.leaveGame", "stat.leaveGame").register();
-    public static Stat MINUTES_PLAYED = new GeneralStat("stat.playOneMinute", "stat.playOneMinute").register();
-    public static Stat CM_WALKED = new GeneralStat("stat.walkOneCm", "stat.walkOneCm").register();
-    public static Stat CM_SWUM = new GeneralStat("stat.swimOneCm", "stat.swimOneCm").register();
-    public static Stat CM_FALLEN = new GeneralStat("stat.fallOneCm", "stat.fallOneCm").register();
-    public static Stat CM_CLIMB = new GeneralStat("stat.climbOneCm", "stat.climbOneCm").register();
-    public static Stat CM_FLOWN = new GeneralStat("stat.flyOneCm", "stat.flyOneCm").register();
-    public static Stat CM_DIVEN = new GeneralStat("stat.diveOneCm", "stat.diveOneCm").register();
-    public static Stat CM_MINECART = new GeneralStat("stat.minecartOneCm", "stat.minecartOneCm").register();
-    public static Stat CM_SAILED = new GeneralStat("stat.boatOneCm", "stat.boatOneCm").register();
-    public static Stat CM_PIG = new GeneralStat("stat.pigOneCm", "stat.pigOneCm").register();
-    public static Stat CM_HORSE = new GeneralStat("stat.horseOneCm", "stat.horseOneCm").register();
-    // public static Stat JUMPS = new GeneralStat("stat.jump", "stat.jump").register();
-    public static Stat DROPS = new GeneralStat("stat.drop", "stat.drop").register();
-    public static Stat DAMAGE_DEALT = new GeneralStat("stat.damageDealt", "stat.damageDealt").register();
-    public static Stat DAMAGE_TAKEN = new GeneralStat("stat.damageTaken", "stat.damageTaken").register();
-    public static Stat DEATHS = new GeneralStat("stat.deaths", "stat.deaths").register();
-    public static Stat MOBS_KILLED = new GeneralStat("stat.mobKills", "stat.mobKills").register();
-    // public static Stat ANIMALS_BRED = new GeneralStat("stat.animalsBred", "stat.animalsBred").register();
-    public static Stat PLAYERS_KILLED = new GeneralStat("stat.playerKills", "stat.playerKills").register();
-    public static Stat FISH_CAUGHT = new GeneralStat("stat.fishCaught", "stat.fishCaught").register();
-    // public static Stat JUNK_FISHED = new GeneralStat("stat.junkFished", "stat.junkFished").register();
-    // public static Stat TREASURE_FISHED = new GeneralStat("stat.treasureFished", "stat.treasureFished").register();
+
+    public static Stat GAMES_LEFT = new GeneralStat("stat.leaveGame", 1004).register();
+    public static Stat MINUTES_PLAYED = new GeneralStat("stat.playOneMinute", 1100).register();
+    public static Stat CM_WALKED = new GeneralStat("stat.walkOneCm", 2000).register();
+    public static Stat CM_SWUM = new GeneralStat("stat.swimOneCm", 2001).register();
+    public static Stat CM_FALLEN = new GeneralStat("stat.fallOneCm", 2002).register();
+    public static Stat CM_CLIMB = new GeneralStat("stat.climbOneCm", 2003).register();
+    public static Stat CM_FLOWN = new GeneralStat("stat.flyOneCm", 2004).register();
+    public static Stat CM_DIVEN = new GeneralStat("stat.diveOneCm", 2005).register();
+    public static Stat CM_MINECART = new GeneralStat("stat.minecartOneCm", 2006).register();
+    public static Stat CM_SAILED = new GeneralStat("stat.boatOneCm", 2007).register();
+    public static Stat CM_PIG = new GeneralStat("stat.pigOneCm", 2008).register();
+    public static Stat JUMPS = new GeneralStat("stat.jump", 2010).register();
+    public static Stat DROPS = new GeneralStat("stat.drop", 2011).register();
+    public static Stat DAMAGE_DEALT = new GeneralStat("stat.damageDealt", 2020).register();
+    public static Stat DAMAGE_TAKEN = new GeneralStat("stat.damageTaken", 2021).register();
+    public static Stat DEATHS = new GeneralStat("stat.deaths", 2022).register();
+    public static Stat MOBS_KILLED = new GeneralStat("stat.mobKills", 2023).register();
+    public static Stat PLAYERS_KILLED = new GeneralStat("stat.playerKills", 2024).register();
+    public static Stat FISH_CAUGHT = new GeneralStat("stat.fishCaught", 2025).register();
 
     public static final Stat[] BLOCKS_MINED = new Stat[4096];
     public static final Stat[] ITEMS_CRAFTED = new Stat[32000];
     public static final Stat[] ITEMS_USED = new Stat[32000];
     public static final Stat[] ITEMS_BROKEN = new Stat[32000];
+
+    // For some reason vanilla stat IDs start at these numbers
+    private static final Integer MINE_BLOCK_PREFIX = 16777216;
+    private static final Integer USE_ITEM_PREFIX = 16908288;
+    private static final Integer BREAK_ITEM_PREFIX = 16973824;
+    private static final Integer CRAFT_ITEM_PREFIX = 16842752;
 
     public static void init() {
         initBlocksMinedStats();
@@ -80,8 +85,7 @@ public class Stats {
         for (Item item : items) {
             if (item != null) {
                 int id = item.id;
-                ITEMS_CRAFTED[id] = new Stat("stat.craftItem." + id, "stat.craftItem" + item.getDisplayName())
-                        .register();
+                ITEMS_CRAFTED[id] = new Stat("stat.craftItem." + id, CRAFT_ITEM_PREFIX + id).register();
             }
         }
 
@@ -97,7 +101,7 @@ public class Stats {
             int id = block.id;
 
             if (id != 0 && block.hasStats()) {
-                BLOCKS_MINED[id] = new Stat("stat.mineBlock." + id, "stat.mineBlock" + block.getName()).register();
+                BLOCKS_MINED[id] = new Stat("stat.mineBlock." + id, MINE_BLOCK_PREFIX + id).register();
                 MINED.add(BLOCKS_MINED[id]);
             }
         }
@@ -112,7 +116,7 @@ public class Stats {
             }
 
             int id = item.id;
-            ITEMS_USED[id] = new Stat("stat.useItem." + id, "stat.useItem" + item.getDisplayName()).register();
+            ITEMS_USED[id] = new Stat("stat.useItem." + id, USE_ITEM_PREFIX + id).register();
             if (!(item instanceof BlockItem)) {
                 USED.add(ITEMS_USED[id]);
             }
@@ -130,8 +134,7 @@ public class Stats {
 
             int id = item.id;
             if (item.isDamageable()) {
-                ITEMS_BROKEN[id] = new Stat("stat.breakItem." + id, "stat.breakItem" + item.getDisplayName())
-                        .register();
+                ITEMS_BROKEN[id] = new Stat("stat.breakItem." + id, BREAK_ITEM_PREFIX + id).register();
             }
         }
 
@@ -169,15 +172,19 @@ public class Stats {
     }
 
     public static Stat createEntityKillStat(String key) {
-        return new Stat("stat.killEntity." + key, "stat.entityKill" + key).register();
+        return new Stat("stat.killEntity." + key, null).register();
     }
 
     public static Stat createKilledByEntityStat(String key) {
-        return new Stat("stat.entityKilledBy." + key, "stat.entityKilledBy" + key).register();
+        return new Stat("stat.entityKilledBy." + key, null).register();
     }
 
     public static Stat byKey(String key) {
         return BY_KEY.get(key);
+    }
+
+    public static Stat byVanillaId(Integer id) {
+        return BY_VANILLA_ID.get(id);
     }
 
     public static Stat getEntityKillStat(Entity entity) {

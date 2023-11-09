@@ -14,11 +14,15 @@ import java.util.Map;
 public class Serialization {
     private static final String BASE_PATH = "assets/" + Constants.MOD_ID + "/data";
 
-    public static Map<String, Integer> getFromAssets(String name) throws IOException {
+    public static Map<String, Integer> getFromAssets(String name) {
         var container = QuiltLoader.getModContainer(Constants.MOD_ID).orElseThrow();
         var path = container.getPath(BASE_PATH + "/" + name + ".json");
 
         Type type = new TypeToken<Map<String, Integer>>(){}.getType();
-        return new Gson().fromJson(Files.readString(path, StandardCharsets.UTF_8), type);
+        try {
+            return new Gson().fromJson(Files.readString(path, StandardCharsets.UTF_8), type);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read required file from Server Stats assets!", e);
+        }
     }
 }

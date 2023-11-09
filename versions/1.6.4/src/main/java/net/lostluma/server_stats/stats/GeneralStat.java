@@ -1,8 +1,10 @@
 package net.lostluma.server_stats.stats;
 
+import org.jetbrains.annotations.Nullable;
+
 public class GeneralStat extends Stat {
-	public GeneralStat(String key, String name) {
-		super(key, name);
+	public GeneralStat(String key, @Nullable Integer vanillaId) {
+		super(key, vanillaId);
 	}
 
 	@Override

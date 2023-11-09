@@ -1,24 +1,31 @@
 package net.lostluma.server_stats.stats;
 
+import org.jetbrains.annotations.Nullable;
+
 /*
- * V very cut-down version of the vanilla 1.7.10 Stat class.
+ * A very cut-down version of the vanilla 1.7.10 Stat class.
  */
 public class Stat {
 	public final String key;
-	private final String name;
-	public boolean local;
 
-	public Stat(String key, String name) {
+    public final @Nullable Integer vanillaId;
+
+	public Stat(String key, @Nullable Integer vanillaId) {
 		this.key = key;
-		this.name = name;
+        this.vanillaId = vanillaId;
 	}
 
 	public Stat register() {
 		if (Stats.BY_KEY.containsKey(this.key)) {
-			throw new RuntimeException("Duplicate stat id: \"" + ((Stat)Stats.BY_KEY.get(this.key)).name + "\" and \"" + this.name + "\" at id " + this.key);
+			throw new RuntimeException("Duplicate stat id: \"" + ((Stat)Stats.BY_KEY.get(this.key)).key + "\" and \"" + this.key + ".");
 		} else {
 			Stats.ALL.add(this);
 			Stats.BY_KEY.put(this.key, this);
+
+            if (this.vanillaId != null) {
+                Stats.BY_VANILLA_ID.put(this.vanillaId, this);
+            }
+
 			return this;
 		}
 	}

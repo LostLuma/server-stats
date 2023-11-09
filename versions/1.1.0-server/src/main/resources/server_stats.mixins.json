@@ -9,7 +9,8 @@
         "server.EntitiesMixin",
         "server.MinecraftServerMixin",
         "server.PlayerEntityMixin",
-        "server.PlayerManagerMixin"
+        "server.PlayerManagerMixin",
+        "server.ServerPlayerEntityMixin"
     ],
     "injectors": {
         "defaultRequire": 1
