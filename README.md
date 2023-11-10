@@ -18,4 +18,4 @@ client or upgrade your world to 1.7.x (or beyond!) to see them using the vanilla
 ## Installation
 
 Server Stats runs on [Quilt Loader](https://quiltmc.org/en/) using [OrnitheMC Tooling](https://ornithemc.net/) to run on legacy Minecraft versions.  
-A release version of the mod is available for each Minecraft version from 1.0.0 to 1.6.4 on [Modrinth](https://modrinth.com/mod/server-stats) and [GitHub](https://github.com/LostLuma/server-stats/releases).
+A release version of the mod is available for each Minecraft version from 1.0.0 to 1.12.2 on [Modrinth](https://modrinth.com/mod/server-stats) and [GitHub](https://github.com/LostLuma/server-stats/releases).
