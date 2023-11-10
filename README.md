@@ -2,7 +2,7 @@
 
 # Server Stats
 
-Implementation of server-side statistics for legacy versions of Minecraft.
+Implementation of server-side (per world) statistics for legacy versions of Minecraft.
 
 ## Information
 
@@ -10,7 +10,7 @@ Allows recording player statistics on legacy servers using the modern statistics
 This is intended to be used by players planning to eventually upgrade to 1.7.x or later.
 
 As Minecraft discards all player statistics when upgrading to 1.8 and later Server Stats  
-also includes a statistics upgrade system for players in Minecraft 1.8.9 through 1.12.2.
+also includes a statistics upgrade system for players in Minecraft 1.8.0 through 1.12.2.
 
 To accurately view player statistics you will either need to install Server Stats on the  
 client or upgrade your world to 1.7.x (or beyond!) to see them using the vanilla client.
