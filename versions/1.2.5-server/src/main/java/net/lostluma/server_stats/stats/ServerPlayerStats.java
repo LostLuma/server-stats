@@ -60,11 +60,7 @@ public class ServerPlayerStats {
     }
 
     public void load() {
-        if (Objects.isNull(STATS)) {
-            throw new RuntimeException("Stats directory unset.");
-        }
-
-        Path path = STATS.resolve(this.name + ".json");
+        Path path = getStatsDirectory().resolve(this.name + ".json");
 
         if (Files.exists(path)) {
             try {
@@ -78,16 +74,13 @@ public class ServerPlayerStats {
     }
 
     public void save() {
-        if (Objects.isNull(STATS)) {
-            throw new RuntimeException("Stats directory unset.");
-        }
-
-        Path path = STATS.resolve(this.name + ".json");
+        Path base = getStatsDirectory();
+        Path path = base.resolve(this.name + ".json");
 
         try {
-            Files.createDirectories(STATS);
+            Files.createDirectories(base);
 
-            Path temp = Files.createTempFile(STATS, this.name, ".json", DEFAULT_ATTRIBUTES);
+            Path temp = Files.createTempFile(base, this.name, ".json", DEFAULT_ATTRIBUTES);
             Files.writeString(temp, this.serialize(), StandardCharsets.UTF_8);
 
             Files.move(temp, path, StandardCopyOption.ATOMIC_MOVE); // Prevent issues on server crash
@@ -97,11 +90,7 @@ public class ServerPlayerStats {
     }
 
     public void deserialize() throws IOException {
-        if (Objects.isNull(STATS)) {
-            throw new RuntimeException("Stats directory unset.");
-        }
-
-        Path path = STATS.resolve(this.name + ".json");
+        Path path = getStatsDirectory().resolve(this.name + ".json");
         JsonElement root = JsonParser.parseString(Files.readString(path, StandardCharsets.UTF_8));
 
         if (!root.isJsonObject()) {
@@ -118,7 +107,7 @@ public class ServerPlayerStats {
                 this.counters.put(stat, value.getAsInt());
             } else {
                 LOGGER.warning(String.format("Failed to read stat %s in %s! It's either unknown or has invalid data.",
-                        entry.getKey(), path));
+                    entry.getKey(), path));
             }
         }
     }
@@ -131,6 +120,11 @@ public class ServerPlayerStats {
         }
 
         return result.toString();
+    }
+
+    private static Path getStatsDirectory() {
+        Objects.requireNonNull(STATS, "Stats directory unset.");
+        return STATS;
     }
 
     private static FileAttribute<?>[] getDefaultFileAttributes() {

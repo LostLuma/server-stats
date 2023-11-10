@@ -1,4 +1,4 @@
-package net.lostluma.server_stats.mixin.server;
+package net.lostluma.server_stats.mixin.common;
 
 import net.lostluma.server_stats.Constants;
 import net.minecraft.network.Connection;
