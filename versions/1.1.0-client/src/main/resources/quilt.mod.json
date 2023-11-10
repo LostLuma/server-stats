@@ -33,10 +33,7 @@
     "minecraft": {
         "environment": "client"
     },
-    "mixin": [
-        "server_stats.mixins.json",
-        "server_stats.stats.mixins.json"
-    ],
+    "mixin": "server_stats.mixins.json",
     "access_widener" : "server_stats.accesswidener",
     "quilt_loom": {
         "injected_interfaces": {
