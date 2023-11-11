@@ -4,9 +4,9 @@
     "package": "net.lostluma.server_stats.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
-        "server.EntitiesMixin",
-        "server.PlayerEntityMixin",
-        "server.PlayerManagerMixin"
+        "common.EntitiesMixin",
+        "common.PlayerEntityMixin",
+        "common.PlayerManagerMixin"
     ],
     "client": [],
     "server": [
