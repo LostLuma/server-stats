@@ -43,8 +43,11 @@ dependencies {
 	include project(":versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client")
 	include project(":versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server")
 	// 12w01a -> Entities.register and MinecraftServer.loadWorld signature changed
-	include project(":versions:1.1.0-alpha.12w01a-to-1.2.5-client")
-	include project(":versions:1.1.0-alpha.12w01a-to-1.2.5-server")
+	include project(":versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-client")
+	include project(":versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-server")
+	// 12w07a -> added redstone lamp
+	include project(":versions:1.2.0-alpha.12w07a-to-1.2.5-client")
+	include project(":versions:1.2.0-alpha.12w07a-to-1.2.5-server")
 	// 1.3 snapshots are skipped for now because it's kinda broken (?)
 	// And I don't think these are as important as other in-between versions
 	include project(":versions:1.3.2-to-1.4.0-alpha.12w38b")
