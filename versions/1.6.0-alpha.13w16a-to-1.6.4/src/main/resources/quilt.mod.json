@@ -1,0 +1,49 @@
+{
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "net.lostluma",
+        "id": "server_stats_mixins",
+        "version": "${version}",
+        "metadata": {
+            "name": "Server Stats Mixins",
+            "description": "Implementation of server-side statistics for Minecraft 1.6.4.",
+            "contributors": {
+                "LostLuma": "Owner"
+            },
+            "contact": {
+                "homepage": "https://go.lostluma.net/server-stats",
+                "issues": "https://go.lostluma.net/server-stats-issues",
+                "sources": "https://go.lostluma.net/server-stats-source"
+            },
+            "license": {
+                "name": "LGPL License",
+                "id": "LGPL-3.0-or-later",
+                "url": "https://go.lostluma.net/server-stats-license"
+            },
+            "icon": "assets/server_stats_mixins/icon.png"
+        },
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "depends": [
+            {
+                "id": "minecraft",
+                "versions": {
+                    "all": [">=1.6-alpha.13.16.a", "<=1.6.4"]
+                }
+            }
+        ]
+    },
+    "mixin": "server_stats.mixins.json",
+    "quilt_loom": {
+        "injected_interfaces": {
+            "net/minecraft/unmapped/C_9590849": [
+                "net/lostluma/server_stats/types/StatsPlayer"
+            ],
+            "net/minecraft/unmapped/C_2854223": [
+                "net/lostluma/server_stats/types/OverridableStats"
+            ]
+        }
+    },
+    "modmenu": {
+        "parent": "server_stats"
+    }
+}
