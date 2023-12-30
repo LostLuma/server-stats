@@ -1,7 +1,6 @@
 package net.lostluma.server_stats.mixin.common;
 
 import net.lostluma.server_stats.Constants;
-import net.minecraft.network.Connection;
 import net.minecraft.network.packet.CustomPayloadPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

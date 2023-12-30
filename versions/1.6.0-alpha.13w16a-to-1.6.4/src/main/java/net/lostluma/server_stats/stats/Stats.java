@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import net.lostluma.server_stats.utils.Serialization;
 import net.minecraft.block.Block;
 import net.minecraft.crafting.CraftingManager;
 import net.minecraft.crafting.recipe.CraftingRecipe;
