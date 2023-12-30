@@ -35,5 +35,7 @@ public class ServerPlayerEntityMixin {
             var attacker = source.getAttacker();
             this.getPlayer().server_stats$incrementStat(Stats.getKilledByEntityStat(attacker), 1);
         }
+
+        this.getPlayer().server_stats$incrementStat(Stats.DEATHS, 1);
     }
 }
