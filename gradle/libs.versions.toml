@@ -1,6 +1,6 @@
 [versions]
 gson = "2.10.1"
-quilt_loader = "0.21.2-beta.4"
+quilt_loader = "0.23.0"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
