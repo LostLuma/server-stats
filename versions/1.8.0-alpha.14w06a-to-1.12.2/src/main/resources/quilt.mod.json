@@ -33,9 +33,7 @@
             }
         ]
     },
-    "mixin": [
-        "server_stats.mixins.json"
-    ],
+    "mixin": "server_stats.mixins.json",
     "modmenu": {
         "parent": "server_stats"
     }

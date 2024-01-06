@@ -37,7 +37,7 @@
         "environment": "client"
     },
     "mixin": "server_stats.mixins.json",
-    "access_widener" : "server_stats.accesswidener",
+    "access_widener": "server_stats.accesswidener",
     "quilt_loom": {
         "injected_interfaces": {
             "net/minecraft/unmapped/C_9590849": [
