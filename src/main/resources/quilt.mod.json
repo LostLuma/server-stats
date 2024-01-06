@@ -34,7 +34,12 @@
                 "versions": ">=0.23.0"
             },
             {
-                "id": "server_stats_mixins"
+                "id": "server_stats_mixins",
+                "versions": "*"
+            },
+            {
+                "id": "minecraft",
+                "versions": { "all": [">=1.0.0", "<=1.12.2"] }
             }
         ]
     }
