@@ -8,7 +8,8 @@
             "name": "Server Stats Mixins",
             "description": "Implementation of server-side statistics for Minecraft 1.3.2.",
             "contributors": {
-                "LostLuma": "Owner"
+                "LostLuma": "Owner",
+                "Pixaurora": ["Contributor", "Illustrator"]
             },
             "contact": {
                 "homepage": "https://go.lostluma.net/server-stats",

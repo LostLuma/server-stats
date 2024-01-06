@@ -8,7 +8,8 @@
             "name": "Server Stats Mixins",
             "description": "Bridge for Minecraft 1.7.x to increase chances of users using the datafix in 1.8.9 and later.",
             "contributors": {
-                "LostLuma": "Owner"
+                "LostLuma": "Owner",
+                "Pixaurora": ["Contributor", "Illustrator"]
             },
             "contact": {
                 "homepage": "https://go.lostluma.net/server-stats",

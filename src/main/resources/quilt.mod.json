@@ -8,7 +8,8 @@
             "name": "Server Stats",
             "description": "Implementation of server-side statistics for legacy versions of Minecraft.",
             "contributors": {
-                "LostLuma": "Owner"
+                "LostLuma": "Owner",
+                "Pixaurora": ["Contributor", "Illustrator"]
             },
             "contact": {
                 "homepage": "https://go.lostluma.net/server-stats",
