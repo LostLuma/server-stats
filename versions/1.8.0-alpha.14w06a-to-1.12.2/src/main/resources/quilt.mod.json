@@ -6,7 +6,7 @@
         "version": "${version}",
         "metadata": {
             "name": "Server Stats Mixins",
-            "description": "Implementation of server-side statistics datafix for Minecraft 1.8.9 through 1.12.2.",
+            "description": "Implementation of server-side statistics datafix for Minecraft 1.8.0-alpha.14w06a and later.",
             "contributors": {
                 "LostLuma": "Owner",
                 "Pixaurora": ["Contributor", "Illustrator"]

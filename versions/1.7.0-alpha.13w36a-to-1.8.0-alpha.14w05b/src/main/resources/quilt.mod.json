@@ -6,7 +6,7 @@
         "version": "${version}",
         "metadata": {
             "name": "Server Stats Mixins",
-            "description": "Bridge for Minecraft 1.7.x to increase chances of users using the datafix in 1.8.9 and later.",
+            "description": "Bridge for Minecraft 1.7.x to increase chances of users using the datafix in 1.8.0-alpha.14w06a and later.",
             "contributors": {
                 "LostLuma": "Owner",
                 "Pixaurora": ["Contributor", "Illustrator"]
