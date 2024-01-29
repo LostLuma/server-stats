@@ -6,7 +6,7 @@
         "version": "${version}",
         "metadata": {
             "name": "Server Stats Mixins",
-            "description": "Implementation of server-side statistics for Minecraft 1.0.0 through 1.1.0-alpha.11w48a clients.",
+            "description": "Implementation of server-side statistics for Minecraft Beta 1.8.0 through Beta 1.8.1 clients.",
             "contributors": {
                 "LostLuma": "Owner",
                 "Pixaurora": ["Contributor", "Illustrator"]
