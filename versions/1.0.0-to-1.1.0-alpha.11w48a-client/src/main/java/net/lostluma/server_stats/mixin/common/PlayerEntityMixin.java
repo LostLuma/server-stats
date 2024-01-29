@@ -53,7 +53,10 @@ public class PlayerEntityMixin implements StatsPlayer {
         }
 
         if (this.server_stats$serverPlayerStats == null) {
-            this.server_stats$serverPlayerStats = new ServerPlayerStats(player);
+            var stats = new ServerPlayerStats(player);
+
+            this.server_stats$serverPlayerStats = stats;
+            Minecraft.INSTANCE.statHandler.player_stats$override(stats);
         }
 
         return this.server_stats$serverPlayerStats;

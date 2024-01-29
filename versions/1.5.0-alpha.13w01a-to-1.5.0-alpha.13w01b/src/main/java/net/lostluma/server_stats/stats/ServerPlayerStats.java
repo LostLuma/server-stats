@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermissions;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -57,6 +58,16 @@ public class ServerPlayerStats {
 
     public int get(Stat stat) {
         return this.counters.getOrDefault(stat, 0);
+    }
+
+    public Map<String, Integer> getRawStats() {
+        Map<String, Integer> raw = new HashMap<>();
+
+        for (Entry<Stat, Integer> counter : this.counters.entrySet()) {
+            raw.put(counter.getKey().key, counter.getValue());
+        }
+
+        return raw;
     }
 
     public void load() {

@@ -1,5 +1,6 @@
 package net.lostluma.server_stats.mixin.client;
 
+import net.lostluma.server_stats.stats.ServerPlayerStats;
 import net.lostluma.server_stats.types.OverridableStats;
 import net.minecraft.stat.PlayerStats;
 import net.minecraft.stat.Stat;
@@ -24,13 +25,22 @@ public class PlayerStatsMixin implements OverridableStats {
     }
 
     @Override
-    public void player_stats$override(Map<String, Integer> override) {
+    public void player_stats$override(ServerPlayerStats override) {
+        this.player_stats$doOverride(override.getRawStats());
+    }
+
+    @Override
+    public void player_stats$override(Map<String, Integer> overrides) {
+        this.player_stats$doOverride(overrides);
+    }
+
+    private void player_stats$doOverride(Map<String, Integer> overrides) {
         // Reset all stats for the case where the world joined has some stats not set
         this.stats.keySet().removeAll(
             this.stats.keySet().stream().filter(integer -> !integer.isAchievement()).toList()
         );
 
-        override.forEach((key, value) -> {
+        overrides.forEach((key, value) -> {
             var stat = this.player_stats$getVanillaStat(key);
 
             if (stat != null) {
