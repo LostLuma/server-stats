@@ -2,11 +2,11 @@
     "schema_version": 1,
     "quilt_loader": {
         "group": "net.lostluma",
-        "id": "server_stats",
+        "id": "server_stats_mixins",
         "version": "${version}",
         "metadata": {
-            "name": "Server Stats",
-            "description": "Implementation of server-side statistics for legacy versions of Minecraft.",
+            "name": "Server Stats Mixins",
+            "description": "Implementation of server-side statistics for Minecraft 1.0.0 through 1.1.0-alpha.11w48a clients.",
             "contributors": {
                 "LostLuma": "Owner",
                 "Pixaurora": ["Contributor", "Illustrator"]
@@ -21,28 +21,31 @@
                 "id": "LGPL-3.0-or-later",
                 "url": "https://go.lostluma.net/server-stats-license"
             },
-            "icon": "assets/server_stats/icon.png"
+            "icon": "assets/server_stats_mixins/icon.png"
         },
         "intermediate_mappings": "net.fabricmc:intermediary",
         "depends": [
             {
-                "id": "java",
-                "versions": ">=17.0.0"
-            },
-            {
-                "id": "quilt_loader",
-                "versions": ">=0.23.0"
-            },
-            {
-                "id": "server_stats_mixins",
-                "versions": "*"
-            },
-            {
                 "id": "minecraft",
                 "versions": {
-                    "all": [">=1.0.0-beta.5", "<=1.12.2"]
+                    "all": [">=1.0.0-beta.8", "<=1.0.0-beta.8.1"]
                 }
             }
         ]
+    },
+    "minecraft": {
+        "environment": "client"
+    },
+    "mixin": "server_stats.mixins.json",
+    "access_widener": "server_stats.accesswidener",
+    "quilt_loom": {
+        "injected_interfaces": {
+            "net/minecraft/unmapped/C_9590849": [
+                "net/lostluma/server_stats/types/StatsPlayer"
+            ]
+        }
+    },
+    "modmenu": {
+        "parent": "server_stats"
     }
 }

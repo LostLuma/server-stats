@@ -36,7 +36,18 @@ dependencies {
 	shadow libs.gson
 	implementation libs.gson
 
+	// b1.5.0 -> first version with statistics!
+	include project(":versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
+	include project(":versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")
+	// b1.6.0 -> changed PlayerManager.respawn signature
+	include project(":versions:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")
+
+	// b1.8.0 -> added DamageSource, Minecraft.startGame signature changed
+	include project(":versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client")
+	include project(":versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server")
+
 	// 1.0.0 -> Initial release
+	// NOTE: client works until 1.0.0-pre.3 in theory
 	include project(":versions:1.0.0-to-1.1.0-alpha.11w48a-client")
 	include project(":versions:1.0.1-to-1.1.0-alpha.11w48a-server")
 	// 11w49a -> CustomPayloadPacket added
