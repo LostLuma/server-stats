@@ -28,7 +28,7 @@ public class ClientNetworkHandlerMixin {
             return;
         }
 
-        var data = new String(packet.data, StandardCharsets.UTF_8);
+        String data = new String(packet.data, StandardCharsets.UTF_8);
 
         Type type = new TypeToken<Map<String, Integer>>(){}.getType();
         Map<String, Integer> result = new Gson().fromJson(data, type);

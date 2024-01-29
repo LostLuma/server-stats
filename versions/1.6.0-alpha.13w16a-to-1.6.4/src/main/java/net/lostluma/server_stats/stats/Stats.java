@@ -70,15 +70,15 @@ public class Stats {
     private static void initItemsCraftedStats() {
         HashSet<Item> items = new HashSet<>();
 
-        for (var item : CraftingManager.getInstance().getRecipes()) {
-            var recipe = (CraftingRecipe) (Object) item;
+        for (Object item : CraftingManager.getInstance().getRecipes()) {
+            CraftingRecipe recipe = (CraftingRecipe) (Object) item;
 
             if (recipe.getResult() != null) {
                 items.add(recipe.getResult().getItem());
             }
         }
 
-        for (var itemStack : SmeltingManager.getInstance().getRecipes().values()) {
+        for (Object itemStack : SmeltingManager.getInstance().getRecipes().values()) {
             items.add(((ItemStack) (Object) itemStack).getItem());
         }
 

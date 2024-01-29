@@ -19,7 +19,7 @@ public class PlayerManagerMixin {
 
     @Inject(method = "saveAll", at = @At("TAIL"))
     private void saveAll(CallbackInfo callbackInfo) {
-        for (var player : this.players) {
+        for (ServerPlayerEntity player : this.players) {
             player.server_stats$saveStats();
         }
     }

@@ -1,5 +1,7 @@
 package net.lostluma.server_stats.mixin.server;
 
+import net.lostluma.server_stats.stats.Stat;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.living.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,7 +24,7 @@ public class ServerPlayerEntityMixin {
             return;
         }
 
-        var stat = Stats.byVanillaId(vanillaStat.id);
+        Stat stat = Stats.byVanillaId(vanillaStat.id);
 
         if (stat != null) {
             this.getPlayer().server_stats$incrementStat(stat, amount);
@@ -32,7 +34,7 @@ public class ServerPlayerEntityMixin {
     @Inject(method = "onKilled", at = @At("HEAD"))
     private void onKilled(DamageSource source, CallbackInfo callbackInfo) {
         if (source.getAttacker() != null) {
-            var attacker = source.getAttacker();
+            Entity attacker = source.getAttacker();
             this.getPlayer().server_stats$incrementStat(Stats.getKilledByEntityStat(attacker), 1);
         }
 

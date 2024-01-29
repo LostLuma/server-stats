@@ -27,7 +27,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$incrementStat(Stat stat, int amount) {
-        var stats = this.server_stats$getStats();
+        ServerPlayerStats stats = this.server_stats$getStats();
 
         if (stats != null) {
             stats.increment(this.getPlayer(), stat, amount);
@@ -36,7 +36,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$saveStats() {
-        var stats = this.server_stats$getStats();
+        ServerPlayerStats stats = this.server_stats$getStats();
 
         if (stats != null) {
             stats.save();
@@ -45,7 +45,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public @Nullable ServerPlayerStats server_stats$getStats() {
-        var player = this.getPlayer();
+        PlayerEntity player = this.getPlayer();
 
         // Unmapped method returns true when the server is multiplayer
         if (Minecraft.INSTANCE.m_2812472()) {
@@ -53,7 +53,7 @@ public class PlayerEntityMixin implements StatsPlayer {
         }
 
         if (this.server_stats$serverPlayerStats == null) {
-            var stats = new ServerPlayerStats(player);
+            ServerPlayerStats stats = new ServerPlayerStats(player);
 
             this.server_stats$serverPlayerStats = stats;
             Minecraft.INSTANCE.statHandler.player_stats$override(stats);

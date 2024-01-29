@@ -25,7 +25,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$incrementStat(Stat stat, int amount) {
-        var stats = this.server_stats$getStats();
+        ServerPlayerStats stats = this.server_stats$getStats();
 
         if (stats != null) {
             stats.increment(this.getPlayer(), stat, amount);
@@ -34,7 +34,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$saveStats() {
-        var stats = this.server_stats$getStats();
+        ServerPlayerStats stats = this.server_stats$getStats();
 
         if (stats != null) {
             stats.save();
@@ -43,7 +43,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public @Nullable ServerPlayerStats server_stats$getStats() {
-        var player = this.getPlayer();
+        PlayerEntity player = this.getPlayer();
 
         if (this.server_stats$serverPlayerStats == null) {
             this.server_stats$serverPlayerStats = new ServerPlayerStats(player);

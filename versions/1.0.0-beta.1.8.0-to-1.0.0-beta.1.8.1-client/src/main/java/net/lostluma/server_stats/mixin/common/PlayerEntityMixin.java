@@ -1,6 +1,7 @@
 package net.lostluma.server_stats.mixin.common;
 
 import net.lostluma.server_stats.stats.Stats;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.living.LivingEntity;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +28,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$incrementStat(Stat stat, int amount) {
-        var stats = this.server_stats$getStats();
+        ServerPlayerStats stats = this.server_stats$getStats();
 
         if (stats != null) {
             stats.increment(this.getPlayer(), stat, amount);
@@ -36,7 +37,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public void server_stats$saveStats() {
-        var stats = this.server_stats$getStats();
+        ServerPlayerStats stats = this.server_stats$getStats();
 
         if (stats != null) {
             stats.save();
@@ -45,7 +46,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
     @Override
     public @Nullable ServerPlayerStats server_stats$getStats() {
-        var player = this.getPlayer();
+        PlayerEntity player = this.getPlayer();
 
         // Unmapped method returns true when the server is multiplayer
         if (Minecraft.INSTANCE.m_2812472()) {
@@ -53,7 +54,7 @@ public class PlayerEntityMixin implements StatsPlayer {
         }
 
         if (this.server_stats$serverPlayerStats == null) {
-            var stats = new ServerPlayerStats(player);
+            ServerPlayerStats stats = new ServerPlayerStats(player);
 
             this.server_stats$serverPlayerStats = stats;
             Minecraft.INSTANCE.statHandler.player_stats$override(stats);
@@ -70,7 +71,7 @@ public class PlayerEntityMixin implements StatsPlayer {
     @Inject(method = "onKilled", at = @At("HEAD"))
     private void onKilled(DamageSource source, CallbackInfo callbackInfo) {
         if (source.getAttacker() != null) {
-            var attacker = source.getAttacker();
+            Entity attacker = source.getAttacker();
             this.getPlayer().server_stats$incrementStat(Stats.getKilledByEntityStat(attacker), 1);
         }
     }

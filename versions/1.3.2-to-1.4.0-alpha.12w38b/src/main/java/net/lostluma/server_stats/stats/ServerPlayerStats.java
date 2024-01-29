@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermissions;
@@ -43,7 +44,7 @@ public class ServerPlayerStats {
     }
 
     public static void setWorldDirectory(String worldDirName) {
-        STATS = Path.of(worldDirName).resolve("stats");
+        STATS = Paths.get(worldDirName).resolve("stats");
     }
 
     public void increment(PlayerEntity player, Stat stat, int amount) {
@@ -92,7 +93,7 @@ public class ServerPlayerStats {
             Files.createDirectories(base);
 
             Path temp = Files.createTempFile(base, this.name, ".json", DEFAULT_ATTRIBUTES);
-            Files.writeString(temp, this.serialize(), StandardCharsets.UTF_8);
+            Files.write(temp, this.serialize().getBytes(StandardCharsets.UTF_8));
 
             Files.move(temp, path, StandardCopyOption.ATOMIC_MOVE); // Prevent issues on server crash
         } catch (IOException e) {
@@ -102,7 +103,7 @@ public class ServerPlayerStats {
 
     public void deserialize() throws IOException {
         Path path = getStatsDirectory().resolve(this.name + ".json");
-        JsonElement root = JsonParser.parseString(Files.readString(path, StandardCharsets.UTF_8));
+        JsonElement root = JsonParser.parseString(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
 
         if (!root.isJsonObject()) {
             return;
@@ -118,7 +119,7 @@ public class ServerPlayerStats {
                 this.counters.put(stat, value.getAsInt());
             } else {
                 LOGGER.warning(String.format("Failed to read stat %s in %s! It's either unknown or has invalid data.",
-                        entry.getKey(), path));
+                    entry.getKey(), path));
             }
         }
     }

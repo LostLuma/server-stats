@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Mixin(PlayerStats.class)
 public class PlayerStatsMixin implements OverridableStats {
@@ -37,11 +38,11 @@ public class PlayerStatsMixin implements OverridableStats {
     private void player_stats$doOverride(Map<String, Integer> overrides) {
         // Reset all stats for the case where the world joined has some stats not set
         this.stats.keySet().removeAll(
-            this.stats.keySet().stream().filter(integer -> !integer.isAchievement()).toList()
+            this.stats.keySet().stream().filter(integer -> !integer.isAchievement()).collect(Collectors.toSet())
         );
 
         overrides.forEach((key, value) -> {
-            var stat = this.player_stats$getVanillaStat(key);
+            Stat stat = this.player_stats$getVanillaStat(key);
 
             if (stat != null) {
                 this.stats.put(stat, value);
@@ -52,7 +53,7 @@ public class PlayerStatsMixin implements OverridableStats {
     }
 
     private @Nullable Stat player_stats$getVanillaStat(String key) {
-        var stat = net.lostluma.server_stats.stats.Stats.byKey(key);
+        net.lostluma.server_stats.stats.Stat stat = net.lostluma.server_stats.stats.Stats.byKey(key);
 
         if (stat == null || stat.vanillaId == null) {
             return null;

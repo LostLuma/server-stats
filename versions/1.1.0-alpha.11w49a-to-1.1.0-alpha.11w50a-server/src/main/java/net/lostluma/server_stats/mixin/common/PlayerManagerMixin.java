@@ -1,6 +1,7 @@
 package net.lostluma.server_stats.mixin.common;
 
 import net.lostluma.server_stats.Constants;
+import net.lostluma.server_stats.stats.ServerPlayerStats;
 import net.minecraft.network.packet.CustomPayloadPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -22,14 +23,14 @@ public class PlayerManagerMixin {
 
     @Inject(method = "add", at = @At("TAIL"))
     private void onLogin(ServerPlayerEntity player, CallbackInfo callbackInfo) {
-        var stats = player.server_stats$getStats();
+        ServerPlayerStats stats = player.server_stats$getStats();
 
         if (stats == null) {
             return;
         }
 
         // Why does this have no proper constructor pre 1.3 ...
-        var packet = new CustomPayloadPacket();
+        CustomPayloadPacket packet = new CustomPayloadPacket();
         packet.channel = Constants.STATS_PACKET_CHANNEL;
         packet.data = stats.serialize().getBytes(StandardCharsets.UTF_8);;
         packet.size = packet.data.length;
@@ -39,7 +40,7 @@ public class PlayerManagerMixin {
 
     @Inject(method = "saveAll", at = @At("TAIL"))
     private void saveAll(CallbackInfo callbackInfo) {
-        for (var player : this.players) {
+        for (ServerPlayerEntity player : this.players) {
             player.server_stats$saveStats();
         }
     }

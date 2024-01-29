@@ -1,6 +1,7 @@
 package net.lostluma.server_stats.mixin.common;
 
 import net.lostluma.server_stats.Constants;
+import net.lostluma.server_stats.stats.ServerPlayerStats;
 import net.minecraft.network.Connection;
 import net.minecraft.network.packet.CustomPayloadPacket;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,13 +19,13 @@ import java.nio.charset.StandardCharsets;
 public class PlayerManagerMixin {
     @Inject(method = "onLogin", at = @At("TAIL"))
     private void onLogin(Connection connection, ServerPlayerEntity player, CallbackInfo callbackInfo) {
-        var stats = player.server_stats$getStats();
+        ServerPlayerStats stats = player.server_stats$getStats();
 
         if (stats == null) {
             return;
         }
 
-        var data = stats.serialize().getBytes(StandardCharsets.UTF_8);
+        byte[] data = stats.serialize().getBytes(StandardCharsets.UTF_8);
         connection.send(new CustomPayloadPacket(Constants.STATS_PACKET_CHANNEL, data));
     }
 
