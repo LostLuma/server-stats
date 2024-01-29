@@ -1,4 +1,6 @@
 [versions]
+osl = "0.12.1"
+
 gson = "2.10.1"
 quilt_loader = "0.23.0"
 

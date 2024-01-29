@@ -24,7 +24,15 @@
             "icon": "assets/server_stats_mixins/icon.png"
         },
         "intermediate_mappings": "net.fabricmc:intermediary",
+        "entrypoints": {
+            "server-init": "net.lostluma.server_stats.compat.osl.Networking"
+        },
         "depends": [
+            {
+                "id": "osl",
+                "versions": ">=0.12.1",
+                "optional": true
+            },
             {
                 "id": "minecraft",
                 "versions": {

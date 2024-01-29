@@ -38,6 +38,11 @@
                 "versions": "*"
             },
             {
+                "id": "osl",
+                "versions": ">=0.12.1",
+                "optional": true
+            },
+            {
                 "id": "minecraft",
                 "versions": {
                     "all": [">=1.0.0-beta.5", "<=1.12.2"]

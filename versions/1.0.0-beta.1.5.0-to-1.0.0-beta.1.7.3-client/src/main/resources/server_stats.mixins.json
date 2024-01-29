@@ -10,8 +10,9 @@
     ],
     "client": [
         "client.LocalPlayerEntityMixin",
-        "client.MinecraftMixin"
-	],
+        "client.MinecraftMixin",
+        "client.PlayerStatsMixin"
+    ],
     "server": [],
     "injectors": {
         "defaultRequire": 1

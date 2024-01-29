@@ -30,7 +30,7 @@ public class PlayerManagerMixin {
     }
 
     @Inject(method = "respawn", at = @At("HEAD"))
-    private void onRespawn(ServerPlayerEntity player, int dimension, boolean alive, CallbackInfoReturnable<?> callbackInfo) {
+    private void onRespawn(ServerPlayerEntity player, int dimension, CallbackInfoReturnable<?> callbackInfo) {
         player.server_stats$saveStats();
     }
 }

@@ -36,6 +36,7 @@ dependencies {
 	modImplementation libs.quilt.loader
 
 	implementation libs.gson
+	ploceus.dependOsl(libs.versions.osl.get(), "client")
 }
 
 shadowJar {
