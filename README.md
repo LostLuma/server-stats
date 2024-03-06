@@ -39,5 +39,9 @@ Officially supported versions:
 - Release 1.0 to 12w17a (1.3 snapshot)
 - Release 1.3.2 to Release 1.12.2
 
+> [!WARNING]  
+> Note that the vanilla statistics system for some stats (notably amounts crafted) is  
+> pretty broken before release 1.2, and I have not yet invested the time to fix this in the mod.
+
 Leaked Beta builds, Beta 1.9 / 1.0 Pre-Releases, and certain 1.3 snapshots are unsupported.  
 The mod may function on these versions without issue, but you will receive no support doing so.
