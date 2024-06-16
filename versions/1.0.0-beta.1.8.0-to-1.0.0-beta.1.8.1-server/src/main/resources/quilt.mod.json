@@ -8,7 +8,7 @@
             "name": "Server Stats Mixins",
             "description": "Implementation of server-side statistics for Minecraft Beta 1.8.0 through Beta 1.8.1 servers.",
             "contributors": {
-                "LostLuma": "Owner",
+                "LostLuma": "Author",
                 "Pixaurora": ["Contributor", "Illustrator"]
             },
             "contact": {
