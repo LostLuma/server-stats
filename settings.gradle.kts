@@ -1,20 +1,27 @@
 pluginManagement {
-	repositories {
-		maven {
-			name = 'Quilt'
-			url = 'https://maven.quiltmc.org/repository/release'
-		}
-		maven {
-			name = 'Fabric'
-			url = 'https://maven.fabricmc.net/'
-		}
-		maven {
-			name = 'Ornithe'
-			url = 'https://maven.ornithemc.net/releases'
-		}
-		gradlePluginPortal()
-	}
+    repositories {
+        maven {
+            name = "Fabric"
+            url = uri("https://maven.fabricmc.net")
+        }
+        maven {
+            name = "Ornithe"
+            url = uri("https://maven.ornithemc.net/releases")
+        }
+        maven {
+            name = "Quilt"
+            url = uri("https://maven.quiltmc.org/repository/release")
+        }
+        gradlePluginPortal()
+    }
 }
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.9.0"
+}
+
+rootProject.name = "server-stats"
+includeBuild("build-logic")
 
 include(":versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
 include(":versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")

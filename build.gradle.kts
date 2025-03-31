@@ -1,0 +1,54 @@
+plugins {
+	id("server_stats.module")
+}
+
+dependencies {
+	// include(libs.gson)
+
+	// b1.5.0 -> first version with statistics!
+	include(project(":versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
+	include(project(":versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server"))
+	// b1.6.0 -> changed PlayerManager.respawn signature
+	include(project(":versions:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server"))
+
+	// b1.8.0 -> added DamageSource, Minecraft.startGame signature changed
+	include(project(":versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client"))
+	include(project(":versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server"))
+
+	// 1.0.0 -> Initial release
+	// NOTE: client works until 1.0.0-pre.3 in theory
+	include(project(":versions:1.0.0-to-1.1.0-alpha.11w48a-client"))
+	include(project(":versions:1.0.1-to-1.1.0-alpha.11w48a-server"))
+	// 11w49a -> CustomPayloadPacket added
+	include(project(":versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client"))
+	include(project(":versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server"))
+	// 12w01a -> Entities.register and MinecraftServer.loadWorld signature changed
+	include(project(":versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-client"))
+	include(project(":versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-server"))
+	// 12w07a -> added redstone lamp
+	include(project(":versions:1.2.0-alpha.12w07a-to-1.3.0-alpha.12w16a-client"))
+	include(project(":versions:1.2.0-alpha.12w07a-to-1.3.0-alpha.12w16a-server"))
+	// 12w17a -> ...
+	include(project(":versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client"))
+	include(project(":versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server"))
+	// NOTE: 12w18a to 12w21a are v weird ..
+	// NOTE: All further snapshots including 1.3.0-pre.1 unsupported, for now
+	// 1.3.2 -> now merged!
+	include(project(":versions:1.3.2-to-1.4.0-alpha.12w38b"))
+	// 12w39a -> ...
+	include(project(":versions:1.4.0-alpha.12w39a-to-1.4.7"))
+	// 13w01a -> added comparator
+	include(project(":versions:1.5.0-alpha.13w01a-to-1.5.0-alpha.13w01b"))
+	//13w02a -> ...
+	include(project(":versions:1.5.0-alpha.13w02a-to-1.5.2"))
+	// 13w16a -> ...
+	include(project(":versions:1.6.0-alpha.13w16a-to-1.6.4"))
+	// 13w36a -> server-side statistics
+	include(project(":versions:1.7.0-alpha.13w36a-to-1.8.0-alpha.14w05b"))
+	// 14w06a -> new statistics format, no upgrade path :(
+    include(project(":versions:1.8.0-alpha.14w06a-to-1.12.2"))
+}
+
+tasks.remapJar {
+	from("LICENSE")
+}

@@ -2,14 +2,15 @@
 osl = "0.12.1"
 
 gson = "2.10.1"
+annotations = "26.0.2"
 quilt_loader = "0.28.1"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
+
+ploceus = { module = "net.ornithemc:ploceus", version = "1.8.10" }
+quilt_loom = { module = "org.quiltmc:loom", version = "1.8.5" }
 quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loader" }
 
 [plugins]
-ploceus = { id = "ploceus", version = "1.8.10" }
-quilt_loom = { id = "org.quiltmc.loom", version = "1.8.5" }
-
-shadow = { id = "com.gradleup.shadow", version = "9.0.0-beta11" }
