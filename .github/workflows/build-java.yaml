@@ -33,6 +33,7 @@ jobs:
         run: ./gradlew build --no-daemon --warning-mode=all
       - name: capture build artifacts
         uses: actions/upload-artifact@v4
+        if: ${{ runner.os == 'Linux' && matrix.java == '21' }} # Upload artifacts from one job, ignore the rest
         with:
           name: server-stats-artifacts
           path: build/libs
