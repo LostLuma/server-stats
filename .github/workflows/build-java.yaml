@@ -1,0 +1,48 @@
+name: build-java
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        java: [
+          21,
+        ]
+        os: [
+          ubuntu-22.04,
+          windows-2022
+        ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: setup jdk
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+      - name: restore cached dependencies
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .gradle/
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-Gradle
+      - name: build
+        run: ./gradlew build --no-daemon --warning-mode=all
+      - name: capture build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-stats-artifacts
+          path: build/libs
+          if-no-files-found: error
+      - name: cache downloaded dependencies
+        if: ${{ github.ref_name == 'stardust' }}
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .gradle/
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-Gradle
