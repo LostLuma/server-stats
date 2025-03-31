@@ -25,10 +25,7 @@ ploceus {
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
-	mappings loom.layered {
-		mappings "net.ornithemc:feather:${project.feather_version}:v2"
-		addLayer ploceus.nestedMappings() // Required for nests
-	}
+	mappings "net.ornithemc:feather:${project.feather_version}:v2"
 
 	nests "net.ornithemc:nests:${project.nests_version}"
 	modImplementation libs.quilt.loader

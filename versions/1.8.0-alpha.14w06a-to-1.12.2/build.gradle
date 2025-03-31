@@ -16,9 +16,7 @@ base {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.layered {
-		mappings "net.ornithemc:feather:${project.feather_version}:v2"
-	}
+	mappings "net.ornithemc:feather:${project.feather_version}:v2"
 
 	modImplementation libs.quilt.loader
 
