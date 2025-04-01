@@ -23,6 +23,8 @@ plugins {
 rootProject.name = "server-stats"
 includeBuild("build-logic")
 
+include(":module:bugfix:movement:")
+
 include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
 include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")
 include(":module:versions:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")

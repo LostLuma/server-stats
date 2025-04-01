@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-	// include(libs.gson)
+	include(project(":module:bugfix:movement"))
 
 	// b1.5.0 -> first version with statistics!
 	include(project(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))

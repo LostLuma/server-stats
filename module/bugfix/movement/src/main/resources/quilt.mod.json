@@ -2,11 +2,11 @@
     "schema_version": 1,
     "quilt_loader": {
         "group": "net.lostluma",
-        "id": "server_stats",
+        "id": "server_stats_movement",
         "version": "${version}",
         "metadata": {
-            "name": "Server Stats",
-            "description": "Implementation of server-side statistics for legacy versions of Minecraft.",
+            "name": "Server Stats Movement",
+            "description": "Fix movement statistics tracking for Beta 1.5.0 to Beta 1.7.3 servers.",
             "contributors": {
                 "LostLuma": "Author",
                 "Pixaurora": ["Contributor", "Illustrator"]
@@ -21,38 +21,30 @@
                 "id": "LGPL-3.0-or-later",
                 "url": "https://go.lostluma.net/server-stats-license"
             },
-            "icon": "assets/server_stats/icon.png"
+            "icon": "assets/server_stats_mixins/icon.png"
         },
         "intermediate_mappings": "net.fabricmc:intermediary",
         "depends": [
             {
-                "id": "java",
-                "versions": ">=8.0.0"
-            },
-            {
-                "id": "quilt_loader",
-                "versions": ">=0.28.0"
-            },
-            {
-                "id": "server_stats_mixins",
-                "versions": "*"
-            },
-            {
-                "id": "server_stats_movement",
-                "versions": "*",
-                "optional": true
-            },
-            {
-                "id": "osl",
-                "versions": ">=0.12.1",
-                "optional": true
-            },
-            {
                 "id": "minecraft",
                 "versions": {
-                    "all": [">=1.0.0-beta.5", "<=1.12.2"]
+                    "all": [">=1.0.0-beta.5", "<=1.0.0-beta.7.3"]
                 }
             }
         ]
+    },
+    "minecraft": {
+        "environment": "dedicated_server"
+    },
+    "mixin": "server_stats.movement.mixins.json",
+    "quilt_loom": {
+        "injected_interfaces": {
+            "net/minecraft/unmapped/C_9590849": [
+                "net/lostluma/server_stats/bugfix/movement/duck/MovingPlayer"
+            ]
+        }
+    },
+    "modmenu": {
+        "parent": "server_stats"
     }
 }
