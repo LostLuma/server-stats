@@ -3,26 +3,17 @@ on: [push, pull_request]
 
 jobs:
   build:
-    strategy:
-      matrix:
-        java: [
-          21,
-        ]
-        os: [
-          ubuntu-22.04,
-          windows-2022
-        ]
-    runs-on: ${{ matrix.os }}
+    runs-on: docker
     steps:
       - name: checkout repository
-        uses: actions/checkout@v4
+        uses: https://code.forgejo.org/actions/checkout@v4
       - name: setup jdk
-        uses: actions/setup-java@v4
+        uses: https://github.com/actions/setup-java@v4
         with:
+          java-version: 21
           distribution: temurin
-          java-version: ${{ matrix.java }}
       - name: restore cached dependencies
-        uses: actions/cache/restore@v4
+        uses: https://code.forgejo.org/actions/cache/restore@v4
         with:
           path: |
             .gradle/
@@ -32,15 +23,14 @@ jobs:
       - name: build
         run: ./gradlew build --no-daemon --warning-mode=all
       - name: capture build artifacts
-        uses: actions/upload-artifact@v4
-        if: ${{ runner.os == 'Linux' && matrix.java == '21' }} # Upload artifacts from one job, ignore the rest
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
-          name: server-stats-artifacts
+          name: server-stats-artifacts.zip
           path: build/libs
           if-no-files-found: error
       - name: cache downloaded dependencies
         if: ${{ github.ref_name == 'stardust' }}
-        uses: actions/cache/save@v4
+        uses: https://code.forgejo.org/actions/cache/save@v4
         with:
           path: |
             .gradle/
