@@ -2,25 +2,37 @@ plugins {
 	id("base")
 }
 
-fun mavenGroup(): String {
-	val path = project.path.split(":");
-	val base = project.property("maven_group").toString();
+fun moduleName(): String {
+    val path = project.path.split(":");
 
-    /*
-	if (path.size < 2) {
-		return base;
-	} else {
-		return base + "." + path[1].replace("-", "_");
-	}
-     */
-
-    return base + project.path.replace(":", ".");
+    if (path.size < 3) {
+        return "server-stats";
+    } else {
+        val module = path.subList(2, path.size);
+        return module.joinToString(".");
+    }
 }
 
-// Each project needs a unique identifier,
-// Otherwise projects with the same name don't work.
+fun mavenGroup(): String {
+    val name = moduleName();
+    val base = project.property("maven_group").toString();
+
+    if (name == "server-stats") {
+        return base;
+    } else {
+        return base + "." + name.replace("-", "_");
+    }
+}
+
+// Each project needs a unique identifier
+// And archive name, otherwise Gradle and
+// Loom treat them as interchangeable ...
 group = mavenGroup()
 version = project.property("mod_version").toString()
+
+base {
+    archivesName = moduleName()
+}
 
 tasks.withType<ProcessResources> {
 	inputs.property("version", project.property("mod_version"))
