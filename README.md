@@ -18,9 +18,6 @@ them whenever you join a single- or multiplayer world using the mod or upgrade t
 As Server Stats is intended to also be used by players eventually upgrading to Minecraft 1.8 (and beyond!)  
 it also includes a statistics upgrade system to convert ID-based statistics to resource location based ones.  
 
-> [!IMPORTANT]  
-> Every player must join the server once in a version between 1.8 and 1.12.2 to upgrade their own statistics!
-
 ## Installation
 
 Server Stats runs on [Quilt Loader](https://quiltmc.org/en/) using the [OrnitheMC Toolchain](https://ornithemc.net/) for legacy Minecraft versions.  
