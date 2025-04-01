@@ -105,7 +105,7 @@ public class ServerPlayerStatFix {
             if (resourceLocation != null) {
                 return type + "minecraft." + resourceLocation;
             } else {
-                LOGGER.warn("Unable to upgrade statistic " + previous + ". ID is not known.");
+                LOGGER.warn("Unable to upgrade statistic {}. ID is not known.", previous);
             }
         }
 
