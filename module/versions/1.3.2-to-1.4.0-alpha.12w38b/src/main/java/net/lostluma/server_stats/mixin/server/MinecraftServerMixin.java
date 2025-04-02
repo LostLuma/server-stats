@@ -10,14 +10,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
-    @Inject(method = "main", at = @At("HEAD"))
-    private static void onMain(CallbackInfo callbackInfo) {
-        Stats.init();
-    }
+	@Inject(method = "main", at = @At("HEAD"))
+	private static void onMain(CallbackInfo callbackInfo) {
+		Stats.init();
+	}
 
-    @Inject(method = "loadWorld", at = @At("HEAD"))
-    private void loadWorld(CallbackInfo callbackInfo) {
-        MinecraftServer server = (MinecraftServer)(Object)this;
-        ServerPlayerStats.setWorldDirectory(server.getWorldDirName());
-    }
+	@Inject(method = "loadWorld", at = @At("HEAD"))
+	private void loadWorld(CallbackInfo callbackInfo) {
+		MinecraftServer server = (MinecraftServer) (Object) this;
+		ServerPlayerStats.setWorldDirectory(server.getWorldDirName());
+	}
 }

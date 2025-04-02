@@ -8,23 +8,23 @@ import org.jetbrains.annotations.Nullable;
 public class Stat {
 	public final String key;
 
-    public final @Nullable Integer vanillaId;
+	public final @Nullable Integer vanillaId;
 
 	public Stat(String key, @Nullable Integer vanillaId) {
 		this.key = key;
-        this.vanillaId = vanillaId;
+		this.vanillaId = vanillaId;
 	}
 
 	public Stat register() {
 		if (Stats.BY_KEY.containsKey(this.key)) {
-			throw new RuntimeException("Duplicate stat id: \"" + ((Stat)Stats.BY_KEY.get(this.key)).key + "\" and \"" + this.key + ".");
+			throw new RuntimeException("Duplicate stat id: \"" + ((Stat) Stats.BY_KEY.get(this.key)).key + "\" and \"" + this.key + ".");
 		} else {
 			Stats.ALL.add(this);
 			Stats.BY_KEY.put(this.key, this);
 
-            if (this.vanillaId != null) {
-                Stats.BY_VANILLA_ID.put(this.vanillaId, this);
-            }
+			if (this.vanillaId != null) {
+				Stats.BY_VANILLA_ID.put(this.vanillaId, this);
+			}
 
 			return this;
 		}
@@ -34,7 +34,7 @@ public class Stat {
 		if (this == object) {
 			return true;
 		} else if (object != null && this.getClass() == object.getClass()) {
-			Stat var2 = (Stat)object;
+			Stat var2 = (Stat) object;
 			return this.key.equals(var2.key);
 		} else {
 			return false;

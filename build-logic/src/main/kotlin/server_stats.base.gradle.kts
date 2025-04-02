@@ -3,25 +3,25 @@ plugins {
 }
 
 fun moduleName(): String {
-    val path = project.path.split(":");
+	val path = project.path.split(":");
 
-    if (path.size < 3) {
-        return "server-stats";
-    } else {
-        val module = path.subList(2, path.size);
-        return module.joinToString(".");
-    }
+	if (path.size < 3) {
+		return "server-stats";
+	} else {
+		val module = path.subList(2, path.size);
+		return module.joinToString(".");
+	}
 }
 
 fun mavenGroup(): String {
-    val name = moduleName();
-    val base = project.property("maven_group").toString();
+	val name = moduleName();
+	val base = project.property("maven_group").toString();
 
-    if (name == "server-stats") {
-        return base;
-    } else {
-        return base + "." + name.replace("-", "_");
-    }
+	if (name == "server-stats") {
+		return base;
+	} else {
+		return base + "." + name.replace("-", "_");
+	}
 }
 
 // Each project needs a unique identifier
@@ -31,7 +31,7 @@ group = mavenGroup()
 version = project.property("mod_version").toString()
 
 base {
-    archivesName = moduleName()
+	archivesName = moduleName()
 }
 
 tasks.withType<ProcessResources> {

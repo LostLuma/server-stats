@@ -18,22 +18,23 @@ import java.util.Map;
 
 @Mixin(ClientNetworkHandler.class)
 public class ClientNetworkHandlerMixin {
-    @Shadow
+	@Shadow
 
-    private Minecraft minecraft;
+	private Minecraft minecraft;
 
-    @Inject(method = "handleCustomPayload", at = @At("HEAD"), cancellable = true)
-    private void handleCustomPayload(CustomPayloadPacket packet, CallbackInfo callbackInfo) {
-        if (!packet.channel.equals(Constants.STATS_PACKET_CHANNEL)) {
-            return;
-        }
+	@Inject(method = "handleCustomPayload", at = @At("HEAD"), cancellable = true)
+	private void handleCustomPayload(CustomPayloadPacket packet, CallbackInfo callbackInfo) {
+		if (!packet.channel.equals(Constants.STATS_PACKET_CHANNEL)) {
+			return;
+		}
 
-        String data = new String(packet.data, StandardCharsets.UTF_8);
+		String data = new String(packet.data, StandardCharsets.UTF_8);
 
-        Type type = new TypeToken<Map<String, Integer>>(){}.getType();
-        Map<String, Integer> result = new Gson().fromJson(data, type);
+		Type type = new TypeToken<Map<String, Integer>>() {
+		}.getType();
+		Map<String, Integer> result = new Gson().fromJson(data, type);
 
-        this.minecraft.stats.player_stats$override(result);
-        callbackInfo.cancel();
-    }
+		this.minecraft.stats.player_stats$override(result);
+		callbackInfo.cancel();
+	}
 }

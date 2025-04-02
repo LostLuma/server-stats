@@ -11,10 +11,10 @@ repositories {
 		name = "Ornithe Releases"
 		url = uri("https://maven.ornithemc.net/releases")
 	}
-    maven {
-        name = "Quilt"
-        url = uri("https://maven.quiltmc.org/repository/release")
-    }
+	maven {
+		name = "Quilt"
+		url = uri("https://maven.quiltmc.org/repository/release")
+	}
 	gradlePluginPortal()
 }
 

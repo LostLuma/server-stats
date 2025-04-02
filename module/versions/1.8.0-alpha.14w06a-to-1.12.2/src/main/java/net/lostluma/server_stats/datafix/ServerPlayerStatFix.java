@@ -27,101 +27,102 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class ServerPlayerStatFix {
-    private static final Logger LOGGER = LogManager.getLogger("server_stats");
-    private static final Path BACKUPS = QuiltLoader.getCacheDir().resolve("server_stats");
+	private static final Logger LOGGER = LogManager.getLogger("server_stats");
+	private static final Path BACKUPS = QuiltLoader.getCacheDir().resolve("server_stats");
 
-    private static @Nullable Map<String, String> ID_MAP = null;
-    private static final Pattern UPGRADEABLE = Pattern.compile("^(?<type>stat.(?:breakItem|craftItem|mineBlock|useItem).)(?<id>\\d+)$");
+	private static @Nullable Map<String, String> ID_MAP = null;
+	private static final Pattern UPGRADEABLE = Pattern.compile("^(?<type>stat.(?:breakItem|craftItem|mineBlock|useItem).)(?<id>\\d+)$");
 
-    public static void upgradePlayerStats(String worldDir) throws IOException {
-        Path stats = Paths.get(worldDir).resolve("stats");
+	public static void upgradePlayerStats(String worldDir) throws IOException {
+		Path stats = Paths.get(worldDir).resolve("stats");
 
-        if (!Files.isDirectory(stats)) {
-            return;
-        }
+		if (!Files.isDirectory(stats)) {
+			return;
+		}
 
-        populateIdMap();
+		populateIdMap();
 
-        try (Stream<Path> stream = Files.list(stats)) {
-            Iterator<Path> files = stream.iterator();
+		try (Stream<Path> stream = Files.list(stats)) {
+			Iterator<Path> files = stream.iterator();
 
-            while (files.hasNext()) {
-                upgradePlayerStats(files.next());
-            }
-        }
+			while (files.hasNext()) {
+				upgradePlayerStats(files.next());
+			}
+		}
 
-        ID_MAP = null; // Will never be used again during runtime of the program
-    }
+		ID_MAP = null; // Will never be used again during runtime of the program
+	}
 
-    private static void upgradePlayerStats(Path path) throws IOException {
-        JsonElement data = JsonParser.parseString(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
+	private static void upgradePlayerStats(Path path) throws IOException {
+		JsonElement data = JsonParser.parseString(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
 
-        if (!data.isJsonObject()) {
-            throw new RuntimeException("Unable to upgrade stats file " + path.getFileName() + ".");
-        }
+		if (!data.isJsonObject()) {
+			throw new RuntimeException("Unable to upgrade stats file " + path.getFileName() + ".");
+		}
 
-        JsonObject copy = upgradeStats((JsonObject) data);
+		JsonObject copy = upgradeStats((JsonObject) data);
 
-        if (copy == null) {
-            return;
-        }
+		if (copy == null) {
+			return;
+		}
 
-        Files.createDirectories(BACKUPS);
-        Files.move(path, BACKUPS.resolve(path.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+		Files.createDirectories(BACKUPS);
+		Files.move(path, BACKUPS.resolve(path.getFileName()), StandardCopyOption.REPLACE_EXISTING);
 
-        Files.write(path, copy.toString().getBytes(StandardCharsets.UTF_8));
-    }
+		Files.write(path, copy.toString().getBytes(StandardCharsets.UTF_8));
+	}
 
-    private static @Nullable JsonObject upgradeStats(JsonObject data) throws IOException {
-        boolean upgraded = false;
-        JsonObject copy = new JsonObject();
+	private static @Nullable JsonObject upgradeStats(JsonObject data) throws IOException {
+		boolean upgraded = false;
+		JsonObject copy = new JsonObject();
 
-        for (Map.Entry<String, JsonElement> entry : data.entrySet()) {
-            String key = entry.getKey();
-            JsonElement value = entry.getValue();
+		for (Map.Entry<String, JsonElement> entry : data.entrySet()) {
+			String key = entry.getKey();
+			JsonElement value = entry.getValue();
 
-            String replaced = getUpgradedStatName(key);
+			String replaced = getUpgradedStatName(key);
 
-            if (replaced == null) {
-                copy.add(key, value);
-            } else {
-                upgraded = true;
-                copy.add(replaced, value);
-            }
-        }
+			if (replaced == null) {
+				copy.add(key, value);
+			} else {
+				upgraded = true;
+				copy.add(replaced, value);
+			}
+		}
 
-        return upgraded ? copy : null;
-    }
+		return upgraded ? copy : null;
+	}
 
-    private static @Nullable String getUpgradedStatName(String previous) {
-        Matcher match = UPGRADEABLE.matcher(previous);
+	private static @Nullable String getUpgradedStatName(String previous) {
+		Matcher match = UPGRADEABLE.matcher(previous);
 
-        if (match.matches()) {
-            String id = match.group("id");
-            String type = match.group("type");
+		if (match.matches()) {
+			String id = match.group("id");
+			String type = match.group("type");
 
-            Object resourceLocation = ID_MAP.get(id);
+			Object resourceLocation = ID_MAP.get(id);
 
-            if (resourceLocation != null) {
-                return type + "minecraft." + resourceLocation;
-            } else {
-                LOGGER.warn("Unable to upgrade statistic {}. ID is not known.", previous);
-            }
-        }
+			if (resourceLocation != null) {
+				return type + "minecraft." + resourceLocation;
+			} else {
+				LOGGER.warn("Unable to upgrade statistic {}. ID is not known.", previous);
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    private static void populateIdMap() throws IOException {
-        Optional<ModContainer> container = QuiltLoader.getModContainer(Constants.MOD_ID);
+	private static void populateIdMap() throws IOException {
+		Optional<ModContainer> container = QuiltLoader.getModContainer(Constants.MOD_ID);
 
-        if (!container.isPresent()) {
-            throw new RuntimeException("Unable to get own mod container!");
-        }
+		if (!container.isPresent()) {
+			throw new RuntimeException("Unable to get own mod container!");
+		}
 
-        Path path = container.get().getPath("assets/" + Constants.MOD_ID + "/data/id_map.json");
+		Path path = container.get().getPath("assets/" + Constants.MOD_ID + "/data/id_map.json");
 
-        Type type = new TypeToken<Map<String, String>>(){}.getType();
-        ID_MAP = new Gson().fromJson(new String(Files.readAllBytes(path), StandardCharsets.UTF_8), type);
-    }
+		Type type = new TypeToken<Map<String, String>>() {
+		}.getType();
+		ID_MAP = new Gson().fromJson(new String(Files.readAllBytes(path), StandardCharsets.UTF_8), type);
+	}
 }

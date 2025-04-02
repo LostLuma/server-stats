@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerManager.class)
 public class PlayerManagerMixin {
-    @Inject(method = "move", at = @At("HEAD"))
-    private void move(ServerPlayerEntity player, CallbackInfo callbackInfo) {
-        player.server_stats$move();
-    }
+	@Inject(method = "move", at = @At("HEAD"))
+	private void move(ServerPlayerEntity player, CallbackInfo callbackInfo) {
+		player.server_stats$move();
+	}
 }

@@ -18,59 +18,59 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin implements StatsPlayer {
-    @Unique
-    private ServerPlayerStats server_stats$serverPlayerStats = null;
+	@Unique
+	private ServerPlayerStats server_stats$serverPlayerStats = null;
 
-    private PlayerEntity getPlayer() {
-        return (PlayerEntity) (Object) this;
-    }
+	private PlayerEntity getPlayer() {
+		return (PlayerEntity) (Object) this;
+	}
 
-    @Override
-    public void server_stats$incrementStat(Stat stat, int amount) {
-        ServerPlayerStats stats = this.server_stats$getStats();
+	@Override
+	public void server_stats$incrementStat(Stat stat, int amount) {
+		ServerPlayerStats stats = this.server_stats$getStats();
 
-        if (stats != null) {
-            stats.increment(this.getPlayer(), stat, amount);
-        }
-    }
+		if (stats != null) {
+			stats.increment(this.getPlayer(), stat, amount);
+		}
+	}
 
-    @Override
-    public void server_stats$saveStats() {
-        ServerPlayerStats stats = this.server_stats$getStats();
+	@Override
+	public void server_stats$saveStats() {
+		ServerPlayerStats stats = this.server_stats$getStats();
 
-        if (stats != null) {
-            stats.save();
-        }
-    }
+		if (stats != null) {
+			stats.save();
+		}
+	}
 
-    @Override
-    public @Nullable ServerPlayerStats server_stats$getStats() {
-        PlayerEntity player = this.getPlayer();
+	@Override
+	public @Nullable ServerPlayerStats server_stats$getStats() {
+		PlayerEntity player = this.getPlayer();
 
-        // Unmapped method returns true when the server is multiplayer
-        if (Minecraft.INSTANCE.m_2812472()) {
-            return null;
-        }
+		// Unmapped method returns true when the server is multiplayer
+		if (Minecraft.INSTANCE.m_2812472()) {
+			return null;
+		}
 
-        if (this.server_stats$serverPlayerStats == null) {
-            ServerPlayerStats stats = new ServerPlayerStats(player);
+		if (this.server_stats$serverPlayerStats == null) {
+			ServerPlayerStats stats = new ServerPlayerStats(player);
 
-            this.server_stats$serverPlayerStats = stats;
-            Minecraft.INSTANCE.statHandler.player_stats$override(stats);
-        }
+			this.server_stats$serverPlayerStats = stats;
+			Minecraft.INSTANCE.statHandler.player_stats$override(stats);
+		}
 
-        return this.server_stats$serverPlayerStats;
-    }
+		return this.server_stats$serverPlayerStats;
+	}
 
-    @Inject(method = "onKill", at = @At("HEAD"))
-    private void onKill(LivingEntity entity, CallbackInfo callbackInfo) {
-        this.getPlayer().server_stats$incrementStat(Stats.getEntityKillStat(entity), 1);
-    }
+	@Inject(method = "onKill", at = @At("HEAD"))
+	private void onKill(LivingEntity entity, CallbackInfo callbackInfo) {
+		this.getPlayer().server_stats$incrementStat(Stats.getEntityKillStat(entity), 1);
+	}
 
-    @Inject(method = "onKilled", at = @At("HEAD"))
-    private void onKilled(Entity entity, CallbackInfo callbackInfo) {
-        if (entity != null) {
-            this.getPlayer().server_stats$incrementStat(Stats.getKilledByEntityStat(entity), 1);
-        }
-    }
+	@Inject(method = "onKilled", at = @At("HEAD"))
+	private void onKilled(Entity entity, CallbackInfo callbackInfo) {
+		if (entity != null) {
+			this.getPlayer().server_stats$incrementStat(Stats.getKilledByEntityStat(entity), 1);
+		}
+	}
 }

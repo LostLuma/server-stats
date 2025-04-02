@@ -15,18 +15,19 @@ import java.util.Map;
 import java.util.Optional;
 
 public class Serialization {
-    private static final String BASE_PATH = "assets/" + Constants.MOD_ID + "/data";
+	private static final String BASE_PATH = "assets/" + Constants.MOD_ID + "/data";
 
-    public static Map<String, Integer> getFromAssets(String name) throws IOException {
-        Optional<ModContainer> container = QuiltLoader.getModContainer(Constants.MOD_ID);
+	public static Map<String, Integer> getFromAssets(String name) throws IOException {
+		Optional<ModContainer> container = QuiltLoader.getModContainer(Constants.MOD_ID);
 
-        if (!container.isPresent()) {
-            throw new RuntimeException("Unable to get own mod container!");
-        }
+		if (!container.isPresent()) {
+			throw new RuntimeException("Unable to get own mod container!");
+		}
 
-        Path path = container.get().getPath(BASE_PATH + "/" + name + ".json");
+		Path path = container.get().getPath(BASE_PATH + "/" + name + ".json");
 
-        Type type = new TypeToken<Map<String, Integer>>(){}.getType();
-        return new Gson().fromJson(new String(Files.readAllBytes(path), StandardCharsets.UTF_8), type);
-    }
+		Type type = new TypeToken<Map<String, Integer>>() {
+		}.getType();
+		return new Gson().fromJson(new String(Files.readAllBytes(path), StandardCharsets.UTF_8), type);
+	}
 }

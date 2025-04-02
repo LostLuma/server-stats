@@ -10,9 +10,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(IntegratedServer.class)
 public class IntegratedServerMixin {
-    @Inject(method = "loadWorld", at = @At("HEAD"))
-    private void loadWorld(CallbackInfo callbackInfo) {
-        MinecraftServer server = (MinecraftServer)(Object)this;
-        ServerPlayerStats.setWorldDirectory("saves/" + server.getWorldDirName());
-    }
+	@Inject(method = "loadWorld", at = @At("HEAD"))
+	private void loadWorld(CallbackInfo callbackInfo) {
+		MinecraftServer server = (MinecraftServer) (Object) this;
+		ServerPlayerStats.setWorldDirectory("saves/" + server.getWorldDirName());
+	}
 }

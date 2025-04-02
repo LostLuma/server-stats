@@ -13,21 +13,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
-    @Shadow
-    public InputPlayerEntity player;
+	@Shadow
+	public InputPlayerEntity player;
 
-    @Inject(method = "<init>", at = @At("TAIL"))
-    private void onInit(CallbackInfo callbackInfo) {
-        Stats.init();
-    }
+	@Inject(method = "<init>", at = @At("TAIL"))
+	private void onInit(CallbackInfo callbackInfo) {
+		Stats.init();
+	}
 
-    @Inject(method = "startGame", at = @At("HEAD"))
-    private void startGame(String worldDir, String worldName, WorldSettings worldSettings, CallbackInfo callbackInfo) {
-        ServerPlayerStats.setWorldDirectory(String.format("saves/%s", worldDir));
-    }
+	@Inject(method = "startGame", at = @At("HEAD"))
+	private void startGame(String worldDir, String worldName, WorldSettings worldSettings, CallbackInfo callbackInfo) {
+		ServerPlayerStats.setWorldDirectory(String.format("saves/%s", worldDir));
+	}
 
-    @Inject(method = "m_4977780", at = @At("TAIL"))
-    private void changeDimension(int dimension, CallbackInfo callbackInfo) {
-        this.player.server_stats$saveStats();
-    }
+	@Inject(method = "m_4977780", at = @At("TAIL"))
+	private void changeDimension(int dimension, CallbackInfo callbackInfo) {
+		this.player.server_stats$saveStats();
+	}
 }

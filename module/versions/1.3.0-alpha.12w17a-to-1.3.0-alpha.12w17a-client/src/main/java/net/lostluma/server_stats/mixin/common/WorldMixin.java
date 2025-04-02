@@ -16,10 +16,10 @@ public class WorldMixin {
 	@Shadow
 	public List<PlayerEntity> players;
 
-    @Inject(method = "saveData", at = @At("TAIL"))
-    public void onSave(CallbackInfo callbackInfo) {
-    	for (PlayerEntity player : this.players) {
-            player.server_stats$saveStats();
-        }
-    }
+	@Inject(method = "saveData", at = @At("TAIL"))
+	public void onSave(CallbackInfo callbackInfo) {
+		for (PlayerEntity player : this.players) {
+			player.server_stats$saveStats();
+		}
+	}
 }

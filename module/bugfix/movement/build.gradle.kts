@@ -1,3 +1,3 @@
 plugins {
-    id("server_stats.module")
+	id("server_stats.module")
 }

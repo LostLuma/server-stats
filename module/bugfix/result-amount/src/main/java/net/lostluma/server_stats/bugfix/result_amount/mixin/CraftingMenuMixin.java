@@ -16,53 +16,53 @@ import net.minecraft.stat.Stats;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(value = { CraftingTableMenu.class, FurnaceMenu.class, PlayerMenu.class })
+@Mixin(value = {CraftingTableMenu.class, FurnaceMenu.class, PlayerMenu.class})
 public class CraftingMenuMixin {
-    /**
-     * Store stack size before quick moving items out of a crafting slot.
-     */
-    @WrapOperation(
-        method = "quickMoveStack",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/inventory/slot/InventorySlot;getStack()Lnet/minecraft/item/ItemStack;"
-        )
-    )
-    private ItemStack getStack(InventorySlot instance, Operation<ItemStack> original, @Share("size") LocalIntRef size) {
-        ItemStack stack = original.call(instance);
+	/**
+	 * Store stack size before quick moving items out of a crafting slot.
+	 */
+	@WrapOperation(
+		method = "quickMoveStack",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/inventory/slot/InventorySlot;getStack()Lnet/minecraft/item/ItemStack;"
+		)
+	)
+	private ItemStack getStack(InventorySlot instance, Operation<ItemStack> original, @Share("size") LocalIntRef size) {
+		ItemStack stack = original.call(instance);
 
-        // Increase stats only when not moving out of a regular inventory!
-        if (stack != null && instance.getClass() != InventorySlot.class) {
-            size.set(stack.size);
-        }
+		// Increase stats only when not moving out of a regular inventory!
+		if (stack != null && instance.getClass() != InventorySlot.class) {
+			size.set(stack.size);
+		}
 
-        return stack;
-    }
+		return stack;
+	}
 
-    /**
-     * Calculate difference, and award the player their crafting statistics.
-     */
-    @WrapOperation(
-        method = "quickMoveStack",
-        at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/inventory/slot/InventorySlot;onStackRemovedByPlayer(Lnet/minecraft/item/ItemStack;)V"
-        )
-    )
-    private void onStackRemovedByPlayer(InventorySlot instance, ItemStack stack, Operation<Void> original, @Share("size") LocalIntRef size) {
-        original.call(instance, stack);
+	/**
+	 * Calculate difference, and award the player their crafting statistics.
+	 */
+	@WrapOperation(
+		method = "quickMoveStack",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/inventory/slot/InventorySlot;onStackRemovedByPlayer(Lnet/minecraft/item/ItemStack;)V"
+		)
+	)
+	private void onStackRemovedByPlayer(InventorySlot instance, ItemStack stack, Operation<Void> original, @Share("size") LocalIntRef size) {
+		original.call(instance, stack);
 
-        PlayerEntity player;
+		PlayerEntity player;
 
-        if (instance instanceof FurnaceResultSlot) {
-            player = ((FurnaceResultSlot) instance).player;
-        } else if (instance instanceof CraftingResultSlot) {
-            player = ((CraftingResultSlot) instance).player;
-        } else {
-            return; // Regular InventorySlot, isn't crafting
-        }
+		if (instance instanceof FurnaceResultSlot) {
+			player = ((FurnaceResultSlot) instance).player;
+		} else if (instance instanceof CraftingResultSlot) {
+			player = ((CraftingResultSlot) instance).player;
+		} else {
+			return; // Regular InventorySlot, isn't crafting
+		}
 
-        int difference = size.get() - stack.size;
-        player.incrementStat(Stats.ITEMS_CRAFTED[stack.itemId], difference);
-    }
+		int difference = size.get() - stack.size;
+		player.incrementStat(Stats.ITEMS_CRAFTED[stack.itemId], difference);
+	}
 }

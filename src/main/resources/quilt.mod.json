@@ -9,7 +9,10 @@
             "description": "Implementation of server-side statistics for legacy versions of Minecraft.",
             "contributors": {
                 "LostLuma": "Author",
-                "Pixaurora": ["Contributor", "Illustrator"]
+                "Pixaurora": [
+                    "Contributor",
+                    "Illustrator"
+                ]
             },
             "contact": {
                 "homepage": "https://go.lostluma.net/server-stats",
@@ -45,7 +48,10 @@
             {
                 "id": "minecraft",
                 "versions": {
-                    "all": [">=1.0.0-beta.5", "<=1.12.2"]
+                    "all": [
+                        ">=1.0.0-beta.5",
+                        "<=1.12.2"
+                    ]
                 }
             }
         ]

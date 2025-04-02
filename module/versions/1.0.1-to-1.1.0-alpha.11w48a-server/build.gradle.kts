@@ -5,5 +5,5 @@ plugins {
 }
 
 dependencies {
-    ploceus.dependOsl(libs.versions.osl.get(), GameSide.SERVER)
+	ploceus.dependOsl(libs.versions.osl.get(), GameSide.SERVER)
 }

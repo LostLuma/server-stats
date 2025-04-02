@@ -12,13 +12,13 @@ import net.minecraft.server.MinecraftServer;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
-    @Inject(method = "main", at = @At("HEAD"))
-    private static void onMain(CallbackInfo callbackInfo) {
-        Stats.init();
-    }
+	@Inject(method = "main", at = @At("HEAD"))
+	private static void onMain(CallbackInfo callbackInfo) {
+		Stats.init();
+	}
 
-    @Inject(method = "loadWorld", at = @At("HEAD"))
-    private void loadWorld(WorldStorageSource worldStorageSource, String worldDirName, long l, CallbackInfo callbackInfo) {
-        ServerPlayerStats.setWorldDirectory(worldDirName);
-    }
+	@Inject(method = "loadWorld", at = @At("HEAD"))
+	private void loadWorld(WorldStorageSource worldStorageSource, String worldDirName, long l, CallbackInfo callbackInfo) {
+		ServerPlayerStats.setWorldDirectory(worldDirName);
+	}
 }

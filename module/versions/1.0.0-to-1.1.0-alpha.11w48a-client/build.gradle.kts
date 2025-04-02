@@ -5,9 +5,9 @@ plugins {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/server_stats.accesswidener")
+	accessWidenerPath = file("src/main/resources/server_stats.accesswidener")
 }
 
 dependencies {
-    ploceus.dependOsl(libs.versions.osl.get(), GameSide.CLIENT)
+	ploceus.dependOsl(libs.versions.osl.get(), GameSide.CLIENT)
 }

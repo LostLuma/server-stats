@@ -7,14 +7,14 @@ import net.ornithemc.osl.networking.api.server.ServerConnectionEvents;
 import net.ornithemc.osl.networking.api.server.ServerPlayNetworking;
 
 public class Networking implements ServerModInitializer {
-    @Override
-    public void initServer() {
-        ServerConnectionEvents.PLAY_READY.register((server, player) -> {
-            ServerPlayerStats stats = player.server_stats$getStats();
+	@Override
+	public void initServer() {
+		ServerConnectionEvents.PLAY_READY.register((server, player) -> {
+			ServerPlayerStats stats = player.server_stats$getStats();
 
-            if (stats != null) {
-                ServerPlayNetworking.send(player, Constants.STATS_PACKET_CHANNEL, new SyncStatsPacket(stats));
-            }
-        });
-    }
+			if (stats != null) {
+				ServerPlayNetworking.send(player, Constants.STATS_PACKET_CHANNEL, new SyncStatsPacket(stats));
+			}
+		});
+	}
 }

@@ -17,25 +17,25 @@ import java.nio.charset.StandardCharsets;
 
 @Mixin(PlayerManager.class)
 public class PlayerManagerMixin {
-    @Inject(method = "onLogin", at = @At("TAIL"))
-    private void onLogin(Connection connection, ServerPlayerEntity player, CallbackInfo callbackInfo) {
-        ServerPlayerStats stats = player.server_stats$getStats();
+	@Inject(method = "onLogin", at = @At("TAIL"))
+	private void onLogin(Connection connection, ServerPlayerEntity player, CallbackInfo callbackInfo) {
+		ServerPlayerStats stats = player.server_stats$getStats();
 
-        if (stats == null) {
-            return;
-        }
+		if (stats == null) {
+			return;
+		}
 
-        byte[] data = stats.serialize().getBytes(StandardCharsets.UTF_8);
-        connection.send(new CustomPayloadPacket(Constants.STATS_PACKET_CHANNEL, data));
-    }
+		byte[] data = stats.serialize().getBytes(StandardCharsets.UTF_8);
+		connection.send(new CustomPayloadPacket(Constants.STATS_PACKET_CHANNEL, data));
+	}
 
-    @Inject(method = "save", at = @At("TAIL"))
-    private void onSave(ServerPlayerEntity player, CallbackInfo callbackInfo) {
-        player.server_stats$saveStats();
-    }
+	@Inject(method = "save", at = @At("TAIL"))
+	private void onSave(ServerPlayerEntity player, CallbackInfo callbackInfo) {
+		player.server_stats$saveStats();
+	}
 
-    @Inject(method = "respawn", at = @At("HEAD"))
-    private void onRespawn(ServerPlayerEntity player, int dimension, boolean alive, CallbackInfoReturnable<?> callbackInfo) {
-        player.server_stats$saveStats();
-    }
+	@Inject(method = "respawn", at = @At("HEAD"))
+	private void onRespawn(ServerPlayerEntity player, int dimension, boolean alive, CallbackInfoReturnable<?> callbackInfo) {
+		player.server_stats$saveStats();
+	}
 }

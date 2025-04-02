@@ -9,7 +9,10 @@
             "description": "Implementation of server-side statistics for Minecraft 1.6.0-alpha.13w16a. through 1.6.4.",
             "contributors": {
                 "LostLuma": "Author",
-                "Pixaurora": ["Contributor", "Illustrator"]
+                "Pixaurora": [
+                    "Contributor",
+                    "Illustrator"
+                ]
             },
             "contact": {
                 "homepage": "https://go.lostluma.net/server-stats",
@@ -28,7 +31,10 @@
             {
                 "id": "minecraft",
                 "versions": {
-                    "all": [">=1.6-alpha.13.16.a", "<=1.6.4"]
+                    "all": [
+                        ">=1.6-alpha.13.16.a",
+                        "<=1.6.4"
+                    ]
                 }
             }
         ]

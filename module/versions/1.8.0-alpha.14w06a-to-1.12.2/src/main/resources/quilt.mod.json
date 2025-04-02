@@ -9,7 +9,10 @@
             "description": "Implementation of server-side statistics datafix for Minecraft 1.8.0-alpha.14w06a and later.",
             "contributors": {
                 "LostLuma": "Author",
-                "Pixaurora": ["Contributor", "Illustrator"]
+                "Pixaurora": [
+                    "Contributor",
+                    "Illustrator"
+                ]
             },
             "contact": {
                 "homepage": "https://go.lostluma.net/server-stats",
@@ -28,7 +31,10 @@
             {
                 "id": "minecraft",
                 "versions": {
-                    "all": [">=1.8.0-alpha.14.6.a", "<=1.12.2"]
+                    "all": [
+                        ">=1.8.0-alpha.14.6.a",
+                        "<=1.12.2"
+                    ]
                 }
             }
         ]

@@ -12,9 +12,9 @@ import java.io.IOException;
 
 @Mixin(IntegratedServer.class)
 public class IntegratedServerMixin {
-    @Inject(method = "loadWorld", at = @At("HEAD"))
-    private void loadWorld(CallbackInfo callbackInfo) throws IOException {
-        MinecraftServer server = (MinecraftServer)(Object)this;
-        ServerPlayerStatFix.upgradePlayerStats("saves/" + server.getWorldDirName());
-    }
+	@Inject(method = "loadWorld", at = @At("HEAD"))
+	private void loadWorld(CallbackInfo callbackInfo) throws IOException {
+		MinecraftServer server = (MinecraftServer) (Object) this;
+		ServerPlayerStatFix.upgradePlayerStats("saves/" + server.getWorldDirName());
+	}
 }

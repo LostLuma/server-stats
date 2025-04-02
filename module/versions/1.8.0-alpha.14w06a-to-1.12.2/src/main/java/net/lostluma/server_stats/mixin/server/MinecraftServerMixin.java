@@ -11,9 +11,9 @@ import java.io.IOException;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
-    @Inject(method = "loadWorld", at = @At("HEAD"))
-    private void loadWorld(CallbackInfo callbackInfo) throws IOException {
-        MinecraftServer server = (MinecraftServer)(Object)this;
-        ServerPlayerStatFix.upgradePlayerStats(server.getWorldDirName());
-    }
+	@Inject(method = "loadWorld", at = @At("HEAD"))
+	private void loadWorld(CallbackInfo callbackInfo) throws IOException {
+		MinecraftServer server = (MinecraftServer) (Object) this;
+		ServerPlayerStatFix.upgradePlayerStats(server.getWorldDirName());
+	}
 }
