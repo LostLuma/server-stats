@@ -38,11 +38,6 @@
                 "versions": "*"
             },
             {
-                "id": "server_stats_movement",
-                "versions": "*",
-                "optional": true
-            },
-            {
                 "id": "osl",
                 "versions": ">=0.12.1",
                 "optional": true

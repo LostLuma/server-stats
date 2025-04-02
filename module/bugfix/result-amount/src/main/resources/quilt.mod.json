@@ -2,11 +2,11 @@
     "schema_version": 1,
     "quilt_loader": {
         "group": "net.lostluma",
-        "id": "server_stats_movement",
+        "id": "server_stats_result_amount",
         "version": "${version}",
         "metadata": {
-            "name": "Server Stats Movement",
-            "description": "Fix movement statistics tracking.",
+            "name": "Server Stats Result Amount",
+            "description": "Fix crafting result amount tracking",
             "contributors": {
                 "LostLuma": "Author",
                 "Pixaurora": ["Contributor", "Illustrator"]
@@ -21,7 +21,7 @@
                 "id": "LGPL-3.0-or-later",
                 "url": "https://go.lostluma.net/server-stats-license"
             },
-            "icon": "assets/server_stats_mixins/icon.png"
+            "icon": "assets/server_stats_result_amount/icon.png"
         },
         "load_type": "if_possible",
         "intermediate_mappings": "net.fabricmc:intermediary",
@@ -29,22 +29,16 @@
             {
                 "id": "minecraft",
                 "versions": {
-                    "all": [">=1.0.0-beta.5", "<=1.0.0-beta.7.3"]
+                    "all": [">=1.0.0-beta.6", "<=1.2-alpha.12.4.a"]
                 }
             }
         ]
     },
     "minecraft": {
-        "environment": "dedicated_server"
+        "environment": "*"
     },
-    "mixin": "server_stats.movement.mixins.json",
-    "quilt_loom": {
-        "injected_interfaces": {
-            "net/minecraft/unmapped/C_9590849": [
-                "net/lostluma/server_stats/bugfix/movement/duck/MovingPlayer"
-            ]
-        }
-    },
+    "mixin": "server_stats.result_amount.mixins.json",
+    "access_widener": "server_stats.result_amount.accesswidener",
     "modmenu": {
         "parent": "server_stats"
     }
