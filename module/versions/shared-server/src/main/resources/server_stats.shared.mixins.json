@@ -8,7 +8,9 @@
         "common.StatMixin",
         "common.StatsMixin"
     ],
-    "server": [],
+    "server": [
+        "server.ServerPlayNetworkHandler"
+    ],
     "injectors": {
         "defaultRequire": 1
     }
