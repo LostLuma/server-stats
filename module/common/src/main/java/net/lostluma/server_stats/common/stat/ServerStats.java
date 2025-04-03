@@ -45,7 +45,6 @@ public class ServerStats {
 		if (name != null) {
 			new ServerStat(name, vanillaId).register();
 		} else {
-			System.out.println("registering unknown stat with vanilla id" + vanillaId);
 			new ServerStat("stat.unknown." + vanillaId, vanillaId).register();
 		}
 	}
