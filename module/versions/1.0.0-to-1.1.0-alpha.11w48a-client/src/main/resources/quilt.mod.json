@@ -44,6 +44,14 @@
                         "<=1.1.0-alpha.11.48.a"
                     ]
                 }
+            },
+            {
+                "id": "server_stats_common",
+                "versions": "*"
+            },
+            {
+                "id": "server_stats_shared",
+                "versions": "*"
             }
         ]
     },
@@ -55,10 +63,10 @@
     "quilt_loom": {
         "injected_interfaces": {
             "net/minecraft/unmapped/C_9590849": [
-                "net/lostluma/server_stats/types/StatsPlayer"
+                "net/lostluma/server_stats/common/duck/DuckPlayer"
             ],
             "net/minecraft/unmapped/C_2854223": [
-                "net/lostluma/server_stats/types/OverridableStats"
+                "net/lostluma/server_stats/common/duck/DuckStats"
             ]
         }
     },

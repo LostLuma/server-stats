@@ -3,8 +3,16 @@ plugins {
 }
 
 dependencies {
+	shadow(libs.gson)
+
 	include(project(":module:bugfix:movement"))
 	include(project(":module:bugfix:result-amount"))
+
+	include(project(path = ":module:common", configuration = "shadow"))
+
+	// Code for all versions without server-side statistics
+	include(project(path = ":module:versions:shared-client"))
+	include(project(path = ":module:versions:shared-server"))
 
 	// b1.5.0 -> first version with statistics!
 	include(project(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
@@ -24,11 +32,8 @@ dependencies {
 	include(project(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client"))
 	include(project(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server"))
 	// 12w01a -> Entities.register and MinecraftServer.loadWorld signature changed
-	include(project(":module:versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-client"))
-	include(project(":module:versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-server"))
-	// 12w07a -> added redstone lamp
-	include(project(":module:versions:1.2.0-alpha.12w07a-to-1.3.0-alpha.12w16a-client"))
-	include(project(":module:versions:1.2.0-alpha.12w07a-to-1.3.0-alpha.12w16a-server"))
+	include(project(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client"))
+	include(project(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server"))
 	// 12w17a -> ...
 	include(project(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client"))
 	include(project(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server"))
@@ -37,9 +42,7 @@ dependencies {
 	// 1.3.2 -> now merged!
 	include(project(":module:versions:1.3.2-to-1.4.0-alpha.12w38b"))
 	// 12w39a -> ...
-	include(project(":module:versions:1.4.0-alpha.12w39a-to-1.4.7"))
-	// 13w01a -> added comparator
-	include(project(":module:versions:1.5.0-alpha.13w01a-to-1.5.0-alpha.13w01b"))
+	include(project(":module:versions:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b"))
 	//13w02a -> ...
 	include(project(":module:versions:1.5.0-alpha.13w02a-to-1.5.2"))
 	// 13w16a -> ...

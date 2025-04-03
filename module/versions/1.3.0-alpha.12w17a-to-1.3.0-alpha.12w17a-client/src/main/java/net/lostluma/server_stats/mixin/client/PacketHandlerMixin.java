@@ -2,7 +2,7 @@ package net.lostluma.server_stats.mixin.client;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import net.lostluma.server_stats.Constants;
+import net.lostluma.server_stats.common.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.PacketHandler;
 import net.minecraft.network.packet.CustomPayloadPacket;

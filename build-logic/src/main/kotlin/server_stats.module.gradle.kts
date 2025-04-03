@@ -45,3 +45,8 @@ dependencies {
 	}
 	mappings(ploceus.featherMappings(project.property("feather_build").toString()))
 }
+
+tasks.remapJar {
+	dependsOn(tasks.shadowJar)
+	inputFile.set(tasks.shadowJar.get().archiveFile)
+}

@@ -5,5 +5,6 @@ plugins {
 }
 
 dependencies {
+	implementation(project(":module:common"))
 	ploceus.dependOsl(libs.versions.osl.get(), GameSide.SERVER)
 }

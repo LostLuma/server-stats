@@ -1,7 +1,6 @@
 package net.lostluma.server_stats.mixin.client;
 
-import net.lostluma.server_stats.stats.ServerPlayerStats;
-import net.lostluma.server_stats.stats.Stats;
+import net.lostluma.server_stats.common.stat.ServerPlayerStats;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.living.player.InputPlayerEntity;
 import net.minecraft.world.WorldSettings;
@@ -15,11 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftMixin {
 	@Shadow
 	public InputPlayerEntity player;
-
-	@Inject(method = "<init>", at = @At("TAIL"))
-	private void onInit(CallbackInfo callbackInfo) {
-		Stats.init();
-	}
 
 	@Inject(method = "startGame", at = @At("HEAD"))
 	private void startGame(String worldDir, String worldName, WorldSettings worldSettings, CallbackInfo callbackInfo) {

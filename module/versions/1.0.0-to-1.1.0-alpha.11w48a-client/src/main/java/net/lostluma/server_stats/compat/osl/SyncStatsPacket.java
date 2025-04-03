@@ -2,7 +2,7 @@ package net.lostluma.server_stats.compat.osl;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import net.lostluma.server_stats.stats.ServerPlayerStats;
+import net.lostluma.server_stats.common.stat.ServerPlayerStats;
 import net.ornithemc.osl.networking.api.CustomPayload;
 
 import java.io.DataInputStream;

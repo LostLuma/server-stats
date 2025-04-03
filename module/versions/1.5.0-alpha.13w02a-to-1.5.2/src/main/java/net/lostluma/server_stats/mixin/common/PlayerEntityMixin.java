@@ -1,44 +1,42 @@
 package net.lostluma.server_stats.mixin.common;
 
-import net.lostluma.server_stats.stats.Stats;
-import net.lostluma.server_stats.types.StatsPlayer;
+import net.lostluma.server_stats.common.duck.DuckPlayer;
+import net.lostluma.server_stats.common.stat.ServerPlayerStats;
+import net.lostluma.server_stats.common.stat.ServerStats;
+import net.minecraft.entity.Entities;
 import net.minecraft.entity.living.LivingEntity;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
-import net.lostluma.server_stats.stats.ServerPlayerStats;
-import net.lostluma.server_stats.stats.Stat;
 import net.minecraft.entity.living.player.PlayerEntity;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin implements StatsPlayer {
+public class PlayerEntityMixin implements DuckPlayer {
+	@Shadow
+	public String name;
+
 	@Unique
 	private ServerPlayerStats server_stats$serverPlayerStats = null;
 
+	@Unique
 	private PlayerEntity getPlayer() {
 		return (PlayerEntity) (Object) this;
 	}
 
 	@Override
-	public void server_stats$incrementStat(Stat stat, int amount) {
-		ServerPlayerStats stats = this.server_stats$getStats();
-
-		if (stats != null) {
-			stats.increment(this.getPlayer(), stat, amount);
-		}
+	public @NotNull String server_stats$name() {
+		return this.name;
 	}
 
 	@Override
-	public void server_stats$saveStats() {
-		ServerPlayerStats stats = this.server_stats$getStats();
-
-		if (stats != null) {
-			stats.save();
-		}
+	public @NotNull String server_stats$identifier() {
+		return this.name; // TODO
 	}
 
 	@Override
@@ -58,6 +56,7 @@ public class PlayerEntityMixin implements StatsPlayer {
 
 	@Inject(method = "onKill", at = @At("HEAD"))
 	private void onKill(LivingEntity entity, CallbackInfo callbackInfo) {
-		this.getPlayer().server_stats$incrementStat(Stats.getEntityKillStat(entity), 1);
+		String type = Entities.getKey(entity);
+		this.getPlayer().server_stats$incrementStat(ServerStats.getEntityKillStat(type), 1);
 	}
 }

@@ -2,7 +2,7 @@ package net.lostluma.server_stats.mixin.client;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import net.lostluma.server_stats.Constants;
+import net.lostluma.server_stats.common.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.handler.ClientNetworkHandler;
 import net.minecraft.network.packet.CustomPayloadPacket;
@@ -19,7 +19,6 @@ import java.util.Map;
 @Mixin(ClientNetworkHandler.class)
 public class ClientNetworkHandlerMixin {
 	@Shadow
-
 	private Minecraft minecraft;
 
 	@Inject(method = "handleCustomPayload", at = @At("HEAD"), cancellable = true)

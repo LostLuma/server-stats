@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.compat.osl;
 
-import net.lostluma.server_stats.Constants;
-import net.lostluma.server_stats.stats.ServerPlayerStats;
+import net.lostluma.server_stats.common.Constants;
+import net.lostluma.server_stats.common.stat.ServerPlayerStats;
 import net.ornithemc.osl.entrypoints.api.server.ServerModInitializer;
 import net.ornithemc.osl.networking.api.server.ServerConnectionEvents;
 import net.ornithemc.osl.networking.api.server.ServerPlayNetworking;

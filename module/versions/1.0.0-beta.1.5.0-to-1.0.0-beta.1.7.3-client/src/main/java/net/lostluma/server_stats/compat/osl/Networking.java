@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.compat.osl;
 
-import net.lostluma.server_stats.Constants;
+import net.lostluma.server_stats.common.Constants;
 import net.minecraft.client.Minecraft;
 import net.ornithemc.osl.entrypoints.api.client.ClientModInitializer;
 import net.ornithemc.osl.networking.api.client.ClientPlayNetworking;

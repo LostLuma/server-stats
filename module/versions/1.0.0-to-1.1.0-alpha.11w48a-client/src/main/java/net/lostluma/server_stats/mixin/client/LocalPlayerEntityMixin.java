@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.mixin.client;
 
-import net.lostluma.server_stats.stats.Stat;
-import net.lostluma.server_stats.stats.Stats;
+import net.lostluma.server_stats.common.stat.ServerStat;
+import net.lostluma.server_stats.common.stat.ServerStats;
 import net.minecraft.client.entity.living.player.InputPlayerEntity;
 import net.minecraft.client.entity.living.player.LocalPlayerEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
@@ -22,7 +22,7 @@ public class LocalPlayerEntityMixin {
 			return;
 		}
 
-		Stat stat = Stats.byVanillaId(vanillaStat.id);
+		ServerStat stat = ServerStats.byVanillaId(vanillaStat.id);
 
 		if (stat != null) {
 			this.getPlayer().server_stats$incrementStat(stat, amount);

@@ -19,8 +19,9 @@ repositories {
 }
 
 dependencies {
-	implementation(libs.quilt.loom)
+	implementation(libs.shadow)
 	implementation(libs.ploceus)
+	implementation(libs.quilt.loom)
 
 	// Enable using version catalog in local plugins
 	// https://github.com/gradle/gradle/issues/15383

@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.mixin.client;
 
-import net.lostluma.server_stats.stats.ServerPlayerStats;
+import net.lostluma.server_stats.common.stat.ServerPlayerStats;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.integrated.IntegratedServer;
 import org.spongepowered.asm.mixin.Mixin;

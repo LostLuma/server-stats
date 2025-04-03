@@ -26,6 +26,11 @@ includeBuild("build-logic")
 include(":module:bugfix:movement")
 include(":module:bugfix:result-amount")
 
+include(":module:common")
+
+include(":module:versions:shared-client")
+include(":module:versions:shared-server")
+
 include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
 include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")
 include(":module:versions:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")
@@ -39,20 +44,15 @@ include(":module:versions:1.0.1-to-1.1.0-alpha.11w48a-server")
 include(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client")
 include(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server")
 
-include(":module:versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-client")
-include(":module:versions:1.1.0-alpha.12w01a-to-1.2.0-alpha.12w06a-server")
-
-include(":module:versions:1.2.0-alpha.12w07a-to-1.3.0-alpha.12w16a-client")
-include(":module:versions:1.2.0-alpha.12w07a-to-1.3.0-alpha.12w16a-server")
+include(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client")
+include(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server")
 
 include(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client")
 include(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server")
 
 include(":module:versions:1.3.2-to-1.4.0-alpha.12w38b")
 
-include(":module:versions:1.4.0-alpha.12w39a-to-1.4.7")
-
-include(":module:versions:1.5.0-alpha.13w01a-to-1.5.0-alpha.13w01b")
+include(":module:versions:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b")
 
 include(":module:versions:1.5.0-alpha.13w02a-to-1.5.2")
 
