@@ -23,6 +23,7 @@ plugins {
 rootProject.name = "server-stats"
 includeBuild("build-logic")
 
+include(":module:bugfix:jump")
 include(":module:bugfix:movement")
 include(":module:bugfix:result-amount")
 

@@ -5,6 +5,7 @@ plugins {
 dependencies {
 	shadow(libs.gson)
 
+	include(project(":module:bugfix:jump"))
 	include(project(":module:bugfix:movement"))
 	include(project(":module:bugfix:result-amount"))
 
