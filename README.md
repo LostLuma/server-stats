@@ -6,17 +6,17 @@ Implementation of server-side (per world) statistics for legacy versions of Mine
 
 ## Information
 
-Allows recording player statistics on legacy servers using the modern statistics system introduced in 1.7.  
-Previously statistics were stored client-side, shared between all your worlds, and often reset themselves.
+Allows recording player statistics on older versions using the modern statistics system introduced in 1.7.
+Without Server Stats statistics are stored client-side, shared between all worlds, and can randomly reset.
 
 To see your own statistics you can either install Server Stats on the client as well as the server to sync  
-them whenever you join a single- or multiplayer world using the mod or upgrade to Minecraft 1.7.x or above.
+them whenever you join a single- or multiplayer world using the mod or update to Minecraft 1.7.x or above.
 
 > [!TIP]  
 > To see your own statistics in 11w48a (1.1 snapshot) and earlier install [OSL](https://modrinth.com/mod/osl) on client and server.
 
-As Server Stats is intended to also be used by players eventually upgrading to Minecraft 1.8 (and beyond!)  
-it also includes a statistics upgrade system to convert ID-based statistics to resource location based ones.  
+As Server Stats is also intended to be used by players eventually upgrading to Minecraft 1.8 (and beyond!)  
+it also includes a statistics upgrade system to convert ID-based statistics to resource location based ones.
 
 ## Installation
 
