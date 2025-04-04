@@ -59,6 +59,9 @@ include(":module:versions:1.5.0-alpha.13w02a-to-1.5.2")
 
 include(":module:versions:1.6.0-alpha.13w16a-to-1.6.4")
 
-include(":module:versions:1.7.0-alpha.13w36a-to-1.8.0-alpha.14w05b")
+include(":module:versions:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c")
+include(":module:versions:1.7.0-alpha.13w39a-to-1.7.5")
+
+include(":module:versions:1.7.6-to-1.8.0-alpha.14w05b")
 
 include(":module:versions:1.8.0-alpha.14w06a-to-1.12.2")

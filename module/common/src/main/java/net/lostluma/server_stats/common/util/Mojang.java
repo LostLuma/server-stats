@@ -56,16 +56,10 @@ public class Mojang {
 
 		JsonObject root = element.getAsJsonObject();
 
-		if (root.has("id")) {
-			return asUuid(root.get("id").getAsString());
-		} else {
+		if (!root.has("id")) {
 			throw new IOException("Received incomplete response!");
+		} else {
+			return UUIDUtil.fromMojang(root.get("id").getAsString());
 		}
-	}
-
-	private static @NotNull UUID asUuid(@NotNull String data) {
-		// The Mojang API returns UUIDs without the dashes
-		Pattern pattern = Pattern.compile("(\\w{8})(\\w{4})(\\w{4})(\\w{4})(\\w{12})");
-		return UUID.fromString(pattern.matcher(data).replaceAll("$1-$2-$3-$4-$5")); // :)
 	}
 }

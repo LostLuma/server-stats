@@ -49,7 +49,11 @@ dependencies {
 	// 13w16a -> ...
 	include(project(":module:versions:1.6.0-alpha.13w16a-to-1.6.4"))
 	// 13w36a -> server-side statistics
-	include(project(":module:versions:1.7.0-alpha.13w36a-to-1.8.0-alpha.14w05b"))
+	include(project(":module:versions:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c"))
+	// 13w39a -> PlayerManager.createForLogin signature changed
+	include(project(":module:versions:1.7.0-alpha.13w39a-to-1.7.5"))
+	// 1.7.6 -> player data saved with uuid
+	include(project(":module:versions:1.7.6-to-1.8.0-alpha.14w05b"))
 	// 14w06a -> new statistics format, no upgrade path :(
 	include(project(":module:versions:1.8.0-alpha.14w06a-to-1.12.2"))
 }
