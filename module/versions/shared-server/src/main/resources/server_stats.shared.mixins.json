@@ -10,7 +10,7 @@
     ],
     "server": [
         "server.PlayerManagerMixin",
-        "server.ServerPlayNetworkHandler"
+      "server.ServerPlayNetworkHandlerMixin"
     ],
     "injectors": {
         "defaultRequire": 1

@@ -1,7 +1,8 @@
-package net.lostluma.server_stats.shared.mixin.server;
+package net.lostluma.server_stats.mixin.client;
 
 import net.minecraft.network.packet.MenuClickSlotPacket;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
+import net.minecraft.server.network.handler.ServerPlayNetworkHandler;
 import net.minecraft.stat.achievement.Achievements;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -10,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(net.minecraft.server.network.handler.ServerPlayNetworkHandler.class)
-public class ServerPlayNetworkHandler {
+@Mixin(ServerPlayNetworkHandler.class)
+public class ServerPlayNetworkHandlerMixin {
 	@Shadow
 	private ServerPlayerEntity player;
 

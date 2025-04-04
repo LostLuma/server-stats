@@ -6,7 +6,8 @@
     "client": [
         "client.ClientNetworkHandlerMixin",
         "client.IntegratedServerMixin",
-        "client.PlayerManagerMixin"
+        "client.PlayerManagerMixin",
+        "client.ServerPlayNetworkHandlerMixin"
     ],
     "mixins": [
         "common.EntitiesMixin",
