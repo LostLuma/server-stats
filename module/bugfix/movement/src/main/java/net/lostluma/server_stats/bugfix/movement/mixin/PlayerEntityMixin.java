@@ -34,7 +34,11 @@ public abstract class PlayerEntityMixin extends LivingEntity implements MovingPl
 	 */
 	@Override
 	public void server_stats$move() {
-		this.tickNonRidingMovementRelatedStats(this.x - this.server_stats$x, this.y - this.server_stats$y, this.z - this.server_stats$z);
+		// Don't increment stats with initial position change
+		if (this.server_stats$x != 0) {
+			this.tickNonRidingMovementRelatedStats(this.x - this.server_stats$x, this.y - this.server_stats$y, this.z - this.server_stats$z);
+		}
+
 		this.server_stats$x = this.x;
 		this.server_stats$y = this.y;
 		this.server_stats$z = this.z;
