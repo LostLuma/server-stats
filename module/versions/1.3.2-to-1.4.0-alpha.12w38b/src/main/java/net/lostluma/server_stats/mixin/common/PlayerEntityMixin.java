@@ -22,6 +22,9 @@ public class PlayerEntityMixin implements DuckPlayer {
 	public String name;
 
 	@Unique
+	private String server_stats$identifier;
+
+	@Unique
 	private ServerPlayerStats server_stats$serverPlayerStats = null;
 
 	@Unique
@@ -36,7 +39,12 @@ public class PlayerEntityMixin implements DuckPlayer {
 
 	@Override
 	public @NotNull String server_stats$identifier() {
-		return this.name; // TODO
+		return this.server_stats$identifier;
+	}
+
+	@Override
+	public void server_stats$setIdentifier(@NotNull String identifier) {
+		this.server_stats$identifier = identifier;
 	}
 
 	@Override

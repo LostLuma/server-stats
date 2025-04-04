@@ -38,7 +38,7 @@ public class PlayerEntityMixin implements DuckPlayer {
 
 	@Override
 	public @NotNull String server_stats$identifier() {
-		return this.name; // TODO
+		return Minecraft.INSTANCE.session.server_stats$identifier();
 	}
 
 	@Override

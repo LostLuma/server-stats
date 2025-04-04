@@ -4,7 +4,8 @@
     "package": "net.lostluma.server_stats.shared.mixin",
     "compatibilityLevel": "JAVA_8",
     "client": [
-        "client.PlayerStatsMixin"
+        "client.PlayerStatsMixin",
+        "client.SessionMixin"
     ],
     "mixins": [
         "common.StatMixin",

@@ -20,6 +20,13 @@ public interface DuckPlayer {
 		throw new RuntimeException("Interface implementation missing!");
 	}
 
+	/**
+	 * Set the player's globally-unique user id.
+	 */
+	default void server_stats$setIdentifier(@NotNull String identifier) {
+		throw new RuntimeException("Interface implementation missing!");
+	}
+
 	default @Nullable ServerPlayerStats server_stats$getStats() {
 		throw new RuntimeException("Interface implementation missing!");
 	}

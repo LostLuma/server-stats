@@ -54,6 +54,9 @@
             ],
             "net/minecraft/unmapped/C_2854223": [
                 "net/lostluma/server_stats/common/duck/DuckStats"
+            ],
+            "net/minecraft/unmapped/C_8730536": [
+                "net/lostluma/server_stats/common/duck/DuckSession"
             ]
         }
     },

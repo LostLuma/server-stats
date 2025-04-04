@@ -4,7 +4,6 @@ import net.lostluma.server_stats.common.duck.DuckPlayer;
 import net.lostluma.server_stats.common.stat.ServerPlayerStats;
 import net.lostluma.server_stats.common.stat.ServerStats;
 import net.minecraft.entity.Entities;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.living.LivingEntity;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +38,7 @@ public class PlayerEntityMixin implements DuckPlayer {
 
 	@Override
 	public @NotNull String server_stats$identifier() {
-		return this.name; // TODO
+		return Minecraft.INSTANCE.session.server_stats$identifier();
 	}
 
 	@Override
