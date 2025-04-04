@@ -9,6 +9,7 @@
         "common.StatsMixin"
     ],
     "server": [
+        "server.PlayerManagerMixin",
         "server.ServerPlayNetworkHandler"
     ],
     "injectors": {

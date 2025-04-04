@@ -5,7 +5,8 @@
     "compatibilityLevel": "JAVA_8",
     "client": [
         "client.ClientNetworkHandlerMixin",
-        "client.IntegratedServerMixin"
+        "client.IntegratedServerMixin",
+        "client.PlayerManagerMixin"
     ],
     "mixins": [
         "common.EntitiesMixin",
