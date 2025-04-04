@@ -119,7 +119,7 @@ public class ServerPlayerStatFix {
 			throw new RuntimeException("Unable to get own mod container!");
 		}
 
-		Path path = container.get().getPath("assets/" + Constants.MOD_ID + "/data/id_map.json");
+		Path path = container.get().getPath("assets/" + Constants.MOD_ID + "/data/resources.json");
 
 		Type type = new TypeToken<Map<String, String>>() {
 		}.getType();
