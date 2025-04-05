@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import net.lostluma.server_stats.common.duck.DuckPlayer;
+import net.lostluma.server_stats.common.util.FSUtil;
 import net.lostluma.server_stats.common.util.Platform;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -14,7 +15,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.util.HashMap;
@@ -105,7 +105,7 @@ public class ServerPlayerStats {
 			Path file = Files.createTempFile(temp, this.player.server_stats$identifier(), ".json", this.getDefaultFileAttributes());
 			Files.write(file, this.serialize().getBytes(StandardCharsets.UTF_8));
 
-			Files.move(file, path, StandardCopyOption.ATOMIC_MOVE);
+			FSUtil.move(file, path);
 		} catch (IOException e) {
 			LOGGER.severe(String.format("Failed to write stats for %s! %s", this.player.server_stats$name(), e));
 		}
