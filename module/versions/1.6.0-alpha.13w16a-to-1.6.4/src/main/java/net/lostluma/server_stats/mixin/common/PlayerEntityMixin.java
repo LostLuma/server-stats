@@ -7,7 +7,6 @@ import net.minecraft.entity.Entities;
 import net.minecraft.entity.living.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -20,8 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin implements DuckPlayer {
 	@Shadow
-	@Final
-	protected String name;
+	public String name;
 
 	@Unique
 	private String server_stats$identifier;
@@ -53,7 +51,7 @@ public class PlayerEntityMixin implements DuckPlayer {
 	public @Nullable ServerPlayerStats server_stats$getStats() {
 		PlayerEntity player = this.player();
 
-		if (player.world.isClient) {
+		if (player.world.isMultiplayer) {
 			return null;
 		}
 
