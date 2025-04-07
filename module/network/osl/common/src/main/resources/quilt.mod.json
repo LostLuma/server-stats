@@ -30,8 +30,7 @@
         "depends": [
             {
                 "id": "osl",
-                "versions": ">=0.12.1",
-                "optional": true
+                "versions": ">=0.12.1"
             },
             {
                 "id": "minecraft",
