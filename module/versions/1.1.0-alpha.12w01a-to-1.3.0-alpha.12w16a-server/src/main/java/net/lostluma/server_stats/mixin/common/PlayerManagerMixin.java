@@ -1,9 +1,6 @@
 package net.lostluma.server_stats.mixin.common;
 
-import net.lostluma.server_stats.common.Constants;
-import net.lostluma.server_stats.common.stat.ServerPlayerStats;
 import net.lostluma.server_stats.common.util.Mojang;
-import net.minecraft.network.packet.CustomPayloadPacket;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,7 +12,6 @@ import net.minecraft.server.PlayerManager;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,24 +19,6 @@ import java.util.UUID;
 public class PlayerManagerMixin {
 	@Shadow
 	public List<ServerPlayerEntity> players;
-
-	@Inject(method = "add", at = @At("TAIL"))
-	private void onLogin(ServerPlayerEntity player, CallbackInfo callbackInfo) {
-		ServerPlayerStats stats = player.server_stats$getStats();
-
-		if (stats == null) {
-			return;
-		}
-
-		// Why does this have no proper constructor pre 1.3 ...
-		CustomPayloadPacket packet = new CustomPayloadPacket();
-		packet.channel = Constants.STATS_PACKET_CHANNEL;
-		packet.data = stats.serialize().getBytes(StandardCharsets.UTF_8);
-		;
-		packet.size = packet.data.length;
-
-		player.networkHandler.sendPacket(packet);
-	}
 
 	@Inject(method = "saveAll", at = @At("TAIL"))
 	private void saveAll(CallbackInfo callbackInfo) {

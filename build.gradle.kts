@@ -11,6 +11,16 @@ dependencies {
 
 	include(project(path = ":module:common", configuration = "shadow"))
 
+	include(project(":module:network:osl:client"))
+	include(project(":module:network:osl:common"))
+	include(project(":module:network:osl:server"))
+
+	include(project(":module:network:vanilla:client"))
+	include(project(":module:network:vanilla:common"))
+	include(project(":module:network:vanilla:merged:1.3.2-to-1.5.2"))
+	include(project(":module:network:vanilla:merged:1.6.0-alpha.13w16a-to-1.6.4"))
+	include(project(":module:network:vanilla:server"))
+
 	// Code for all versions without server-side statistics
 	include(project(path = ":module:versions:shared-client"))
 	include(project(path = ":module:versions:shared-server"))

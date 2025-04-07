@@ -1,6 +1,4 @@
 [versions]
-osl = "0.12.1"
-
 gson = "2.10.1"
 annotations = "26.0.2"
 quilt_loader = "0.28.1"
@@ -8,6 +6,9 @@ quilt_loader = "0.28.1"
 ploceus = "1.8.10"
 quilt_loom = "1.8.5"
 shadow = "9.0.0-beta12"
+
+osl_bundle = "0.12.1"
+osl_networking_server = "0.8.0+server-mcb1.5-mc11w48a"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
@@ -17,5 +18,7 @@ ploceus = { module = "net.ornithemc:ploceus", version.ref = "ploceus" }
 quilt_loom = { module = "org.quiltmc:loom", version.ref = "quilt_loom" }
 quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loader" }
 shadow = { module = "com.gradleup.shadow:shadow-gradle-plugin", version.ref = "shadow" }
+
+osl_networking_server = { module = "net.ornithemc.osl:networking", version.ref = "osl_networking_server" }
 
 [plugins]

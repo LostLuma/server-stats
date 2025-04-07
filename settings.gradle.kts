@@ -29,6 +29,16 @@ include(":module:bugfix:result-amount")
 
 include(":module:common")
 
+include(":module:network:osl:client")
+include(":module:network:osl:common")
+include(":module:network:osl:server")
+
+include(":module:network:vanilla:client")
+include(":module:network:vanilla:common")
+include(":module:network:vanilla:merged:1.3.2-to-1.5.2")
+include(":module:network:vanilla:merged:1.6.0-alpha.13w16a-to-1.6.4")
+include(":module:network:vanilla:server")
+
 include(":module:versions:shared-client")
 include(":module:versions:shared-server")
 
