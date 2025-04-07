@@ -28,7 +28,7 @@ public class PlayerEntityMixin implements DuckPlayer {
 	private ServerPlayerStats server_stats$serverPlayerStats = null;
 
 	@Unique
-	private PlayerEntity getPlayer() {
+	private PlayerEntity player() {
 		return (PlayerEntity) (Object) this;
 	}
 
@@ -49,7 +49,7 @@ public class PlayerEntityMixin implements DuckPlayer {
 
 	@Override
 	public @Nullable ServerPlayerStats server_stats$getStats() {
-		PlayerEntity player = this.getPlayer();
+		PlayerEntity player = this.player();
 
 		if (player.world.isClient) {
 			return null;
@@ -65,6 +65,6 @@ public class PlayerEntityMixin implements DuckPlayer {
 	@Inject(method = "onKill", at = @At("HEAD"))
 	private void onKill(LivingEntity entity, CallbackInfo callbackInfo) {
 		String type = Entities.getKey(entity);
-		this.getPlayer().server_stats$incrementStat(ServerStats.getEntityKillStat(type), 1);
+		this.player().server_stats$incrementStat(ServerStats.getEntityKillStat(type), 1);
 	}
 }
