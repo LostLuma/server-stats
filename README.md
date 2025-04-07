@@ -43,3 +43,9 @@ The mod may function on these versions without issue, but you will receive no su
 
 Statistics and achievements added by other mods can also be saved and synchronized by Server Stats,  
 if they are registered using the vanilla `Stat.register()` method and awarded on the dedicated server.
+
+> [!WARNING]
+> Due to the `Item.onResult` method over-counting crafted item amounts in versions 12w24a (1.2 snapshot)  
+> and before Server Stats removes its function in counting statistics and has implemented it differently  
+> for vanilla crafting interfaces (the inventory, crafting table, and furnace). Mods adding new crafting  
+> methods will instead need to call `PlayerEntity.incrementStat` with the real amount crafted themselves.
