@@ -18,8 +18,8 @@ public class SyncStatsPacket implements CustomPayload {
 		this.serialized = null;
 	}
 
-	public SyncStatsPacket(ServerPlayerStats statistics) {
-		this.serialized = statistics.serialize();
+	public SyncStatsPacket(ServerPlayerStats statistics, boolean large) {
+		this.serialized = statistics.serialize(large);
 	}
 
 	@Override
@@ -36,10 +36,9 @@ public class SyncStatsPacket implements CustomPayload {
 		}
 	}
 
-	public Map<String, Integer> data() {
+	public Map<String, Long> data() {
 		if (this.serialized != null) {
-			Type type = new TypeToken<Map<String, Integer>>() {
-			}.getType();
+			Type type = new TypeToken<Map<String, Long>>() {}.getType();
 			return new Gson().fromJson(this.serialized, type);
 		} else {
 			throw new RuntimeException("Tried to get data from incomplete SyncStatsPacket!");

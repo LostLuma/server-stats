@@ -20,9 +20,14 @@ public class ClientNetworkHandlerMixin {
 
 	@Inject(method = "handleCustomPayload", at = @At("HEAD"), cancellable = true)
 	private void handleCustomPayload(CustomPayloadPacket packet, CallbackInfo callbackInfo) {
-		if (packet.channel.equals(Constants.STATS_PACKET_CHANNEL)) {
-			Map<String, Integer> data = CustomPacketHelper.parse(packet);
-			this.minecraft.stats.player_stats$override(data);
+		String channel = packet.channel;
+
+		if (channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL) || channel.equals(Constants.STATS_PACKET_LARGE_CHANNEL)) {
+			boolean clear = channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL);
+
+			Map<String, Long> data = CustomPacketHelper.parse(packet);
+			this.minecraft.stats.server_stats$persist(data, clear);
+
 			callbackInfo.cancel();
 		}
 	}

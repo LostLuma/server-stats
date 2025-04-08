@@ -11,6 +11,10 @@ dependencies {
 
 	include(project(path = ":module:common", configuration = "shadow"))
 
+	include(project(":module:gui:large-stats:1.0.0-beta.1.5.0-to-1.2.3"))
+	include(project(":module:gui:large-stats:1.2.4-to-1.5.2"))
+	include(project(":module:gui:large-stats:1.6.0-alpha.13w16a-to-1.6.4"))
+
 	include(project(":module:network:osl:client"))
 	include(project(":module:network:osl:common"))
 	include(project(":module:network:osl:server"))

@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 
 public class ServerPlayerStats {
 	private final @NotNull DuckPlayer player;
-	protected final @NotNull Map<ServerStat, Integer> counters;
+	protected final @NotNull Map<ServerStat, Long> counters;
 
 	private static @Nullable Path STATS = null;
 
@@ -51,18 +51,18 @@ public class ServerPlayerStats {
 		}
 	}
 
-	public void set(ServerStat stat, int value) {
+	public void set(ServerStat stat, long value) {
 		this.counters.put(stat, value);
 	}
 
-	public int get(ServerStat stat) {
-		return this.counters.getOrDefault(stat, 0);
+	public long get(ServerStat stat) {
+		return this.counters.getOrDefault(stat, 0L);
 	}
 
-	public Map<String, Integer> getRawStats() {
-		Map<String, Integer> raw = new HashMap<>();
+	public Map<String, Long> getRawStats() {
+		Map<String, Long> raw = new HashMap<>();
 
-		for (Entry<ServerStat, Integer> counter : this.counters.entrySet()) {
+		for (Entry<ServerStat, Long> counter : this.counters.entrySet()) {
 			raw.put(counter.getKey().key, counter.getValue());
 		}
 
@@ -125,7 +125,7 @@ public class ServerPlayerStats {
 			ServerStat stat = ServerStats.byKey(entry.getKey());
 
 			if (stat != null && value.isJsonPrimitive() && value.getAsJsonPrimitive().isNumber()) {
-				this.counters.put(stat, value.getAsInt());
+				this.counters.put(stat, value.getAsLong());
 			} else {
 				LOGGER.warning(String.format("Failed to read stat %s in %s! It's either unknown or has invalid data.", entry.getKey(), path));
 			}
@@ -135,8 +135,26 @@ public class ServerPlayerStats {
 	public String serialize() {
 		JsonObject result = new JsonObject();
 
-		for (Entry<ServerStat, Integer> counter : this.counters.entrySet()) {
+		for (Entry<ServerStat, Long> counter : this.counters.entrySet()) {
 			result.addProperty(counter.getKey().key, counter.getValue());
+		}
+
+		return result.toString();
+	}
+
+	/**
+	 * Serialize either only small, or large values.
+	 * This is needed to ensure older Server Stats clients can receive data.
+	 */
+	public String serialize(boolean large) {
+		JsonObject result = new JsonObject();
+
+		for (Entry<ServerStat, Long> counter : this.counters.entrySet()) {
+			boolean isLarge = counter.getValue() > Integer.MAX_VALUE;
+
+			if ((large && isLarge) || (!large && !isLarge)) {
+				result.addProperty(counter.getKey().key, counter.getValue());
+			}
 		}
 
 		return result.toString();

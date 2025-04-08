@@ -29,6 +29,10 @@ include(":module:bugfix:result-amount")
 
 include(":module:common")
 
+include(":module:gui:large-stats:1.0.0-beta.1.5.0-to-1.2.3")
+include(":module:gui:large-stats:1.2.4-to-1.5.2")
+include(":module:gui:large-stats:1.6.0-alpha.13w16a-to-1.6.4")
+
 include(":module:network:osl:client")
 include(":module:network:osl:common")
 include(":module:network:osl:server")

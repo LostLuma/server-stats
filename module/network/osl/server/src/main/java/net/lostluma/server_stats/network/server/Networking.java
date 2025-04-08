@@ -14,7 +14,8 @@ public class Networking implements ServerModInitializer {
 			ServerPlayerStats stats = player.server_stats$getStats();
 
 			if (stats != null) {
-				ServerPlayNetworking.send(player, Constants.STATS_PACKET_CHANNEL, new SyncStatsPacket(stats));
+				ServerPlayNetworking.send(player, Constants.STATS_PACKET_SMALL_CHANNEL, new SyncStatsPacket(stats, false));
+				ServerPlayNetworking.send(player, Constants.STATS_PACKET_LARGE_CHANNEL, new SyncStatsPacket(stats, true));
 			}
 		});
 	}

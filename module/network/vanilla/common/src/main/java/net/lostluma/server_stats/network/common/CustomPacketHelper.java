@@ -11,21 +11,25 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 public class CustomPacketHelper {
-	public static Map<String, Integer> parse(CustomPayloadPacket packet) {
+	public static Map<String, Long> parse(CustomPayloadPacket packet) {
 		String data = new String(packet.data, StandardCharsets.UTF_8);
-		Type type = new TypeToken<Map<String, Integer>>() {}.getType();
+		Type type = new TypeToken<Map<String, Long>>() {}.getType();
 
 		return new Gson().fromJson(data, type);
 	}
 
-	public static CustomPayloadPacket write(ServerPlayerStats stats) {
+	public static CustomPayloadPacket write(ServerPlayerStats stats, boolean large) {
 		CustomPayloadPacket packet = new CustomPayloadPacket();
-		byte[] data = stats.serialize().getBytes(StandardCharsets.UTF_8);
+		byte[] data = stats.serialize(large).getBytes(StandardCharsets.UTF_8);
 
 		packet.data = data;
 		packet.size = data.length;
 
-		packet.channel = Constants.STATS_PACKET_CHANNEL;
+		if (!large) {
+			packet.channel = Constants.STATS_PACKET_SMALL_CHANNEL;
+		} else {
+			packet.channel = Constants.STATS_PACKET_LARGE_CHANNEL;
+		}
 
 		return packet;
 	}

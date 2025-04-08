@@ -17,7 +17,8 @@ public class PlayerManagerMixin {
 		ServerPlayerStats stats = player.server_stats$getStats();
 
 		if (stats != null) {
-			connection.send(CustomPacketHelper.write(stats));
+			connection.send(CustomPacketHelper.write(stats, false));
+			connection.send(CustomPacketHelper.write(stats, true));
 		}
 	}
 }

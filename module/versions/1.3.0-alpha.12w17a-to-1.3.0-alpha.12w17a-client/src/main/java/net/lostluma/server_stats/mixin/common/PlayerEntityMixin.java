@@ -54,7 +54,7 @@ public class PlayerEntityMixin implements DuckPlayer {
 			ServerPlayerStats stats = new ServerPlayerStats(player);
 
 			this.server_stats$serverPlayerStats = stats;
-			Minecraft.INSTANCE.statHandler.player_stats$override(stats);
+			Minecraft.INSTANCE.statHandler.server_stats$replace(stats);
 		}
 
 		return this.server_stats$serverPlayerStats;

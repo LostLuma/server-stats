@@ -9,8 +9,17 @@ import net.ornithemc.osl.networking.api.client.ClientPlayNetworking;
 public class Networking implements ClientModInitializer {
 	@Override
 	public void initClient() {
-		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_CHANNEL, SyncStatsPacket::new, ((minecraft, handler, payload) -> {
-			Minecraft.INSTANCE.statHandler.player_stats$override(payload.data());
+		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_SMALL_CHANNEL, SyncStatsPacket::new, ((minecraft, handler, payload) -> {
+			System.out.println("received small stats packet");
+			System.out.println("contains " + payload.data().size() + " items");
+			Minecraft.INSTANCE.statHandler.server_stats$persist(payload.data(), true);
+			return true;
+		}));
+
+		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_LARGE_CHANNEL, SyncStatsPacket::new, ((minecraft, handler, payload) -> {
+			System.out.println("received large stats packet");
+			System.out.println("contains " + payload.data().size() + " items");
+			Minecraft.INSTANCE.statHandler.server_stats$persist(payload.data(), false);
 			return true;
 		}));
 	}

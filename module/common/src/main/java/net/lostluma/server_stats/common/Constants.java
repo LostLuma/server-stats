@@ -7,7 +7,9 @@ public class Constants {
 	public static final String MOD_ID = "server_stats";
 	public static final String VERSION = getModVersion();
 	public static final String USER_AGENT = buildUserAgent();
-	public static final String STATS_PACKET_CHANNEL = MOD_ID + "|s";
+
+	public static final String STATS_PACKET_SMALL_CHANNEL = MOD_ID + "|s";
+	public static final String STATS_PACKET_LARGE_CHANNEL = MOD_ID + "|l";
 
 	public static ModContainer getModContainer() {
 		return QuiltLoader.getModContainer(MOD_ID).get();

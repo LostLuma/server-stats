@@ -1,15 +1,20 @@
 package net.lostluma.server_stats.common.duck;
 
 import net.lostluma.server_stats.common.stat.ServerPlayerStats;
+import net.lostluma.server_stats.common.stat.ServerStat;
 
 import java.util.Map;
 
 public interface DuckStats {
-	default void player_stats$override(ServerPlayerStats override) {
+	default long server_stats$value(ServerStat stat) {
 		throw new RuntimeException("Interface implementation missing!");
 	}
 
-	default void player_stats$override(Map<String, Integer> override) {
+	default void server_stats$replace(ServerPlayerStats override) {
+		throw new RuntimeException("Interface implementation missing!");
+	}
+
+	default void server_stats$persist(Map<String, Long> override, boolean clear) {
 		throw new RuntimeException("Interface implementation missing!");
 	}
 }

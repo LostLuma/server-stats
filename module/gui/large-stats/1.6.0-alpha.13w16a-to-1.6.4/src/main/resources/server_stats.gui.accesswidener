@@ -1,0 +1,4 @@
+accessWidener v2 named
+
+accessible  field   net/minecraft/client/Minecraft  INSTANCE    Lnet/minecraft/client/Minecraft;
+accessible field net/minecraft/stat/Stat formatter Lnet/minecraft/stat/StatFormatter;
