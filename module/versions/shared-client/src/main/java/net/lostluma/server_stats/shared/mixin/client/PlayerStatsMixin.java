@@ -48,7 +48,7 @@ public class PlayerStatsMixin implements DuckStats {
 			this.server_stats$stats.put(entry.getKey(), value);
 
 			// Also populate vanilla stats map, other mods might read it.
-			Stat stat = this.server$stats$getVanillaStat(entry.getKey());
+			Stat stat = this.server_stats$getVanillaStat(entry.getKey());
 
 			if (stat != null) {
 				if (value <= Integer.MAX_VALUE) {
@@ -90,7 +90,7 @@ public class PlayerStatsMixin implements DuckStats {
 	}
 
 	@Unique
-	private @Nullable Stat server$stats$getVanillaStat(String key) {
+	private @Nullable Stat server_stats$getVanillaStat(String key) {
 		ServerStat stat = ServerStats.byKey(key);
 
 		if (stat == null || stat.vanillaId == null) {
