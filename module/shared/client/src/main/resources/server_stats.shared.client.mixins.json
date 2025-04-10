@@ -1,0 +1,17 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.shared.client.mixin",
+    "plugin": "net.lostluma.server_stats.shared.client.ServerStatsSharedMixinConfig",
+    "compatibilityLevel": "JAVA_8",
+    "client": [
+        "LocalPlayerEntityMixin",
+        "PlayerStatsMixin",
+        "SessionMixin"
+    ],
+    "mixins": [],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

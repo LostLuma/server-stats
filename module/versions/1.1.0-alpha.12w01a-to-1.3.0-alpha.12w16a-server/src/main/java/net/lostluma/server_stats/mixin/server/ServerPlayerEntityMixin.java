@@ -1,6 +1,5 @@
 package net.lostluma.server_stats.mixin.server;
 
-import net.lostluma.server_stats.common.stat.ServerStat;
 import net.lostluma.server_stats.common.stat.ServerStats;
 import net.minecraft.entity.Entities;
 import net.minecraft.entity.living.player.PlayerEntity;
@@ -18,19 +17,6 @@ public class ServerPlayerEntityMixin {
 	@Unique
 	private PlayerEntity getPlayer() {
 		return (PlayerEntity) (Object) this;
-	}
-
-	@Inject(method = "incrementStat(Lnet/minecraft/stat/Stat;I)V", at = @At("HEAD"))
-	private void incrementStat(net.minecraft.stat.Stat vanillaStat, int amount, CallbackInfo callbackInfo) {
-		if (vanillaStat == null) {
-			return;
-		}
-
-		ServerStat stat = ServerStats.byVanillaId(vanillaStat.id);
-
-		if (stat != null) {
-			this.getPlayer().server_stats$incrementStat(stat, amount);
-		}
 	}
 
 	@Inject(method = "onKilled", at = @At("HEAD"))

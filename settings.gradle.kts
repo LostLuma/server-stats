@@ -43,8 +43,9 @@ include(":module:network:vanilla:merged:1.3.2-to-1.5.2")
 include(":module:network:vanilla:merged:1.6.0-alpha.13w16a-to-1.6.4")
 include(":module:network:vanilla:server")
 
-include(":module:versions:shared-client")
-include(":module:versions:shared-server")
+include(":module:shared:client")
+include(":module:shared:common")
+include(":module:shared:server")
 
 include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
 include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")

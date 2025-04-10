@@ -26,8 +26,9 @@ dependencies {
 	include(project(":module:network:vanilla:server"))
 
 	// Code for all versions without server-side statistics
-	include(project(path = ":module:versions:shared-client"))
-	include(project(path = ":module:versions:shared-server"))
+	include(project(path = ":module:shared:client"))
+	include(project(path = ":module:shared:common"))
+	include(project(path = ":module:shared:server"))
 
 	// b1.5.0 -> first version with statistics!
 	include(project(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))

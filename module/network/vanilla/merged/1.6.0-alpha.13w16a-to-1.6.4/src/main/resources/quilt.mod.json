@@ -43,10 +43,6 @@
                 "versions": "*"
             },
             {
-                "id": "server_stats_shared",
-                "versions": "*"
-            },
-            {
                 "id": "server_stats_network_common",
                 "versions": "*"
             }

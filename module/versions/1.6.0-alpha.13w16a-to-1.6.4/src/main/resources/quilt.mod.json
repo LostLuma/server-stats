@@ -40,10 +40,6 @@
             {
                 "id": "server_stats_common",
                 "versions": "*"
-            },
-            {
-                "id": "server_stats_shared",
-                "versions": "*"
             }
         ]
     },
