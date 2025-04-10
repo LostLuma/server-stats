@@ -39,11 +39,13 @@ public interface DuckPlayer {
 		}
 	}
 
-	default void server_stats$incrementStat(ServerStat stat, int amount) {
+	default long server_stats$incrementStat(@NotNull ServerStat stat, int amount) {
 		ServerPlayerStats stats = this.server_stats$getStats();
 
-		if (stats != null) {
-			stats.increment(stat, amount);
+		if (stats == null) {
+			return 0L;
+		} else {
+			return stats.increment(stat, amount);
 		}
 	}
 }

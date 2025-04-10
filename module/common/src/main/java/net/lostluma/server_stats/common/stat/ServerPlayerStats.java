@@ -45,14 +45,11 @@ public class ServerPlayerStats {
 		STATS = Paths.get(worldDirName).resolve("stats");
 	}
 
-	public void increment(ServerStat stat, int amount) {
-		if (stat != null) {
-			this.set(stat, this.get(stat) + amount);
-		}
-	}
+	public long increment(@NotNull ServerStat stat, int amount) {
+		long value = this.get(stat);
+		this.counters.put(stat, value + amount);
 
-	public void set(ServerStat stat, long value) {
-		this.counters.put(stat, value);
+		return value;
 	}
 
 	public long get(ServerStat stat) {
