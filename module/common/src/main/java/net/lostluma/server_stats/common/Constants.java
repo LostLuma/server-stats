@@ -8,8 +8,12 @@ public class Constants {
 	public static final String VERSION = getModVersion();
 	public static final String USER_AGENT = buildUserAgent();
 
+	// Legacy stats sync (32 Bit)
 	public static final String STATS_PACKET_SMALL_CHANNEL = MOD_ID + "|s";
+	// Server Stats 1.4+ 64 Bit stats sync
 	public static final String STATS_PACKET_LARGE_CHANNEL = MOD_ID + "|l";
+	// Server Stats 1.4+ live sync of data
+	public static final String STATS_PACKET_AMEND_CHANNEL = MOD_ID + "|a";
 
 	public static ModContainer getModContainer() {
 		return QuiltLoader.getModContainer(MOD_ID).get();

@@ -31,6 +31,9 @@ public interface DuckPlayer {
 		throw new RuntimeException("Interface implementation missing!");
 	}
 
+	/**
+	 * Persist the player's statistics on disk.
+	 */
 	default void server_stats$saveStats() {
 		ServerPlayerStats stats = this.server_stats$getStats();
 
@@ -39,6 +42,9 @@ public interface DuckPlayer {
 		}
 	}
 
+	/**
+	 * Increment a statistic.
+	 */
 	default long server_stats$incrementStat(@NotNull ServerStat stat, int amount) {
 		ServerPlayerStats stats = this.server_stats$getStats();
 
@@ -47,5 +53,12 @@ public interface DuckPlayer {
 		} else {
 			return stats.increment(stat, amount);
 		}
+	}
+
+	/**
+	 * Push a stat update to the player's client.
+	 */
+	default void server_stats$push(@NotNull ServerStat stat, long value) {
+		throw new RuntimeException("Interface implementation missing!");
 	}
 }

@@ -2,6 +2,7 @@ package net.lostluma.server_stats.mixin.common;
 
 import net.lostluma.server_stats.common.duck.DuckPlayer;
 import net.lostluma.server_stats.common.stat.ServerPlayerStats;
+import net.lostluma.server_stats.common.stat.ServerStat;
 import net.lostluma.server_stats.common.stat.ServerStats;
 import net.minecraft.entity.Entities;
 import net.minecraft.entity.damage.DamageSource;
@@ -58,6 +59,11 @@ public class PlayerEntityMixin implements DuckPlayer {
 		}
 
 		return this.server_stats$serverPlayerStats;
+	}
+
+	@Override
+	public void server_stats$push(@NotNull ServerStat stat, long value) {
+		Minecraft.INSTANCE.statHandler.server_stats$add(stat.key, value);
 	}
 
 	@Inject(method = "onKill", at = @At("HEAD"))

@@ -1,7 +1,9 @@
 package net.lostluma.server_stats.network.client.mixin;
 
 import net.lostluma.server_stats.common.Constants;
-import net.lostluma.server_stats.network.common.CustomPacketHelper;
+import net.lostluma.server_stats.common.util.Tuple;
+import net.lostluma.server_stats.network.common.PushPacketHelper;
+import net.lostluma.server_stats.network.common.SyncPacketHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.PacketHandler;
 import net.minecraft.network.packet.CustomPayloadPacket;
@@ -21,10 +23,13 @@ public class PacketHandlerMixin {
 		if (channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL) || channel.equals(Constants.STATS_PACKET_LARGE_CHANNEL)) {
 			boolean clear = channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL);
 
-			Map<String, Long> data = CustomPacketHelper.parse(packet);
+			Map<String, Long> data = SyncPacketHelper.parse(packet);
 			Minecraft.INSTANCE.statHandler.server_stats$persist(data, clear);
 
 			callbackInfo.cancel();
+		} else if (channel.equals(Constants.STATS_PACKET_AMEND_CHANNEL)) {
+			Tuple<String, Long> data = PushPacketHelper.parse(packet);
+			Minecraft.INSTANCE.statHandler.server_stats$add(data.left(), data.right());
 		}
 	}
 }

@@ -59,6 +59,7 @@
     "minecraft": {
         "environment": "dedicated_server"
     },
+    "mixin": "server_stats.network.mixins.json",
     "quilt_loom": {
         "injected_interfaces": {
             "net/minecraft/unmapped/C_9590849": [

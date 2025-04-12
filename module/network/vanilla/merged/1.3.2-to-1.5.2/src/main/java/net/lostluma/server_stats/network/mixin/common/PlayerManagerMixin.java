@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.network.mixin.common;
 
 import net.lostluma.server_stats.common.stat.ServerPlayerStats;
-import net.lostluma.server_stats.network.common.CustomPacketHelper;
+import net.lostluma.server_stats.network.common.SyncPacketHelper;
 import net.minecraft.network.Connection;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
@@ -17,8 +17,8 @@ public class PlayerManagerMixin {
 		ServerPlayerStats stats = player.server_stats$getStats();
 
 		if (stats != null) {
-			connection.send(CustomPacketHelper.write(stats, false));
-			connection.send(CustomPacketHelper.write(stats, true));
+			connection.send(SyncPacketHelper.write(stats, false));
+			connection.send(SyncPacketHelper.write(stats, true));
 		}
 	}
 }

@@ -49,6 +49,12 @@ public class ServerPlayerStats {
 		long value = this.get(stat);
 		this.counters.put(stat, value + amount);
 
+		// Handle namespaced stat push to the client
+		// Minecraft handles vanilla-registered ones
+		if (stat.vanillaId == null) {
+			this.player.server_stats$push(stat, amount);
+		}
+
 		return value;
 	}
 

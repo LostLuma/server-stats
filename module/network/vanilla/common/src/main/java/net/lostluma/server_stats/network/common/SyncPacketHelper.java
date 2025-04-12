@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
-public class CustomPacketHelper {
+public class SyncPacketHelper {
 	public static Map<String, Long> parse(CustomPayloadPacket packet) {
 		String data = new String(packet.data, StandardCharsets.UTF_8);
 		Type type = new TypeToken<Map<String, Long>>() {}.getType();

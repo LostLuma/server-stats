@@ -6,7 +6,6 @@
     "client": [],
     "mixins": [],
     "server": [
-        "PlayerManagerMixin",
         "ServerPlayerEntityMixin"
     ],
     "injectors": {
