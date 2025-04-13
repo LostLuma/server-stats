@@ -1,4 +1,4 @@
-package net.lostluma.server_stats.gui.mixin;
+package net.lostluma.server_stats.large_stats.mixin;
 
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import net.lostluma.server_stats.common.stat.ServerStat;

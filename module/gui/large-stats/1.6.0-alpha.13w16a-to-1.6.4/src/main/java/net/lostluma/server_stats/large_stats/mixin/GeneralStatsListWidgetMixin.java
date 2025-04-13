@@ -1,4 +1,4 @@
-package net.lostluma.server_stats.gui.mixin;
+package net.lostluma.server_stats.large_stats.mixin;
 
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import net.lostluma.server_stats.common.stat.ServerStat;
@@ -27,7 +27,7 @@ public class GeneralStatsListWidgetMixin {
 		TextRenderer textRenderer = Minecraft.INSTANCE.textRenderer;
 
 		String text;
-		long value = Minecraft.INSTANCE.statHandler.server_stats$value(serverStat);
+		long value = Minecraft.INSTANCE.stats.server_stats$value(serverStat);
 
 		if (stat.formatter == Stat.NUMBER_FORMATTER) {
 			text = Format.formatNumber(value);
@@ -39,8 +39,8 @@ public class GeneralStatsListWidgetMixin {
 			return;
 		}
 
-		textRenderer.draw(stat.toString(), x + 2, y + 1, index % 2 == 0 ? 16777215 : 9474192);
-		textRenderer.draw(text, x + 2 + 213 - textRenderer.getStringWidth(text), y + 1, index % 2 == 0 ? 16777215 : 9474192);
+		textRenderer.draw(stat.toString(), x + 2, y + 1, index % 2 == 0 ? 16777215 : 9474192, true);
+		textRenderer.draw(text, x + 2 + 213 - textRenderer.getStringWidth(text), y + 1, index % 2 == 0 ? 16777215 : 9474192, true);
 
 		callbackInfo.cancel();
 	}
