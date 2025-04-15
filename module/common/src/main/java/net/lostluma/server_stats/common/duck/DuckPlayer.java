@@ -45,10 +45,10 @@ public interface DuckPlayer {
 	/**
 	 * Increment a statistic.
 	 */
-	default long server_stats$incrementStat(@NotNull ServerStat stat, int amount) {
+	default long server_stats$incrementStat(@Nullable ServerStat stat, int amount) {
 		ServerPlayerStats stats = this.server_stats$getStats();
 
-		if (stats == null) {
+		if (stat == null || stats == null) {
 			return 0L;
 		} else {
 			return stats.increment(stat, amount);
