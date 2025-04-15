@@ -1,0 +1,49 @@
+{
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "net.lostluma",
+        "id": "server_stats_gui_util",
+        "version": "${version}",
+        "metadata": {
+            "name": "Server Stats GUI Utilities",
+            "description": "GUI Utilities for rendering screens.",
+            "contributors": {
+                "LostLuma": "Author",
+                "Pixaurora": [
+                    "Contributor",
+                    "Illustrator"
+                ]
+            },
+            "contact": {
+                "homepage": "https://go.lostluma.net/server-stats",
+                "issues": "https://go.lostluma.net/server-stats-issues",
+                "sources": "https://go.lostluma.net/server-stats-source"
+            },
+            "license": {
+                "name": "LGPL License",
+                "id": "LGPL-3.0-or-later",
+                "url": "https://go.lostluma.net/server-stats-license"
+            },
+            "icon": "assets/server_stats_gui_util/icon.png"
+        },
+        "load_type": "if_possible",
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "depends": [
+            {
+                "id": "minecraft",
+                "versions": {
+                    "all": [
+                        ">=1.6-alpha.13.24.a",
+                        "<=1.6.4"
+                    ]
+                }
+            }
+        ]
+    },
+    "minecraft": {
+        "environment": "client"
+    },
+    "modmenu": {
+        "parent": "server_stats"
+    }
+}
