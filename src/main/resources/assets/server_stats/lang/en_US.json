@@ -1,0 +1,5 @@
+{
+    "server_stats.stats_screen.mobs": "Mobs",
+    "server_stats.stats_screen.killed_by": "Times this mob killed you",
+    "server_stats.stats_screen.kills": "Times you killed this mob"
+}
