@@ -18,7 +18,6 @@ jobs:
         uses: https://code.forgejo.org/actions/cache/restore@v4
         with:
           path: |
-            .gradle/
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-Gradle
@@ -37,7 +36,6 @@ jobs:
         uses: https://code.forgejo.org/actions/cache/save@v4
         with:
           path: |
-            .gradle/
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-Gradle
