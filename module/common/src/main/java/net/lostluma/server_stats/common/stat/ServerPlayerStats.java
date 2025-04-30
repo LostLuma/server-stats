@@ -17,7 +17,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermissions;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -27,7 +26,7 @@ import java.util.logging.Logger;
 
 public class ServerPlayerStats {
 	private final @NotNull DuckPlayer player;
-	protected final @NotNull Map<ServerStat, Long> counters;
+	protected final @NotNull Map<String, Long> counters;
 
 	private static @Nullable Path STATS = null;
 
@@ -47,7 +46,7 @@ public class ServerPlayerStats {
 
 	public long increment(@NotNull ServerStat stat, int amount) {
 		long value = this.get(stat);
-		this.counters.put(stat, value + amount);
+		this.counters.put(stat.key, value + amount);
 
 		// Handle namespaced stat push to the client
 		// Minecraft handles vanilla-registered ones
@@ -59,17 +58,11 @@ public class ServerPlayerStats {
 	}
 
 	public long get(ServerStat stat) {
-		return this.counters.getOrDefault(stat, 0L);
+		return this.counters.getOrDefault(stat.key, 0L);
 	}
 
 	public Map<String, Long> getRawStats() {
-		Map<String, Long> raw = new HashMap<>();
-
-		for (Entry<ServerStat, Long> counter : this.counters.entrySet()) {
-			raw.put(counter.getKey().key, counter.getValue());
-		}
-
-		return raw;
+		return this.counters;
 	}
 
 	public void load() {
@@ -124,13 +117,13 @@ public class ServerPlayerStats {
 		JsonObject data = root.getAsJsonObject();
 
 		for (Entry<String, JsonElement> entry : data.entrySet()) {
+			String key = entry.getKey();
 			JsonElement value = entry.getValue();
-			ServerStat stat = ServerStats.byKey(entry.getKey());
 
-			if (stat != null && value.isJsonPrimitive() && value.getAsJsonPrimitive().isNumber()) {
-				this.counters.put(stat, value.getAsLong());
+			if (value.isJsonPrimitive() && value.getAsJsonPrimitive().isNumber()) {
+				this.counters.put(key, value.getAsLong());
 			} else {
-				LOGGER.warning(String.format("Failed to read stat %s in %s! It's either unknown or has invalid data.", entry.getKey(), path));
+				LOGGER.warning(String.format("Failed to read stat %s in %s, ignoring!.", entry.getKey(), path));
 			}
 		}
 	}
@@ -138,8 +131,8 @@ public class ServerPlayerStats {
 	public String serialize() {
 		JsonObject result = new JsonObject();
 
-		for (Entry<ServerStat, Long> counter : this.counters.entrySet()) {
-			result.addProperty(counter.getKey().key, counter.getValue());
+		for (Entry<String, Long> counter : this.counters.entrySet()) {
+			result.addProperty(counter.getKey(), counter.getValue());
 		}
 
 		return result.toString();
@@ -152,11 +145,11 @@ public class ServerPlayerStats {
 	public String serialize(boolean large) {
 		JsonObject result = new JsonObject();
 
-		for (Entry<ServerStat, Long> counter : this.counters.entrySet()) {
+		for (Entry<String, Long> counter : this.counters.entrySet()) {
 			boolean isLarge = counter.getValue() > Integer.MAX_VALUE;
 
 			if ((large && isLarge) || (!large && !isLarge)) {
-				result.addProperty(counter.getKey().key, counter.getValue());
+				result.addProperty(counter.getKey(), counter.getValue());
 			}
 		}
 
