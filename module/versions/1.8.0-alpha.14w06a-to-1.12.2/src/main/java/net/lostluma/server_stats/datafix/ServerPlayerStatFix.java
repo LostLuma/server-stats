@@ -1,16 +1,13 @@
 package net.lostluma.server_stats.datafix;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import net.lostluma.server_stats.Constants;
+import net.lostluma.server_stats.common.util.Platform;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.loader.api.QuiltLoader;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -21,14 +18,13 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class ServerPlayerStatFix {
 	private static final Logger LOGGER = LogManager.getLogger("server_stats");
-	private static final Path BACKUPS = QuiltLoader.getCacheDir().resolve("server_stats");
+	private static final Path BACKUPS = Platform.getCacheDir();
 
 	private static @Nullable Map<String, String> ID_MAP = null;
 	private static final Pattern UPGRADEABLE = Pattern.compile("^(?<type>stat.(?:breakItem|craftItem|mineBlock|useItem).)(?<id>\\d+)$");
@@ -113,16 +109,7 @@ public class ServerPlayerStatFix {
 	}
 
 	private static void populateIdMap() throws IOException {
-		Optional<ModContainer> container = QuiltLoader.getModContainer(Constants.MOD_ID);
-
-		if (!container.isPresent()) {
-			throw new RuntimeException("Unable to get own mod container!");
-		}
-
-		Path path = container.get().getPath("assets/" + Constants.MOD_ID + "/data/resources.json");
-
-		Type type = new TypeToken<Map<String, String>>() {
-		}.getType();
-		ID_MAP = new Gson().fromJson(new String(Files.readAllBytes(path), StandardCharsets.UTF_8), type);
+		Type type = new TypeToken<Map<String, String>>() {}.getType();
+		ID_MAP = Platform.getJsonAsset("resources.json", type);
 	}
 }

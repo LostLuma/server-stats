@@ -4,14 +4,13 @@ import com.google.gson.JsonObject;
 import net.lostluma.server_stats.common.stat.ServerPlayerStats;
 import net.lostluma.server_stats.common.stat.ServerStat;
 import net.lostluma.server_stats.common.stat.ServerStats;
+import net.lostluma.server_stats.common.util.Platform;
+import net.lostluma.server_stats.common.util.Version;
 import net.minecraft.network.packet.ChatMessagePacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
 import net.minecraft.stat.Stat;
 import net.minecraft.stat.achievement.AchievementStat;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.loader.api.QuiltLoader;
-import org.quiltmc.loader.api.Version;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -94,10 +93,8 @@ public abstract class ServerPlayerEntityMixin {
 	 */
 	@Unique
 	private boolean server_stats$usesComponents() {
-		ModContainer container = QuiltLoader.getModContainer("minecraft").get();
-
 		// Snapshot that adds text components
 		Version version = Version.of("1.6-alpha.13.21.a");
-		return container.metadata().version().compareTo(version) > -1;
+		return Platform.getModVersion("minecraft").compareTo(version) > -1;
 	}
 }

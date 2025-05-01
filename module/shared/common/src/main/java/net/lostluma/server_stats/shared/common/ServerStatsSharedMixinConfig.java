@@ -1,11 +1,8 @@
 package net.lostluma.server_stats.shared.common;
 
-import net.fabricmc.api.EnvType;
+import net.lostluma.server_stats.common.util.Platform;
+import net.lostluma.server_stats.common.util.Version;
 import org.objectweb.asm.tree.ClassNode;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.loader.api.QuiltLoader;
-import org.quiltmc.loader.api.Version;
-import org.quiltmc.loader.api.minecraft.MinecraftQuiltLoader;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
@@ -25,14 +22,13 @@ public class ServerStatsSharedMixinConfig implements IMixinConfigPlugin {
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
 		Version version = Version.of("1.3");
-		ModContainer container = QuiltLoader.getModContainer("minecraft").get();
 
 		// Load the ServerPlayerEntityMixin conditionally
 		// On servers always, otherwise only on versions >= 1.3
 
-		if (container.metadata().version().compareTo(version) > -1) {
+		if (Platform.getModVersion("minecraft").compareTo(version) > -1) {
 			return true; // Post 1.3 (has internal server)
-		} else if (MinecraftQuiltLoader.getEnvironmentType() == EnvType.SERVER) {
+		} else if (Platform.getEnvironment() == Platform.Environment.SERVER) {
 			return true; // Dedicated server, always load.
 		} else {
 			return !mixinClassName.contains("ServerPlayerEntityMixin");

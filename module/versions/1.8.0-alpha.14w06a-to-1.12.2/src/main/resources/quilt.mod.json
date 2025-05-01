@@ -36,6 +36,10 @@
                         "<=1.12.2"
                     ]
                 }
+            },
+            {
+                "id": "server_stats_common",
+                "versions": "*"
             }
         ]
     },
