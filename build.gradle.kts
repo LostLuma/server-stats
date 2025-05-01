@@ -41,9 +41,9 @@ dependencies {
 	include(project(":module:network:vanilla:server"))
 
 	// Code for all versions without server-side statistics
-	include(project(path = ":module:shared:client"))
-	include(project(path = ":module:shared:common"))
-	include(project(path = ":module:shared:server"))
+	include(project(":module:shared:client"))
+	include(project(":module:shared:common"))
+	include(project(":module:shared:server"))
 
 	// b1.5.0 -> first version with statistics!
 	include(project(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
@@ -59,7 +59,7 @@ dependencies {
 	// NOTE: client works until 1.0.0-pre.3 in theory
 	include(project(":module:versions:1.0.0-to-1.1.0-alpha.11w48a-client"))
 	include(project(":module:versions:1.0.1-to-1.1.0-alpha.11w48a-server"))
-	// 11w49a -> CustomPayloadPacket added
+	// 11w49a -> Entities.register signature changed
 	include(project(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client"))
 	include(project(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server"))
 	// 12w01a -> Entities.register and MinecraftServer.loadWorld signature changed
