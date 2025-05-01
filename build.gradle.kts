@@ -5,6 +5,11 @@ plugins {
 dependencies {
 	shadow(libs.gson)
 
+	include(project(":module:bugfix:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a"))
+	include(project(":module:bugfix:drop-amount:1.2.0-to-1.7.0-alpha.13w37b"))
+	include(project(":module:bugfix:drop-amount:1.7.0-alpha.13w38a-to-1.8.0-alpha.14w08a"))
+	include(project(":module:bugfix:drop-amount:1.8.0-alpha.14w10a-to-1.8.0-alpha.14w28b"))
+	include(project(":module:bugfix:drop-amount:1.8.0-alpha.14w29a-to-1.12.2"))
 	include(project(":module:bugfix:jump"))
 	include(project(":module:bugfix:movement"))
 	include(project(":module:bugfix:result-amount"))

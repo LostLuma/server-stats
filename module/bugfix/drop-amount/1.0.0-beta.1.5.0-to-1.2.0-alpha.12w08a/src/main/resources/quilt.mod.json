@@ -1,0 +1,50 @@
+{
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "net.lostluma",
+        "id": "server_stats_drop_amount",
+        "version": "${version}",
+        "metadata": {
+            "name": "Server Stats Drop Amount",
+            "description": "Fix item drop amount tracking.",
+            "contributors": {
+                "LostLuma": "Author",
+                "Pixaurora": [
+                    "Contributor",
+                    "Illustrator"
+                ]
+            },
+            "contact": {
+                "homepage": "https://go.lostluma.net/server-stats",
+                "issues": "https://go.lostluma.net/server-stats-issues",
+                "sources": "https://go.lostluma.net/server-stats-source"
+            },
+            "license": {
+                "name": "LGPL License",
+                "id": "LGPL-3.0-or-later",
+                "url": "https://go.lostluma.net/server-stats-license"
+            },
+            "icon": "assets/server_stats_drop_amount/icon.png"
+        },
+        "load_type": "if_possible",
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "depends": [
+            {
+                "id": "minecraft",
+                "versions": {
+                    "all": [
+                        ">=1.0.0-beta.5",
+                        "<=1.2-alpha.12.08.a"
+                    ]
+                }
+            }
+        ]
+    },
+    "minecraft": {
+        "environment": "*"
+    },
+    "mixin": "server_stats.drop_amount.mixins.json",
+    "modmenu": {
+        "parent": "server_stats"
+    }
+}

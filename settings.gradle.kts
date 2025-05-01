@@ -23,6 +23,11 @@ plugins {
 rootProject.name = "server-stats"
 includeBuild("build-logic")
 
+include(":module:bugfix:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a")
+include(":module:bugfix:drop-amount:1.2.0-to-1.7.0-alpha.13w37b")
+include(":module:bugfix:drop-amount:1.7.0-alpha.13w38a-to-1.8.0-alpha.14w08a")
+include(":module:bugfix:drop-amount:1.8.0-alpha.14w10a-to-1.8.0-alpha.14w28b")
+include(":module:bugfix:drop-amount:1.8.0-alpha.14w29a-to-1.12.2")
 include(":module:bugfix:jump")
 include(":module:bugfix:movement")
 include(":module:bugfix:result-amount")
