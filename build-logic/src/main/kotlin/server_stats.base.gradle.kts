@@ -24,18 +24,29 @@ fun mavenGroup(): String {
 	}
 }
 
+fun modVersion(): String {
+	val base = project.property("mod_version").toString();
+	val isCi = providers.environmentVariable("CI").isPresent;
+
+	if (isCi) {
+		return base;
+	} else {
+		return "${base}+local";
+	}
+}
+
 // Each project needs a unique identifier
 // And archive name, otherwise Gradle and
 // Loom treat them as interchangeable ...
 group = mavenGroup()
-version = project.property("mod_version").toString()
+version = modVersion()
 
 base {
 	archivesName = moduleName()
 }
 
 tasks.withType<ProcessResources> {
-	inputs.property("version", project.property("mod_version"))
+	inputs.property("version", version)
 
 	filesMatching("fabric.mod.json") {
 		expand(inputs.properties)
