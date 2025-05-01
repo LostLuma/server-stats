@@ -88,6 +88,6 @@ dependencies {
 	include(project(":module:versions:1.8.0-alpha.14w06a-to-1.12.2"))
 }
 
-tasks.remapJar {
+tasks.withType<Jar> {
 	from("LICENSE")
 }
