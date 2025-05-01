@@ -1,0 +1,9 @@
+- Add mod icon ([PR 1](https://github.com/LostLuma/server-stats/pull/1) by @Pixaurora)
+- Combine mod archive for all versions into a single jar (contributed by @LostLuma)
+- Add singleplayer support for Minecraft 1.3.2 through 1.6.4 (contributed by @LostLuma)
+- Add singleplayer support for Minecraft 1.0.0 through 1.2.5 ([PR 2](https://github.com/LostLuma/server-stats/pull/2) by @Pixaurora and @LostLuma)
+- Add statistics datafixer for Minecraft 1.8.0 and later (contributed by @LostLuma)
+  - Instead of losing most of your stats when upgrading from 1.7 to 1.8 and later the mod will convert them to the new format
+- Add statistics menu synchronization with the server (contributed by @LostLuma)
+  - Joining a server using Server Stats the stats menu will now accurately display your stats from that world (instead of your global stats)
+- Fix different comparator states not being counted as one statistic in Minecraft 1.5.2 and above (contributed by @LostLuma)

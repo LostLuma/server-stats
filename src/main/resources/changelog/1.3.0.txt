@@ -1,0 +1,7 @@
+- Add Java 8 support
+- Add support for Beta 1.5 through 1.8.1
+- Add support for 1.3 snapshots until 12w17a
+- Fix statistics menu not being synced in singleplayer pre 1.3
+- Add support for server-client statistics synchronization before 11w48a (1.1 snapshot)
+  - Note: This is an optional feature activated by both sides installing OSL
+- Add contributor info to mod metadata

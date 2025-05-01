@@ -1,0 +1,1 @@
+- Fix deaths not being counted on servers and in singleplayer in 1.3.x and above

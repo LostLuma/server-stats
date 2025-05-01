@@ -1,5 +1,9 @@
+import me.modmuss50.mpp.ReleaseType
+import net.fabricmc.loom.task.RemapJarTask
+
 plugins {
 	id("server_stats.module")
+	alias(libs.plugins.mod.publish)
 }
 
 dependencies {
@@ -90,4 +94,53 @@ dependencies {
 
 tasks.withType<Jar> {
 	from("LICENSE")
+}
+
+val modVersion = project.property("mod_version").toString()
+
+fun getVersionType(): ReleaseType {
+	return if (modVersion.startsWith("0.") || modVersion.contains("-alpha.")) {
+		ReleaseType.ALPHA;
+	} else if (modVersion.contains("-")) {
+		ReleaseType.BETA;
+	} else {
+		ReleaseType.STABLE;
+	}
+}
+
+publishMods {
+	version = modVersion
+	displayName = "v${modVersion}"
+
+	type = getVersionType();
+	modLoaders.addAll("fabric", "quilt")
+
+	file = tasks.withType<RemapJarTask>()["remapJar"].archiveFile
+	changelog = file(rootDir.toPath().resolve("src/main/resources/changelog/${modVersion}.txt")).readText()
+
+	modrinth {
+		accessToken = providers.environmentVariable("MODRINTH_SECRET")
+		projectId = "shTz7pFB"
+
+		minecraftVersionRange {
+			start = "b1.5"
+			end = "b1.8.1"
+			includeSnapshots = true
+		}
+
+		minecraftVersionRange {
+			start = "1.0"
+			end = "1.2.5"
+			// end = "12w17a" - missing on Modrinth ...?
+			includeSnapshots = true
+		}
+
+		minecraftVersionRange {
+			start = "1.3.2"
+			end = "1.12.2"
+			includeSnapshots = true
+		}
+
+		requires{ slug = "osl"; version = libs.versions.osl.bundle.get() }
+	}
 }

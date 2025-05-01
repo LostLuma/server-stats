@@ -1,0 +1,1 @@
+Initial release for every release version of Minecraft missing server-side stats collection.

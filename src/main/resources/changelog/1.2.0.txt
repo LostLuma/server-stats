@@ -1,0 +1,3 @@
+- Fix crash on 1.0.1 and 1.2.5 servers
+- Add support for releases and snapshots between 1.0.1 and 1.2.5, as well as 1.3.2 and 1.12.2
+  - 1.3 snapshots are (for now?) intentionally left out as they did not run properly, and addition of integrated server is messy

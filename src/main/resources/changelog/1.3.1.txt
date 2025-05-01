@@ -1,0 +1,2 @@
+- Update Minecraft dependency specifiers
+  - Makes Server Stats run on some weirder versions again when using Quilt Loader >= `0.24.x`, due to [FabricMC/fabric-loader/pull/897](https://github.com/fabricMC/fabric-loader/pull/897)
