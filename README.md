@@ -20,7 +20,7 @@ it also includes a statistics upgrade system to convert ID-based statistics to r
 
 ## Installation
 
-Server Stats runs on [Quilt Loader](https://quiltmc.org/en/) using the [OrnitheMC Toolchain](https://ornithemc.net/) for legacy Minecraft versions.  
+Server Stats runs on Fabric and Quilt Loader using the [Ornithe Toolchain](https://ornithemc.net/) for legacy versions.  
 To install the mod use the Ornithe installer, then simply drop Server Stats into your `mods` folder.
 
 You can download the release version of Server Stats from either [Modrinth](https://modrinth.com/mod/server-stats) or [Forgejo](https://code.lostluma.net/LostLuma/server-stats/releases).

@@ -1,0 +1,46 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_network_client",
+    "version": "${version}",
+    "name": "Server Stats Network",
+    "description": "Server Stats' Server-client communication.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "client",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_network/icon.png",
+    "accessWidener": "server_stats.network.accesswidener",
+    "entrypoints": {
+        "client-init": [
+            "net.lostluma.server_stats.network.client.Networking"
+        ]
+    },
+    "depends": {
+        "osl": ">=0.12.1",
+        "minecraft": ">=1.0.0-beta.5 <=1.1.0-alpha.11.48.a",
+        "server_stats_common": "=${version}",
+        "server_stats_network_common": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        },
+        "loom:injected_interfaces": {
+            "net/minecraft/unmapped/C_2854223": [
+                "net/lostluma/server_stats/common/duck/DuckStats"
+            ],
+            "net/minecraft/unmapped/C_9590849": [
+                "net/lostluma/server_stats/common/duck/DuckPlayer"
+            ]
+        }
+    }
+}

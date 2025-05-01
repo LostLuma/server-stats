@@ -1,0 +1,29 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats",
+    "version": "${version}",
+    "name": "Server Stats",
+    "description": "Implementation of server-side statistics for legacy versions of Minecraft.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats/icon.png",
+    "depends": {
+        "java": ">=8.0.0",
+        "fabricloader": ">=0.16.10",
+        "minecraft": ">=1.0.0-beta.5 <=1.12.2"
+    },
+    "recommends": {
+        "quilt_loader": "*"
+    }
+}

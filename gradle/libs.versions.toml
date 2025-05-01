@@ -1,10 +1,10 @@
 [versions]
 gson = "2.10.1"
 annotations = "26.0.2"
-quilt_loader = "0.28.1"
+fabric_loader = "0.16.14"
 
-ploceus = "1.8.10"
-quilt_loom = "1.8.5"
+ploceus = "1.10.16"
+fabric_loom = "1.10.5"
 shadow = "9.0.0-beta12"
 
 osl_bundle = "0.12.1"
@@ -15,8 +15,8 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
 
 ploceus = { module = "net.ornithemc:ploceus", version.ref = "ploceus" }
-quilt_loom = { module = "org.quiltmc:loom", version.ref = "quilt_loom" }
-quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loader" }
+fabric_loom = { module = "net.fabricmc:fabric-loom", version.ref = "fabric_loom" }
+fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
 shadow = { module = "com.gradleup.shadow:shadow-gradle-plugin", version.ref = "shadow" }
 
 osl_networking_server = { module = "net.ornithemc.osl:networking", version.ref = "osl_networking_server" }

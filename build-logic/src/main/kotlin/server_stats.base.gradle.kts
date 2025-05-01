@@ -37,7 +37,7 @@ base {
 tasks.withType<ProcessResources> {
 	inputs.property("version", project.property("mod_version"))
 
-	filesMatching("quilt.mod.json") {
+	filesMatching("fabric.mod.json") {
 		expand(inputs.properties)
 	}
 }

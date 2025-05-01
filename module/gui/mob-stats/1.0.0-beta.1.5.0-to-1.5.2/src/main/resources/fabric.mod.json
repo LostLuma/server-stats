@@ -1,0 +1,43 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_mob_stats",
+    "version": "${version}",
+    "name": "Server Stats Mob Stats",
+    "description": "Support for Mob statistics in the GUI.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "client",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_mob_stats/icon.png",
+    "mixins": [
+        "server_stats.mob_stats.mixins.json"
+    ],
+    "accessWidener": "server_stats.mob_stats.accesswidener",
+    "depends": {
+        "minecraft": ">=1.0.0-beta.5 <=1.5.2",
+        "server_stats_common": "=${version}",
+        "server_stats_gui_util": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        },
+        "loom:injected_interfaces": {
+            "net/minecraft/unmapped/C_2854223": [
+                "net/lostluma/server_stats/common/duck/DuckStats"
+            ],
+            "net/minecraft/unmapped/C_9590849": [
+                "net/lostluma/server_stats/common/duck/DuckPlayer"
+            ]
+        }
+    }
+}

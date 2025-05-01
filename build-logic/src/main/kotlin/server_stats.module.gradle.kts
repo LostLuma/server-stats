@@ -1,7 +1,7 @@
 import org.gradle.accessors.dm.LibrariesForLibs
 
 plugins {
-	id("org.quiltmc.loom")
+	id("fabric-loom")
 	id("ploceus")
 	id("server_stats.library")
 }
@@ -37,7 +37,7 @@ if (!isMerged) {
 }
 
 dependencies {
-	modImplementation(libs.quilt.loader)
+	modImplementation(libs.fabric.loader)
 	minecraft("com.mojang:minecraft:${minecraftVersion}")
 
 	if (project.hasProperty("nests_build")) {

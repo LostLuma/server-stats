@@ -83,7 +83,7 @@ dependencies {
 	// 13w39a -> PlayerManager.createForLogin signature changed
 	include(project(":module:versions:1.7.0-alpha.13w39a-to-1.7.5"))
 	// 1.7.6 -> player data saved with uuid
-	include(project(":module:versions:1.7.6-pre.1-to-1.8.0-alpha.14w05b"))
+	// include(project(":module:versions:1.7.6-pre.1-to-1.8.0-alpha.14w05b"))
 	// 14w06a -> new statistics format, no upgrade path :(
 	include(project(":module:versions:1.8.0-alpha.14w06a-to-1.12.2"))
 }

@@ -8,7 +8,7 @@ repositories {
 		url = uri("https://maven.fabricmc.net/")
 	}
 	maven {
-		name = "Ornithe Releases"
+		name = "Ornithe"
 		url = uri("https://maven.ornithemc.net/releases")
 	}
 	maven {
@@ -21,7 +21,7 @@ repositories {
 dependencies {
 	implementation(libs.shadow)
 	implementation(libs.ploceus)
-	implementation(libs.quilt.loom)
+	implementation(libs.fabric.loom)
 
 	// Enable using version catalog in local plugins
 	// https://github.com/gradle/gradle/issues/15383

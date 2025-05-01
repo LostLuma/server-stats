@@ -1,0 +1,39 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_large_stats",
+    "version": "${version}",
+    "name": "Server Stats Large Stats",
+    "description": "Support for 64 Bit statistics in the GUI.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "client",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_large_stats/icon.png",
+    "mixins": [
+        "server_stats.large_stats.mixins.json"
+    ],
+    "accessWidener": "server_stats.large_stats.accesswidener",
+    "depends": {
+        "minecraft": ">=1.2.4 <=1.5.2",
+        "server_stats_common": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        },
+        "loom:injected_interfaces": {
+            "net/minecraft/unmapped/C_2854223": [
+                "net/lostluma/server_stats/common/duck/DuckStats"
+            ]
+        }
+    }
+}

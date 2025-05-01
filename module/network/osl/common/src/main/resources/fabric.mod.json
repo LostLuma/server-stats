@@ -1,0 +1,31 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_network_common",
+    "version": "${version}",
+    "name": "Server Stats Network",
+    "description": "Server Stats' Server-client communication.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_network/icon.png",
+    "depends": {
+        "osl": ">=0.12.1",
+        "minecraft": ">=1.0.0-beta.5 <=1.1.0-alpha.11.48.a",
+        "server_stats_common": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

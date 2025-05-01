@@ -27,7 +27,7 @@ repositories {
 dependencies {
 	compileOnly(libs.gson)
 	compileOnly(libs.annotations)
-	implementation(libs.quilt.loader)
+	implementation(libs.fabric.loader)
 }
 
 tasks.shadowJar {
