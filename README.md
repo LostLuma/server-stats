@@ -41,7 +41,11 @@ The mod may function on these versions without issue, but you will receive no su
 
 ## Mod Support
 
-Statistics and achievements added by other mods can also be saved and synchronized by Server Stats,  
+Server Stats is intended to be usable in conjunction with other mods adding stats by default.  
+
+### Custom Vanilla Stats
+
+Vanilla stats and achievements added by other mods can also be saved and synchronized by Server Stats,  
 if they are registered using the vanilla `Stat.register()` method and awarded on the dedicated server.
 
 > [!WARNING]
@@ -49,3 +53,10 @@ if they are registered using the vanilla `Stat.register()` method and awarded on
 > and before Server Stats removes its function in counting statistics and has implemented it differently  
 > for vanilla crafting interfaces (the inventory, crafting table, and furnace). Mods adding new crafting  
 > methods will instead need to call `PlayerEntity.incrementStat` with the real amount crafted themselves.
+
+### Mob Statistics Screen
+
+Statistics for killing and being killed by mobs added by mods are automatically collected by Server Stats.  
+However, by default Server Stats will not display a mob face in the mob stats screen for mobs it doesn't know.
+
+You can change this by shipping a texture in this location: ``assets/server_stats/textures/mob_face/mob_name.png``
