@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_common",
     "version": "${version}",
-    "name": "Server Stats Common",
+    "name": "Common",
     "description": "Code used in most other modules.",
     "authors": [
         "LostLuma"

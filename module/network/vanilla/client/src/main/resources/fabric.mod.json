@@ -2,8 +2,8 @@
     "schemaVersion": 1,
     "id": "server_stats_network_client",
     "version": "${version}",
-    "name": "Server Stats Network",
-    "description": "Server Stats' Server-client communication.",
+    "name": "Network",
+    "description": "Networking implementation.",
     "authors": [
         "LostLuma"
     ],

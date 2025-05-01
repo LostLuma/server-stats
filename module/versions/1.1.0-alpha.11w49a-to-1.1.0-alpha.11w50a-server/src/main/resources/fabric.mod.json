@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_version",
     "version": "${version}",
-    "name": "Server Stats Mixins",
+    "name": "Mixins",
     "description": "Implementation of server-side statistics.",
     "authors": [
         "LostLuma"

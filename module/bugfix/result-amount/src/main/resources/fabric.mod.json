@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_result_amount",
     "version": "${version}",
-    "name": "Server Stats Result Amount",
+    "name": "Result Amount",
     "description": "Fix crafting result amount tracking.",
     "authors": [
         "LostLuma"

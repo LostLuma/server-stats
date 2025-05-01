@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_jump",
     "version": "${version}",
-    "name": "Server Stats Jump",
+    "name": "Jump",
     "description": "Fix jumping statistics tracking.",
     "authors": [
         "LostLuma"

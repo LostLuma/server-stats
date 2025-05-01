@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_shared_client",
     "version": "${version}",
-    "name": "Server Stats Shared",
+    "name": "Shared",
     "description": "Minecraft-related code shared between all versions.",
     "authors": [
         "LostLuma"

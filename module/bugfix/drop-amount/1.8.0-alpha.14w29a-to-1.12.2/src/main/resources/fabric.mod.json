@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_drop_amount",
     "version": "${version}",
-    "name": "Server Stats Drop Amount",
+    "name": "Drop Amount",
     "description": "Fix item drop amount tracking.",
     "authors": [
         "LostLuma"

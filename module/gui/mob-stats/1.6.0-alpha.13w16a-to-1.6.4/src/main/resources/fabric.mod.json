@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_mob_stats",
     "version": "${version}",
-    "name": "Server Stats Mob Stats",
+    "name": "Mob Stats",
     "description": "Support for Mob statistics in the GUI.",
     "authors": [
         "LostLuma"
