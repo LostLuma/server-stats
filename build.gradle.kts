@@ -115,7 +115,7 @@ publishMods {
 	modLoaders.addAll("fabric", "quilt")
 
 	file = tasks.withType<RemapJarTask>()["remapJar"].archiveFile
-	changelog = file(rootDir.toPath().resolve("src/main/resources/changelog/${modVersion}.txt")).readText()
+	changelog = file(rootDir.toPath().resolve("src/main/resources/changelog/${modVersion}.md")).readText()
 
 	modrinth {
 		accessToken = providers.environmentVariable("MODRINTH_SECRET")
