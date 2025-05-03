@@ -64,34 +64,34 @@ include(":module:shared:client")
 include(":module:shared:common")
 include(":module:shared:server")
 
-include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
-include(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")
-include(":module:versions:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")
+include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
+include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")
+include(":module:version:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")
 
-include(":module:versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client")
-include(":module:versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server")
+include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client")
+include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server")
 
-include(":module:versions:1.0.0-to-1.1.0-alpha.11w48a-client")
-include(":module:versions:1.0.1-to-1.1.0-alpha.11w48a-server")
+include(":module:version:1.0.0-to-1.1.0-alpha.11w48a-client")
+include(":module:version:1.0.1-to-1.1.0-alpha.11w48a-server")
 
-include(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client")
-include(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server")
+include(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client")
+include(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server")
 
-include(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client")
-include(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server")
+include(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client")
+include(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server")
 
-include(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client")
-include(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server")
+include(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client")
+include(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server")
 
-include(":module:versions:1.3.2-to-1.4.0-alpha.12w38b")
+include(":module:version:1.3.2-to-1.4.0-alpha.12w38b")
 
-include(":module:versions:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b")
+include(":module:version:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b")
 
-include(":module:versions:1.5.0-alpha.13w02a-to-1.5.2")
+include(":module:version:1.5.0-alpha.13w02a-to-1.5.2")
 
-include(":module:versions:1.6.0-alpha.13w16a-to-1.6.4")
+include(":module:version:1.6.0-alpha.13w16a-to-1.6.4")
 
-include(":module:versions:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c")
-include(":module:versions:1.7.0-alpha.13w39a-to-1.7.5")
+include(":module:version:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c")
+include(":module:version:1.7.0-alpha.13w39a-to-1.7.5")
 
-// include(":module:versions:1.7.6-pre.1-to-1.8.0-alpha.14w05b")
+// include(":module:version:1.7.6-pre.1-to-1.8.0-alpha.14w05b")

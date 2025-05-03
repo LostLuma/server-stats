@@ -52,44 +52,44 @@ dependencies {
 	include(project(":module:shared:server"))
 
 	// b1.5.0 -> first version with statistics!
-	include(project(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
-	include(project(":module:versions:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server"))
+	include(project(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
+	include(project(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server"))
 	// b1.6.0 -> changed PlayerManager.respawn signature
-	include(project(":module:versions:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server"))
+	include(project(":module:version:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server"))
 
 	// b1.8.0 -> added DamageSource, Minecraft.startGame signature changed
-	include(project(":module:versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client"))
-	include(project(":module:versions:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server"))
+	include(project(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client"))
+	include(project(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server"))
 
 	// 1.0.0 -> Initial release
 	// NOTE: client works until 1.0.0-pre.3 in theory
-	include(project(":module:versions:1.0.0-to-1.1.0-alpha.11w48a-client"))
-	include(project(":module:versions:1.0.1-to-1.1.0-alpha.11w48a-server"))
+	include(project(":module:version:1.0.0-to-1.1.0-alpha.11w48a-client"))
+	include(project(":module:version:1.0.1-to-1.1.0-alpha.11w48a-server"))
 	// 11w49a -> Entities.register signature changed
-	include(project(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client"))
-	include(project(":module:versions:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server"))
+	include(project(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client"))
+	include(project(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server"))
 	// 12w01a -> Entities.register and MinecraftServer.loadWorld signature changed
-	include(project(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client"))
-	include(project(":module:versions:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server"))
+	include(project(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client"))
+	include(project(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server"))
 	// 12w17a -> ...
-	include(project(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client"))
-	include(project(":module:versions:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server"))
+	include(project(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client"))
+	include(project(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server"))
 	// NOTE: 12w18a to 12w21a are v weird ..
 	// NOTE: All further snapshots including 1.3.0-pre.1 unsupported, for now
 	// 1.3.2 -> now merged!
-	include(project(":module:versions:1.3.2-to-1.4.0-alpha.12w38b"))
+	include(project(":module:version:1.3.2-to-1.4.0-alpha.12w38b"))
 	// 12w39a -> ...
-	include(project(":module:versions:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b"))
+	include(project(":module:version:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b"))
 	//13w02a -> ...
-	include(project(":module:versions:1.5.0-alpha.13w02a-to-1.5.2"))
+	include(project(":module:version:1.5.0-alpha.13w02a-to-1.5.2"))
 	// 13w16a -> ...
-	include(project(":module:versions:1.6.0-alpha.13w16a-to-1.6.4"))
+	include(project(":module:version:1.6.0-alpha.13w16a-to-1.6.4"))
 	// 13w36a -> server-side statistics
-	include(project(":module:versions:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c"))
+	include(project(":module:version:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c"))
 	// 13w39a -> PlayerManager.createForLogin signature changed
-	include(project(":module:versions:1.7.0-alpha.13w39a-to-1.7.5"))
+	include(project(":module:version:1.7.0-alpha.13w39a-to-1.7.5"))
 	// 1.7.6 -> player data saved with uuid
-	// include(project(":module:versions:1.7.6-pre.1-to-1.8.0-alpha.14w05b"))
+	// include(project(":module:version:1.7.6-pre.1-to-1.8.0-alpha.14w05b"))
 }
 
 tasks.withType<Jar> {
