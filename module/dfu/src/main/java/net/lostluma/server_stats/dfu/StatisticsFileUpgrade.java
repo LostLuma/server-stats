@@ -1,4 +1,4 @@
-package net.lostluma.server_stats.datafix;
+package net.lostluma.server_stats.dfu;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,14 +22,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class ServerPlayerStatFix {
+public class StatisticsFileUpgrade {
 	private static final Logger LOGGER = LogManager.getLogger("server_stats");
 	private static final Path BACKUPS = Platform.getCacheDir();
 
 	private static @Nullable Map<String, String> ID_MAP = null;
 	private static final Pattern UPGRADEABLE = Pattern.compile("^(?<type>stat.(?:breakItem|craftItem|mineBlock|useItem).)(?<id>\\d+)$");
 
-	public static void upgradePlayerStats(String worldDir) throws IOException {
+	public static void upgradeWorld(String worldDir) throws IOException {
 		Path stats = Paths.get(worldDir).resolve("stats");
 
 		if (!Files.isDirectory(stats)) {
@@ -42,14 +42,14 @@ public class ServerPlayerStatFix {
 			Iterator<Path> files = stream.iterator();
 
 			while (files.hasNext()) {
-				upgradePlayerStats(files.next());
+				upgradeWorld(files.next());
 			}
 		}
 
 		ID_MAP = null; // Will never be used again during runtime of the program
 	}
 
-	private static void upgradePlayerStats(Path path) throws IOException {
+	private static void upgradeWorld(Path path) throws IOException {
 		JsonElement data = JsonParser.parseString(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
 
 		if (!data.isJsonObject()) {

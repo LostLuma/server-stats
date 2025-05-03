@@ -34,6 +34,8 @@ include(":module:bugfix:result-amount")
 
 include(":module:common")
 
+include(":module:dfu")
+
 include(":module:gui:large-stats:1.0.0-beta.1.5.0-to-1.2.3")
 include(":module:gui:large-stats:1.2.4-to-1.5.2")
 include(":module:gui:large-stats:1.6.0-alpha.13w16a-to-1.6.4")
@@ -93,5 +95,3 @@ include(":module:versions:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c")
 include(":module:versions:1.7.0-alpha.13w39a-to-1.7.5")
 
 // include(":module:versions:1.7.6-pre.1-to-1.8.0-alpha.14w05b")
-
-include(":module:versions:1.8.0-alpha.14w06a-to-1.12.2")

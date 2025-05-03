@@ -20,6 +20,8 @@ dependencies {
 
 	include(project(path = ":module:common", configuration = "shadow"))
 
+	include(project(":module:dfu"))
+
 	include(project(":module:gui:large-stats:1.0.0-beta.1.5.0-to-1.2.3"))
 	include(project(":module:gui:large-stats:1.2.4-to-1.5.2"))
 	include(project(":module:gui:large-stats:1.6.0-alpha.13w16a-to-1.6.4"))
@@ -88,8 +90,6 @@ dependencies {
 	include(project(":module:versions:1.7.0-alpha.13w39a-to-1.7.5"))
 	// 1.7.6 -> player data saved with uuid
 	// include(project(":module:versions:1.7.6-pre.1-to-1.8.0-alpha.14w05b"))
-	// 14w06a -> new statistics format, no upgrade path :(
-	include(project(":module:versions:1.8.0-alpha.14w06a-to-1.12.2"))
 }
 
 tasks.withType<Jar> {

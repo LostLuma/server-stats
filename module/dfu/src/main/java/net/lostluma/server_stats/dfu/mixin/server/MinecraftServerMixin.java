@@ -1,8 +1,7 @@
-package net.lostluma.server_stats.mixin.client;
+package net.lostluma.server_stats.dfu.mixin.server;
 
-import net.lostluma.server_stats.datafix.ServerPlayerStatFix;
+import net.lostluma.server_stats.dfu.StatisticsFileUpgrade;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.integrated.IntegratedServer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -10,11 +9,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.io.IOException;
 
-@Mixin(IntegratedServer.class)
-public class IntegratedServerMixin {
+@Mixin(MinecraftServer.class)
+public class MinecraftServerMixin {
 	@Inject(method = "loadWorld", at = @At("HEAD"))
 	private void loadWorld(CallbackInfo callbackInfo) throws IOException {
 		MinecraftServer server = (MinecraftServer) (Object) this;
-		ServerPlayerStatFix.upgradePlayerStats("saves/" + server.getWorldDirName());
+		StatisticsFileUpgrade.upgradeWorld(server.getWorldDirName());
 	}
 }
