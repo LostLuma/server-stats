@@ -89,7 +89,6 @@ dependencies {
 	// 13w39a -> PlayerManager.createForLogin signature changed
 	include(project(":module:version:1.7.0-alpha.13w39a-to-1.7.5"))
 	// 1.7.6 -> player data saved with uuid
-	// include(project(":module:version:1.7.6-pre.1-to-1.8.0-alpha.14w05b"))
 }
 
 tasks.withType<Jar> {
