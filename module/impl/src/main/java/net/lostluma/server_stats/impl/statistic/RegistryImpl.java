@@ -20,9 +20,6 @@ public class RegistryImpl {
 
 	private static final Map<String, String> VANILLA_TO_CUSTOM = getVanillaStatIDs();
 
-	public static final ServerStatistic QUIT = new ServerStatisticImpl(1004, "leaveGame");
-	public static final ServerStatisticImpl DEATHS = new ServerStatisticImpl(2022, "deaths");
-
 	public static void register(ServerStatisticImpl stat) {
 		BY_KEY.put(stat.key(), stat);
 
@@ -37,14 +34,6 @@ public class RegistryImpl {
 
 	public static ServerStatisticImpl byVanillaId(Integer id) {
 		return BY_VANILLA_ID.get(id);
-	}
-
-	public static ServerStatisticImpl getEntityKillStat(String entityId) {
-		return byKey("stat.killEntity." + entityId);
-	}
-
-	public static ServerStatisticImpl getKilledByEntityStat(String entityId) {
-		return byKey("stat.entityKilledBy." + entityId);
 	}
 
 	public static void createVanillaStat(int id) {

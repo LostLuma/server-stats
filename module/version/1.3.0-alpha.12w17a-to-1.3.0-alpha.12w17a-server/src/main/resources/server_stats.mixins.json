@@ -5,9 +5,7 @@
     "compatibilityLevel": "JAVA_8",
     "client": [],
     "mixins": [
-        "common.EntitiesMixin",
         "common.MinecraftServerMixin",
-        "common.PlayerEntityMixin",
         "common.PlayerManagerMixin"
     ],
     "server": [

@@ -9,9 +9,7 @@
         "client.ServerPlayNetworkHandlerMixin"
     ],
     "mixins": [
-        "common.EntitiesMixin",
         "common.MinecraftServerMixin",
-        "common.PlayerEntityMixin",
         "common.PlayerManagerMixin",
         "common.ServerPlayerEntityMixin"
     ],

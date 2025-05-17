@@ -8,8 +8,6 @@
         "client.MinecraftMixin"
     ],
     "mixins": [
-        "common.EntitiesMixin",
-        "common.PlayerEntityMixin",
         "common.WorldMixin"
     ],
     "server": [],

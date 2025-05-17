@@ -73,6 +73,10 @@ include(":module:shared:client")
 include(":module:shared:common")
 include(":module:shared:server")
 
+include(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-alpha.11w48a")
+include(":module:statistic:combat:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a")
+include(":module:statistic:combat:1.1.0-alpha.12w01a-to-1.6.4")
+
 include(":module:util")
 
 include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
@@ -82,11 +86,8 @@ include(":module:version:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")
 include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client")
 include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server")
 
-include(":module:version:1.0.0-to-1.1.0-alpha.11w48a-client")
-include(":module:version:1.0.1-to-1.1.0-alpha.11w48a-server")
-
-include(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client")
-include(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server")
+include(":module:version:1.0.0-to-1.1.0-alpha.11w50a-client")
+include(":module:version:1.0.1-to-1.1.0-alpha.11w50a-server")
 
 include(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client")
 include(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server")

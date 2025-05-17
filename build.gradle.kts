@@ -57,6 +57,10 @@ dependencies {
 	include(project(":module:shared:common"))
 	include(project(":module:shared:server"))
 
+	include(project(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-alpha.11w48a"))
+	include(project(":module:statistic:combat:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a"))
+	include(project(":module:statistic:combat:1.1.0-alpha.12w01a-to-1.6.4"))
+
 	include(project(":module:util"))
 
 	// b1.5.0 -> first version with statistics!
@@ -71,12 +75,9 @@ dependencies {
 
 	// 1.0.0 -> Initial release
 	// NOTE: client works until 1.0.0-pre.3 in theory
-	include(project(":module:version:1.0.0-to-1.1.0-alpha.11w48a-client"))
-	include(project(":module:version:1.0.1-to-1.1.0-alpha.11w48a-server"))
-	// 11w49a -> Entities.register signature changed
-	include(project(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-client"))
-	include(project(":module:version:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a-server"))
-	// 12w01a -> Entities.register and MinecraftServer.loadWorld signature changed
+	include(project(":module:version:1.0.0-to-1.1.0-alpha.11w50a-client"))
+	include(project(":module:version:1.0.1-to-1.1.0-alpha.11w50a-server"))
+	// 12w01a -> MinecraftServer.loadWorld signature changed
 	include(project(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client"))
 	include(project(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server"))
 	// 12w17a -> ...

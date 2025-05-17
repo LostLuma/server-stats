@@ -2,6 +2,7 @@ package net.lostluma.server_stats.shared.common.mixin;
 
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
+import net.lostluma.server_stats.impl.ext.player.StatProvider;
 import net.minecraft.entity.living.player.PlayerEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -13,9 +14,10 @@ import java.util.Map;
 
 /**
  * PersistentStats proxy implemented on the player.
+ * The StatProvider implementation is on LocalPlayerEntity and ServerPlayerEntity respectively.
  */
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin implements PersistentStats {
+public class PlayerEntityMixin implements PersistentStats, StatProvider {
 	@Unique
 	private @Nullable PersistentStats stats() {
 		return ((PlayerEntity)(Object) this).server_stats$stats();
