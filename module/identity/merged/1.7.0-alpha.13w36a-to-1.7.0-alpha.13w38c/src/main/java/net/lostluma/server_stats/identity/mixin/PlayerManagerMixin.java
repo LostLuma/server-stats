@@ -1,6 +1,7 @@
 package net.lostluma.server_stats.identity.mixin;
 
 import net.lostluma.server_stats.identity.UUIDHelper;
+import net.lostluma.server_stats.util.Logging;
 import net.lostluma.server_stats.util.Mojang;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
@@ -21,7 +22,7 @@ public class PlayerManagerMixin {
 			UUIDHelper.setUuid(name, uuid.toString());
 		} catch (IOException e) {
 			callbackInfo.setReturnValue(null);
-			System.out.println("Rejecting login from " + name + ", failed to fetch UUID!");
+			Logging.getLogger().warn("Rejecting login from {}, failed to fetch UUID!", name);
 		}
 	}
 }
