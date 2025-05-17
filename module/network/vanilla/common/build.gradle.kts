@@ -3,5 +3,6 @@ plugins {
 }
 
 dependencies {
-	implementation(project(":module:common"))
+	implementation(project(":module:impl"))
+	implementation(project(":module:util"))
 }

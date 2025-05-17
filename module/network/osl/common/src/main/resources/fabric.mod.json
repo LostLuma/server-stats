@@ -21,7 +21,8 @@
     "depends": {
         "osl": ">=0.12.1",
         "minecraft": ">=1.0.0-beta.5 <=1.1.0-alpha.11.48.a",
-        "server_stats_common": "=${version}"
+        "server_stats_impl": "=${version}",
+        "server_stats_util": "=${version}"
     },
     "custom": {
         "modmenu": {

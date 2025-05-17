@@ -1,9 +1,8 @@
 package net.lostluma.server_stats.large_stats.mixin;
 
 import com.mojang.blaze3d.vertex.BufferBuilder;
-import net.lostluma.server_stats.common.stat.ServerStat;
-import net.lostluma.server_stats.common.stat.ServerStats;
-import net.lostluma.server_stats.common.util.Format;
+import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.util.Format;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.TextRenderer;
 import net.minecraft.stat.Stat;
@@ -18,16 +17,12 @@ public class GeneralStatsListWidgetMixin {
 	@Inject(method = "renderEntry", at = @At("HEAD"), cancellable = true)
 	private void renderEntry(int index, int x, int y, int unused, BufferBuilder bufferBuilder, CallbackInfo callbackInfo) {
 		Stat stat = (Stat) Stats.GENERAL.get(index);
-		ServerStat serverStat = ServerStats.byVanillaId(stat.id);
-
-		if (serverStat == null) {
-			return;
-		}
+		ServerStatistic serverStat = ServerStatistic.from(stat);
 
 		TextRenderer textRenderer = Minecraft.INSTANCE.textRenderer;
 
 		String text;
-		long value = Minecraft.INSTANCE.stats.server_stats$value(serverStat);
+		long value = Minecraft.INSTANCE.stats.get(serverStat);
 
 		if (stat.formatter == Stat.NUMBER_FORMATTER) {
 			text = Format.formatNumber(value);

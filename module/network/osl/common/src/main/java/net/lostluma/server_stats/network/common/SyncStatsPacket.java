@@ -2,7 +2,7 @@ package net.lostluma.server_stats.network.common;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import net.lostluma.server_stats.common.stat.ServerPlayerStats;
+import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.ornithemc.osl.networking.api.CustomPayload;
 
 import java.io.DataInputStream;
@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Map;
 
+/**
+ * Synchronize all known statistics with the client.
+ */
 public class SyncStatsPacket implements CustomPayload {
 	private String serialized;
 
@@ -18,8 +21,8 @@ public class SyncStatsPacket implements CustomPayload {
 		this.serialized = null;
 	}
 
-	public SyncStatsPacket(ServerPlayerStats statistics, boolean large) {
-		this.serialized = statistics.serialize(large);
+	public SyncStatsPacket(PersistentStats statistics, boolean large) {
+		this.serialized = statistics.server_stats$serialize(large);
 	}
 
 	@Override

@@ -25,8 +25,9 @@ repositories {
 }
 
 dependencies {
-	compileOnly(libs.gson)
-	compileOnly(libs.annotations)
+	implementation(libs.gson)
+	implementation(libs.slf4j)
+	implementation(libs.annotations)
 	implementation(libs.fabric.loader)
 }
 

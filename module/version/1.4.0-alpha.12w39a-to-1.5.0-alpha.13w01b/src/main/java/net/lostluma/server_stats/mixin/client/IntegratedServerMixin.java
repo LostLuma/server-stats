@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.mixin.client;
 
-import net.lostluma.server_stats.common.stat.ServerPlayerStats;
+import net.lostluma.server_stats.impl.server.PlayerStatsCache;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.integrated.IntegratedServer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,6 +13,6 @@ public class IntegratedServerMixin {
 	@Inject(method = "loadWorld", at = @At("HEAD"))
 	private void loadWorld(CallbackInfo callbackInfo) {
 		MinecraftServer server = (MinecraftServer) (Object) this;
-		ServerPlayerStats.setWorldDirectory("saves/" + server.getWorldDirName());
+		PlayerStatsCache.newInstance("saves/" + server.getWorldDirName());
 	}
 }

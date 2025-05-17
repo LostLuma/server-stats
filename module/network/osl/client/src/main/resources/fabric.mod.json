@@ -27,20 +27,13 @@
     "depends": {
         "osl": ">=0.12.1",
         "minecraft": ">=1.0.0-beta.5 <=1.1.0-alpha.11.48.a",
-        "server_stats_common": "=${version}",
+        "server_stats_impl": "=${version}",
+        "server_stats_util": "=${version}",
         "server_stats_network_common": "=${version}"
     },
     "custom": {
         "modmenu": {
             "parent": "server_stats"
-        },
-        "loom:injected_interfaces": {
-            "net/minecraft/unmapped/C_2854223": [
-                "net/lostluma/server_stats/common/duck/DuckStats"
-            ],
-            "net/minecraft/unmapped/C_9590849": [
-                "net/lostluma/server_stats/common/duck/DuckPlayer"
-            ]
         }
     }
 }

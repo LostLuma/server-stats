@@ -8,7 +8,7 @@
     ],
     "mixins": [
         "common.PlayerManagerMixin",
-        "common.ServerPlayerEntityMixin"
+        "common.ServerPlayNetworkHandlerMixin"
     ],
     "server": [],
     "injectors": {

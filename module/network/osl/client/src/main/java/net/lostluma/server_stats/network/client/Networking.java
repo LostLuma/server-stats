@@ -1,6 +1,9 @@
 package net.lostluma.server_stats.network.client;
 
-import net.lostluma.server_stats.common.Constants;
+import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
+import net.lostluma.server_stats.network.common.RequestStatsPacket;
+import net.lostluma.server_stats.network.common.ZeroStatsPacket;
+import net.lostluma.server_stats.util.Constants;
 import net.lostluma.server_stats.network.common.SyncStatsPacket;
 import net.lostluma.server_stats.network.common.PushStatsPacket;
 import net.ornithemc.osl.entrypoints.api.client.ClientModInitializer;
@@ -21,6 +24,16 @@ public class Networking implements ClientModInitializer {
 
 		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_AMEND_CHANNEL, PushStatsPacket::new, (((minecraft, handler, payload) -> {
 			minecraft.statHandler.server_stats$add(payload.key(), payload.value());
+			return true;
+		})));
+
+		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_RESET_CHANNEL, ZeroStatsPacket::new, (((minecraft, handler, payload) -> {
+			minecraft.statHandler.server_stats$reset(payload.key());
+			return true;
+		})));
+
+		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_FETCH_CHANNEL, RequestStatsPacket::new, (((minecraft, handler, payload) -> {
+			ClientPlayerStatsImpl.onResponse(payload.username(), payload.identifier(), payload.values(), payload.errorMessage());
 			return true;
 		})));
 	}

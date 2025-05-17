@@ -1,8 +1,9 @@
 package net.lostluma.server_stats.network.common;
 
-import net.lostluma.server_stats.common.Constants;
-import net.lostluma.server_stats.common.stat.ServerStat;
-import net.lostluma.server_stats.common.util.Tuple;
+import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.impl.statistic.ServerStatisticImpl;
+import net.lostluma.server_stats.util.Constants;
+import net.lostluma.server_stats.util.Tuple;
 import net.minecraft.network.packet.CustomPayloadPacket;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,12 +31,12 @@ public class PushPacketHelper {
 		return new Tuple<>(key, value);
 	}
 
-	public static CustomPayloadPacket write(@NotNull ServerStat stat, long value) {
+	public static CustomPayloadPacket write(@NotNull ServerStatistic stat, long value) {
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		DataOutputStream writer = new DataOutputStream(stream);
 
 		try {
-			writer.writeUTF(stat.key);
+			writer.writeUTF(((ServerStatisticImpl) stat).key());
 			writer.writeLong(value);
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to write stats push packet.", e);

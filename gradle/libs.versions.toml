@@ -1,5 +1,6 @@
 [versions]
 gson = "2.10.1"
+slf4j = "2.0.17"
 annotations = "26.0.2"
 fabric_loader = "0.16.14"
 
@@ -14,6 +15,7 @@ osl_networking_server = "0.8.0+server-mcb1.5-mc11w48a"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
 
 ploceus = { module = "net.ornithemc:ploceus", version.ref = "ploceus" }

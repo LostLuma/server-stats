@@ -24,20 +24,13 @@
     "accessWidener": "server_stats.mob_stats.accesswidener",
     "depends": {
         "minecraft": ">=1.6-alpha.13.16.a <=1.6.4",
-        "server_stats_common": "=${version}",
+        "server_stats_api": "=${version}",
+        "server_stats_util": "=${version}",
         "server_stats_gui_util": "=${version}"
     },
     "custom": {
         "modmenu": {
             "parent": "server_stats"
-        },
-        "loom:injected_interfaces": {
-            "net/minecraft/unmapped/C_2854223": [
-                "net/lostluma/server_stats/common/duck/DuckStats"
-            ],
-            "net/minecraft/unmapped/C_9590849": [
-                "net/lostluma/server_stats/common/duck/DuckPlayer"
-            ]
         }
     }
 }

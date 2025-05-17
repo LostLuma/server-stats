@@ -1,8 +1,7 @@
 package net.lostluma.server_stats.large_stats.mixin;
 
-import net.lostluma.server_stats.common.stat.ServerStat;
-import net.lostluma.server_stats.common.stat.ServerStats;
-import net.lostluma.server_stats.common.util.Format;
+import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.util.Format;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.TextRenderer;
 import net.minecraft.stat.ItemStat;
@@ -20,14 +19,10 @@ public class AbstractStatsListWidgetMixin {
 			return;
 		}
 
-		ServerStat serverStat = ServerStats.byVanillaId(itemStat.id);
-
-		if (serverStat == null) {
-			return;
-		}
+		ServerStatistic serverStat = ServerStatistic.from(itemStat);
 
 		String text;
-		long value = Minecraft.INSTANCE.statHandler.server_stats$value(serverStat);
+		long value = Minecraft.INSTANCE.statHandler.get(serverStat);
 
 		if (itemStat.formatter == Stat.NUMBER_FORMATTER) {
 			text = Format.formatNumber(value);

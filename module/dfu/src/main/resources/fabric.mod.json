@@ -23,7 +23,7 @@
     ],
     "depends": {
         "minecraft": ">=1.8.0-alpha.14.6.a <=1.12.2",
-        "server_stats_common": "=${version}"
+        "server_stats_util": "=${version}"
     },
     "custom": {
         "modmenu": {

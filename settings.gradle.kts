@@ -23,6 +23,9 @@ plugins {
 rootProject.name = "server-stats"
 includeBuild("build-logic")
 
+include(":module:api")
+include(":module:impl")
+
 include(":module:bugfix:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a")
 include(":module:bugfix:drop-amount:1.2.0-to-1.7.0-alpha.13w37b")
 include(":module:bugfix:drop-amount:1.7.0-alpha.13w38a-to-1.8.0-alpha.14w08a")
@@ -31,8 +34,6 @@ include(":module:bugfix:drop-amount:1.8.0-alpha.14w29a-to-1.12.2")
 include(":module:bugfix:jump")
 include(":module:bugfix:movement")
 include(":module:bugfix:result-amount")
-
-include(":module:common")
 
 include(":module:dfu")
 
@@ -50,6 +51,14 @@ include(":module:gui:util:1.6.0-alpha.13w16a-to-1.6.0-alpha.13w17a")
 include(":module:gui:util:1.6.0-alpha.13w18a-to-1.6.0-alpha.13w23b")
 include(":module:gui:util:1.6.0-alpha.13w24a-to-1.6.4")
 
+include(":module:identity:client")
+include(":module:identity:merged:1.3.2-to-1.5.2")
+include(":module:identity:merged:1.6.0-alpha.13w16a-to-1.6.4")
+include(":module:identity:merged:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c")
+include(":module:identity:merged:1.7.0-alpha.13w39a-to-1.7.5")
+
+include(":module:identity:server")
+
 include(":module:network:osl:client")
 include(":module:network:osl:common")
 include(":module:network:osl:server")
@@ -63,6 +72,8 @@ include(":module:network:vanilla:server")
 include(":module:shared:client")
 include(":module:shared:common")
 include(":module:shared:server")
+
+include(":module:util")
 
 include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
 include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")
@@ -90,6 +101,3 @@ include(":module:version:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b")
 include(":module:version:1.5.0-alpha.13w02a-to-1.5.2")
 
 include(":module:version:1.6.0-alpha.13w16a-to-1.6.4")
-
-include(":module:version:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c")
-include(":module:version:1.7.0-alpha.13w39a-to-1.7.5")

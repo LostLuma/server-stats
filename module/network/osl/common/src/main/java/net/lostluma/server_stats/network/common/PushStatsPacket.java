@@ -6,6 +6,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+/**
+ * Send an update for a single statistic to the client.
+ */
 public class PushStatsPacket implements CustomPayload {
 	private String key;
 	private long value;

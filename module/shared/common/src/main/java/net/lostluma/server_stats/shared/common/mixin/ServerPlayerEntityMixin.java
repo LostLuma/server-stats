@@ -1,11 +1,11 @@
 package net.lostluma.server_stats.shared.common.mixin;
 
 import com.google.gson.JsonObject;
-import net.lostluma.server_stats.common.stat.ServerPlayerStats;
-import net.lostluma.server_stats.common.stat.ServerStat;
-import net.lostluma.server_stats.common.stat.ServerStats;
-import net.lostluma.server_stats.common.util.Platform;
-import net.lostluma.server_stats.common.util.Version;
+import net.lostluma.server_stats.api.statistic.ServerAchievement;
+import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.impl.statistic.RegistryImpl;
+import net.lostluma.server_stats.util.platform.Platform;
+import net.lostluma.server_stats.util.platform.Version;
 import net.minecraft.network.packet.ChatMessagePacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
@@ -37,24 +37,23 @@ public abstract class ServerPlayerEntityMixin {
 			return;
 		}
 
-		ServerStat stat = ServerStats.byVanillaId(vanillaStat.id);
-		ServerPlayerStats stats = this.getPlayer().server_stats$getStats();
+		ServerStatistic stat = RegistryImpl.byVanillaId(vanillaStat.id);
 
-		if (stat == null || stats == null) {
+		if (stat == null) {
 			return;
 		}
 
-		if (!this.server_stats$parentEarned(vanillaStat, stats)) {
+		if (!this.server_stats$parentEarned(stat)) {
 			return;
 		}
 
-		long before = this.getPlayer().server_stats$incrementStat(stat, amount);
+		long before = this.getPlayer().increment(stat, amount);
 
 		if (before != 0L || !(vanillaStat instanceof AchievementStat)) {
 			return;
 		}
 
-		String name = this.getPlayer().server_stats$name();
+		String name = this.getPlayer().networkHandler.server_stats$name();
 		String message = "§c" + name + "§r has earned the achievement §a" + vanillaStat + "§r";
 
 		if (this.server_stats$usesComponents()) {
@@ -73,19 +72,13 @@ public abstract class ServerPlayerEntityMixin {
 	 * Whether the parent achievement has been earned, if an achievement is passed.
 	 */
 	@Unique
-	private boolean server_stats$parentEarned(Stat stat, ServerPlayerStats stats) {
-		if (!(stat instanceof AchievementStat)) {
+	private boolean server_stats$parentEarned(ServerStatistic stat) {
+		if (!(stat instanceof ServerAchievement)) {
 			return true;
+		} else {
+			ServerAchievement parent = ((ServerAchievement) stat).parent();
+			return parent == null || this.getPlayer().isUnlocked(parent);
 		}
-
-		AchievementStat parent = ((AchievementStat) stat).parent;
-
-		if (parent == null) {
-			return true;
-		}
-
-		ServerStat serverStat = ServerStats.byVanillaId(parent.id);
-		return serverStat != null && stats.get(serverStat) > 0;
 	}
 
 	/**

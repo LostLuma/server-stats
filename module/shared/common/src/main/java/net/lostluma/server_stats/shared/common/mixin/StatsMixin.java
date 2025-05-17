@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.shared.common.mixin;
 
-import net.lostluma.server_stats.common.stat.ServerStats;
+import net.lostluma.server_stats.impl.statistic.RegistryImpl;
 import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class StatsMixin {
 	@Inject(method = "mergeBlockStats([Lnet/minecraft/stat/Stat;II)V", at = @At("RETURN"))
 	private static void mergeBlockStats(Stat[] stats, int blockId1, int blockId2, CallbackInfo ci) {
-		ServerStats.mergeStats(blockId1, blockId2);
+		RegistryImpl.mergeStats(blockId1, blockId2);
 	}
 }

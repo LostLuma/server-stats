@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.shared.client;
 
-import net.lostluma.server_stats.common.util.Platform;
-import net.lostluma.server_stats.common.util.Version;
+import net.lostluma.server_stats.util.platform.Platform;
+import net.lostluma.server_stats.util.platform.Version;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;

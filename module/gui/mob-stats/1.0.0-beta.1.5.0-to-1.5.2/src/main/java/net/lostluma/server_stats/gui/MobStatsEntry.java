@@ -1,8 +1,7 @@
 package net.lostluma.server_stats.gui;
 
-import net.lostluma.server_stats.common.stat.ServerStat;
-import net.lostluma.server_stats.common.stat.ServerStats;
-import net.lostluma.server_stats.common.util.Format;
+import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.util.Format;
 import net.lostluma.server_stats.gui.util.DrawUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiElement;
@@ -28,8 +27,8 @@ public class MobStatsEntry extends GuiElement implements StatsListWidget.Abstrac
     }
 
     public static @Nullable MobStatsEntry forEntityId(String entityId, Minecraft minecraft, TooltipConsumer tooltipConsumer) {
-        ServerStat killsStat = ServerStats.getEntityKillStat(entityId);
-        ServerStat killedByStat = ServerStats.getKilledByEntityStat(entityId);
+		ServerStatistic killsStat = ServerStatistic.get("minecraft", "killEntity." + entityId);
+		ServerStatistic killedByStat = ServerStatistic.get("minecraft", "entityKilledBy." + entityId);
 
         if (killsStat == null || killedByStat == null) {
             return null;
@@ -37,8 +36,8 @@ public class MobStatsEntry extends GuiElement implements StatsListWidget.Abstrac
 
         String entityName = MobStatsUtil.getDisplayName(entityId);
 		TextureLocation entityIcon = TextureLocation.of("server_stats", "textures/mob_face/" + MobStatsUtil.separateWith('_', entityId).toLowerCase() + ".png");
-        long kills = minecraft.statHandler.server_stats$value(killsStat);
-        long killedBy = minecraft.statHandler.server_stats$value(killedByStat);
+        long kills = minecraft.statHandler.get(killsStat);
+        long killedBy = minecraft.statHandler.get(killedByStat);
 
         return new MobStatsEntry(entityName, entityIcon, killedBy, kills, tooltipConsumer, minecraft);
     }

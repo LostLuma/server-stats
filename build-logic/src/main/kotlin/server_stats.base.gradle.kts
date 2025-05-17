@@ -2,25 +2,28 @@ plugins {
 	id("base")
 }
 
-fun moduleName(): String {
+fun moduleName(long: Boolean): String {
 	val path = project.path.split(":");
 
 	if (path.size < 3) {
 		return "server-stats";
-	} else {
-		val module = path.subList(2, path.size);
-		return module.joinToString(".");
 	}
+
+	// Ignore last segment if long is false.
+	val remove = if (long) { 0 } else { 1 };
+	return path.subList(2, path.size - remove).joinToString(".");
 }
 
 fun mavenGroup(): String {
-	val name = moduleName();
+	val name = moduleName(false);
 	val base = project.property("maven_group").toString();
 
 	if (name == "server-stats") {
 		return base;
+	} else if (name.isEmpty()) {
+		return "${base}.server-stats"
 	} else {
-		return base + "." + name.replace("-", "_");
+		return "${base}.server-stats.${name}";
 	}
 }
 
@@ -42,7 +45,7 @@ group = mavenGroup()
 version = modVersion()
 
 base {
-	archivesName = moduleName()
+	archivesName = moduleName(true)
 }
 
 tasks.withType<ProcessResources> {

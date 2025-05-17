@@ -1,7 +1,10 @@
 package net.lostluma.server_stats.network.client.mixin;
 
-import net.lostluma.server_stats.common.Constants;
-import net.lostluma.server_stats.common.util.Tuple;
+import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
+import net.lostluma.server_stats.network.common.RequestPacketHelper;
+import net.lostluma.server_stats.network.common.ZeroPacketHelper;
+import net.lostluma.server_stats.util.Constants;
+import net.lostluma.server_stats.util.Tuple;
 import net.lostluma.server_stats.network.common.PushPacketHelper;
 import net.lostluma.server_stats.network.common.SyncPacketHelper;
 import net.minecraft.client.Minecraft;
@@ -20,16 +23,38 @@ public class PacketHandlerMixin {
 	private void handleCustomPayload(CustomPayloadPacket packet, CallbackInfo callbackInfo) {
 		String channel = packet.channel;
 
-		if (channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL) || channel.equals(Constants.STATS_PACKET_LARGE_CHANNEL)) {
-			boolean clear = channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL);
+		switch (channel) {
+			case Constants.STATS_PACKET_SMALL_CHANNEL:
+			case Constants.STATS_PACKET_LARGE_CHANNEL: {
+				boolean clear = channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL);
 
-			Map<String, Long> data = SyncPacketHelper.parse(packet);
-			Minecraft.INSTANCE.statHandler.server_stats$persist(data, clear);
+				Map<String, Long> data = SyncPacketHelper.parse(packet);
+				Minecraft.INSTANCE.statHandler.server_stats$persist(data, clear);
+				break;
+			}
+			case Constants.STATS_PACKET_RESET_CHANNEL: {
+				String data = ZeroPacketHelper.parse(packet);
+				Minecraft.INSTANCE.statHandler.server_stats$reset(data);
+				break;
+			}
+			case Constants.STATS_PACKET_AMEND_CHANNEL: {
+				Tuple<String, Long> data = PushPacketHelper.parse(packet);
+				Minecraft.INSTANCE.statHandler.server_stats$add(data.left(), data.right());
+				break;
+			}
+			case Constants.STATS_PACKET_FETCH_CHANNEL: {
+				RequestPacketHelper.RequestPacketData data = RequestPacketHelper.parse(packet);
 
-			callbackInfo.cancel();
-		} else if (channel.equals(Constants.STATS_PACKET_AMEND_CHANNEL)) {
-			Tuple<String, Long> data = PushPacketHelper.parse(packet);
-			Minecraft.INSTANCE.statHandler.server_stats$add(data.left(), data.right());
+				if (data != null) {
+					ClientPlayerStatsImpl.onResponse(data.username, data.identifier, data.values, data.errorMessage);
+				}
+				break;
+			}
+			default: {
+				return;
+			}
 		}
+
+		callbackInfo.cancel();
 	}
 }

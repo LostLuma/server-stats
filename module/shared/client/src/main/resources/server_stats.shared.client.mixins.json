@@ -6,8 +6,7 @@
     "compatibilityLevel": "JAVA_8",
     "client": [
         "LocalPlayerEntityMixin",
-        "PlayerStatsMixin",
-        "SessionMixin"
+        "PlayerStatsMixin"
     ],
     "mixins": [],
     "server": [],

@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_identity",
+    "version": "${version}",
+    "name": "Identity",
+    "description": "Player UUID support.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_identity/icon.png",
+    "mixins": [
+        "server_stats.identity.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.7-alpha.13.39.a <=1.7.5",
+        "server_stats_util": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

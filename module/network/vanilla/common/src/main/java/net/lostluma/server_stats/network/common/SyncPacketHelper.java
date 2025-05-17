@@ -2,8 +2,8 @@ package net.lostluma.server_stats.network.common;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import net.lostluma.server_stats.common.Constants;
-import net.lostluma.server_stats.common.stat.ServerPlayerStats;
+import net.lostluma.server_stats.impl.ext.player.PersistentStats;
+import net.lostluma.server_stats.util.Constants;
 import net.minecraft.network.packet.CustomPayloadPacket;
 
 import java.lang.reflect.Type;
@@ -18,9 +18,9 @@ public class SyncPacketHelper {
 		return new Gson().fromJson(data, type);
 	}
 
-	public static CustomPayloadPacket write(ServerPlayerStats stats, boolean large) {
+	public static CustomPayloadPacket write(PersistentStats stats, boolean large) {
 		CustomPayloadPacket packet = new CustomPayloadPacket();
-		byte[] data = stats.serialize(large).getBytes(StandardCharsets.UTF_8);
+		byte[] data = stats.server_stats$serialize(large).getBytes(StandardCharsets.UTF_8);
 
 		packet.data = data;
 		packet.size = data.length;

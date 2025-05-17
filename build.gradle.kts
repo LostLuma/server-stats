@@ -9,6 +9,9 @@ plugins {
 dependencies {
 	shadow(libs.gson)
 
+	include(project(":module:api"))
+	include(project(":module:impl"))
+
 	include(project(":module:bugfix:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a"))
 	include(project(":module:bugfix:drop-amount:1.2.0-to-1.7.0-alpha.13w37b"))
 	include(project(":module:bugfix:drop-amount:1.7.0-alpha.13w38a-to-1.8.0-alpha.14w08a"))
@@ -17,8 +20,6 @@ dependencies {
 	include(project(":module:bugfix:jump"))
 	include(project(":module:bugfix:movement"))
 	include(project(":module:bugfix:result-amount"))
-
-	include(project(path = ":module:common", configuration = "shadow"))
 
 	include(project(":module:dfu"))
 
@@ -36,6 +37,13 @@ dependencies {
 	include(project(":module:gui:util:1.6.0-alpha.13w18a-to-1.6.0-alpha.13w23b"))
 	include(project(":module:gui:util:1.6.0-alpha.13w24a-to-1.6.4"))
 
+	include(project(":module:identity:client"))
+	include(project(":module:identity:merged:1.3.2-to-1.5.2"))
+	include(project(":module:identity:merged:1.6.0-alpha.13w16a-to-1.6.4"))
+	include(project(":module:identity:merged:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c"))
+	include(project(":module:identity:merged:1.7.0-alpha.13w39a-to-1.7.5"))
+	include(project(":module:identity:server"))
+
 	include(project(":module:network:osl:client"))
 	include(project(":module:network:osl:common"))
 	include(project(":module:network:osl:server"))
@@ -50,6 +58,8 @@ dependencies {
 	include(project(":module:shared:client"))
 	include(project(":module:shared:common"))
 	include(project(":module:shared:server"))
+
+	include(project(path = ":module:util", configuration = "shadow"))
 
 	// b1.5.0 -> first version with statistics!
 	include(project(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
@@ -84,11 +94,6 @@ dependencies {
 	include(project(":module:version:1.5.0-alpha.13w02a-to-1.5.2"))
 	// 13w16a -> ...
 	include(project(":module:version:1.6.0-alpha.13w16a-to-1.6.4"))
-	// 13w36a -> server-side statistics
-	include(project(":module:version:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c"))
-	// 13w39a -> PlayerManager.createForLogin signature changed
-	include(project(":module:version:1.7.0-alpha.13w39a-to-1.7.5"))
-	// 1.7.6 -> player data saved with uuid
 }
 
 tasks.withType<Jar> {

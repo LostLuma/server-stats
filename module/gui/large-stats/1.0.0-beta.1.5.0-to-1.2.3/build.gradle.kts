@@ -3,7 +3,8 @@ plugins {
 }
 
 dependencies {
-	implementation(project(":module:common"))
+	implementation(project(":module:api"))
+	implementation(project(":module:util"))
 }
 
 loom {

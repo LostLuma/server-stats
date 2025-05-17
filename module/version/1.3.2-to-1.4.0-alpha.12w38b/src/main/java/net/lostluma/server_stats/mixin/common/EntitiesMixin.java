@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.mixin.common;
 
-import net.lostluma.server_stats.common.stat.ServerStats;
+import net.lostluma.server_stats.impl.statistic.RegistryImpl;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -12,7 +12,7 @@ import net.minecraft.entity.Entities;
 public class EntitiesMixin {
 	@Inject(method = "registerWithSpawnEgg", at = @At("TAIL"))
 	private static void registerWithSpawnEgg(Class<?> type, String key, int id, int baseColor, int spotsColor, CallbackInfo callbackInfo) {
-		ServerStats.createEntityKillStat(key);
-		ServerStats.createKilledByEntityStat(key);
+		RegistryImpl.createEntityKillStat(key);
+		RegistryImpl.createKilledByEntityStat(key);
 	}
 }
