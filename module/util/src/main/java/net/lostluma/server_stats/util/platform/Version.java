@@ -15,7 +15,7 @@ public class Version implements Comparable<Version> {
 	// Specifying the patch version is optional since Minecraft doesn't on 1.x.0 releases
 	// Some other version strings with invalid pre-release or build metadata are accepted
 	private static final Pattern VERSION_PATTERN = Pattern.compile(
-            "^(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?(?:-(?<prerelease>[\\da-zA-Z\\-.]{2,}))?(?:\\+(?<metadata>[\\da-zA-Z\\-.]+))?$"
+		"^(?<major>\\d+)\\.(?<minor>\\d+)(?:\\.(?<patch>\\d+))?(?:-(?<prerelease>[\\da-zA-Z\\-.]{2,}))?(?:\\+(?<metadata>[\\da-zA-Z\\-.]+))?$"
 	);
 
 	private Version(int major, int minor, int patch, @Nullable String preRelease, @Nullable String buildMetadata) {
