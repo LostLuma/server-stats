@@ -33,6 +33,7 @@ public class PersistentStatsImpl implements PersistentStats {
 	private final @NotNull Map<String, Long> values;
 
 	private boolean active;
+	private boolean modified;
 
 	public PersistentStatsImpl(@NotNull String username, @NotNull UUID identifier, @NotNull StatEventHandler handler) {
 		this.username = username;
@@ -42,6 +43,7 @@ public class PersistentStatsImpl implements PersistentStats {
 		this.values = new ConcurrentHashMap<>();
 
 		this.active = true;
+		this.modified = false;
 
 		try {
 			this.load();
@@ -65,6 +67,7 @@ public class PersistentStatsImpl implements PersistentStats {
 		if (!this.values.containsKey(key)) {
 			return 0L;
 		} else {
+			this.modified = true;
 			return this.values.remove(key);
 		}
 	}
@@ -74,6 +77,7 @@ public class PersistentStatsImpl implements PersistentStats {
 		this.checkActive();
 
 		long value;
+		this.modified = true;
 
 		synchronized (this) {
 			value = this.get(stat);
@@ -142,6 +146,12 @@ public class PersistentStatsImpl implements PersistentStats {
 
 	@Override
 	public void server_stats$save() {
+		if (!this.modified) {
+			return;
+		}
+
+		this.modified = false;
+
 		Path temp = Platform.getCacheDir();
 		Path path = PlayerStatsCache.getInstance().getPath().resolve(this.identifier + ".json");
 
