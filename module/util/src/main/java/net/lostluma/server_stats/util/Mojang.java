@@ -67,7 +67,8 @@ public class Mojang {
 		}
 
 		String parsed = new String(data, StandardCharsets.UTF_8);
-		JsonElement element = JsonParser.parseString(parsed);
+		@SuppressWarnings("deprecation")
+		JsonElement element = new JsonParser().parse(parsed);
 
 		if (element.isJsonObject()) {
 			return element.getAsJsonObject();

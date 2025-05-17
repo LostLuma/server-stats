@@ -50,7 +50,8 @@ public class StatisticsFileUpgrade {
 	}
 
 	private static void upgradeWorld(Path path) throws IOException {
-		JsonElement data = JsonParser.parseString(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
+		@SuppressWarnings("deprecation")
+		JsonElement data = new JsonParser().parse(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
 
 		if (!data.isJsonObject()) {
 			throw new RuntimeException("Unable to upgrade stats file " + path.getFileName() + ".");

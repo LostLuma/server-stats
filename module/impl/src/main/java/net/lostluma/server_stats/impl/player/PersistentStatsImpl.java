@@ -170,7 +170,8 @@ public class PersistentStatsImpl implements PersistentStats {
 	}
 
 	public void deserialize(Path path) throws IOException {
-		JsonElement root = JsonParser.parseString(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
+		@SuppressWarnings("deprecation")
+		JsonElement root = new JsonParser().parse(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
 
 		if (!root.isJsonObject()) {
 			return;
