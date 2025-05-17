@@ -3,7 +3,6 @@ import org.gradle.accessors.dm.LibrariesForLibs
 plugins {
 	id("server_stats.base")
 	id("server_stats.java")
-	id("com.gradleup.shadow")
 }
 
 val libs = the<LibrariesForLibs>()
@@ -29,9 +28,4 @@ dependencies {
 	implementation(libs.slf4j)
 	implementation(libs.annotations)
 	implementation(libs.fabric.loader)
-}
-
-tasks.shadowJar {
-	configurations.add(project.configurations.shadow)
-	relocate("com.google.gson", "net.lostluma.server_stats.external.gson")
 }

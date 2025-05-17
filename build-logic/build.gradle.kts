@@ -19,7 +19,6 @@ repositories {
 }
 
 dependencies {
-	implementation(libs.shadow)
 	implementation(libs.ploceus)
 	implementation(libs.fabric.loom)
 

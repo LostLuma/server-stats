@@ -7,8 +7,6 @@ plugins {
 }
 
 dependencies {
-	shadow(libs.gson)
-
 	include(project(":module:api"))
 	include(project(":module:impl"))
 
@@ -59,7 +57,7 @@ dependencies {
 	include(project(":module:shared:common"))
 	include(project(":module:shared:server"))
 
-	include(project(path = ":module:util", configuration = "shadow"))
+	include(project(":module:util"))
 
 	// b1.5.0 -> first version with statistics!
 	include(project(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
