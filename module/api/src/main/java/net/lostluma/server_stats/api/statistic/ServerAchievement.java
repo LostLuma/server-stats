@@ -2,7 +2,6 @@ package net.lostluma.server_stats.api.statistic;
 
 import net.lostluma.server_stats.impl.ApiProxy;
 import net.minecraft.stat.achievement.AchievementStat;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -23,7 +22,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param identifier The achievement's identifier.
 	 * @return The achievement, if it exists. May be null.
 	 */
-	static @Nullable ServerAchievement get(@NotNull String namespace, @NotNull String identifier) {
+	static @Nullable ServerAchievement get(String namespace, String identifier) {
 		return ApiProxy.getInstance().getAchievement(namespace, identifier);
 	}
 
@@ -33,7 +32,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param achievement The vanilla achievement.
 	 * @return The converted achievement, which can be used with Server Stats APIs.
 	 */
-	static @NotNull ServerAchievement from(@NotNull AchievementStat achievement) {
+	static ServerAchievement from(AchievementStat achievement) {
 		return ApiProxy.getInstance().convertAchievement(achievement.id);
 	}
 
@@ -44,7 +43,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param identifier A Unique identifier within the namespace.
 	 * @return The achievement builder, used to construct the achievement.
 	 */
-	static @NotNull Builder of(@NotNull String namespace, @NotNull String identifier) {
+	static Builder of(String namespace, String identifier) {
 		return ApiProxy.getInstance().buildAchievement(namespace, identifier);
 	}
 
@@ -54,7 +53,7 @@ public interface ServerAchievement extends ServerStatistic {
 		 *
 		 * @return The newly-created achievement.
 		 */
-		@NotNull ServerAchievement build();
+		ServerAchievement build();
 
 		/**
 		 * Set a parent achievement.
@@ -62,6 +61,6 @@ public interface ServerAchievement extends ServerStatistic {
 		 * @param parent An existing achievement.
 		 * @return The achievement builder instance.
 		 */
-		@NotNull Builder parent(@NotNull ServerAchievement parent);
+		Builder parent(ServerAchievement parent);
 	}
 }

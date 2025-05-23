@@ -2,7 +2,6 @@ package net.lostluma.server_stats.api.player;
 
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * View and modify both vanilla and modded statistics.
@@ -21,7 +20,7 @@ public interface MutableStats extends DisplayStats {
 	 * @return The previous value obtained by the player.
 	 * @throws IllegalStateException Statistics are no longer mutable (Context closed).
 	 */
-	default long reset(@NotNull ServerStatistic stat) throws IllegalStateException {
+	default long reset(ServerStatistic stat) throws IllegalStateException {
 		throw new RuntimeException("Interface implementation missing!");
 	}
 
@@ -34,7 +33,7 @@ public interface MutableStats extends DisplayStats {
 	 * @return Whether the achievement was unlocked.
 	 * @throws IllegalStateException Statistics are no longer mutable (Context closed).
 	 */
-	default boolean unlock(@NotNull ServerAchievement achievement) throws IllegalStateException {
+	default boolean unlock(ServerAchievement achievement) throws IllegalStateException {
 		ServerAchievement parent = achievement.parent();
 
 		if (parent == null || this.isUnlocked(parent)) {
@@ -52,7 +51,7 @@ public interface MutableStats extends DisplayStats {
 	 * @return The player's previous value for this statistic.
 	 * @throws IllegalStateException Statistics are no longer mutable (Context closed).
 	 */
-	default long increment(@NotNull ServerStatistic stat) throws IllegalStateException {
+	default long increment(ServerStatistic stat) throws IllegalStateException {
 		return this.increment(stat, 1);
 	}
 
@@ -64,7 +63,7 @@ public interface MutableStats extends DisplayStats {
 	 * @return The player's previous value for this statistic.
 	 * @throws IllegalStateException Statistics are no longer mutable (Context closed).
 	 */
-	default long increment(@NotNull ServerStatistic stat, long amount) throws IllegalStateException {
+	default long increment(ServerStatistic stat, long amount) throws IllegalStateException {
 		throw new RuntimeException("Interface implementation missing!");
 	}
 }

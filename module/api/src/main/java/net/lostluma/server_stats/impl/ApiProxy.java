@@ -5,7 +5,6 @@ import net.lostluma.server_stats.api.player.DisplayStats;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
@@ -19,24 +18,24 @@ public interface ApiProxy {
 	}
 
 	// ClientPlayerStats
-	void fetch(@NotNull String name, @NotNull BiConsumer<@Nullable DisplayStats, @Nullable String> handler);
-	void fetch(@NotNull UUID identifier, @NotNull BiConsumer<@Nullable DisplayStats, @Nullable String> handler);
+	void fetch(String name, BiConsumer<@Nullable DisplayStats, @Nullable String> handler);
+	void fetch(UUID identifier, BiConsumer<@Nullable DisplayStats, @Nullable String> handler);
 
 	// ServerPlayerStats
-	void get(@NotNull String name, @NotNull BiConsumer<@Nullable MutableStats, @Nullable String> handler);
-	void get(@NotNull UUID identifier, @NotNull BiConsumer<@Nullable MutableStats, @Nullable String> handler);
+	void get(String name, BiConsumer<@Nullable MutableStats, @Nullable String> handler);
+	void get(UUID identifier, BiConsumer<@Nullable MutableStats, @Nullable String> handler);
 
 	// Registry
-	@NotNull Collection<@NotNull ServerStatistic> statistics();
-	@NotNull Collection<@NotNull ServerAchievement> achievements();
+	Collection<ServerStatistic> statistics();
+	Collection<ServerAchievement> achievements();
 
 	// ServerAchievement
-	@NotNull ServerAchievement convertAchievement(int id);
-	@Nullable ServerAchievement getAchievement(@NotNull String namespace, @NotNull String identifier);
-	@NotNull ServerAchievement.Builder buildAchievement(@NotNull String namespace, @NotNull String identifier);
+	ServerAchievement convertAchievement(int id);
+	@Nullable ServerAchievement getAchievement(String namespace, String identifier);
+	ServerAchievement.Builder buildAchievement(String namespace, String identifier);
 
 	// ServerStatistic
-	@NotNull ServerStatistic convertStatistic(int id);
-	@Nullable ServerStatistic getStatistic(@NotNull String namespace, @NotNull String identifier);
-	@NotNull ServerStatistic.Builder buildStatistic(@NotNull String namespace, @NotNull String identifier);
+	ServerStatistic convertStatistic(int id);
+	@Nullable ServerStatistic getStatistic(String namespace, String identifier);
+	ServerStatistic.Builder buildStatistic(String namespace, String identifier);
 }

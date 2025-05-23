@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.lostluma.server_stats.api.player.DisplayStats;
 import net.lostluma.server_stats.impl.ApiProxy;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
@@ -23,7 +22,7 @@ public interface ClientPlayerStats {
 	 * @param name The player's username.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
-	static void fetch(@NotNull String name, @NotNull BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
+	static void fetch(String name, BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
 		ApiProxy.getInstance().fetch(name, handler);
 	}
 
@@ -35,7 +34,7 @@ public interface ClientPlayerStats {
 	 * @param identifier The player's identifier.
 	 * @param handler A callback receiving the statistics, or null, once the request is completed.
 	 */
-	static void fetch(@NotNull UUID identifier, @NotNull BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
+	static void fetch(UUID identifier, BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
 		ApiProxy.getInstance().fetch(identifier, handler);
 	}
 }

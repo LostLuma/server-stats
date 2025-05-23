@@ -2,8 +2,9 @@ package net.lostluma.server_stats.api.statistic;
 
 import net.lostluma.server_stats.impl.ApiProxy;
 import net.minecraft.stat.Stat;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 /**
  * A Server Stats statistic.
@@ -14,14 +15,14 @@ public interface ServerStatistic {
 	 *
 	 * @return The namespace the statistic was registered with.
 	 */
-	@NotNull String namespace();
+	String namespace();
 
 	/**
 	 * The statistic's unique identifier within its namespace.
 	 *
 	 * @return The identifier the statistic was registered with.
 	 */
-	@NotNull String identifier();
+	String identifier();
 
 	/**
 	 * Look up a statistic from its namespace and path.
@@ -30,7 +31,7 @@ public interface ServerStatistic {
 	 * @param identifier The stat's identifier.
 	 * @return The statistic, if it exists. May be null.
 	 */
-	static @Nullable ServerStatistic get(@NotNull String namespace, @NotNull String identifier) {
+	static @Nullable ServerStatistic get(String namespace, String identifier) {
 		return ApiProxy.getInstance().getStatistic(namespace, identifier);
 	}
 
@@ -40,7 +41,7 @@ public interface ServerStatistic {
 	 * @param stat The vanilla statistic.
 	 * @return The converted statistic, which can be used with Server Stats APIs.
 	 */
-	static @NotNull ServerStatistic from(@NotNull Stat stat) {
+	static ServerStatistic from(Stat stat) {
 		return ApiProxy.getInstance().convertStatistic(stat.id);
 	}
 
@@ -51,7 +52,7 @@ public interface ServerStatistic {
 	 * @param identifier A Unique identifier within the namespace.
 	 * @return The statistic builder, used to construct the statistic.
 	 */
-	static @NotNull Builder of(@NotNull String namespace, @NotNull String identifier) {
+	static Builder of(String namespace, String identifier) {
 		return ApiProxy.getInstance().buildStatistic(namespace, identifier);
 	}
 
@@ -61,6 +62,6 @@ public interface ServerStatistic {
 		 *
 		 * @return The newly-created statistic.
 		 */
-		@NotNull ServerStatistic build();
+		ServerStatistic build();
 	}
 }

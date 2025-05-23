@@ -2,7 +2,6 @@ package net.lostluma.server_stats.api.server;
 
 import net.lostluma.server_stats.api.player.MutableStats;
 import net.lostluma.server_stats.impl.ApiProxy;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
@@ -20,7 +19,7 @@ public interface ServerPlayerStats {
 	 * @param name The player's username.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
-	static void get(@NotNull String name, @NotNull BiConsumer<@Nullable MutableStats, @Nullable String> handler) {
+	static void get(String name, BiConsumer<@Nullable MutableStats, @Nullable String> handler) {
 		ApiProxy.getInstance().get(name, handler);
 	}
 
@@ -32,7 +31,7 @@ public interface ServerPlayerStats {
 	 * @param identifier The player's identifier.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
-	static void get(@NotNull UUID identifier, @NotNull BiConsumer<@Nullable MutableStats, @Nullable String> handler) {
+	static void get(UUID identifier, BiConsumer<@Nullable MutableStats, @Nullable String> handler) {
 		ApiProxy.getInstance().get(identifier, handler);
 	}
 }

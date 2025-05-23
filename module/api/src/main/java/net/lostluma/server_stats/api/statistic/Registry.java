@@ -1,7 +1,6 @@
 package net.lostluma.server_stats.api.statistic;
 
 import net.lostluma.server_stats.impl.ApiProxy;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
@@ -18,7 +17,7 @@ public interface Registry {
 	 *
 	 * @return All currently registered statistics.
 	 */
-	static @NotNull Collection<@NotNull ServerStatistic> statistics() {
+	static Collection<ServerStatistic> statistics() {
 		return ApiProxy.getInstance().statistics();
 	}
 
@@ -27,7 +26,7 @@ public interface Registry {
 	 *
 	 * @return All currently registered achievements.
 	 */
-	static @NotNull Collection<@NotNull ServerAchievement> achievements() {
+	static Collection<ServerAchievement> achievements() {
 		return ApiProxy.getInstance().achievements();
 	}
 }
