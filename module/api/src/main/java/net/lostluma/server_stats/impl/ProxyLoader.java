@@ -1,11 +1,8 @@
 package net.lostluma.server_stats.impl;
 
-import org.jetbrains.annotations.ApiStatus;
-
 import java.util.NoSuchElementException;
 import java.util.ServiceLoader;
 
-@ApiStatus.Internal
 public class ProxyLoader {
 	static final ApiProxy INSTANCE = getServiceInstance(ApiProxy.class);
 

@@ -4,14 +4,12 @@ import net.lostluma.server_stats.api.player.MutableStats;
 import net.lostluma.server_stats.api.player.DisplayStats;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
-import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
-@ApiStatus.Internal
 public interface ApiProxy {
 	static ApiProxy getInstance() {
 		return ProxyLoader.INSTANCE;
