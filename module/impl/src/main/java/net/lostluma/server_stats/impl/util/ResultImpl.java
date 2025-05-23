@@ -36,11 +36,19 @@ public class ResultImpl<T, Error> implements Result<T, Error> {
 
 	@Override
 	public @NotNull T value() throws IllegalStateException {
-		return this.value;
+		if (this.isOk()) {
+			return this.value;
+		} else {
+			throw new IllegalStateException("No value available.");
+		}
 	}
 
 	@Override
 	public @NotNull Error error() throws IllegalStateException {
-		return this.error;
+		if (this.isError()) {
+			return this.error;
+		} else {
+			throw new IllegalStateException("No error available.");
+		}
 	}
 }
