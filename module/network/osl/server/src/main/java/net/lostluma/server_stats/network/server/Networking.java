@@ -1,8 +1,9 @@
 package net.lostluma.server_stats.network.server;
 
 import net.lostluma.server_stats.api.player.MutableStats;
+import net.lostluma.server_stats.api.server.ServerPlayerStats;
+import net.lostluma.server_stats.api.util.Result;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
-import net.lostluma.server_stats.impl.server.ServerPlayerStatsImpl;
 import net.lostluma.server_stats.network.common.RequestStatsPacket;
 import net.lostluma.server_stats.util.Constants;
 import net.lostluma.server_stats.network.common.SyncStatsPacket;
@@ -32,9 +33,9 @@ public class Networking implements ServerModInitializer {
 			UUID identifier = payload.identifier();
 
 			if (name != null) {
-				ServerPlayerStatsImpl.get(name, (stats, error) -> this.handleStats(player, name, null, stats, error));
+				ServerPlayerStats.get(name, result -> this.handleStats(player, name, null, result));
 			} else if (identifier != null) {
-				ServerPlayerStatsImpl.get(identifier, (stats, error) -> this.handleStats(player, null, identifier, stats, error));
+				ServerPlayerStats.get(identifier, result -> this.handleStats(player, null, identifier, result));
 			} else {
 				Logging.getLogger().warn("Received incomplete stats fetch packet from {}!", player);
 			}
@@ -43,17 +44,15 @@ public class Networking implements ServerModInitializer {
 		});
 	}
 
-	private void handleStats(@NotNull ServerPlayerEntity player, @Nullable String name, @Nullable UUID identifier, @Nullable MutableStats stats, @Nullable String error) {
+	private void handleStats(@NotNull ServerPlayerEntity player, @Nullable String name, @Nullable UUID identifier, @NotNull Result<MutableStats, String> result) {
 		RequestStatsPacket response;
 
-		if (stats != null) {
-			PersistentStats persistent = (PersistentStats) stats;
+		if (result.isOk()) {
+			PersistentStats persistent = (PersistentStats) result.value();
 			Map<String, Long> raw = persistent.server_stats$values();
 			response = new RequestStatsPacket(name, identifier, raw);
-		} else if (error != null) {
-			response = new RequestStatsPacket(name, identifier, error);
 		} else {
-			throw new RuntimeException("unreachable");
+			response = new RequestStatsPacket(name, identifier, result.error());
 		}
 
 		ServerPlayNetworking.send(player, Constants.STATS_PACKET_FETCH_CHANNEL, response);

@@ -4,12 +4,12 @@ import net.lostluma.server_stats.api.player.MutableStats;
 import net.lostluma.server_stats.api.player.DisplayStats;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
-import org.jetbrains.annotations.Nullable;
+import net.lostluma.server_stats.api.util.Result;
 
 import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public interface ApiProxy {
 	static ApiProxy getInstance() {
@@ -17,12 +17,12 @@ public interface ApiProxy {
 	}
 
 	// ClientPlayerStats
-	void fetch(String name, BiConsumer<@Nullable DisplayStats, @Nullable String> handler);
-	void fetch(UUID identifier, BiConsumer<@Nullable DisplayStats, @Nullable String> handler);
+	void fetch(String name, Consumer<Result<DisplayStats, String>> handler);
+	void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler);
 
 	// ServerPlayerStats
-	void get(String name, BiConsumer<@Nullable MutableStats, @Nullable String> handler);
-	void get(UUID identifier, BiConsumer<@Nullable MutableStats, @Nullable String> handler);
+	void get(String name, Consumer<Result<MutableStats, String>> handler);
+	void get(UUID identifier, Consumer<Result<MutableStats, String>> handler);
 
 	// Registry
 	Collection<ServerStatistic> statistics();

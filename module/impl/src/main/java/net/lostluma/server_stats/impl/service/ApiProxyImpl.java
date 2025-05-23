@@ -4,6 +4,7 @@ import net.lostluma.server_stats.api.player.MutableStats;
 import net.lostluma.server_stats.api.player.DisplayStats;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.util.Result;
 import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
 import net.lostluma.server_stats.impl.server.ServerPlayerStatsImpl;
 import net.lostluma.server_stats.impl.statistic.RegistryImpl;
@@ -16,30 +17,30 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public class ApiProxyImpl implements ApiProxy {
 	// ClientPlayerStats
 
 	@Override
-	public void fetch(@NotNull String name, @NotNull BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
+	public void fetch(@NotNull String name, @NotNull Consumer<Result<DisplayStats, String>> handler) {
 		ClientPlayerStatsImpl.fetch(name, handler);
 	}
 
 	@Override
-	public void fetch(@NotNull UUID identifier, @NotNull BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
+	public void fetch(@NotNull UUID identifier, @NotNull Consumer<Result<DisplayStats, String>> handler) {
 		ClientPlayerStatsImpl.fetch(identifier, handler);
 	}
 
 	// ServerPlayerStats
 
 	@Override
-	public void get(@NotNull String name, @NotNull BiConsumer<@Nullable MutableStats, @Nullable String> handler) {
+	public void get(@NotNull String name, @NotNull Consumer<Result<MutableStats, String>> handler) {
 		ServerPlayerStatsImpl.get(name, handler);
 	}
 
 	@Override
-	public void get(@NotNull UUID identifier, @NotNull BiConsumer<@Nullable MutableStats, @Nullable String> handler) {
+	public void get(@NotNull UUID identifier, @NotNull Consumer<Result<MutableStats, String>> handler) {
 		ServerPlayerStatsImpl.get(identifier, handler);
 	}
 

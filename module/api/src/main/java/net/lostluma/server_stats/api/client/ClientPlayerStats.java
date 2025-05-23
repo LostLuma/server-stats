@@ -3,11 +3,11 @@ package net.lostluma.server_stats.api.client;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.lostluma.server_stats.api.player.DisplayStats;
+import net.lostluma.server_stats.api.util.Result;
 import net.lostluma.server_stats.impl.ApiProxy;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
-import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 /**
  * Utility for fetching other players' statistics on the client.
@@ -22,7 +22,7 @@ public interface ClientPlayerStats {
 	 * @param name The player's username.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
-	static void fetch(String name, BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
+	static void fetch(String name, Consumer<Result<DisplayStats, String>> handler) {
 		ApiProxy.getInstance().fetch(name, handler);
 	}
 
@@ -34,7 +34,7 @@ public interface ClientPlayerStats {
 	 * @param identifier The player's identifier.
 	 * @param handler A callback receiving the statistics, or null, once the request is completed.
 	 */
-	static void fetch(UUID identifier, BiConsumer<@Nullable DisplayStats, @Nullable String> handler) {
+	static void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler) {
 		ApiProxy.getInstance().fetch(identifier, handler);
 	}
 }

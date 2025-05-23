@@ -1,10 +1,11 @@
 package net.lostluma.server_stats.network.mixin.common;
 
 import net.lostluma.server_stats.api.player.MutableStats;
+import net.lostluma.server_stats.api.server.ServerPlayerStats;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.util.Result;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
-import net.lostluma.server_stats.impl.server.ServerPlayerStatsImpl;
 import net.lostluma.server_stats.network.common.PushPacketHelper;
 import net.lostluma.server_stats.network.common.RequestPacketHelper;
 import net.lostluma.server_stats.network.common.ZeroPacketHelper;
@@ -61,9 +62,9 @@ public abstract class ServerPlayNetworkHandlerMixin implements StatEventHandler 
 		UUID identifier = data.identifier;
 
 		if (name != null) {
-			ServerPlayerStatsImpl.get(name, (stats, error) -> this.handleStats(name, null, stats, error));
+			ServerPlayerStats.get(name, result -> this.handleStats(name, null, result));
 		} else if (identifier != null) {
-			ServerPlayerStatsImpl.get(identifier, (stats, error) -> this.handleStats(null, identifier, stats, error));
+			ServerPlayerStats.get(identifier, result -> this.handleStats(null, identifier, result));
 		} else {
 			Logging.getLogger().warn("Received incomplete stats fetch packet from {}!", this.player);
 		}
@@ -72,12 +73,15 @@ public abstract class ServerPlayNetworkHandlerMixin implements StatEventHandler 
 	}
 
 	@Unique
-	private void handleStats(@Nullable String name, @Nullable UUID identifier, @Nullable MutableStats stats, @Nullable String error) {
+	private void handleStats(@Nullable String name, @Nullable UUID identifier, @NotNull Result<MutableStats, String> result) {
+		String error = null;
 		Map<String, Long> raw = Collections.emptyMap();
 
-		if (stats != null) {
-			PersistentStats persistent = (PersistentStats) stats;
+		if (result.isOk()) {
+			PersistentStats persistent = (PersistentStats) result.value();
 			raw = persistent.server_stats$values();
+		} else {
+			error = result.error();
 		}
 
 		this.sendPacket(RequestPacketHelper.write(name, identifier, error, raw));
