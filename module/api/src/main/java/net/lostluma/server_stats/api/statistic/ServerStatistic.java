@@ -2,7 +2,6 @@ package net.lostluma.server_stats.api.statistic;
 
 import net.lostluma.server_stats.impl.ApiProxy;
 import net.minecraft.stat.Stat;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
@@ -29,9 +28,9 @@ public interface ServerStatistic {
 	 *
 	 * @param namespace The stat's namespace.
 	 * @param identifier The stat's identifier.
-	 * @return The statistic, if it exists. May be null.
+	 * @return The statistic, if it exists. May be empty.
 	 */
-	static @Nullable ServerStatistic get(String namespace, String identifier) {
+	static Optional<ServerStatistic> get(String namespace, String identifier) {
 		return ApiProxy.getInstance().getStatistic(namespace, identifier);
 	}
 

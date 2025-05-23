@@ -3,6 +3,8 @@ package net.lostluma.server_stats.api.player;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 
+import java.util.Optional;
+
 /**
  * View and modify both vanilla and modded statistics.
  * <br>
@@ -34,9 +36,9 @@ public interface MutableStats extends DisplayStats {
 	 * @throws IllegalStateException Statistics are no longer mutable (Context closed).
 	 */
 	default boolean unlock(ServerAchievement achievement) throws IllegalStateException {
-		ServerAchievement parent = achievement.parent();
+		Optional<ServerAchievement> parent = achievement.parent();
 
-		if (parent == null || this.isUnlocked(parent)) {
+		if (!parent.isPresent() || this.isUnlocked(parent.get())) {
 			this.increment(achievement);
 			return true;
 		} else {

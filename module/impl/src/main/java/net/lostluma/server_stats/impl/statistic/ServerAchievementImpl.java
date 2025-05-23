@@ -4,6 +4,8 @@ import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class ServerAchievementImpl extends ServerStatisticImpl implements ServerAchievement {
 	private final ServerAchievement parent;
 
@@ -30,8 +32,8 @@ public class ServerAchievementImpl extends ServerStatisticImpl implements Server
 	}
 
 	@Override
-	public @Nullable ServerAchievement parent() {
-		return this.parent;
+	public @NotNull Optional<ServerAchievement> parent() {
+		return Optional.ofNullable(this.parent);
 	}
 
 	public static class Builder implements ServerAchievement.Builder {

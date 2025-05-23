@@ -2,7 +2,8 @@ package net.lostluma.server_stats.api.statistic;
 
 import net.lostluma.server_stats.impl.ApiProxy;
 import net.minecraft.stat.achievement.AchievementStat;
-import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 /**
  * A Server Stats achievement.
@@ -13,16 +14,16 @@ public interface ServerAchievement extends ServerStatistic {
 	 *
 	 * @return The parent achievement, if set.
 	 */
-	@Nullable ServerAchievement parent();
+	Optional<ServerAchievement> parent();
 
 	/**
 	 * Look up an achievement from its namespace and path.
 	 *
 	 * @param namespace The achievement's namespace.
 	 * @param identifier The achievement's identifier.
-	 * @return The achievement, if it exists. May be null.
+	 * @return The achievement, if it exists. May be empty.
 	 */
-	static @Nullable ServerAchievement get(String namespace, String identifier) {
+	static Optional<ServerAchievement> get(String namespace, String identifier) {
 		return ApiProxy.getInstance().getAchievement(namespace, identifier);
 	}
 

@@ -21,11 +21,7 @@ public class PlayerEntityMixin {
 	@Inject(method = "onKill", at = @At("HEAD"))
 	private void onKill(LivingEntity entity, CallbackInfo callbackInfo) {
 		String type = Entities.getKey(entity);
-		ServerStatistic stat = ServerStatistic.get("minecraft", "killEntity." + type);
-
-		if (stat != null) {
-			this.player().increment(stat);
-		}
+		ServerStatistic.get("minecraft", "killEntity." + type).ifPresent(this.player()::increment);
 	}
 
 	@Inject(method = "onKilled", at = @At("HEAD"))
@@ -35,10 +31,6 @@ public class PlayerEntityMixin {
 		}
 
 		String type = Entities.getKey(entity);
-		ServerStatistic stat = ServerStatistic.get("minecraft", "entityKilledBy." + type);
-
-		if (stat != null) {
-			this.player().increment(stat);
-		}
+		ServerStatistic.get("minecraft", "entityKilledBy." + type).ifPresent(this.player()::increment);
 	}
 }

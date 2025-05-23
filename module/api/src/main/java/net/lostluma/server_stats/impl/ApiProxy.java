@@ -7,6 +7,7 @@ import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
@@ -29,11 +30,11 @@ public interface ApiProxy {
 
 	// ServerAchievement
 	ServerAchievement convertAchievement(int id);
-	@Nullable ServerAchievement getAchievement(String namespace, String identifier);
+	Optional<ServerAchievement> getAchievement(String namespace, String identifier);
 	ServerAchievement.Builder buildAchievement(String namespace, String identifier);
 
 	// ServerStatistic
 	ServerStatistic convertStatistic(int id);
-	@Nullable ServerStatistic getStatistic(String namespace, String identifier);
+	Optional<ServerStatistic> getStatistic(String namespace, String identifier);
 	ServerStatistic.Builder buildStatistic(String namespace, String identifier);
 }

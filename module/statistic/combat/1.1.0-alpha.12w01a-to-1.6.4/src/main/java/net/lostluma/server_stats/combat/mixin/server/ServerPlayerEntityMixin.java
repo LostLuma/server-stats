@@ -20,21 +20,13 @@ public class ServerPlayerEntityMixin {
 
 	@Inject(method = "onKilled", at = @At("HEAD"))
 	private void onKilled(DamageSource source, CallbackInfo callbackInfo) {
-		ServerStatistic stat = ServerStatistic.get("minecraft", "deaths");
-
-		if (stat != null) {
-			this.getPlayer().increment(stat);
-		}
+		ServerStatistic.get("minecraft", "deaths").ifPresent(this.getPlayer()::increment);
 
 		if (source.getAttacker() == null) {
 			return;
 		}
 
 		String type = Entities.getKey(source.getAttacker());
-		stat = ServerStatistic.get("minecraft", "entityKilledBy." + type);
-
-		if (stat != null) {
-			this.getPlayer().increment(stat);
-		}
+		ServerStatistic.get("minecraft", "entityKilledBy." + type).ifPresent(this.getPlayer()::increment);
 	}
 }

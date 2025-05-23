@@ -7,6 +7,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiElement;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class MobStatsEntry extends GuiElement implements StatsListWidget.AbstractStatEntry {
 	private final String entityName;
 	private final TextureLocation entityIcon;
@@ -27,17 +29,18 @@ public class MobStatsEntry extends GuiElement implements StatsListWidget.Abstrac
 	}
 
 	public static @Nullable MobStatsEntry forEntityId(String entityId, Minecraft minecraft, TooltipConsumer tooltipConsumer) {
-		ServerStatistic killsStat = ServerStatistic.get("minecraft", "killEntity." + entityId);
-		ServerStatistic killedByStat = ServerStatistic.get("minecraft", "entityKilledBy." + entityId);
+		Optional<ServerStatistic> killsStat = ServerStatistic.get("minecraft", "killEntity." + entityId);
+		Optional<ServerStatistic> killedByStat = ServerStatistic.get("minecraft", "entityKilledBy." + entityId);
 
-		if (killsStat == null || killedByStat == null) {
+		if (!killsStat.isPresent() || !killedByStat.isPresent()) {
 			return null;
 		}
 
 		String entityName = MobStatsUtil.getDisplayName(entityId);
 		TextureLocation entityIcon = TextureLocation.of("server_stats", "textures/mob_face/" + MobStatsUtil.separateWith('_', entityId).toLowerCase() + ".png");
-		long kills = minecraft.stats.get(killsStat);
-		long killedBy = minecraft.stats.get(killedByStat);
+
+		long kills = minecraft.stats.get(killsStat.get());
+		long killedBy = minecraft.stats.get(killedByStat.get());
 
 		return new MobStatsEntry(entityName, entityIcon, killedBy, kills, tooltipConsumer, minecraft);
 	}

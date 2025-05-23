@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 
@@ -62,14 +63,8 @@ public class ApiProxyImpl implements ApiProxy {
 	}
 
 	@Override
-	public @Nullable ServerAchievement getAchievement(@NotNull String namespace, @NotNull String identifier) {
-		ServerStatistic stat = this.byKey("achievement", namespace, identifier);
-
-		if (stat == null) {
-			return null;
-		} else {
-			return (ServerAchievement) stat;
-		}
+	public @NotNull Optional<ServerAchievement> getAchievement(@NotNull String namespace, @NotNull String identifier) {
+		return Optional.ofNullable((ServerAchievement) this.byKey("achievement", namespace, identifier));
 	}
 
 	@Override
@@ -85,8 +80,8 @@ public class ApiProxyImpl implements ApiProxy {
 	}
 
 	@Override
-	public @Nullable ServerStatistic getStatistic(@NotNull String namespace, @NotNull String identifier) {
-		return this.byKey("stat", namespace, identifier);
+	public @NotNull Optional<ServerStatistic> getStatistic(@NotNull String namespace, @NotNull String identifier) {
+		return Optional.ofNullable(this.byKey("stat", namespace, identifier));
 	}
 
 	@Override

@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Optional;
+
 @Mixin({InputPlayerEntity.class, LocalPlayerEntity.class})
 public class LocalPlayerEntityMixin {
 	@Unique
@@ -45,8 +47,8 @@ public class LocalPlayerEntityMixin {
 		if (!(stat instanceof ServerAchievement)) {
 			return true;
 		} else {
-			ServerAchievement parent = ((ServerAchievement) stat).parent();
-			return parent == null || this.getPlayer().isUnlocked(parent);
+			Optional<ServerAchievement> parent = ((ServerAchievement) stat).parent();
+			return !parent.isPresent() || this.getPlayer().isUnlocked(parent.get());
 		}
 	}
 }
