@@ -77,14 +77,6 @@ public class RegistryImpl {
 		}
 	}
 
-	public static void createEntityKillStat(String entityId) {
-		new ServerStatisticImpl(-1, "killEntity." + entityId);
-	}
-
-	public static void createKilledByEntityStat(String entityId) {
-		new ServerStatisticImpl(-1, "entityKilledBy." + entityId);
-	}
-
 	private static Map<String, String> getVanillaStatIDs() {
 		Type type = new TypeToken<Map<String, String>>() {}.getType();
 		try {
