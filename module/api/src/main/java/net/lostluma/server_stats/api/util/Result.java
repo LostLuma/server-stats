@@ -1,12 +1,14 @@
 package net.lostluma.server_stats.api.util;
 
+import org.jetbrains.annotations.UnknownNullability;
+
 /**
  * Represents the result of an operation that may gracefully fail.
  *
  * @param <T> The result type.
  * @param <Error> The error type.
  */
-public interface Result<T, Error> {
+public interface Result<T extends @UnknownNullability Object, Error> {
 	/**
 	 * @return Whether the operation succeeded.
 	 */
