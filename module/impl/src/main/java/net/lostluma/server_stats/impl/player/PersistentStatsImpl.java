@@ -12,7 +12,6 @@ import net.lostluma.server_stats.impl.statistic.ServerStatisticImpl;
 import net.lostluma.server_stats.util.FSUtil;
 import net.lostluma.server_stats.util.Logging;
 import net.lostluma.server_stats.util.platform.Platform;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -26,16 +25,16 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PersistentStatsImpl implements PersistentStats {
-	private final @NotNull String username;
-	private final @NotNull UUID identifier;
+	private final String username;
+	private final UUID identifier;
 
-	private final @NotNull StatEventHandler handler;
-	private final @NotNull Map<String, Long> values;
+	private final StatEventHandler handler;
+	private final Map<String, Long> values;
 
 	private boolean active;
 	private boolean modified;
 
-	public PersistentStatsImpl(@NotNull String username, @NotNull UUID identifier, @NotNull StatEventHandler handler) {
+	public PersistentStatsImpl(String username, UUID identifier, StatEventHandler handler) {
 		this.username = username;
 		this.identifier = identifier;
 
@@ -53,12 +52,12 @@ public class PersistentStatsImpl implements PersistentStats {
 	}
 
 	@Override
-	public long get(@NotNull ServerStatistic stat) {
+	public long get(ServerStatistic stat) {
 		return this.values.getOrDefault(this.getKey(stat), 0L);
 	}
 
 	@Override
-	public long reset(@NotNull ServerStatistic stat) throws IllegalStateException {
+	public long reset(ServerStatistic stat) throws IllegalStateException {
 		this.checkActive();
 		String key = this.getKey(stat);
 
@@ -73,7 +72,7 @@ public class PersistentStatsImpl implements PersistentStats {
 	}
 
 	@Override
-	public long increment(@NotNull ServerStatistic stat, long amount) throws IllegalStateException {
+	public long increment(ServerStatistic stat, long amount) throws IllegalStateException {
 		this.checkActive();
 
 		long value;
@@ -91,23 +90,23 @@ public class PersistentStatsImpl implements PersistentStats {
 		return value;
 	}
 
-	public @NotNull String username() {
+	public String username() {
 		return this.username;
 	}
 
-	public @NotNull UUID identifier() {
+	public UUID identifier() {
 		return this.identifier;
 	}
 
-	public @NotNull StatEventHandler handler() {
+	public StatEventHandler handler() {
 		return this.handler;
 	}
 
-	private boolean isModded(@NotNull ServerStatistic stat) {
+	private boolean isModded(ServerStatistic stat) {
 		return ((ServerStatisticImpl) stat).vanillaId() == -1;
 	}
 
-	private @NotNull String getKey(@NotNull ServerStatistic stat) {
+	private String getKey(ServerStatistic stat) {
 		return ((ServerStatisticImpl) stat).key();
 	}
 
@@ -201,7 +200,7 @@ public class PersistentStatsImpl implements PersistentStats {
 		return result.toString();
 	}
 
-	public @NotNull String server_stats$serialize(boolean large) {
+	public String server_stats$serialize(boolean large) {
 		JsonObject result = new JsonObject();
 
 		for (Map.Entry<String, Long> counter : this.values.entrySet()) {
@@ -215,8 +214,7 @@ public class PersistentStatsImpl implements PersistentStats {
 		return result.toString();
 	}
 
-
-	private @NotNull FileAttribute<?>[] getDefaultFileAttributes() {
+	private FileAttribute<?>[] getDefaultFileAttributes() {
 		if (!System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("linux")) {
 			return new FileAttribute[0];
 		}

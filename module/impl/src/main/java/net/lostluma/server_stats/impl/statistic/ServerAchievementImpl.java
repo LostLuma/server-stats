@@ -1,29 +1,28 @@
 package net.lostluma.server_stats.impl.statistic;
 
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
 public class ServerAchievementImpl extends ServerStatisticImpl implements ServerAchievement {
-	private final ServerAchievement parent;
+	private final @Nullable ServerAchievement parent;
 
-	public ServerAchievementImpl(int vanillaId, @NotNull String identifier, @Nullable ServerAchievement parent) {
+	public ServerAchievementImpl(int vanillaId, String identifier, @Nullable ServerAchievement parent) {
 		this(vanillaId, "minecraft", identifier, parent);
 	}
 
-	protected ServerAchievementImpl(@NotNull String namespace, @NotNull String identifier, @Nullable ServerAchievement parent) {
+	protected ServerAchievementImpl(String namespace, String identifier, @Nullable ServerAchievement parent) {
 		this(-1, namespace, identifier, parent);
 	}
 
-	protected ServerAchievementImpl(int vanillaId, @NotNull String namespace, @NotNull String identifier, @Nullable ServerAchievement parent) {
+	protected ServerAchievementImpl(int vanillaId, String namespace, String identifier, @Nullable ServerAchievement parent) {
 		super(vanillaId, namespace, identifier);
 
 		this.parent = parent;
 	}
 
-	public @NotNull String key() {
+	public String key() {
 		if (this.namespace().equals("minecraft")) {
 			return "achievement." + this.identifier();
 		} else {
@@ -32,17 +31,17 @@ public class ServerAchievementImpl extends ServerStatisticImpl implements Server
 	}
 
 	@Override
-	public @NotNull Optional<ServerAchievement> parent() {
+	public Optional<ServerAchievement> parent() {
 		return Optional.ofNullable(this.parent);
 	}
 
 	public static class Builder implements ServerAchievement.Builder {
-		private final @NotNull String namespace;
-		private final @NotNull String identifier;
+		private final String namespace;
+		private final String identifier;
 
 		private @Nullable ServerAchievement parent;
 
-		public Builder(@NotNull String namespace, @NotNull String identifier) {
+		public Builder(String namespace, String identifier) {
 			this.namespace = namespace;
 			this.identifier = identifier;
 
@@ -50,12 +49,12 @@ public class ServerAchievementImpl extends ServerStatisticImpl implements Server
 		}
 
 		@Override
-		public @NotNull ServerAchievement build() {
+		public ServerAchievement build() {
 			return new ServerAchievementImpl(this.namespace, this.identifier, this.parent);
 		}
 
 		@Override
-		public ServerAchievement.@NotNull Builder parent(@NotNull ServerAchievement parent) {
+		public ServerAchievement.Builder parent(ServerAchievement parent) {
 			this.parent = parent;
 			return this;
 		}

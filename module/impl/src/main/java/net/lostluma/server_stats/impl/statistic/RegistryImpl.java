@@ -4,7 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.lostluma.server_stats.util.platform.Platform;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -28,11 +28,11 @@ public class RegistryImpl {
 		}
 	}
 
-	public static ServerStatisticImpl byKey(String key) {
+	public static @Nullable ServerStatisticImpl byKey(String key) {
 		return BY_KEY.get(key);
 	}
 
-	public static ServerStatisticImpl byVanillaId(Integer id) {
+	public static @Nullable ServerStatisticImpl byVanillaId(Integer id) {
 		return BY_VANILLA_ID.get(id);
 	}
 
@@ -86,7 +86,7 @@ public class RegistryImpl {
 		}
 	}
 
-	public static @NotNull Collection<@NotNull ServerAchievement> achievements() {
+	public static Collection<ServerAchievement> achievements() {
 		List<ServerAchievement> achievements = new ArrayList<>();
 
 		for (ServerStatisticImpl stat : BY_KEY.values()) {
@@ -98,7 +98,7 @@ public class RegistryImpl {
 		return achievements;
 	}
 
-	public static @NotNull Collection<@NotNull ServerStatistic> statistics() {
+	public static Collection<ServerStatistic> statistics() {
 		List<ServerStatistic> statistics = new ArrayList<>();
 
 		for (ServerStatisticImpl stat : BY_KEY.values()) {

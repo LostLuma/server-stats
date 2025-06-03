@@ -3,7 +3,6 @@ package net.lostluma.server_stats.util;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 public class Mojang {
-	public static @NotNull String fetchName(UUID identifier) throws IOException {
+	public static String fetchName(UUID identifier) throws IOException {
 		String param = identifier.toString().replace("-", "");
 		JsonObject root = fetch("https://api.minecraftservices.com/minecraft/profile/lookup/" + param);
 
@@ -24,7 +23,7 @@ public class Mojang {
 		}
 	}
 
-	public static @NotNull UUID fetchUuid(String username) throws IOException {
+	public static UUID fetchUuid(String username) throws IOException {
 		JsonObject root = fetch("https://api.minecraftservices.com/minecraft/profile/lookup/name/" + username);
 
 		if (!root.has("id")) {
@@ -34,7 +33,7 @@ public class Mojang {
 		}
 	}
 
-	private static @NotNull JsonObject fetch(@NotNull String url) throws IOException {
+	private static JsonObject fetch(String url) throws IOException {
 		URL target = new URL(url);
 
 		HttpURLConnection connection = (HttpURLConnection) target.openConnection();

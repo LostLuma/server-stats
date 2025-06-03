@@ -11,7 +11,6 @@ import net.lostluma.server_stats.impl.statistic.RegistryImpl;
 import net.lostluma.server_stats.impl.statistic.ServerAchievementImpl;
 import net.lostluma.server_stats.impl.statistic.ServerStatisticImpl;
 import net.lostluma.server_stats.impl.ApiProxy;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
@@ -23,74 +22,80 @@ public class ApiProxyImpl implements ApiProxy {
 	// ClientPlayerStats
 
 	@Override
-	public void fetch(@NotNull String name, @NotNull Consumer<Result<DisplayStats, String>> handler) {
+	public void fetch(String name, Consumer<Result<DisplayStats, String>> handler) {
 		ClientPlayerStatsImpl.fetch(name, handler);
 	}
 
 	@Override
-	public void fetch(@NotNull UUID identifier, @NotNull Consumer<Result<DisplayStats, String>> handler) {
+	public void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler) {
 		ClientPlayerStatsImpl.fetch(identifier, handler);
 	}
 
 	// ServerPlayerStats
 
 	@Override
-	public void get(@NotNull String name, @NotNull Consumer<Result<MutableStats, String>> handler) {
+	public void get(String name, Consumer<Result<MutableStats, String>> handler) {
 		ServerPlayerStatsImpl.get(name, handler);
 	}
 
 	@Override
-	public void get(@NotNull UUID identifier, @NotNull Consumer<Result<MutableStats, String>> handler) {
+	public void get(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
 		ServerPlayerStatsImpl.get(identifier, handler);
 	}
 
 	// Registry
 
 	@Override
-	public @NotNull Collection<@NotNull ServerStatistic> statistics() {
+	public Collection<ServerStatistic> statistics() {
 		return RegistryImpl.statistics();
 	}
 
 	@Override
-	public @NotNull Collection<@NotNull ServerAchievement> achievements() {
+	public Collection<ServerAchievement> achievements() {
 		return RegistryImpl.achievements();
 	}
 
 	// ServerAchievement
 
 	@Override
-	public @NotNull ServerAchievement convertAchievement(int id) {
-		return (ServerAchievement) RegistryImpl.byVanillaId(id);
+	public ServerAchievement convertAchievement(int id) {
+		return (ServerAchievement) this.convertStatistic(id);
 	}
 
 	@Override
-	public @NotNull Optional<ServerAchievement> getAchievement(@NotNull String namespace, @NotNull String identifier) {
+	public Optional<ServerAchievement> getAchievement(String namespace, String identifier) {
 		return Optional.ofNullable((ServerAchievement) this.byKey("achievement", namespace, identifier));
 	}
 
 	@Override
-	public @NotNull ServerAchievement.Builder buildAchievement(@NotNull String namespace, @NotNull String identifier) {
+	public ServerAchievement.Builder buildAchievement(String namespace, String identifier) {
 		return new ServerAchievementImpl.Builder(namespace, identifier);
 	}
 
 	// ServerStatistic
 
 	@Override
-	public @NotNull ServerStatistic convertStatistic(int id) {
-		return RegistryImpl.byVanillaId(id);
+	public ServerStatistic convertStatistic(int id) {
+		ServerStatistic statistic = RegistryImpl.byVanillaId(id);
+
+		if (statistic != null) {
+			return statistic;
+		} else {
+			throw new NullPointerException("No statistic with id " + id + " is registered.");
+		}
 	}
 
 	@Override
-	public @NotNull Optional<ServerStatistic> getStatistic(@NotNull String namespace, @NotNull String identifier) {
+	public Optional<ServerStatistic> getStatistic(String namespace, String identifier) {
 		return Optional.ofNullable(this.byKey("stat", namespace, identifier));
 	}
 
 	@Override
-	public @NotNull ServerStatistic.Builder buildStatistic(@NotNull String namespace, @NotNull String identifier) {
+	public ServerStatistic.Builder buildStatistic(String namespace, String identifier) {
 		return new ServerStatisticImpl.Builder(namespace, identifier);
 	}
 
-	private @Nullable ServerStatistic byKey(@NotNull String prefix, @NotNull String namespace, @NotNull String identifier) {
+	private @Nullable ServerStatistic byKey(String prefix, String namespace, String identifier) {
 		if (namespace.equals("minecraft")) {
 			return RegistryImpl.byKey(prefix + "." + identifier);
 		} else {

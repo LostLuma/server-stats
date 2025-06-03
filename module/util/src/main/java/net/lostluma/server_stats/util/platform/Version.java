@@ -1,6 +1,5 @@
 package net.lostluma.server_stats.util.platform;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.regex.Matcher;
@@ -98,7 +97,7 @@ public class Version implements Comparable<Version> {
 	}
 
 	@Override
-	public int compareTo(@NotNull Version other) {
+	public int compareTo(Version other) {
 		for (int index = 0; index < 3; index++) {
 			int result = Integer.compare(this.components[index], other.components[index]);
 

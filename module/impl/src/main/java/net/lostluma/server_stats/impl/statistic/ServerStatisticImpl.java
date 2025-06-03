@@ -1,27 +1,26 @@
 package net.lostluma.server_stats.impl.statistic;
 
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
-import org.jetbrains.annotations.NotNull;
 
 public class ServerStatisticImpl implements ServerStatistic {
 	private final int vanillaId;
 
-	private final @NotNull String namespace;
-	private final @NotNull String identifier;
+	private final String namespace;
+	private final String identifier;
 
 	private static final String NAMESPACE_PATTERN = "^[a-z0-9_]{1,63}$";
 	// Identifier pattern is more lax due to the vanilla keys from 1.7.x
 	private static final String IDENTIFIER_PATTERN = "^[a-zA-Z0-9._]{1,63}$";
 
-	public ServerStatisticImpl(int vanillaId, @NotNull String identifier) {
+	public ServerStatisticImpl(int vanillaId, String identifier) {
 		this(vanillaId, "minecraft", identifier);
 	}
 
-	protected ServerStatisticImpl(@NotNull String namespace, @NotNull String identifier) {
+	protected ServerStatisticImpl(String namespace, String identifier) {
 		this(-1, namespace, identifier);
 	}
 
-	protected ServerStatisticImpl(int vanillaId, @NotNull String namespace, @NotNull String identifier) {
+	protected ServerStatisticImpl(int vanillaId, String namespace, String identifier) {
 		this.vanillaId = vanillaId;
 
 		this.namespace = namespace;
@@ -42,7 +41,7 @@ public class ServerStatisticImpl implements ServerStatistic {
 		return this.vanillaId;
 	}
 
-	public @NotNull String key() {
+	public String key() {
 		if (this.namespace.equals("minecraft")) {
 			return "stat." + this.identifier();
 		} else {
@@ -51,26 +50,26 @@ public class ServerStatisticImpl implements ServerStatistic {
 	}
 
 	@Override
-	public @NotNull String namespace() {
+	public String namespace() {
 		return this.namespace;
 	}
 
 	@Override
-	public @NotNull String identifier() {
+	public String identifier() {
 		return this.identifier;
 	}
 
 	public static class Builder implements ServerStatistic.Builder {
-		private final @NotNull String namespace;
-		private final @NotNull String identifier;
+		private final String namespace;
+		private final String identifier;
 
-		public Builder(@NotNull String namespace, @NotNull String identifier) {
+		public Builder(String namespace, String identifier) {
 			this.namespace = namespace;
 			this.identifier = identifier;
 		}
 
 		@Override
-		public @NotNull ServerStatistic build() {
+		public ServerStatistic build() {
 			return new ServerStatisticImpl(this.namespace, this.identifier);
 		}
 	}

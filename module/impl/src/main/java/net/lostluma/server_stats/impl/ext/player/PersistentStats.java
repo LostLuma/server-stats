@@ -1,7 +1,6 @@
 package net.lostluma.server_stats.impl.ext.player;
 
 import net.lostluma.server_stats.api.player.MutableStats;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
@@ -25,7 +24,7 @@ public interface PersistentStats extends MutableStats {
 	 * Serialize either only small, or large values.
 	 * This is needed to ensure older Server Stats clients can receive data.
 	 */
-	default @NotNull String server_stats$serialize(boolean large) {
+	default String server_stats$serialize(boolean large) {
 		throw new RuntimeException("Interface implementation missing!");
 	}
 }

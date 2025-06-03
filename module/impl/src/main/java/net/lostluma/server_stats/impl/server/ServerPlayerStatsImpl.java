@@ -6,7 +6,6 @@ import net.lostluma.server_stats.impl.error.NoContextAvailable;
 import net.lostluma.server_stats.impl.util.ResultImpl;
 import net.lostluma.server_stats.util.Mojang;
 import net.lostluma.server_stats.util.Threads;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -14,7 +13,7 @@ import java.util.function.Consumer;
 
 public class ServerPlayerStatsImpl {
 	// TODO: Skip username / identifier lookup if the player is online
-	public static void get(@NotNull String name, @NotNull Consumer<Result<MutableStats, String>> handler) {
+	public static void get(String name, Consumer<Result<MutableStats, String>> handler) {
 		Threads.execute(() -> {
 			UUID identifier;
 
@@ -29,7 +28,7 @@ public class ServerPlayerStatsImpl {
 		});
 	}
 
-	public static void get(@NotNull UUID identifier, @NotNull Consumer<Result<MutableStats, String>> handler) {
+	public static void get(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
 		Threads.execute(() -> {
 			String name;
 
@@ -44,7 +43,7 @@ public class ServerPlayerStatsImpl {
 		});
 	}
 
-	private static void get(@NotNull String name, @NotNull UUID identifier, @NotNull Consumer<Result<MutableStats, String>> handler) {
+	private static void get(String name, UUID identifier, Consumer<Result<MutableStats, String>> handler) {
 		PlayerStatsCache cache;
 
 		try {

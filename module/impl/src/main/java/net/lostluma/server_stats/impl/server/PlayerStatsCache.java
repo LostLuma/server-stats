@@ -5,7 +5,7 @@ import net.lostluma.server_stats.impl.ext.common.Identifiable;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.impl.player.PersistentStatsImpl;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;
@@ -27,7 +27,7 @@ public class PlayerStatsCache {
 	private final Map<PhantomReference<?>, UUID> references = new IdentityHashMap<>();
 	private final Map<UUID, Integer> referenceCounts = new HashMap<>(); // Proxy count
 
-	private static PlayerStatsCache INSTANCE;
+	private static @Nullable PlayerStatsCache INSTANCE;
 
 	private PlayerStatsCache(String worldDir) {
 		this.path = Paths.get(worldDir).resolve("stats");
@@ -60,7 +60,7 @@ public class PlayerStatsCache {
 		}
 	}
 
-	public @NotNull Path getPath() {
+	public Path getPath() {
 		return this.path;
 	}
 
@@ -86,7 +86,7 @@ public class PlayerStatsCache {
 		INSTANCE = null;
 	}
 
-	public @NotNull PersistentStats get(@NotNull Identifiable player) {
+	public PersistentStats get(Identifiable player) {
 		String username = player.server_stats$name();
 		UUID identifier = player.server_stats$identifier();
 
@@ -102,7 +102,7 @@ public class PlayerStatsCache {
 		return stats;
 	}
 
-	public @NotNull PersistentStats get(@NotNull String name, @NotNull UUID identifier) {
+	public PersistentStats get(String name, UUID identifier) {
 		synchronized (this) {
 			PersistentStatsImpl stats = this.stats.get(identifier);
 

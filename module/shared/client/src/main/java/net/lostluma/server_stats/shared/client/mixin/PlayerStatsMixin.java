@@ -42,7 +42,7 @@ public class PlayerStatsMixin implements DisplayStats, SyncedStats, StatEventHan
 	// SyncedStats
 
 	@Override
-	public void server_stats$reset(String key) {
+	public void server_stats$reset(@NotNull String key) {
 		ServerStatisticImpl stat = RegistryImpl.byKey(key);
 
 		if (stat != null) {
@@ -52,12 +52,12 @@ public class PlayerStatsMixin implements DisplayStats, SyncedStats, StatEventHan
 	}
 
 	@Override
-	public void server_stats$replace(PersistentStats override) {
+	public void server_stats$replace(@NotNull PersistentStats override) {
 		this.server_stats$persist(override.server_stats$values(), true);
 	}
 
 	@Override
-	public void server_stats$persist(Map<String, Long> overrides, boolean clear) {
+	public void server_stats$persist(@NotNull Map<String, Long> overrides, boolean clear) {
 		if (clear) {
 			this.stats.clear();
 			this.server_stats$stats.clear();

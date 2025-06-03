@@ -3,7 +3,6 @@ package net.lostluma.server_stats.impl.server;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.impl.player.PersistentStatsImpl;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
@@ -20,17 +19,17 @@ public class PersistentStatsProxy implements PersistentStats {
 	}
 
 	@Override
-	public long get(@NotNull ServerStatistic stat) {
+	public long get(ServerStatistic stat) {
 		return this.parent.get(stat);
 	}
 
 	@Override
-	public long reset(@NotNull ServerStatistic stat) throws IllegalStateException {
+	public long reset(ServerStatistic stat) throws IllegalStateException {
 		return this.parent.reset(stat);
 	}
 
 	@Override
-	public long increment(@NotNull ServerStatistic stat, long amount) throws IllegalStateException {
+	public long increment(ServerStatistic stat, long amount) throws IllegalStateException {
 		return this.parent.increment(stat, amount);
 	}
 
@@ -50,7 +49,7 @@ public class PersistentStatsProxy implements PersistentStats {
 	}
 
 	@Override
-	public @NotNull String server_stats$serialize(boolean large) {
+	public String server_stats$serialize(boolean large) {
 		return this.parent.server_stats$serialize(large);
 	}
 }
