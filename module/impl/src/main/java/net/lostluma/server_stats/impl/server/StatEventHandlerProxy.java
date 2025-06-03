@@ -2,12 +2,13 @@ package net.lostluma.server_stats.impl.server;
 
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
+import org.jetbrains.annotations.Nullable;
 
 import java.lang.ref.WeakReference;
 
 public class StatEventHandlerProxy implements StatEventHandler {
 	// The weak reference will expire after player logs out
-	private WeakReference<StatEventHandler> parent;
+	private WeakReference<@Nullable StatEventHandler> parent;
 
 	public StatEventHandlerProxy() {
 		this.parent = new WeakReference<>(null);
