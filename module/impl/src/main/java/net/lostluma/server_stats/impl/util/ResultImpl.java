@@ -1,54 +1,70 @@
 package net.lostluma.server_stats.impl.util;
 
 import net.lostluma.server_stats.api.util.Result;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.UnknownNullability;
 
-public class ResultImpl<T, Error> implements Result<T, Error> {
-	private final T value;
-	private final Error error;
-
-	private final boolean success;
-
-	private ResultImpl(T value, Error error, boolean success) {
-		this.value = value;
-		this.error = error;
-
-		this.success = success;
+public class ResultImpl {
+	public static <T extends @UnknownNullability Object, Error> Result<T, Error> ok(T value) {
+		return new OkResultImpl<>(value);
 	}
 
-	public static <A, B> Result<A, B> ok(A value) {
-		return new ResultImpl<>(value, null, true);
+	public static <T extends @UnknownNullability Object, Error> Result<T, Error> error(Error error) {
+		return new ErrorResultImpl<>(error);
 	}
 
-	public static <A, B> Result<A, B> error(B error) {
-		return new ResultImpl<>(null, error, false);
-	}
+	private static final class OkResultImpl<T extends @UnknownNullability Object, Error> implements Result<T, Error> {
+		private final T value;
 
-	@Override
-	public boolean isOk() {
-		return this.success;
-	}
+		private OkResultImpl(T value) {
+			this.value = value;
+		}
 
-	@Override
-	public boolean isError() {
-		return !this.success;
-	}
+		@Override
+		public boolean isOk() {
+			return true;
+		}
 
-	@Override
-	public @NotNull T value() throws IllegalStateException {
-		if (this.isOk()) {
+		@Override
+		public boolean isError() {
+			return false;
+		}
+
+		@Override
+		public T value() throws IllegalStateException {
 			return this.value;
-		} else {
-			throw new IllegalStateException("No value available.");
+		}
+
+		@Override
+		public Error error() throws IllegalStateException {
+			throw new IllegalStateException("No error available.");
 		}
 	}
 
-	@Override
-	public @NotNull Error error() throws IllegalStateException {
-		if (this.isError()) {
+	private static final class ErrorResultImpl<T extends @UnknownNullability Object, Error> implements Result<T, Error> {
+		private final Error error;
+
+		private ErrorResultImpl(Error error) {
+			this.error = error;
+		}
+
+		@Override
+		public boolean isOk() {
+			return false;
+		}
+
+		@Override
+		public boolean isError() {
+			return true;
+		}
+
+		@Override
+		public T value() throws IllegalStateException {
+			throw new IllegalStateException("No value available.");
+		}
+
+		@Override
+		public Error error() throws IllegalStateException {
 			return this.error;
-		} else {
-			throw new IllegalStateException("No error available.");
 		}
 	}
 }
