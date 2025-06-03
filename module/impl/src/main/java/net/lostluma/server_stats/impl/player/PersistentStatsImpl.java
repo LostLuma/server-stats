@@ -94,10 +94,6 @@ public class PersistentStatsImpl implements PersistentStats {
 		return this.username;
 	}
 
-	public UUID identifier() {
-		return this.identifier;
-	}
-
 	public StatEventHandler handler() {
 		return this.handler;
 	}
