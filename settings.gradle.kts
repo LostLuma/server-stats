@@ -59,6 +59,15 @@ include(":module:identity:merged:1.7.0-alpha.13w39a-to-1.7.5")
 
 include(":module:identity:server")
 
+include(":module:lifecycle:client:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3")
+include(":module:lifecycle:client:1.0.0-beta.1.8.0-to-1.3.0-alpha.12w17a")
+
+include(":module:lifecycle:merged:1.3.2-to-1.4.0-alpha.12w38b")
+include(":module:lifecycle:merged:1.4.0-alpha.12w39a-to-1.6.4")
+
+include(":module:lifecycle:server:1.0.0-beta.1.5.0-to-1.1.0-alpha.11w50a")
+include(":module:lifecycle:server:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w17a")
+
 include(":module:network:osl:client")
 include(":module:network:osl:common")
 include(":module:network:osl:server")
@@ -86,19 +95,7 @@ include(":module:version:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")
 include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client")
 include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server")
 
-include(":module:version:1.0.0-to-1.1.0-alpha.11w50a-client")
-include(":module:version:1.0.1-to-1.1.0-alpha.11w50a-server")
+include(":module:version:1.0.0-to-1.3.0-alpha.12w17a-client")
+include(":module:version:1.0.1-to-1.3.0-alpha.12w17a-server")
 
-include(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client")
-include(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server")
-
-include(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client")
-include(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server")
-
-include(":module:version:1.3.2-to-1.4.0-alpha.12w38b")
-
-include(":module:version:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b")
-
-include(":module:version:1.5.0-alpha.13w02a-to-1.5.2")
-
-include(":module:version:1.6.0-alpha.13w16a-to-1.6.4")
+include(":module:version:1.3.2-to-1.6.4")

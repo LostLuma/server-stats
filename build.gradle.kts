@@ -42,6 +42,15 @@ dependencies {
 	include(project(":module:identity:merged:1.7.0-alpha.13w39a-to-1.7.5"))
 	include(project(":module:identity:server"))
 
+	include(project(":module:lifecycle:client:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3"))
+	include(project(":module:lifecycle:client:1.0.0-beta.1.8.0-to-1.3.0-alpha.12w17a"))
+
+	include(project(":module:lifecycle:merged:1.3.2-to-1.4.0-alpha.12w38b"))
+	include(project(":module:lifecycle:merged:1.4.0-alpha.12w39a-to-1.6.4"))
+
+	include(project(":module:lifecycle:server:1.0.0-beta.1.5.0-to-1.1.0-alpha.11w50a"))
+	include(project(":module:lifecycle:server:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w17a"))
+
 	include(project(":module:network:osl:client"))
 	include(project(":module:network:osl:common"))
 	include(project(":module:network:osl:server"))
@@ -73,26 +82,12 @@ dependencies {
 	include(project(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client"))
 	include(project(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server"))
 
-	// 1.0.0 -> Initial release
-	// NOTE: client works until 1.0.0-pre.3 in theory
-	include(project(":module:version:1.0.0-to-1.1.0-alpha.11w50a-client"))
-	include(project(":module:version:1.0.1-to-1.1.0-alpha.11w50a-server"))
-	// 12w01a -> MinecraftServer.loadWorld signature changed
-	include(project(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-client"))
-	include(project(":module:version:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w16a-server"))
-	// 12w17a -> ...
-	include(project(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-client"))
-	include(project(":module:version:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a-server"))
-	// NOTE: 12w18a to 12w21a are v weird ..
-	// NOTE: All further snapshots including 1.3.0-pre.1 unsupported, for now
-	// 1.3.2 -> now merged!
-	include(project(":module:version:1.3.2-to-1.4.0-alpha.12w38b"))
-	// 12w39a -> ...
-	include(project(":module:version:1.4.0-alpha.12w39a-to-1.5.0-alpha.13w01b"))
-	//13w02a -> ...
-	include(project(":module:version:1.5.0-alpha.13w02a-to-1.5.2"))
-	// 13w16a -> ...
-	include(project(":module:version:1.6.0-alpha.13w16a-to-1.6.4"))
+	// Minecraft.changeDimension, PlayerManager.respawn signature changed
+	include(project(":module:version:1.0.0-to-1.3.0-alpha.12w17a-client"))
+	include(project(":module:version:1.0.1-to-1.3.0-alpha.12w17a-server"))
+	// The rest of the 1.3 snapshots are very weird
+	// Because Mojang was working on the client / server merge
+	include(project(":module:version:1.3.2-to-1.6.4"))
 }
 
 tasks.withType<Jar> {

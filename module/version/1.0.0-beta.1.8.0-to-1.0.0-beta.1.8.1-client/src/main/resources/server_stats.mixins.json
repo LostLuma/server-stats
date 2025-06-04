@@ -7,9 +7,7 @@
         "client.LocalPlayerEntityMixin",
         "client.MinecraftMixin"
     ],
-    "mixins": [
-        "common.WorldMixin"
-    ],
+    "mixins": [],
     "server": [],
     "injectors": {
         "defaultRequire": 1
