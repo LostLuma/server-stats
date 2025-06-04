@@ -3,38 +3,38 @@ plugins {
 }
 
 fun moduleName(long: Boolean): String {
-	val path = project.path.split(":");
+	val path = project.path.split(":")
 
 	if (path.size < 3) {
-		return "server-stats";
+		return "server-stats"
 	}
 
 	// Ignore last segment if long is false.
-	val remove = if (long) { 0 } else { 1 };
-	return path.subList(2, path.size - remove).joinToString(".");
+	val remove = if (long) { 0 } else { 1 }
+	return path.subList(2, path.size - remove).joinToString(".")
 }
 
 fun mavenGroup(): String {
-	val name = moduleName(false);
-	val base = project.property("maven_group").toString();
+	val name = moduleName(false)
+	val base = project.property("maven_group").toString()
 
-	if (name == "server-stats") {
-		return base;
+	return if (name == "server-stats") {
+		base
 	} else if (name.isEmpty()) {
-		return "${base}.server-stats"
+		"${base}.server-stats"
 	} else {
-		return "${base}.server-stats.${name}";
+		"${base}.server-stats.${name}"
 	}
 }
 
 fun modVersion(): String {
-	val base = project.property("mod_version").toString();
-	val isCi = providers.environmentVariable("CI").isPresent;
+	val base = project.property("mod_version").toString()
+	val isCi = providers.environmentVariable("CI").isPresent
 
-	if (isCi) {
-		return base;
+	return if (isCi) {
+		base
 	} else {
-		return "${base}+local";
+		"${base}+local"
 	}
 }
 

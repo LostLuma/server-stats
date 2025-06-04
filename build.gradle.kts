@@ -98,11 +98,11 @@ val modVersion = project.property("mod_version").toString()
 
 fun getVersionType(): ReleaseType {
 	return if (modVersion.startsWith("0.") || modVersion.contains("-alpha.")) {
-		ReleaseType.ALPHA;
+		ReleaseType.ALPHA
 	} else if (modVersion.contains("-")) {
-		ReleaseType.BETA;
+		ReleaseType.BETA
 	} else {
-		ReleaseType.STABLE;
+		ReleaseType.STABLE
 	}
 }
 
@@ -110,7 +110,7 @@ publishMods {
 	version = modVersion
 	displayName = "v${modVersion}"
 
-	type = getVersionType();
+	type = getVersionType()
 	modLoaders.addAll("fabric", "quilt")
 
 	file = tasks.withType<RemapJarTask>()["remapJar"].archiveFile

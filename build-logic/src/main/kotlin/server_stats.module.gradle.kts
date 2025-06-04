@@ -8,7 +8,7 @@ plugins {
 
 val libs = the<LibrariesForLibs>()
 val isMerged = !project.hasProperty("environment")
-val minecraftVersion = project.property("minecraft_version");
+val minecraftVersion = project.property("minecraft_version")
 
 loom {
 	mixin {
