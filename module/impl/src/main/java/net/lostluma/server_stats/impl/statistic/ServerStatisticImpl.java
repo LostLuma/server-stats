@@ -8,9 +8,7 @@ public class ServerStatisticImpl implements ServerStatistic {
 	private final String namespace;
 	private final String identifier;
 
-	private static final String NAMESPACE_PATTERN = "^[a-z0-9_]{1,63}$";
-	// Identifier pattern is more lax due to the vanilla keys from 1.7.x
-	private static final String IDENTIFIER_PATTERN = "^[a-zA-Z0-9._]{1,63}$";
+	private static final String IDENTIFIER_PATTERN = "^[a-z0-9_]{1,63}$";
 
 	public ServerStatisticImpl(int vanillaId, String identifier) {
 		this(vanillaId, "minecraft", identifier);
@@ -26,11 +24,13 @@ public class ServerStatisticImpl implements ServerStatistic {
 		this.namespace = namespace;
 		this.identifier = identifier;
 
-		if (!namespace.matches(NAMESPACE_PATTERN)) {
-			throw new RuntimeException("Statistic namespace must match " + NAMESPACE_PATTERN);
+		if (!namespace.matches(IDENTIFIER_PATTERN)) {
+			throw new RuntimeException("Statistic namespace must match " + IDENTIFIER_PATTERN);
 		}
 
-		if (!identifier.matches(IDENTIFIER_PATTERN)) {
+		// Vanilla keys from 1.7.x do not match the pattern, but must be allowed,
+		// Since Server Stats' own backported statistics simply reuse those names
+		if (!namespace.equals("minecraft") && !identifier.matches(IDENTIFIER_PATTERN)) {
 			throw new RuntimeException("Statistic identifier must match " + IDENTIFIER_PATTERN);
 		}
 
