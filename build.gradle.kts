@@ -70,6 +70,17 @@ dependencies {
 	include(project(":module:statistic:combat:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a"))
 	include(project(":module:statistic:combat:1.1.0-alpha.12w01a-to-1.6.4"))
 
+	include(project(":module:statistic:item-transfer:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a"))
+	include(project(":module:statistic:item-transfer:1.2.0-to-1.6.4"))
+	include(project(":module:statistic:item-transfer:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w37b"))
+	include(project(":module:statistic:item-transfer:1.7.0-alpha.13w38a-to-1.8.0-alpha.14w05b"))
+	include(project(":module:statistic:item-transfer:1.8.0-alpha.14w06a-to-1.8.0-alpha.14w08a"))
+	include(project(":module:statistic:item-transfer:1.8.0-alpha.14w10a-to-1.8.0-alpha.14w26c"))
+	include(project(":module:statistic:item-transfer:1.8.0-alpha.14w27a-to-1.8.0-alpha.14w28b"))
+	// NOTE: Maybe split on 1.8.2-pre.4 / 1.8.2-pre.5
+	// IdRegistry changes here to actually be generic, and not return Object
+	include(project(":module:statistic:item-transfer:1.8.0-alpha.14w29a-to-1.9.0-alpha.15w32c"))
+
 	include(project(":module:util"))
 
 	// b1.5.0 -> first version with statistics!

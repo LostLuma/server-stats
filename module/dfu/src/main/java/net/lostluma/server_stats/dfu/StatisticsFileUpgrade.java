@@ -27,7 +27,7 @@ public class StatisticsFileUpgrade {
 	private static final Path BACKUPS = Platform.getCacheDir();
 
 	private static @Nullable Map<String, String> ID_MAP = null;
-	private static final Pattern UPGRADEABLE = Pattern.compile("^(?<type>stat.(?:breakItem|craftItem|mineBlock|useItem).)(?<id>\\d+)$");
+	private static final Pattern UPGRADEABLE = Pattern.compile("^(?<type>stat.(?:breakItem|craftItem|drop|mineBlock|pickup|useItem).)(?<id>\\d+)$");
 
 	public static void upgradeWorld(String worldDir) throws IOException {
 		Path stats = Paths.get(worldDir).resolve("stats");
