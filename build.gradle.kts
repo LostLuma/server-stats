@@ -122,7 +122,7 @@ publishMods {
 	displayName = "v${modVersion}"
 
 	type = getVersionType()
-	modLoaders.addAll("fabric", "quilt")
+	modLoaders.addAll("ornithe")
 
 	file = tasks.withType<RemapJarTask>()["remapJar"].archiveFile
 	changelog = file(rootDir.toPath().resolve("src/main/resources/changelog/${modVersion}.md")).readText()
