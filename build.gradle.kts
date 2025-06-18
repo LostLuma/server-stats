@@ -17,6 +17,10 @@ dependencies {
 	include(project(":module:bugfix:statistic:drop-amount:1.8.0-alpha.14w29a-to-1.12.2"))
 	include(project(":module:bugfix:statistic:jump"))
 	include(project(":module:bugfix:statistic:movement"))
+	include(project(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w33a-to-1.9.0-alpha.15w33c"))
+	include(project(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w34a-to-1.9.0-alpha.15w47c"))
+	include(project(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w49a-to-1.12.0-alpha.17w06a"))
+	include(project(":module:bugfix:statistic:pickup-amount:1.12.0-alpha.17w13a-to-1.12.2"))
 	include(project(":module:bugfix:statistic:result-amount"))
 
 	include(project(":module:dfu"))

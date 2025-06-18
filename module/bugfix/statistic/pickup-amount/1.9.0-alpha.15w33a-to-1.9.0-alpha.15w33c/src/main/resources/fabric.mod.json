@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_pickup_amount",
+    "version": "${version}",
+    "name": "Pickup Amount",
+    "description": "Fix item pickup amount tracking.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_pickup_amount/icon.png",
+    "mixins": [
+        "server_stats.pickup_amount.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.9-alpha.15.33.a <=1.9-alpha.15.33.c"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

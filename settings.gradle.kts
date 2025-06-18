@@ -33,6 +33,10 @@ include(":module:bugfix:statistic:drop-amount:1.8.0-alpha.14w10a-to-1.8.0-alpha.
 include(":module:bugfix:statistic:drop-amount:1.8.0-alpha.14w29a-to-1.12.2")
 include(":module:bugfix:statistic:jump")
 include(":module:bugfix:statistic:movement")
+include(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w33a-to-1.9.0-alpha.15w33c")
+include(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w34a-to-1.9.0-alpha.15w47c")
+include(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w49a-to-1.12.0-alpha.17w06a")
+include(":module:bugfix:statistic:pickup-amount:1.12.0-alpha.17w13a-to-1.12.2")
 include(":module:bugfix:statistic:result-amount")
 
 include(":module:dfu")
