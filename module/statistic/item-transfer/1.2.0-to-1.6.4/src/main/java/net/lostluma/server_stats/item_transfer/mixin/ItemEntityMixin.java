@@ -28,7 +28,7 @@ public class ItemEntityMixin {
 		boolean result = original.call(instance, stack);
 		Optional<ServerStatistic> statistic = ServerStatistic.get("minecraft", "pickup." + stack.itemId);
 
-		if (result && statistic.isPresent()) {
+		if (size != stack.size && statistic.isPresent()) {
 			player.increment(statistic.get(), size - stack.size);
 		}
 

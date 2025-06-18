@@ -30,7 +30,7 @@ public class ItemEntityMixin {
 		String identifier = Item.REGISTRY.getKey(stack.getItem()).toString().replace(":", ".");
 		Optional<ServerStatistic> statistic = ServerStatistic.get("minecraft", "pickup." + identifier);
 
-		if (result && statistic.isPresent()) {
+		if (size != stack.size && statistic.isPresent()) {
 			player.increment(statistic.get(), size - stack.size);
 		}
 
