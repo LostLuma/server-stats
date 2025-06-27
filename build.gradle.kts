@@ -70,7 +70,8 @@ dependencies {
 	include(project(":module:shared:common"))
 	include(project(":module:shared:server"))
 
-	include(project(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-alpha.11w48a"))
+	include(project(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-beta.1.7.3"))
+	include(project(":module:statistic:combat:1.0.0-beta.1.8.0-to-1.1.0-alpha.11w48a"))
 	include(project(":module:statistic:combat:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a"))
 	include(project(":module:statistic:combat:1.1.0-alpha.12w01a-to-1.6.4"))
 
