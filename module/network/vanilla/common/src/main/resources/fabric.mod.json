@@ -19,7 +19,7 @@
     "license": "LGPL-3.0-or-later",
     "icon": "assets/server_stats_network/icon.png",
     "depends": {
-        "minecraft": ">=1.1.0-alpha.11.48.a <=1.6.4",
+        "minecraft": ">=1.1.0-alpha.11.49.a <=1.6.4",
         "server_stats_impl": "=${version}",
         "server_stats_util": "=${version}"
     },
