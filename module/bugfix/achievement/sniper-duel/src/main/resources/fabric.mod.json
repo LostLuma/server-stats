@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_sniper_duel",
+    "version": "${version}",
+    "name": "Sniper Duel",
+    "description": "Fix Sniper Duel achievement.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_sniper_duel/icon.png",
+    "mixins": [
+        "server_stats.sniper_duel.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.0.0-beta.8 <=1.1-alpha.12.1.a"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
