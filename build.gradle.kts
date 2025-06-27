@@ -147,7 +147,7 @@ publishMods {
 		minecraftVersionRange {
 			start = "1.0"
 			end = "1.2.5"
-			// end = "12w17a" - missing on Modrinth ...?
+			// end = "12w17a" - missing on Modrinth!
 			includeSnapshots = true
 		}
 
@@ -157,6 +157,9 @@ publishMods {
 			includeSnapshots = true
 		}
 
-		requires{ slug = "osl"; version = libs.versions.osl.bundle.get() }
+		requires {
+			slug = "osl"
+			version = libs.versions.osl.bundle.get()
+		}
 	}
 }
