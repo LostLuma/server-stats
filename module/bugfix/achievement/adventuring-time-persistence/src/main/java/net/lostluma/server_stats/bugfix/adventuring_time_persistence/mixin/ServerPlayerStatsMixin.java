@@ -24,6 +24,7 @@ public class ServerPlayerStatsMixin {
 			target = "Lnet/minecraft/stat/StatCounter;setProgress(Lnet/minecraft/stat/StatProgress;)V"
 		)
 	)
+	@SuppressWarnings("unchecked")
 	private void deserialize(StatCounter instance, StatProgress progress, Operation<Void> original, @Local(ordinal = 1) JsonObject entry) {
 		if (progress instanceof ForwardingJsonSet) {
 			for (JsonElement element : entry.getAsJsonArray("progress")) {
