@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_adventuring_time_persistence",
+    "version": "${version}",
+    "name": "Adventuring Time Persistence",
+    "description": "Fix Adventuring Time achievement persistence.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_adventuring_time_persistence/icon.png",
+    "mixins": [
+        "server_stats.adventuring_time_persistence.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.7-alpha.13.36.a <=1.7.3-alpha.13.48.a"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

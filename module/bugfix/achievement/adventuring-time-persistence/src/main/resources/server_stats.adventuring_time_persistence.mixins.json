@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.bugfix.adventuring_time_persistence.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "ServerPlayerStatsMixin"
+    ],
+    "client": [],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

@@ -27,6 +27,7 @@ include(":module:api")
 include(":module:impl")
 
 include(":module:bugfix:achievement:adventuring-time-unlock")
+include(":module:bugfix:achievement:adventuring-time-persistence")
 include(":module:bugfix:achievement:sniper-duel")
 include(":module:bugfix:achievement:the-end")
 

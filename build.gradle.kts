@@ -11,6 +11,7 @@ dependencies {
 	include(project(":module:impl"))
 
 	include(project(":module:bugfix:achievement:adventuring-time-unlock"))
+	include(project(":module:bugfix:achievement:adventuring-time-persistence"))
 	include(project(":module:bugfix:achievement:sniper-duel"))
 	include(project(":module:bugfix:achievement:the-end"))
 
