@@ -12,7 +12,7 @@ val minecraftVersion = project.property("minecraft_version")
 
 loom {
 	mixin {
-		useLegacyMixinAp.set(false)
+		// useLegacyMixinAp.set(false)
 	}
 }
 
