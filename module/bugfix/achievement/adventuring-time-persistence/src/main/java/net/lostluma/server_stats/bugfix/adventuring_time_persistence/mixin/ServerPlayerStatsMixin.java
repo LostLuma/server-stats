@@ -28,7 +28,9 @@ public class ServerPlayerStatsMixin {
 	private void deserialize(StatCounter instance, StatProgress progress, Operation<Void> original, @Local(ordinal = 1) JsonObject entry) {
 		if (progress instanceof ForwardingJsonSet) {
 			for (JsonElement element : entry.getAsJsonArray("progress")) {
-				((ForwardingJsonSet) progress).add(element.getAsString());
+				if (element.isJsonPrimitive() && element.getAsJsonPrimitive().isString()) {
+					((ForwardingJsonSet) progress).add(element.getAsString());
+				}
 			}
 		}
 
