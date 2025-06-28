@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_the_end",
+    "version": "${version}",
+    "name": "The End?",
+    "description": "Fix The End? achievement.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_the_end/icon.png",
+    "mixins": [
+        "server_stats.the_end.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.4-alpha.12.34.a <=1.6-alpha.13.23.b"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

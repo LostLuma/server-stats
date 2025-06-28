@@ -11,6 +11,7 @@ dependencies {
 	include(project(":module:impl"))
 
 	include(project(":module:bugfix:achievement:sniper-duel"))
+	include(project(":module:bugfix:achievement:the-end"))
 
 	include(project(":module:bugfix:statistic:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a"))
 	include(project(":module:bugfix:statistic:drop-amount:1.2.0-to-1.7.0-alpha.13w37b"))

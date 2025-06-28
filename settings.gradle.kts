@@ -27,6 +27,7 @@ include(":module:api")
 include(":module:impl")
 
 include(":module:bugfix:achievement:sniper-duel")
+include(":module:bugfix:achievement:the-end")
 
 include(":module:bugfix:statistic:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a")
 include(":module:bugfix:statistic:drop-amount:1.2.0-to-1.7.0-alpha.13w37b")
