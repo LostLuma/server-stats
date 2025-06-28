@@ -10,13 +10,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 /**
- * Swap some constants to allow The End? to trigger again:
+ * Swap constants to allow The End? to work, and We Need To Go Deeper to not erroneously trigger:
  * <br>
  * {@code - if (this.dimensionId == 1 && dimensionId == 0)}
  * <br>
  * {@code + if (this.dimensionId == 0 && dimensionId == 1)}
  * <br>
- * Note: dimension ID 0 is the overworld, 1 is the end dimension.
+ * Note: Dimension ID 0 is the overworld, 1 is the end dimension.
  */
 @Mixin(ServerPlayerEntity.class)
 public class ServerPlayerEntityMixin {
