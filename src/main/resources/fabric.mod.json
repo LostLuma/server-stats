@@ -26,5 +26,8 @@
     },
     "recommends": {
         "quilt_loader": "*"
+    },
+    "breaks": {
+        "achievement-fix": "*"
     }
 }
