@@ -10,12 +10,6 @@ val libs = the<LibrariesForLibs>()
 val isMerged = !project.hasProperty("environment")
 val minecraftVersion = project.property("minecraft_version")
 
-loom {
-	mixin {
-		// useLegacyMixinAp.set(false)
-	}
-}
-
 if (!isMerged) {
 	val isClient = project.property("environment") == "client"
 
