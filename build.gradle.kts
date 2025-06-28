@@ -106,6 +106,8 @@ dependencies {
 	// The rest of the 1.3 snapshots are very weird
 	// Because Mojang was working on the client / server merge
 	include(project(":module:version:1.3.2-to-1.6.4"))
+
+	include(variantOf(libs.mixinextras) { classifier("slim")})
 }
 
 tasks.withType<Jar> {

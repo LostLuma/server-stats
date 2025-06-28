@@ -44,4 +44,7 @@ dependencies {
 		nests(ploceus.nests(project.property("nests_build").toString()))
 	}
 	mappings(ploceus.featherMappings(project.property("feather_build").toString()))
+
+	implementation(libs.mixinextras)
+	annotationProcessor(libs.mixinextras)
 }
