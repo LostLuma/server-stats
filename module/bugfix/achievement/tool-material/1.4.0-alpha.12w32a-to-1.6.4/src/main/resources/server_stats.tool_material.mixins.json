@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.bugfix.tool_material.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "CraftingResultSlotMixin"
+    ],
+    "client": [],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

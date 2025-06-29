@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_tool_material",
+    "version": "${version}",
+    "name": "Tool Material",
+    "description": "Fix crafting achievements requiring specific materials.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_tool_material/icon.png",
+    "mixins": [
+        "server_stats.tool_material.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.7-alpha.13.36.a <=1.7-alpha.13.36.b"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
