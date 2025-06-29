@@ -8,7 +8,6 @@ import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,23 +15,16 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ItemEntity.class)
 public class ItemEntityMixin {
 	/**
-	 * Skip the original statistics call.
-	 * It is not always called, and also with the wrong amount.
+	 * Record the per-item pickup statistic when a stack is partially picked up.
 	 */
 	@WrapOperation(
 		method = "onPlayerCollision",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V")
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/entity/player/PlayerInventory;insertStack(Lnet/minecraft/item/ItemStack;)Z"
+		)
 	)
-	private void server_stats$skip(PlayerEntity instance, Stat stat, int amount, Operation<Void> original) {}
-
-	/**
-	 * Record the per-item pickup statistic.
-	 */
-	@WrapOperation(
-		method = "onPlayerCollision",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;insertStack(Lnet/minecraft/item/ItemStack;)Z")
-	)
-	private boolean onPlayerCollision(PlayerInventory instance, ItemStack stack, Operation<Boolean> original, @Local(argsOnly = true) PlayerEntity player) {
+	private boolean server_stats$record(PlayerInventory instance, ItemStack stack, Operation<Boolean> original, @Local(argsOnly = true) PlayerEntity player) {
 		int size = stack.size;
 		boolean result = original.call(instance, stack);
 
