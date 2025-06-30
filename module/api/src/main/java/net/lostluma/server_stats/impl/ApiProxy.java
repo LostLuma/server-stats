@@ -5,6 +5,8 @@ import net.lostluma.server_stats.api.player.DisplayStats;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.util.convert.IntoServerAchievement;
+import net.lostluma.server_stats.api.util.convert.IntoServerStatistic;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -29,12 +31,12 @@ public interface ApiProxy {
 	Collection<ServerAchievement> achievements();
 
 	// ServerAchievement
-	ServerAchievement convertAchievement(int id);
+	ServerAchievement convertAchievement(IntoServerAchievement achievement);
 	Optional<ServerAchievement> getAchievement(String namespace, String identifier);
 	ServerAchievement.Builder buildAchievement(String namespace, String identifier);
 
 	// ServerStatistic
-	ServerStatistic convertStatistic(int id);
+	ServerStatistic convertStatistic(IntoServerStatistic statistic);
 	Optional<ServerStatistic> getStatistic(String namespace, String identifier);
 	ServerStatistic.Builder buildStatistic(String namespace, String identifier);
 }

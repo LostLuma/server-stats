@@ -34,6 +34,15 @@
             ],
             "net/minecraft/unmapped/C_9590849": [
                 "net/lostluma/server_stats/api/player/MutableStats"
+            ],
+            "net/minecraft/unmapped/C_2270380": [
+                "net/lostluma/server_stats/api/util/convert/IntoServerAchievement"
+            ],
+            "net/minecraft/unmapped/C_1322485": [
+                "net/lostluma/server_stats/api/util/convert/IntoServerAchievement"
+            ],
+            "net/minecraft/unmapped/C_2609740": [
+                "net/lostluma/server_stats/api/util/convert/IntoServerStatistic"
             ]
         }
     }

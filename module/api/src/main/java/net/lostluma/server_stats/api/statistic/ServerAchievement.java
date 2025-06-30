@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.api.statistic;
 
+import net.lostluma.server_stats.api.util.convert.IntoServerAchievement;
 import net.lostluma.server_stats.impl.ApiProxy;
-import net.minecraft.stat.achievement.AchievementStat;
 
 import java.util.Optional;
 
@@ -33,8 +33,8 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param achievement The vanilla achievement.
 	 * @return The converted achievement, which can be used with Server Stats APIs.
 	 */
-	static ServerAchievement from(AchievementStat achievement) {
-		return ApiProxy.getInstance().convertAchievement(achievement.id);
+	static ServerAchievement from(IntoServerAchievement achievement) {
+		return ApiProxy.getInstance().convertAchievement(achievement);
 	}
 
 	/**

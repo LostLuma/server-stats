@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.api.statistic;
 
+import net.lostluma.server_stats.api.util.convert.IntoServerStatistic;
 import net.lostluma.server_stats.impl.ApiProxy;
-import net.minecraft.stat.Stat;
 
 import java.util.Optional;
 
@@ -37,11 +37,11 @@ public interface ServerStatistic {
 	/**
 	 * Get the {@code ServerStat} equivalent for a vanilla statistic.
 	 *
-	 * @param stat The vanilla statistic.
+	 * @param statistic The vanilla statistic.
 	 * @return The converted statistic, which can be used with Server Stats APIs.
 	 */
-	static ServerStatistic from(Stat stat) {
-		return ApiProxy.getInstance().convertStatistic(stat.id);
+	static ServerStatistic from(IntoServerStatistic statistic) {
+		return ApiProxy.getInstance().convertStatistic(statistic);
 	}
 
 	/**

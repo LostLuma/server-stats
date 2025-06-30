@@ -1,5 +1,7 @@
 package net.lostluma.server_stats.shared.common.mixin;
 
+import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.impl.ext.util.convert.IntoServerStatisticExt;
 import net.lostluma.server_stats.impl.statistic.RegistryImpl;
 import net.minecraft.stat.Stat;
 import net.minecraft.stat.achievement.AchievementStat;
@@ -11,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Stat.class)
-public class StatMixin {
+public class StatMixin implements IntoServerStatisticExt {
 	@Shadow
 	@Final
 	public int id;
@@ -31,6 +33,17 @@ public class StatMixin {
 			RegistryImpl.createVanillaAchievement(this.id, parentId);
 		} else {
 			RegistryImpl.createVanillaStat(this.id);
+		}
+	}
+
+	@Override
+	public ServerStatistic server_stats$into() {
+		ServerStatistic statistic = RegistryImpl.byVanillaId(this.id);
+
+		if (statistic != null) {
+			return statistic;
+		} else {
+			throw new NullPointerException("No statistic with id " + id + " is registered.");
 		}
 	}
 }

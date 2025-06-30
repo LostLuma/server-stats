@@ -5,7 +5,11 @@ import net.lostluma.server_stats.api.player.DisplayStats;
 import net.lostluma.server_stats.api.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.util.convert.IntoServerAchievement;
+import net.lostluma.server_stats.api.util.convert.IntoServerStatistic;
 import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
+import net.lostluma.server_stats.impl.ext.util.convert.IntoServerAchievementExt;
+import net.lostluma.server_stats.impl.ext.util.convert.IntoServerStatisticExt;
 import net.lostluma.server_stats.impl.server.ServerPlayerStatsImpl;
 import net.lostluma.server_stats.impl.statistic.RegistryImpl;
 import net.lostluma.server_stats.impl.statistic.ServerAchievementImpl;
@@ -58,8 +62,8 @@ public class ApiProxyImpl implements ApiProxy {
 	// ServerAchievement
 
 	@Override
-	public ServerAchievement convertAchievement(int id) {
-		return (ServerAchievement) this.convertStatistic(id);
+	public ServerAchievement convertAchievement(IntoServerAchievement achievement) {
+		return ((IntoServerAchievementExt) achievement).server_stats$into();
 	}
 
 	@Override
@@ -75,14 +79,8 @@ public class ApiProxyImpl implements ApiProxy {
 	// ServerStatistic
 
 	@Override
-	public ServerStatistic convertStatistic(int id) {
-		ServerStatistic statistic = RegistryImpl.byVanillaId(id);
-
-		if (statistic != null) {
-			return statistic;
-		} else {
-			throw new NullPointerException("No statistic with id " + id + " is registered.");
-		}
+	public ServerStatistic convertStatistic(IntoServerStatistic statistic) {
+		return ((IntoServerStatisticExt) statistic).server_stats$into();
 	}
 
 	@Override
