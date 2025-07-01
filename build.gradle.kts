@@ -12,6 +12,9 @@ dependencies {
 
 	include(project(":module:bugfix:achievement:adventuring-time-unlock"))
 	include(project(":module:bugfix:achievement:adventuring-time-persistence"))
+	include(project(":module:bugfix:achievement:overkill:1.0.0-to-1.1.0-alpha.11w48a"))
+	include(project(":module:bugfix:achievement:overkill:1.1.0-alpha.11w49a-to-1.6.0-alpha.13w25c"))
+	include(project(":module:bugfix:achievement:overkill:1.6.0-alpha.13w26a-to-1.8.0-alpha.14w31a"))
 	include(project(":module:bugfix:achievement:sniper-duel"))
 	include(project(":module:bugfix:achievement:the-end"))
 	include(project(":module:bugfix:achievement:tool-material:1.0.0-beta.1.5.0-to-1.3.2"))
