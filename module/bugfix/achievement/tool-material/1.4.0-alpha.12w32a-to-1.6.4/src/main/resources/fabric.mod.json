@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_tool_material",
+    "id": "server_stats_bugfix_tool_material",
     "version": "${version}",
     "name": "Tool Material",
     "description": "Fix crafting achievements requiring specific materials.",
@@ -17,9 +17,9 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_tool_material/icon.png",
+    "icon": "assets/server_stats_bugfix_tool_material/icon.png",
     "mixins": [
-        "server_stats.tool_material.mixins.json"
+        "server_stats.bugfix.tool_material.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.4-alpha.12.32.a <=1.6.4"

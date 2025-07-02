@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_sniper_duel",
+    "id": "server_stats_bugfix_sniper_duel",
     "version": "${version}",
     "name": "Sniper Duel",
     "description": "Fix Sniper Duel achievement.",
@@ -17,9 +17,9 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_sniper_duel/icon.png",
+    "icon": "assets/server_stats_bugfix_sniper_duel/icon.png",
     "mixins": [
-        "server_stats.sniper_duel.mixins.json"
+        "server_stats.bugfix.sniper_duel.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.0.0-beta.8 <=1.1-alpha.12.1.a"

@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_adventuring_time_unlock",
+    "id": "server_stats_bugfix_adventuring_time_unlock",
     "version": "${version}",
     "name": "Adventuring Time Unlock",
     "description": "Fix Adventuring Time achievement unlocking.",
@@ -17,9 +17,9 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_adventuring_time_unlock/icon.png",
+    "icon": "assets/server_stats_bugfix_adventuring_time_unlock/icon.png",
     "mixins": [
-        "server_stats.adventuring_time_unlock.mixins.json"
+        "server_stats.bugfix.adventuring_time_unlock.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.7-alpha.13.36.a <=1.8-alpha.14.17.a"

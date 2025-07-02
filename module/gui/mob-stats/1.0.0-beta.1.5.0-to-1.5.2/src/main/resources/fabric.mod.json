@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_mob_stats",
+    "id": "server_stats_gui_mob_stats",
     "version": "${version}",
     "name": "Mob Stats",
     "description": "Support for Mob statistics in the GUI.",
@@ -17,11 +17,11 @@
     },
     "environment": "client",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_mob_stats/icon.png",
+    "icon": "assets/server_stats_gui_mob_stats/icon.png",
     "mixins": [
-        "server_stats.mob_stats.mixins.json"
+        "server_stats.gui.mob_stats.mixins.json"
     ],
-    "accessWidener": "server_stats.mob_stats.accesswidener",
+    "accessWidener": "server_stats.gui.mob_stats.accesswidener",
     "depends": {
         "minecraft": ">=1.0.0-beta.5 <=1.5.2",
         "server_stats_api": "=${version}",

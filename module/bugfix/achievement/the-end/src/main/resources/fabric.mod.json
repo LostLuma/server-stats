@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_the_end",
+    "id": "server_stats_bugfix_the_end",
     "version": "${version}",
     "name": "The End?",
     "description": "Fix The End? achievement.",
@@ -17,9 +17,9 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_the_end/icon.png",
+    "icon": "assets/server_stats_bugfix_the_end/icon.png",
     "mixins": [
-        "server_stats.the_end.mixins.json"
+        "server_stats.bugfix.the_end.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.4-alpha.12.34.a <=1.6-alpha.13.23.b"

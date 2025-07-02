@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_overkill",
+    "id": "server_stats_bugfix_overkill",
     "version": "${version}",
     "name": "Overkill",
     "description": "Fix Overkill achievement description.",
@@ -17,9 +17,9 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_overkill/icon.png",
+    "icon": "assets/server_stats_bugfix_overkill/icon.png",
     "mixins": [
-        "server_stats.overkill.mixins.json"
+        "server_stats.bugfix.overkill.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.1-alpha.11.49.a <=1.8-alpha.14.31.a",

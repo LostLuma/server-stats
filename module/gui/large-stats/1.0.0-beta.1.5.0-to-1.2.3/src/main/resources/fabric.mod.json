@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_large_stats",
+    "id": "server_stats_gui_large_stats",
     "version": "${version}",
     "name": "Large Stats",
     "description": "Support for 64 Bit statistics in the GUI.",
@@ -17,11 +17,11 @@
     },
     "environment": "client",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_large_stats/icon.png",
+    "icon": "assets/server_stats_gui_large_stats/icon.png",
     "mixins": [
-        "server_stats.large_stats.mixins.json"
+        "server_stats.gui.large_stats.mixins.json"
     ],
-    "accessWidener": "server_stats.large_stats.accesswidener",
+    "accessWidener": "server_stats.gui.large_stats.accesswidener",
     "depends": {
         "minecraft": ">=1.0.0-beta.5 <=1.2.3",
         "server_stats_api": "=${version}",

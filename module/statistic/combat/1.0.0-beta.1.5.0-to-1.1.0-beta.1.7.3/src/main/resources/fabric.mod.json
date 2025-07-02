@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_combat",
+    "id": "server_stats_statistic_combat",
     "version": "${version}",
     "name": "Combat",
     "description": "Combat statistics backport.",
@@ -17,9 +17,9 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_combat/icon.png",
+    "icon": "assets/server_stats_statistic_combat/icon.png",
     "mixins": [
-        "server_stats.combat.mixins.json"
+        "server_stats.statistic.combat.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.0.0-beta.5 <=1.0.0-beta.7.3",

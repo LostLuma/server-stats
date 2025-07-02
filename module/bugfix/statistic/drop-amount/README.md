@@ -1,3 +1,3 @@
 # Drop Amount
 
-This module fixes dropped item amount tracking. No bug report is available.
+This module fixes [MC-299303](https://bugs.mojang.com/browse/MC-299303).

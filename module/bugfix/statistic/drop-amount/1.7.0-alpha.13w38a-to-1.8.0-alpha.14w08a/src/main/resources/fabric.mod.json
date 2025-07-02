@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_drop_amount",
+    "id": "server_stats_bugfix_drop_amount",
     "version": "${version}",
     "name": "Drop Amount",
     "description": "Fix item drop amount tracking.",
@@ -17,9 +17,9 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_drop_amount/icon.png",
+    "icon": "assets/server_stats_bugfix_drop_amount/icon.png",
     "mixins": [
-        "server_stats.drop_amount.mixins.json"
+        "server_stats.bugfix.drop_amount.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.7-alpha.13.38.a <=1.8-alpha.14.8.a"

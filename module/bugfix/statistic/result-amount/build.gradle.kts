@@ -3,5 +3,5 @@ plugins {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/server_stats.result_amount.accesswidener")
+	accessWidenerPath = file("src/main/resources/server_stats.bugfix.result_amount.accesswidener")
 }

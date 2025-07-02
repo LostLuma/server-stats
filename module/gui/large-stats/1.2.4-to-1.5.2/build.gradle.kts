@@ -8,5 +8,5 @@ dependencies {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/server_stats.large_stats.accesswidener")
+	accessWidenerPath = file("src/main/resources/server_stats.gui.large_stats.accesswidener")
 }

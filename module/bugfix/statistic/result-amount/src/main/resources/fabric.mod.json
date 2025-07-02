@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_result_amount",
+    "id": "server_stats_bugfix_result_amount",
     "version": "${version}",
     "name": "Result Amount",
     "description": "Fix crafting result amount tracking.",
@@ -17,11 +17,11 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_result_amount/icon.png",
+    "icon": "assets/server_stats_bugfix_result_amount/icon.png",
     "mixins": [
-        "server_stats.result_amount.mixins.json"
+        "server_stats.bugfix.result_amount.mixins.json"
     ],
-    "accessWidener": "server_stats.result_amount.accesswidener",
+    "accessWidener": "server_stats.bugfix.result_amount.accesswidener",
     "depends": {
         "minecraft": ">=1.0.0-beta.6 <=1.2-alpha.12.4.a"
     },
