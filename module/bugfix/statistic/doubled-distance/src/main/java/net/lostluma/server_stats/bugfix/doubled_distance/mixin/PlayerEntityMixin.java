@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Slice;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin  {
+public class PlayerEntityMixin {
 	@WrapWithCondition(
 		method = "tickNonRidingMovmentRelatedStats",
 		at = @At(
@@ -23,7 +23,7 @@ public class PlayerEntityMixin  {
 			)
 		)
 	)
-	private boolean tickNonRidingMovmentRelatedStats (PlayerEntity instance, Stat stat, int amount) {
+	private boolean tickNonRidingMovmentRelatedStats(PlayerEntity instance, Stat stat, int amount) {
 		return !instance.isSneaking() && !instance.isSprinting();
 	}
 }

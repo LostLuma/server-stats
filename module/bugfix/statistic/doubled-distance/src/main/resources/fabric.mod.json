@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_doubled_distance",
+    "id": "server_stats_bugfix_doubled_distance",
     "version": "${version}",
     "name": "Doubled Distance",
-    "description": "De-dupe distance tracking when sprinting/sneaking.",
+    "description": "Fix walking statistic increasing when sneaking or walking.",
     "authors": [
         "LostLuma"
     ],
@@ -16,9 +16,9 @@
         "sources": "https://go.lostluma.net/server-stats-source"
     },
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_doubled_distance/icon.png",
+    "icon": "assets/server_stats_bugfix_doubled_distance/icon.png",
     "mixins": [
-        "server_stats.doubled_distance.mixins.json"
+        "server_stats.bugfix.doubled_distance.mixins.json"
     ],
     "depends": {
         "minecraft": ">=1.8-alpha.14.10.a <=1.9-alpha.15.47.c"
