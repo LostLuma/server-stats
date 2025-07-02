@@ -12,6 +12,7 @@ java {
 
 tasks.withType<JavaCompile> {
 	options.encoding = "UTF-8"
+	options.isDeprecation = true
 
 	javaCompiler = javaToolchains.compilerFor {
 		languageVersion = JavaLanguageVersion.of(8)
