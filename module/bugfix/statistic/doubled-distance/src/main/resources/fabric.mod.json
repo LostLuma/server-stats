@@ -1,0 +1,31 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_bugfix_doubled_distance",
+    "version": "${version}",
+    "name": "Doubled Distance",
+    "description": "Fix walking statistic increasing when sneaking or walking.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_bugfix_doubled_distance/icon.png",
+    "mixins": [
+        "server_stats.bugfix.doubled_distance.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.8-alpha.14.10.a <=1.9-alpha.15.47.c"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
