@@ -5,8 +5,8 @@
     "compatibilityLevel": "JAVA_8",
     "client": [],
     "mixins": [
-      "PlayerEntityMixin",
-      "StatsMixin"
+        "PlayerEntityMixin",
+        "StatsMixin"
     ],
     "server": [],
     "injectors": {

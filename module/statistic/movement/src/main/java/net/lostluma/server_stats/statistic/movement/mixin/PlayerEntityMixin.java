@@ -34,14 +34,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 		)
 	)
 	private void tickNonRidingMovementRelatedStats(PlayerEntity instance, Stat stat, int amount, Operation<Void> original) {
-		instance.increment(getProperOrDefault(stat), amount);
+		instance.increment(this.getProperOrDefault(stat), amount);
 	}
 
 	@Unique
 	private ServerStatistic getProperOrDefault(Stat defaultStat) {
 		if (this.isSneaking()) {
 			return Constants.CM_CROUCHED;
-		} else if (Platform.getModVersion("minecraft").compareTo(Constants.SPRINTING_ADDED) >= 0 && this.getFlag(3)) {
+		} else if (Constants.CM_SPRINTED != null && this.getFlag(3)) {
 			return Constants.CM_SPRINTED;
 		}else {
 			return ServerStatistic.from(defaultStat);

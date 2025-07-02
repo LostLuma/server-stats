@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class StatsMixin {
 	@Inject(method="<clinit>", at = @At("RETURN"))
 	private static void registerStats(CallbackInfo callbackInfo) {
-		Constants.load();
+		Constants.init();
 	}
 }
