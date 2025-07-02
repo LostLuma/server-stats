@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.lostluma.server_stats.statistic.movement.Constants;
-import net.lostluma.server_stats.util.platform.Platform;
 import net.minecraft.entity.living.LivingEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.stat.Stat;
