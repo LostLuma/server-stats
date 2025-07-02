@@ -111,6 +111,8 @@ include(":module:statistic:item-transfer:1.8.0-alpha.14w10a-to-1.8.0-alpha.14w26
 include(":module:statistic:item-transfer:1.8.0-alpha.14w27a-to-1.8.0-alpha.14w28b")
 include(":module:statistic:item-transfer:1.8.0-alpha.14w29a-to-1.9.0-alpha.15w32c")
 
+include(":module:statistic:movement:1.0.0-beta.1.5.0-to-1.8.0-alpha.14w08a")
+
 include(":module:util")
 
 include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
