@@ -37,6 +37,13 @@ dependencies {
 	if (project.hasProperty("nests_build")) {
 		nests(ploceus.nests(project.property("nests_build").toString()))
 	}
+	if (project.hasProperty("raven_build")) {
+		exceptions(ploceus.raven(project.property("raven_build").toString()))
+	}
+	if (project.hasProperty("sparrow_build")) {
+		signatures(ploceus.sparrow(project.property("sparrow_build").toString()))
+	}
+
 	mappings(ploceus.featherMappings(project.property("feather_build").toString()))
 
 	implementation(libs.mixinextras)
