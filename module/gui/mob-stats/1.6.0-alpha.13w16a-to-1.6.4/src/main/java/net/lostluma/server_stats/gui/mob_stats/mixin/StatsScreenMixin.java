@@ -47,6 +47,7 @@ public class StatsScreenMixin extends Screen implements TooltipConsumer {
 		this.mobStats.addButtons(this.buttons::add);
 	}
 
+	@Unique
 	private void trySetScrollButtonIds() {
 		this.mobStats.setScrollButtonIds(this.buttons, 1, 1);
 	}
@@ -84,7 +85,7 @@ public class StatsScreenMixin extends Screen implements TooltipConsumer {
 	}
 
 	@Inject(method = "render", at = @At("TAIL"))
-	public void renderTooltip(CallbackInfo callbackInfo, @Local(ordinal = 0) int mouseX, @Local(ordinal = 1) int mouseY) {
+	public void renderTooltip(CallbackInfo callbackInfo, @Local(ordinal = 0, argsOnly = true) int mouseX, @Local(ordinal = 1, argsOnly = true) int mouseY) {
 		if (this.mobStats == this.selectedStatsList) {
 			this.mobStats.renderOrderArrow();
 		}
