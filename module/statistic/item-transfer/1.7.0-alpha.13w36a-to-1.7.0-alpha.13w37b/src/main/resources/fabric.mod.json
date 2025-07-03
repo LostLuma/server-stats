@@ -3,7 +3,7 @@
     "id": "server_stats_statistic_item_transfer",
     "version": "${version}",
     "name": "Item Transfer",
-    "description": "Per-item drop and pickup amount tracking",
+    "description": "Per-item drop and pickup statistics backport",
     "authors": [
         "LostLuma"
     ],
