@@ -97,6 +97,8 @@ dependencies {
 	// NOTE: Maybe split on 1.8.2-pre.4 / 1.8.2-pre.5
 	// IdRegistry changes here to actually be generic, and not return Object
 	include(project(":module:statistic:item-transfer:1.8.0-alpha.14w29a-to-1.9.0-alpha.15w32c"))
+	include(project(":module:statistic:item-transfer:1.9.0-alpha.15w33a-to-1.12.0-alpha.17w06a"))
+	include(project(":module:statistic:item-transfer:1.12.0-alpha.17w13a-to-1.12.2"))
 
 	include(project(":module:statistic:movement"))
 

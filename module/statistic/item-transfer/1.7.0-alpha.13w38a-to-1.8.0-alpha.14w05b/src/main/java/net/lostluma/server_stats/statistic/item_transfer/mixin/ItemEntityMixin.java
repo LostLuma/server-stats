@@ -10,14 +10,18 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Optional;
 
 @Mixin(ItemEntity.class)
 public class ItemEntityMixin {
+	@Unique
+	private static final ServerStatistic PICKUP = ServerStatistic.of("minecraft", "pickup").build();
+
 	/**
-	 * Record the per-item pickup statistic.
+	 * Record the combined and per-item pickup statistic.
 	 */
 	@WrapOperation(
 		method = "onPlayerCollision",
@@ -30,7 +34,10 @@ public class ItemEntityMixin {
 		Optional<ServerStatistic> statistic = ServerStatistic.get("minecraft", "pickup." + Item.getId(stack.getItem()));
 
 		if (size != stack.size && statistic.isPresent()) {
-			player.increment(statistic.get(), size - stack.size);
+			int difference = size - stack.size;
+
+			player.increment(PICKUP, difference);
+			player.increment(statistic.get(), difference);
 		}
 
 		return result;

@@ -111,6 +111,8 @@ include(":module:statistic:item-transfer:1.8.0-alpha.14w06a-to-1.8.0-alpha.14w08
 include(":module:statistic:item-transfer:1.8.0-alpha.14w10a-to-1.8.0-alpha.14w26c")
 include(":module:statistic:item-transfer:1.8.0-alpha.14w27a-to-1.8.0-alpha.14w28b")
 include(":module:statistic:item-transfer:1.8.0-alpha.14w29a-to-1.9.0-alpha.15w32c")
+include(":module:statistic:item-transfer:1.9.0-alpha.15w33a-to-1.12.0-alpha.17w06a")
+include(":module:statistic:item-transfer:1.12.0-alpha.17w13a-to-1.12.2")
 
 include(":module:statistic:movement")
 

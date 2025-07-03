@@ -7,13 +7,10 @@ import net.lostluma.server_stats.api.statistic.ServerStatistic;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-
-import java.util.Optional;
 
 @Mixin(ItemEntity.class)
 public class ItemEntityMixin {
@@ -21,7 +18,7 @@ public class ItemEntityMixin {
 	private static final ServerStatistic PICKUP = ServerStatistic.of("minecraft", "pickup").build();
 
 	/**
-	 * Record the per-item pickup statistic.
+	 * Record the combined pickup statistic.
 	 */
 	@WrapOperation(
 		method = "onPlayerCollision",
@@ -29,16 +26,10 @@ public class ItemEntityMixin {
 	)
 	private boolean onPlayerCollision(PlayerInventory instance, ItemStack stack, Operation<Boolean> original, @Local(argsOnly = true) PlayerEntity player) {
 		int size = stack.size;
-
 		boolean result = original.call(instance, stack);
-		String identifier = Item.REGISTRY.getKey(stack.getItem()).replace(":", ".");
-		Optional<ServerStatistic> statistic = ServerStatistic.get("minecraft", "pickup." + identifier);
 
-		if (size != stack.size && statistic.isPresent()) {
-			int difference = size - stack.size;
-
-			player.increment(PICKUP, difference);
-			player.increment(statistic.get(), difference);
+		if (size != stack.size) {
+			player.increment(PICKUP, size - stack.size);
 		}
 
 		return result;
