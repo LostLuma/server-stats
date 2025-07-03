@@ -13,8 +13,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
-import java.util.Optional;
-
 @Mixin(ItemEntity.class)
 public class ItemEntityMixin {
 	@Unique
@@ -29,16 +27,15 @@ public class ItemEntityMixin {
 	)
 	private boolean onPlayerCollision(PlayerInventory instance, ItemStack stack, Operation<Boolean> original, @Local(argsOnly = true) PlayerEntity player) {
 		int size = stack.size;
+		String identifier = Item.REGISTRY.getKey(stack.getItem()).toString().replace(":", ".");
 
 		boolean result = original.call(instance, stack);
-		String identifier = Item.REGISTRY.getKey(stack.getItem()).toString().replace(":", ".");
-		Optional<ServerStatistic> statistic = ServerStatistic.get("minecraft", "pickup." + identifier);
 
-		if (size != stack.size && statistic.isPresent()) {
+		if (size != stack.size) {
 			int difference = size - stack.size;
 
 			player.increment(PICKUP, difference);
-			player.increment(statistic.get(), difference);
+			ServerStatistic.get("minecraft", "pickup." + identifier).ifPresent(stat -> player.increment(stat, difference));
 		}
 
 		return result;

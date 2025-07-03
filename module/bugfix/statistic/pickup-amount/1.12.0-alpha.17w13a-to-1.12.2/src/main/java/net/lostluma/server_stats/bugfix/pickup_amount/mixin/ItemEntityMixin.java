@@ -7,6 +7,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,10 +26,12 @@ public class ItemEntityMixin {
 	)
 	private boolean server_stats$record(PlayerInventory instance, ItemStack stack, Operation<Boolean> original, @Local(argsOnly = true) PlayerEntity player) {
 		int size = stack.getSize();
+		Stat stat = Stats.itemPickedUp(stack.getItem());
+
 		boolean result = original.call(instance, stack);
 
-		if (size != stack.getSize()) {
-			player.incrementStat(Stats.itemPickedUp(stack.getItem()), size - stack.getSize());
+		if (!result && size != stack.getSize()) {
+			player.incrementStat(stat, size - stack.getSize());
 		}
 
 		return result;
