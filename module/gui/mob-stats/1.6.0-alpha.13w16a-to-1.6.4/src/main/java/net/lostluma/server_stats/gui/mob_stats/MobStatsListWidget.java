@@ -25,6 +25,7 @@ public class MobStatsListWidget extends StatsListWidget<MobStatsEntry, MobStatsL
 	}
 
 	@Override
+	@SuppressWarnings("unchecked") // Note: Missing Sparrow
 	protected List<MobStatsEntry> createEntries(Minecraft minecraft, TooltipConsumer screen) {
 		return ((Stream<String>) Entities.KEY_TO_TYPE.keySet().stream())
 			.map(entityId -> MobStatsEntry.forEntityId(entityId, minecraft, screen))

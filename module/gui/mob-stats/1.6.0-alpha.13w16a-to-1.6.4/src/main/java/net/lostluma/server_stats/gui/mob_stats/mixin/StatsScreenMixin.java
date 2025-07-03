@@ -35,6 +35,7 @@ public class StatsScreenMixin extends Screen implements TooltipConsumer {
 
 
 	@Inject(method = "init", at = @At("HEAD"))
+	@SuppressWarnings("unchecked")
 	public void addMobStatsWidget(CallbackInfo callbackInfo) {
 		this.mobStats = new MobStatsListWidget(this.minecraft, this, this.width, this.height, 32, this.height - 64);
 
@@ -53,6 +54,7 @@ public class StatsScreenMixin extends Screen implements TooltipConsumer {
 	}
 
 	@Inject(method = "createButtons", at = @At("TAIL"))
+	@SuppressWarnings("unchecked")
 	public void addMobsButton(CallbackInfo callbackInfo) {
 		ButtonWidget mobsButton = new ButtonWidget(MOBS_BUTTON_ID, this.width / 2 + 166, this.height - 52, 100, 20, I18n.translate("server_stats.stats_screen.mobs"));
 
