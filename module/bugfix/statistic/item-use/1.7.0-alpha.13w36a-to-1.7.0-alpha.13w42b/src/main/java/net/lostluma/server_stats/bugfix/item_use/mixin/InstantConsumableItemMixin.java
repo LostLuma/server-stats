@@ -1,0 +1,37 @@
+package net.lostluma.server_stats.bugfix.item_use.mixin;
+
+import net.minecraft.entity.living.player.PlayerEntity;
+import net.minecraft.item.BookAndQuillItem;
+import net.minecraft.item.EggItem;
+import net.minecraft.item.EmptyMapItem;
+import net.minecraft.item.EnderPearlItem;
+import net.minecraft.item.ExperienceBottleItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.SnowballItem;
+import net.minecraft.item.WrittenBookItem;
+import net.minecraft.stat.Stats;
+import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+@Mixin({
+	BookAndQuillItem.class,
+	EggItem.class,
+	EmptyMapItem.class,
+	EnderPearlItem.class,
+	ExperienceBottleItem.class,
+	SnowballItem.class,
+	WrittenBookItem.class
+})
+public class InstantConsumableItemMixin extends Item {
+	/**
+	 * Count item use when consuming an item.
+	 */
+	@Inject(method = "startUsing", at = @At("RETURN"))
+	private void startUsing(ItemStack stack, World world, PlayerEntity player, CallbackInfoReturnable<ItemStack> callbackInfo) {
+		player.incrementStat(Stats.ITEMS_USED[Item.getId(this)]);
+	}
+}

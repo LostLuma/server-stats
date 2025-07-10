@@ -1,0 +1,24 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.bugfix.item_use.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "client": [],
+    "mixins": [
+        "BoatItemMixin",
+        "BowItemMixin",
+        "BucketItemMixin",
+        "CarrotOnAStickItemMixin",
+        "ConsumableItemMixin",
+        "EnderEyeItemMixin",
+        "FishingRodItemMixin",
+        "GlassBottleItemMixin",
+        "InstantConsumableItemMixin",
+        "LilyPadItemMixin",
+        "PotionItemMixin"
+    ],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
