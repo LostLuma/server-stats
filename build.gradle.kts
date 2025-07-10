@@ -46,6 +46,14 @@ dependencies {
 	include(project(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w49a-to-1.12.0-alpha.17w06a"))
 	include(project(":module:bugfix:statistic:pickup-amount:1.12.0-alpha.17w13a-to-1.12.2"))
 	include(project(":module:bugfix:statistic:result-amount"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.0.0-beta.1.7.0-to-1.0.0-beta.1.8.1"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.0.0-to-1.4.7"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.5.0-alpha.13w16a-to-1.6.4"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.7.0-alpha.13w36a-to-1.8.9"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.9.0-alpha.15w31a-to-1.9.0-alpha.15w33c"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.9.0-alpha.15w34a-to-1.9.0-alpha.15w47c"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.9.0-alpha.15w49a-to-1.10.2"))
+	include(project(":module:bugfix:statistic:sheep-shearing:1.11.0-alpha.16w32a-to-1.12.2"))
 
 	include(project(":module:dfu"))
 
