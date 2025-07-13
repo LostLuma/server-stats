@@ -37,6 +37,8 @@ include(":module:bugfix:achievement:tool-material:1.0.0-beta.1.5.0-to-1.3.2")
 include(":module:bugfix:achievement:tool-material:1.4.0-alpha.12w32a-to-1.6.4")
 include(":module:bugfix:achievement:tool-material:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w36b")
 
+include(":module:bugfix:statistic:block-merging:1.0.0-beta.1.5.0-to-1.6.4")
+include(":module:bugfix:statistic:block-merging:1.7.0-alpha.13w36a-to-1.12.2")
 include(":module:bugfix:statistic:doubled-distance")
 include(":module:bugfix:statistic:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a")
 include(":module:bugfix:statistic:drop-amount:1.2.0-to-1.7.0-alpha.13w37b")

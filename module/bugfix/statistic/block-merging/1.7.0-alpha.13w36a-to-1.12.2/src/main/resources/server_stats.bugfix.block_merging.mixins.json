@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.bugfix.block_merging.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "client": [],
+    "mixins": [
+        "StatsMixin"
+    ],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
