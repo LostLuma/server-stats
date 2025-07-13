@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.bugfix.item_use.mixin;
 
 import com.llamalad7.mixinextras.sugar.Share;
-import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
+import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
@@ -20,18 +20,19 @@ public class BucketItemMixin extends Item {
 	}
 
 	/**
-	 * Count item use when emptying or filling a bucket.
+	 * Store the {@code ItemStack} the player is holding before it is modified.
 	 */
-	@Inject(
-		method = "startUsing",
-		at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/item/ItemStack;<init>(Lnet/minecraft/item/Item;)V"
-		)
-	)
-	private void startUsing(ItemStack stack, World world, PlayerEntity player, CallbackInfoReturnable<ItemStack> callbackInfo, @Share("awarded") LocalBooleanRef awarded) {
-		if (!awarded.get()) {
-			awarded.set(true);
+	@Inject(method = "startUsing", at = @At("HEAD"))
+	private void startUsing0(ItemStack stack, World world, PlayerEntity player, CallbackInfoReturnable<ItemStack> callbackInfo, @Share("stack") LocalRef<ItemStack> ref) {
+		ref.set(stack.copy());
+	}
+
+	/**
+	 * Test whether an item was consumed by comparing the {@code ItemStack} to before.
+	 */
+	@Inject(method = "startUsing", at = @At("RETURN"))
+	private void startUsing1(ItemStack stack, World world, PlayerEntity player, CallbackInfoReturnable<ItemStack> callbackInfo, @Share("stack") LocalRef<ItemStack> ref) {
+		if (!ItemStack.matches(ref.get(), callbackInfo.getReturnValue())) {
 			player.incrementStat(Stats.ITEMS_USED[this.id]);
 		}
 	}

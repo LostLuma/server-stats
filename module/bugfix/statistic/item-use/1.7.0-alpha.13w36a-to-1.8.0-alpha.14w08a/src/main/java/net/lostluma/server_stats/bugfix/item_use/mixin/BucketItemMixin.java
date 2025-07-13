@@ -15,10 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BucketItem.class)
 public class BucketItemMixin extends Item {
-	protected BucketItemMixin(int id) {
-		super(id);
-	}
-
 	/**
 	 * Store the {@code ItemStack} the player is holding before it is modified.
 	 */
@@ -33,7 +29,7 @@ public class BucketItemMixin extends Item {
 	@Inject(method = "startUsing", at = @At("RETURN"))
 	private void startUsing1(ItemStack stack, World world, PlayerEntity player, CallbackInfoReturnable<ItemStack> callbackInfo, @Share("stack") LocalRef<ItemStack> ref) {
 		if (!ItemStack.matches(ref.get(), callbackInfo.getReturnValue())) {
-			player.incrementStat(Stats.ITEMS_USED[this.id]);
+			player.incrementStat(Stats.ITEMS_USED[Item.getId(this)]);
 		}
 	}
 }
