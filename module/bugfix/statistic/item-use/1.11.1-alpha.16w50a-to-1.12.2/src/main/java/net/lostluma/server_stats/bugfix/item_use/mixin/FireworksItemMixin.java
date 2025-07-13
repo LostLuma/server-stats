@@ -16,6 +16,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(FireworksItem.class)
 public class FireworksItemMixin extends Item {
+	/**
+	 * Count item use when using a rocket to gain flight momentum.
+	 */
 	@Inject(method = "startUsing", at = @At("RETURN"))
 	private void startUsing(World world, PlayerEntity player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> callbackInfo) {
 		InteractionResultHolder<ItemStack> result = callbackInfo.getReturnValue();
