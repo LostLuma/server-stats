@@ -2,7 +2,7 @@
     "schemaVersion": 1,
     "id": "server_stats_bugfix_downwards_climbing",
     "version": "${version}",
-    "name": "Item Use",
+    "name": "Downwards Climbing",
     "description": "Fix non-upward climb distance tracking.",
     "authors": [
         "LostLuma"
