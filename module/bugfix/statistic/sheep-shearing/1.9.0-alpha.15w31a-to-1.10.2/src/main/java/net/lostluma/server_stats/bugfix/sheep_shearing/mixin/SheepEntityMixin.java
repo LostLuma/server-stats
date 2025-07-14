@@ -1,11 +1,10 @@
 package net.lostluma.server_stats.bugfix.sheep_shearing.mixin;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.entity.living.mob.passive.animal.SheepEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.stat.Stats;
-import net.minecraft.world.InteractionHand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,10 +16,10 @@ public class SheepEntityMixin {
 		method = "canInteract",
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/item/ItemStack;damageAndBreak(ILnet/minecraft/entity/living/LivingEntity;)V"
+			target = "Lnet/minecraft/entity/living/mob/passive/animal/SheepEntity;setSheared(Z)V"
 		)
 	)
-	private void interact(PlayerEntity player, InteractionHand interactionHand, ItemStack stack, CallbackInfoReturnable<Boolean> callbackInfo) {
-		player.incrementStat(Stats.ITEMS_USED[Item.getId(stack.getItem())]);
+	private void interact(CallbackInfoReturnable<Boolean> callbackInfo, @Local(argsOnly = true) PlayerEntity player) {
+		player.incrementStat(Stats.ITEMS_USED[Item.getId(player.inventory.getMainHandStack().getItem())]);
 	}
 }

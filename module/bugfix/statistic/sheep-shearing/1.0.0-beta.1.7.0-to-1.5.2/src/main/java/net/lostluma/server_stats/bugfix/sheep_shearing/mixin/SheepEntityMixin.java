@@ -12,13 +12,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(SheepEntity.class)
 public class SheepEntityMixin {
 	@Inject(
-		method = "canInteract",
+		method = "interact",
 		at = @At(
 			value = "INVOKE",
 			target = "Lnet/minecraft/entity/living/mob/passive/animal/SheepEntity;setSheared(Z)V"
 		)
 	)
 	private void interact(CallbackInfoReturnable<Boolean> callbackInfo, @Local(argsOnly = true) PlayerEntity player) {
-		player.incrementStat(Stats.itemUsed(player.inventory.getMainHandStack().getItem()));
+		player.incrementStat(Stats.ITEMS_USED[player.inventory.getMainHandStack().getItem().id]);
 	}
 }

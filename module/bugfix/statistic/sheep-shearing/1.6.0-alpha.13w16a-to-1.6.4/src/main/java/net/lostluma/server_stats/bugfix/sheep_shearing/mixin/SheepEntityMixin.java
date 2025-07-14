@@ -19,6 +19,6 @@ public class SheepEntityMixin {
 		)
 	)
 	private void interact(CallbackInfoReturnable<Boolean> callbackInfo, @Local(argsOnly = true) PlayerEntity player) {
-		player.incrementStat(Stats.itemUsed(player.inventory.getMainHandStack().getItem()));
+		player.incrementStat(Stats.ITEMS_USED[player.inventory.getMainHandStack().getItem().id]);
 	}
 }
