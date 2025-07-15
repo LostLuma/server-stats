@@ -1,0 +1,35 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_bugfix_damage_attribution",
+    "version": "${version}",
+    "name": "Damage Attribution",
+    "description": "Fix fishing rod attack attribution.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_bugfix_damage_attribution/icon.png",
+    "mixins": [
+        "server_stats.bugfix.damage_attribution.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.11-alpha.15.44.a <=1.12.2"
+    },
+    "custom": {
+        "modmenu": {
+            "badges": [
+                "library"
+            ],
+            "parent": "server_stats"
+        }
+    }
+}

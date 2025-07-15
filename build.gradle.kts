@@ -23,6 +23,9 @@ dependencies {
 
 	include(project(":module:bugfix:statistic:block-merging:1.0.0-beta.1.5.0-to-1.6.4"))
 	include(project(":module:bugfix:statistic:block-merging:1.7.0-alpha.13w36a-to-1.12.2"))
+	include(project(":module:bugfix:statistic:damage-attribution:1.9.0-alpha.15w36a-to-1.11.0-alpha.16w42a"))
+	include(project(":module:bugfix:statistic:damage-attribution:1.11.0-alpha.16w43a-to-1.11.0-alpha.16w43a"))
+	include(project(":module:bugfix:statistic:damage-attribution:1.11.0-alpha.16w44a-to-1.12.2"))
 	include(project(":module:bugfix:statistic:doubled-distance"))
 	include(project(":module:bugfix:statistic:downwards-climbing"))
 	include(project(":module:bugfix:statistic:drop-amount:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a"))
