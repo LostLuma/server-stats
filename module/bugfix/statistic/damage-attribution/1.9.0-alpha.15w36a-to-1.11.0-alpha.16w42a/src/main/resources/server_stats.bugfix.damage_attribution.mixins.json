@@ -3,10 +3,10 @@
     "minVersion": "0.8",
     "package": "net.lostluma.server_stats.damage_attribution.mixin",
     "compatibilityLevel": "JAVA_8",
-    "client": [
+    "client": [],
+    "mixins": [
         "FishingBobberEntityMixin"
     ],
-    "mixins": [],
     "server": [],
     "injectors": {
         "defaultRequire": 1

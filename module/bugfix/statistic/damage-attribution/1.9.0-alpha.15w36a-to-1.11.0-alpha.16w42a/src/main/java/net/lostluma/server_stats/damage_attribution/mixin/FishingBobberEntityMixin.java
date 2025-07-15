@@ -26,9 +26,7 @@ public abstract class FishingBobberEntityMixin extends Entity {
 	@Inject(method = "m_6658044", at = @At("RETURN"))
 	public void setDamageSource(CallbackInfo ci) {
 		if (this.caughtEntity instanceof LivingEntity) {
-			LivingEntity caughtEntity = (LivingEntity) this.caughtEntity;
-
-			caughtEntity.setAttacker(this.player);
+			((LivingEntity) this.caughtEntity).setAttacker(this.player);
 		}
 	}
 }

@@ -22,7 +22,7 @@
         "server_stats.bugfix.damage_attribution.mixins.json"
     ],
     "depends": {
-        "minecraft": "=1.11-alpha.16.43.a"
+        "minecraft": ">=1.11-alpha.15.43.a <=1.11-alpha.15.43.a"
     },
     "custom": {
         "modmenu": {
