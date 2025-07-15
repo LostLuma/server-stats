@@ -3,7 +3,7 @@
     "id": "server_stats_bugfix_damage_attribution",
     "version": "${version}",
     "name": "Damage Attribution",
-    "description": "Fix fishing rod attack attribution.",
+    "description": "Fix Fishing Rod attack attribution.",
     "authors": [
         "LostLuma"
     ],
