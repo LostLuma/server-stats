@@ -14,7 +14,6 @@ public abstract class PlayerEntityMixin {
 	public abstract void incrementStat(Stat stat);
 
 	/**
-	 *
 	 * Ignore the original kill entity stat increase, as it only considers mobs with spawn eggs.
 	 */
 	@WrapOperation(
