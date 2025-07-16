@@ -1,0 +1,17 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.bugfix.combat.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "client": [],
+    "mixins": [
+        "EntitiesMixin",
+        "PlayerEntityMixin",
+        "ServerPlayerEntityMixin",
+        "StatsMixin"
+    ],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
