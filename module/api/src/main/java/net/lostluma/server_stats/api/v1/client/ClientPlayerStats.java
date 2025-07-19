@@ -32,7 +32,7 @@ public interface ClientPlayerStats {
 	 * Note: Callbacks passed to this method are accepted on the main thread.
 	 *
 	 * @param identifier The player's identifier.
-	 * @param handler A callback receiving the statistics, or null, once the request is completed.
+	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
 	static void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler) {
 		ApiProxy.getInstance().fetch(identifier, handler);
