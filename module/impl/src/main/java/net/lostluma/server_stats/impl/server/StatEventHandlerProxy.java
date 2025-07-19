@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.impl.server;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import org.jetbrains.annotations.Nullable;
 

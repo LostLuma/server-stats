@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.impl.statistic;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 
 public class ServerStatisticImpl implements ServerStatistic {
 	private final int vanillaId;

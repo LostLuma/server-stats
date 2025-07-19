@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.shared.common.mixin;
 
-import net.lostluma.server_stats.api.statistic.ServerAchievement;
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.util.convert.IntoServerAchievementExt;
 import net.lostluma.server_stats.impl.statistic.RegistryImpl;
 import net.minecraft.stat.achievement.AchievementStat;

@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.gui.large_stats.mixin;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.util.Format;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.TextRenderer;

@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.impl.server;
 
-import net.lostluma.server_stats.api.player.MutableStats;
-import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.v1.player.MutableStats;
+import net.lostluma.server_stats.api.v1.util.Result;
 import net.lostluma.server_stats.impl.error.NoContextAvailable;
 import net.lostluma.server_stats.impl.util.ResultImpl;
 import net.lostluma.server_stats.util.Mojang;

@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.statistic.item_transfer.mixin;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.statistic.item_transfer.duck.DuckIdRegistry;
 import net.minecraft.util.registry.IdRegistry;
 import org.spongepowered.asm.mixin.Mixin;

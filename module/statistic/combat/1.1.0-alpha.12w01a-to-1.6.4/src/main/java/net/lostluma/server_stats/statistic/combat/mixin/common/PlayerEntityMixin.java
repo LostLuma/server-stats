@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.statistic.combat.mixin.common;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.minecraft.entity.Entities;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.living.LivingEntity;

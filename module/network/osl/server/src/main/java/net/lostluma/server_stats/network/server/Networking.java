@@ -1,8 +1,8 @@
 package net.lostluma.server_stats.network.server;
 
-import net.lostluma.server_stats.api.player.MutableStats;
-import net.lostluma.server_stats.api.server.ServerPlayerStats;
-import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.v1.player.MutableStats;
+import net.lostluma.server_stats.api.v1.server.ServerPlayerStats;
+import net.lostluma.server_stats.api.v1.util.Result;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.network.common.RequestStatsPacket;
 import net.lostluma.server_stats.util.Constants;

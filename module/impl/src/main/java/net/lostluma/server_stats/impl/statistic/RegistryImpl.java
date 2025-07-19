@@ -1,8 +1,8 @@
 package net.lostluma.server_stats.impl.statistic;
 
 import com.google.gson.reflect.TypeToken;
-import net.lostluma.server_stats.api.statistic.ServerAchievement;
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.util.platform.Platform;
 import org.jetbrains.annotations.Nullable;
 

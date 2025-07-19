@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.impl.statistic;
 
-import net.lostluma.server_stats.api.statistic.ServerAchievement;
+import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;

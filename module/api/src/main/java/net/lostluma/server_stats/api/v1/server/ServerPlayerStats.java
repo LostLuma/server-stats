@@ -1,7 +1,7 @@
-package net.lostluma.server_stats.api.server;
+package net.lostluma.server_stats.api.v1.server;
 
-import net.lostluma.server_stats.api.player.MutableStats;
-import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.v1.player.MutableStats;
+import net.lostluma.server_stats.api.v1.util.Result;
 import net.lostluma.server_stats.impl.ApiProxy;
 
 import java.util.UUID;

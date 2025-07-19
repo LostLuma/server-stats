@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.shared.client.mixin;
 
-import net.lostluma.server_stats.api.player.DisplayStats;
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.player.DisplayStats;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.client.SyncedStats;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;

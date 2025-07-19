@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.network.common;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.statistic.ServerStatisticImpl;
 import net.lostluma.server_stats.util.Constants;
 import net.minecraft.network.packet.CustomPayloadPacket;

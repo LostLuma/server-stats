@@ -30,19 +30,19 @@
         },
         "loom:injected_interfaces": {
             "net/minecraft/unmapped/C_2854223": [
-                "net/lostluma/server_stats/api/player/DisplayStats"
+                "net/lostluma/server_stats/api/v1/player/DisplayStats"
             ],
             "net/minecraft/unmapped/C_9590849": [
-                "net/lostluma/server_stats/api/player/MutableStats"
+                "net/lostluma/server_stats/api/v1/player/MutableStats"
             ],
             "net/minecraft/unmapped/C_2270380": [
-                "net/lostluma/server_stats/api/util/convert/IntoServerAchievement"
+                "net/lostluma/server_stats/api/v1/util/convert/IntoServerAchievement"
             ],
             "net/minecraft/unmapped/C_1322485": [
-                "net/lostluma/server_stats/api/util/convert/IntoServerAchievement"
+                "net/lostluma/server_stats/api/v1/util/convert/IntoServerAchievement"
             ],
             "net/minecraft/unmapped/C_2609740": [
-                "net/lostluma/server_stats/api/util/convert/IntoServerStatistic"
+                "net/lostluma/server_stats/api/v1/util/convert/IntoServerStatistic"
             ]
         }
     }

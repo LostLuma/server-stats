@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.gui.mob_stats;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.gui.MobStatsUtil;
 import net.lostluma.server_stats.gui.TextureLocation;
 import net.lostluma.server_stats.gui.TooltipConsumer;

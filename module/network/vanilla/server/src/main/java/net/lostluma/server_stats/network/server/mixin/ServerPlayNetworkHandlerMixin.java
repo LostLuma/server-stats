@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.network.server.mixin;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import net.lostluma.server_stats.network.common.PushPacketHelper;
 import net.lostluma.server_stats.network.common.ZeroPacketHelper;

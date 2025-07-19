@@ -1,8 +1,8 @@
 package net.lostluma.server_stats.shared.common.mixin;
 
 import com.google.gson.JsonObject;
-import net.lostluma.server_stats.api.statistic.ServerAchievement;
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.statistic.RegistryImpl;
 import net.lostluma.server_stats.util.platform.Platform;
 import net.lostluma.server_stats.util.platform.Version;

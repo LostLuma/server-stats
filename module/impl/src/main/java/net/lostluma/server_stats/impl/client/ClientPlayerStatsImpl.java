@@ -1,7 +1,7 @@
 package net.lostluma.server_stats.impl.client;
 
-import net.lostluma.server_stats.api.player.DisplayStats;
-import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.v1.player.DisplayStats;
+import net.lostluma.server_stats.api.v1.util.Result;
 import net.lostluma.server_stats.impl.player.DisplayStatsImpl;
 import net.lostluma.server_stats.impl.service.ClientNetworking;
 import net.lostluma.server_stats.impl.util.ResultImpl;

@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.shared.common.mixin;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.impl.ext.player.StatProvider;
 import net.minecraft.entity.living.player.PlayerEntity;

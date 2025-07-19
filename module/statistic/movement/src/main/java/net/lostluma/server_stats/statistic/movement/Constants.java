@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.statistic.movement;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.util.platform.Platform;
 import net.lostluma.server_stats.util.platform.Version;
 import org.jetbrains.annotations.Nullable;

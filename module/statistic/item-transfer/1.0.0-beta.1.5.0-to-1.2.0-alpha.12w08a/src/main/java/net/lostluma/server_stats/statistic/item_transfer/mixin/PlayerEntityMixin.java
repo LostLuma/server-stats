@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.statistic.item_transfer.mixin;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;

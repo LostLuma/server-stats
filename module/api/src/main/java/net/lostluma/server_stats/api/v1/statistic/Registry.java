@@ -1,4 +1,4 @@
-package net.lostluma.server_stats.api.statistic;
+package net.lostluma.server_stats.api.v1.statistic;
 
 import net.lostluma.server_stats.impl.ApiProxy;
 

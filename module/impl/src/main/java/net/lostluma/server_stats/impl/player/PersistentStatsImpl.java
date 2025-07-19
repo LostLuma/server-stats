@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.impl.server.PlayerStatsCache;

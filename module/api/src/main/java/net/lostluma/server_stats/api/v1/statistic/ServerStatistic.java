@@ -1,6 +1,6 @@
-package net.lostluma.server_stats.api.statistic;
+package net.lostluma.server_stats.api.v1.statistic;
 
-import net.lostluma.server_stats.api.util.convert.IntoServerStatistic;
+import net.lostluma.server_stats.api.v1.util.convert.IntoServerStatistic;
 import net.lostluma.server_stats.impl.ApiProxy;
 
 import java.util.Optional;

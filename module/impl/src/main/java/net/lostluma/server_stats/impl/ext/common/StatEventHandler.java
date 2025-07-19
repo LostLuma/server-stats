@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.impl.ext.common;
 
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 
 /**
  * Player extension which allows players to listen to stat updates.

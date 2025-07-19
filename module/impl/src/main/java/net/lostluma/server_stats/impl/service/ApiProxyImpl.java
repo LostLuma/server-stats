@@ -1,12 +1,12 @@
 package net.lostluma.server_stats.impl.service;
 
-import net.lostluma.server_stats.api.player.MutableStats;
-import net.lostluma.server_stats.api.player.DisplayStats;
-import net.lostluma.server_stats.api.statistic.ServerAchievement;
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
-import net.lostluma.server_stats.api.util.Result;
-import net.lostluma.server_stats.api.util.convert.IntoServerAchievement;
-import net.lostluma.server_stats.api.util.convert.IntoServerStatistic;
+import net.lostluma.server_stats.api.v1.player.MutableStats;
+import net.lostluma.server_stats.api.v1.player.DisplayStats;
+import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.util.Result;
+import net.lostluma.server_stats.api.v1.util.convert.IntoServerAchievement;
+import net.lostluma.server_stats.api.v1.util.convert.IntoServerStatistic;
 import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
 import net.lostluma.server_stats.impl.ext.util.convert.IntoServerAchievementExt;
 import net.lostluma.server_stats.impl.ext.util.convert.IntoServerStatisticExt;

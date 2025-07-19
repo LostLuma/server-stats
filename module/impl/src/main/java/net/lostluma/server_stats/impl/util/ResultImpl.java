@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.impl.util;
 
-import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.v1.util.Result;
 import org.jetbrains.annotations.UnknownNullability;
 
 public class ResultImpl {

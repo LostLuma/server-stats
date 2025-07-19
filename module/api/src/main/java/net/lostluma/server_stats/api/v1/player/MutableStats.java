@@ -1,7 +1,7 @@
-package net.lostluma.server_stats.api.player;
+package net.lostluma.server_stats.api.v1.player;
 
-import net.lostluma.server_stats.api.statistic.ServerAchievement;
-import net.lostluma.server_stats.api.statistic.ServerStatistic;
+import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 
 import java.util.Optional;
 

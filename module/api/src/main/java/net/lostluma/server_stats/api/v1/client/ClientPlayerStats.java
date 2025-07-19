@@ -1,9 +1,9 @@
-package net.lostluma.server_stats.api.client;
+package net.lostluma.server_stats.api.v1.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.lostluma.server_stats.api.player.DisplayStats;
-import net.lostluma.server_stats.api.util.Result;
+import net.lostluma.server_stats.api.v1.player.DisplayStats;
+import net.lostluma.server_stats.api.v1.util.Result;
 import net.lostluma.server_stats.impl.ApiProxy;
 
 import java.util.UUID;
