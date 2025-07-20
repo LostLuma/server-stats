@@ -15,7 +15,7 @@
         "issues": "https://go.lostluma.net/server-stats-issues",
         "sources": "https://go.lostluma.net/server-stats-source"
     },
-    "environment": "server",
+    "environment": "client",
     "license": "LGPL-3.0-or-later",
     "icon": "assets/server_stats_bugfix_overkill/icon.png",
     "mixins": [
