@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_network_common",
+    "id": "server_stats_entrypoint_common",
     "version": "${version}",
-    "name": "Network",
-    "description": "Networking implementation.",
+    "name": "Entrypoint",
+    "description": "Internal entrypoint system.",
     "authors": [
         "LostLuma"
     ],
@@ -17,13 +17,7 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_network/icon.png",
-    "depends": {
-        "minecraft": ">=1.0.0-beta.5 <=1.1.0-alpha.11.48.a",
-        "osl-networking": ">=0.8.0",
-        "server_stats_impl": "=${version}",
-        "server_stats_util": "=${version}"
-    },
+    "icon": "assets/server_stats_entrypoint_common/icon.png",
     "custom": {
         "modmenu": {
             "parent": "server_stats"

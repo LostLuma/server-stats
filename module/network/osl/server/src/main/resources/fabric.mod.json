@@ -22,13 +22,14 @@
         "server_stats.network.mixins.json"
     ],
     "entrypoints": {
-        "server-init": [
+        "server_stats_server_init": [
             "net.lostluma.server_stats.network.server.Networking"
         ]
     },
     "depends": {
-        "osl": ">=0.12.1",
         "minecraft": ">=1.0.0-beta.5 <=1.1.0-alpha.11.48.a",
+        "osl-networking": ">=0.8.0",
+        "server_stats_entrypoint_common": "=${version}",
         "server_stats_impl": "=${version}",
         "server_stats_util": "=${version}",
         "server_stats_network_common": "=${version}"

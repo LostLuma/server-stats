@@ -5,6 +5,7 @@ plugins {
 }
 
 dependencies {
+	implementation(project(":module:entrypoint:common"))
 	implementation(project(":module:impl"))
 	implementation(project(":module:util"))
 	implementation(project(":module:network:osl:common"))

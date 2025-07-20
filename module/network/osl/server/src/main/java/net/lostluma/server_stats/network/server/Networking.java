@@ -3,13 +3,13 @@ package net.lostluma.server_stats.network.server;
 import net.lostluma.server_stats.api.v1.player.MutableStats;
 import net.lostluma.server_stats.api.v1.server.ServerPlayerStats;
 import net.lostluma.server_stats.api.v1.util.Result;
+import net.lostluma.server_stats.entrypoint.server.ServerModInitializer;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.network.common.RequestStatsPacket;
 import net.lostluma.server_stats.util.Constants;
 import net.lostluma.server_stats.network.common.SyncStatsPacket;
 import net.lostluma.server_stats.util.Logging;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
-import net.ornithemc.osl.entrypoints.api.server.ServerModInitializer;
 import net.ornithemc.osl.networking.api.server.ServerConnectionEvents;
 import net.ornithemc.osl.networking.api.server.ServerPlayNetworking;
 import org.jetbrains.annotations.NotNull;
@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class Networking implements ServerModInitializer {
 	@Override
-	public void initServer() {
+	public void initializeServer() {
 		// Send player's own stats to them on login
 		ServerConnectionEvents.PLAY_READY.register((server, player) -> {
 			ServerPlayNetworking.send(player, Constants.STATS_PACKET_SMALL_CHANNEL, new SyncStatsPacket(player, false));

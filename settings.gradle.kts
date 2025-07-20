@@ -81,6 +81,12 @@ include(":module:bugfix:statistic:sheep-shearing:1.11.0-alpha.16w32a-to-1.12.2")
 
 include(":module:dfu")
 
+include(":module:entrypoint:client")
+include(":module:entrypoint:common")
+include(":module:entrypoint:merged:1.3.2-to-1.5.2")
+include(":module:entrypoint:merged:1.6.0-alpha.13w16a-to-1.6.4")
+include(":module:entrypoint:server")
+
 include(":module:gui:large-stats:1.0.0-beta.1.5.0-to-1.2.3")
 include(":module:gui:large-stats:1.2.4-to-1.5.2")
 include(":module:gui:large-stats:1.6.0-alpha.13w16a-to-1.6.4")
