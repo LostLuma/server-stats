@@ -19,6 +19,9 @@
     "license": "LGPL-3.0-or-later",
     "icon": "assets/server_stats_impl/icon.png",
     "entrypoints": {
+        "server_stats_client_init": [
+            "net.lostluma.server_stats.impl.client.ServerStatsClient"
+        ],
         "server_stats_init": [
             "net.lostluma.server_stats.impl.server.ServerStatsServer"
         ]
