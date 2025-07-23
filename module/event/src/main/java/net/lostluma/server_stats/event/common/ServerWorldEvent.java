@@ -8,7 +8,6 @@ public final class ServerWorldEvent {
 	private final Path path;
 
 	public static final Event<ServerWorldEvent> LOAD = new Event<>();
-	public static final Event<Event.Empty> TICK = new Event<>();
 	public static final Event<ServerWorldEvent> STOP = new Event<>();
 
 	public ServerWorldEvent(Path path) {

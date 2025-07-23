@@ -2,6 +2,7 @@ package net.lostluma.server_stats.lifecycle.mixin;
 
 import net.lostluma.server_stats.event.Event;
 import net.lostluma.server_stats.event.client.ClientWorldEvent;
+import net.lostluma.server_stats.event.common.GameEvent;
 import net.lostluma.server_stats.event.common.ServerWorldEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.living.player.PlayerEntity;
@@ -35,7 +36,7 @@ public class MinecraftMixin {
 
 	@Inject(method = "tick", at = @At("HEAD"))
 	private void tick(CallbackInfo callbackInfo) {
-		ServerWorldEvent.TICK.dispatch(Event.EMPTY);
+		GameEvent.TICK.dispatch(Event.EMPTY);
 	}
 
 	@Inject(

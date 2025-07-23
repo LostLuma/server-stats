@@ -6,7 +6,9 @@
     "client": [
         "client.IntegratedServerMixin"
     ],
-    "mixins": [],
+    "mixins": [
+        "common.MinecraftServerMixin"
+    ],
     "server": [
         "server.MinecraftServerMixin"
     ],

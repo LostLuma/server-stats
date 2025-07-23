@@ -1,6 +1,5 @@
 package net.lostluma.server_stats.lifecycle.mixin.server;
 
-import net.lostluma.server_stats.event.Event;
 import net.lostluma.server_stats.event.common.ServerWorldEvent;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,11 +20,6 @@ public abstract class MinecraftServerMixin {
 	private void loadWorld(CallbackInfo callbackInfo) {
 		Path path = Paths.get(this.getWorldDirName());
 		ServerWorldEvent.LOAD.dispatch(new ServerWorldEvent(path));
-	}
-
-	@Inject(method = "tick", at = @At("HEAD"))
-	private void tick(CallbackInfo callbackInfo) {
-		ServerWorldEvent.TICK.dispatch(Event.EMPTY);
 	}
 
 	@Inject(method = "stop", at = @At("RETURN"))
