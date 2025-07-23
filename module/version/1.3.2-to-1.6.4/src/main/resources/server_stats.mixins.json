@@ -9,7 +9,6 @@
     ],
     "mixins": [
         "common.PlayerEntityMixin",
-        "common.PlayerManagerMixin",
         "common.ServerPlayerEntityMixin"
     ],
     "server": [],

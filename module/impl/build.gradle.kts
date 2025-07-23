@@ -4,5 +4,7 @@ plugins {
 
 dependencies {
 	api(project(":module:api"))
+	implementation(project(":module:entrypoint:common"))
+	implementation(project(":module:event"))
 	implementation(project(":module:util"))
 }

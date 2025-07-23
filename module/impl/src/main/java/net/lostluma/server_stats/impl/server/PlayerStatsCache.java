@@ -11,7 +11,6 @@ import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
@@ -29,14 +28,14 @@ public class PlayerStatsCache {
 
 	private static @Nullable PlayerStatsCache INSTANCE;
 
-	private PlayerStatsCache(String worldDir) {
-		this.path = Paths.get(worldDir).resolve("stats");
+	private PlayerStatsCache(Path worldDir) {
+		this.path = worldDir.resolve("stats");
 	}
 
 	/**
 	 * Create a new stats cache for a world.
 	 */
-	public static void newInstance(String worldDir) {
+	public static void newInstance(Path worldDir) {
 		INSTANCE = new PlayerStatsCache(worldDir);
 	}
 

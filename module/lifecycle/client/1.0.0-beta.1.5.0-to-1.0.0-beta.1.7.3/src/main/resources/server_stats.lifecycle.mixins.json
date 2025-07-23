@@ -4,8 +4,7 @@
     "package": "net.lostluma.server_stats.lifecycle.mixin",
     "compatibilityLevel": "JAVA_8",
     "client": [
-        "MinecraftMixin",
-        "WorldMixin"
+        "MinecraftMixin"
     ],
     "mixins": [],
     "server": [],

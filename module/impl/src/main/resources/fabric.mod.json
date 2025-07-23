@@ -18,8 +18,15 @@
     "environment": "*",
     "license": "LGPL-3.0-or-later",
     "icon": "assets/server_stats_impl/icon.png",
+    "entrypoints": {
+        "server_stats_init": [
+            "net.lostluma.server_stats.impl.server.ServerStatsServer"
+        ]
+    },
     "depends": {
         "minecraft": ">=1.0.0-beta.5 <=1.6.4",
+        "server_stats_entrypoint_common": "=${version}",
+        "server_stats_event": "=${version}",
         "server_stats_util": "=${version}"
     },
     "custom": {

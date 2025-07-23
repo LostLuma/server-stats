@@ -17,11 +17,6 @@ public class MinecraftMixin {
 	@Shadow
 	public InputPlayerEntity player;
 
-	@Inject(method = "m_4977780", at = @At("TAIL"))
-	private void changeDimension(CallbackInfo callbackInfo) {
-		this.player.server_stats$save();
-	}
-
 	@Inject(
 		method = "setWorld(Lnet/minecraft/world/World;Ljava/lang/String;Lnet/minecraft/entity/living/player/PlayerEntity;)V",
 		at = @At("HEAD")

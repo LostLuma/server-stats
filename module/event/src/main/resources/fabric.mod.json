@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_lifecycle",
+    "id": "server_stats_event",
     "version": "${version}",
-    "name": "Lifecycle",
-    "description": "Lifecycle hooks.",
+    "name": "Event",
+    "description": "Internal event system.",
     "authors": [
         "LostLuma"
     ],
@@ -17,14 +17,7 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_lifecycle/icon.png",
-    "mixins": [
-        "server_stats.lifecycle.mixins.json"
-    ],
-    "depends": {
-        "minecraft": ">=1.4-alpha.12.39.a <=1.6.4",
-        "server_stats_event": "=${version}"
-    },
+    "icon": "assets/server_stats_event/icon.png",
     "custom": {
         "modmenu": {
             "parent": "server_stats"
