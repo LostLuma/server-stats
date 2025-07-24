@@ -27,9 +27,7 @@ jobs:
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: server-stats-artifacts.zip
-          path: |
-            build/libs
-            !build/libs/*-all.jar
+          path: build/libs
           if-no-files-found: error
       - name: cache downloaded dependencies
         if: ${{ github.ref_name == 'stardust' }}
