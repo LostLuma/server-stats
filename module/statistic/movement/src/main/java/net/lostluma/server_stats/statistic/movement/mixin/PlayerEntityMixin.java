@@ -33,17 +33,23 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 		)
 	)
 	private void tickNonRidingMovementRelatedStats(PlayerEntity instance, Stat stat, int amount, Operation<Void> original) {
-		instance.increment(this.getProperOrDefault(stat), amount);
+		ServerStatistic replacement = this.getProperOrDefault();
+
+		if (replacement == null) {
+			original.call(instance, stat, amount);
+		} else {
+			instance.increment(replacement, amount);
+		}
 	}
 
 	@Unique
-	private ServerStatistic getProperOrDefault(Stat defaultStat) {
+	private ServerStatistic getProperOrDefault() {
 		if (this.isSneaking()) {
 			return Constants.CM_CROUCHED;
 		} else if (Constants.CM_SPRINTED != null && this.getFlag(3)) {
 			return Constants.CM_SPRINTED;
-		}else {
-			return ServerStatistic.from(defaultStat);
+		} else {
+			return null;
 		}
 	}
 }
