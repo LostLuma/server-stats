@@ -4,14 +4,15 @@ import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.common.Identifiable;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import net.lostluma.server_stats.impl.player.DisplayStatsImpl;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 import java.util.UUID;
 
 public class LocalDisplayStatsImpl extends DisplayStatsImpl implements Identifiable, StatEventHandler {
-	private final Identifiable parent;
+	private final @Nullable Identifiable parent;
 
-	public LocalDisplayStatsImpl(Map<String, Long> values, Identifiable parent) {
+	public LocalDisplayStatsImpl(Map<String, Long> values, @Nullable Identifiable parent) {
 		super(values);
 		this.parent = parent;
 	}
@@ -36,6 +37,7 @@ public class LocalDisplayStatsImpl extends DisplayStatsImpl implements Identifia
 	}
 
 	// Identifiable
+	// NOTE: These values are only available when running a split Minecraft version
 
 	@Override
 	public String server_stats$name() {

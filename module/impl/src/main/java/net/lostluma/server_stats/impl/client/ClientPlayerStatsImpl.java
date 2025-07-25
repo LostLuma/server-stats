@@ -17,6 +17,7 @@ import java.util.function.Consumer;
 
 public class ClientPlayerStatsImpl {
 	// Note: Only null before Minecraft class init
+	// And on merged Minecraft versions (=>1.3.2).
 	private static @Nullable Identifiable session;
 
 	// Null when outside a world, otherwise always present
@@ -29,7 +30,6 @@ public class ClientPlayerStatsImpl {
 		if (!value) {
 			playerStats = null;
 		} else {
-			assert session != null; // :3
 			playerStats = new LocalDisplayStatsImpl(new HashMap<>(), session);
 
 			// In singleplayer on versions before 1.3.2
@@ -47,7 +47,7 @@ public class ClientPlayerStatsImpl {
 				// Meaning we get the packets we expect
 			}
 
-			if (cache != null) {
+			if (cache != null && session != null) {
 				cache.get(playerStats);
 			}
 		}
