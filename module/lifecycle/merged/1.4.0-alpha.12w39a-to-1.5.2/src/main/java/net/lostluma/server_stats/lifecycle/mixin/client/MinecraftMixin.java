@@ -2,7 +2,6 @@ package net.lostluma.server_stats.lifecycle.mixin.client;
 
 import net.lostluma.server_stats.event.Event;
 import net.lostluma.server_stats.event.client.ClientWorldEvent;
-import net.lostluma.server_stats.event.common.GameEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
 import org.objectweb.asm.Opcodes;
@@ -16,11 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MinecraftMixin {
 	@Shadow
 	public ClientWorld world;
-
-	@Inject(method = "tick", at = @At("HEAD"))
-	private void tick(CallbackInfo callbackInfo) {
-		GameEvent.TICK.dispatch(Event.EMPTY);
-	}
 
 	@Inject(
 		method = "setWorld(Lnet/minecraft/client/world/ClientWorld;Ljava/lang/String;)V",
