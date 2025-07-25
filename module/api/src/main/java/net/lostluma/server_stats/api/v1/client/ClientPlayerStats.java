@@ -10,10 +10,19 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
- * Utility for fetching other players' statistics on the client.
+ * Utility for fetching player statistics on the client.
  */
 @Environment(EnvType.CLIENT)
 public interface ClientPlayerStats {
+	/**
+	 * Get the client player's stats in the current world.
+	 *
+	 * @return A view of the player's statistics, or an error, should no world be available.
+	 */
+	static Result<DisplayStats, String> get() {
+		return ApiProxy.getInstance().get();
+	}
+
 	/**
 	 * Fetch another player's stats from the server.
 	 * <br>

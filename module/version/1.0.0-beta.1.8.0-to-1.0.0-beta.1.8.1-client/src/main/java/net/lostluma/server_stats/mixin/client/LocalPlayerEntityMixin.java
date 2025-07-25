@@ -1,5 +1,6 @@
 package net.lostluma.server_stats.mixin.client;
 
+import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.impl.ext.player.StatProvider;
 import net.lostluma.server_stats.impl.server.PlayerStatsCache;
@@ -25,8 +26,8 @@ public class LocalPlayerEntityMixin implements StatProvider {
 		}
 
 		if (this.server_stats$stats == null) {
-			this.server_stats$stats = PlayerStatsCache.getInstance().get(Minecraft.INSTANCE.statHandler);
-			Minecraft.INSTANCE.statHandler.server_stats$replace(this.server_stats$stats);
+			this.server_stats$stats = PlayerStatsCache.getInstance().get(Minecraft.INSTANCE.session);
+			ClientPlayerStatsImpl.getPlayerStats().persist(this.server_stats$stats.server_stats$values(), true);
 		}
 
 		return server_stats$stats;

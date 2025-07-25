@@ -130,9 +130,9 @@ include(":module:network:vanilla:merged:1.3.2-to-1.5.2")
 include(":module:network:vanilla:merged:1.6.0-alpha.13w16a-to-1.6.4")
 include(":module:network:vanilla:server")
 
-include(":module:shared:client")
-include(":module:shared:common")
-include(":module:shared:server")
+include(":module:provider:client")
+include(":module:provider:common")
+include(":module:provider:merged")
 
 include(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-beta.1.7.3")
 include(":module:statistic:combat:1.0.0-beta.1.8.0-to-1.1.0-alpha.11w48a")
@@ -150,7 +150,13 @@ include(":module:statistic:item-transfer:1.8.0-alpha.14w29a-to-1.9.0-alpha.15w32
 include(":module:statistic:item-transfer:1.9.0-alpha.15w33a-to-1.12.0-alpha.17w06a")
 include(":module:statistic:item-transfer:1.12.0-alpha.17w13a-to-1.12.2")
 
+include(":module:statistic:local")
 include(":module:statistic:movement")
+
+include(":module:translation:client")
+include(":module:translation:common")
+include(":module:translation:merged")
+include(":module:translation:server")
 
 include(":module:util")
 

@@ -19,6 +19,7 @@ public interface ApiProxy {
 	}
 
 	// ClientPlayerStats
+	Result<DisplayStats, String> get();
 	void fetch(String name, Consumer<Result<DisplayStats, String>> handler);
 	void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler);
 

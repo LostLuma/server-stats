@@ -1,0 +1,34 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_provider_merged",
+    "version": "${version}",
+    "name": "Provider",
+    "description": "Injected interface implementations for Minecraft classes.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_provider_merged/icon.png",
+    "mixins": [
+        "server_stats.provider.merged.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.3.2 <=1.6.4",
+        "server_stats_api": "=${version}",
+        "server_stats_impl": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

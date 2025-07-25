@@ -114,10 +114,9 @@ dependencies {
 	include(project(":module:network:vanilla:merged:1.6.0-alpha.13w16a-to-1.6.4"))
 	include(project(":module:network:vanilla:server"))
 
-	// Code for all versions without server-side statistics
-	include(project(":module:shared:client"))
-	include(project(":module:shared:common"))
-	include(project(":module:shared:server"))
+	include(project(":module:provider:client"))
+	include(project(":module:provider:common"))
+	include(project(":module:provider:merged"))
 
 	include(project(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-beta.1.7.3"))
 	include(project(":module:statistic:combat:1.0.0-beta.1.8.0-to-1.1.0-alpha.11w48a"))
@@ -137,7 +136,13 @@ dependencies {
 	include(project(":module:statistic:item-transfer:1.9.0-alpha.15w33a-to-1.12.0-alpha.17w06a"))
 	include(project(":module:statistic:item-transfer:1.12.0-alpha.17w13a-to-1.12.2"))
 
+	include(project(":module:statistic:local"))
 	include(project(":module:statistic:movement"))
+
+	include(project(":module:translation:client"))
+	include(project(":module:translation:common"))
+	include(project(":module:translation:merged"))
+	include(project(":module:translation:server"))
 
 	include(project(":module:util"))
 

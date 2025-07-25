@@ -4,10 +4,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
+import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.impl.ext.common.StatEventHandler;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.impl.server.PlayerStatsCache;
+import net.lostluma.server_stats.impl.service.ChatBroadcast;
 import net.lostluma.server_stats.impl.statistic.ServerStatisticImpl;
 import net.lostluma.server_stats.util.FSUtil;
 import net.lostluma.server_stats.util.Logging;
@@ -87,11 +89,15 @@ public class PersistentStatsImpl implements PersistentStats {
 			this.handler.server_stats$push(stat, amount);
 		}
 
-		return value;
-	}
+		if (value == 0 && stat instanceof ServerAchievement) {
+			ServerAchievement achievement = (ServerAchievement) stat;
+			// TODO: Replace with translated achievement name, once that's possible
+			ChatBroadcast.INSTANCE.announce(
+				"§c" + this.username + "§r has earned the achievement §a" + achievement.identifier() + "§r"
+			);
+		}
 
-	public String username() {
-		return this.username;
+		return value;
 	}
 
 	public StatEventHandler handler() {

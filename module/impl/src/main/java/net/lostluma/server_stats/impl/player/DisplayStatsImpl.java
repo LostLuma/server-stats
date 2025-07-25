@@ -7,7 +7,7 @@ import net.lostluma.server_stats.impl.statistic.ServerStatisticImpl;
 import java.util.Map;
 
 public class DisplayStatsImpl implements DisplayStats {
-	private final Map<String, Long> values;
+	protected final Map<String, Long> values;
 
 	public DisplayStatsImpl(Map<String, Long> values) {
 		this.values = values;
@@ -18,7 +18,7 @@ public class DisplayStatsImpl implements DisplayStats {
 		return this.values.getOrDefault(this.getKey(stat), 0L);
 	}
 
-	private String getKey(ServerStatistic stat) {
+	protected String getKey(ServerStatistic stat) {
 		return ((ServerStatisticImpl) stat).key();
 	}
 }

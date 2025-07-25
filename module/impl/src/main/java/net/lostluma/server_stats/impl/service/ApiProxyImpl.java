@@ -26,6 +26,11 @@ public class ApiProxyImpl implements ApiProxy {
 	// ClientPlayerStats
 
 	@Override
+	public Result<DisplayStats, String> get() {
+		return ClientPlayerStatsImpl.get();
+	}
+
+	@Override
 	public void fetch(String name, Consumer<Result<DisplayStats, String>> handler) {
 		ClientPlayerStatsImpl.fetch(name, handler);
 	}

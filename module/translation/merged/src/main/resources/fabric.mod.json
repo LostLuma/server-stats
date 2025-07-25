@@ -1,0 +1,34 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_translation_merged",
+    "version": "${version}",
+    "name": "Translation",
+    "description": "Translate between vanilla and modded statistic systems.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_translation_merged/icon.png",
+    "mixins": [
+        "server_stats.translation.merged.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.3.2 <=1.6.4",
+        "server_stats_api": "=${version}",
+        "server_stats_impl": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

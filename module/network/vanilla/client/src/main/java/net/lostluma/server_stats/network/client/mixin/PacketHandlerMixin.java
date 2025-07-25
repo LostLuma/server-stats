@@ -7,7 +7,6 @@ import net.lostluma.server_stats.util.Constants;
 import net.lostluma.server_stats.util.Tuple;
 import net.lostluma.server_stats.network.common.PushPacketHelper;
 import net.lostluma.server_stats.network.common.SyncPacketHelper;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.PacketHandler;
 import net.minecraft.network.packet.CustomPayloadPacket;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,17 +28,17 @@ public class PacketHandlerMixin {
 				boolean clear = channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL);
 
 				Map<String, Long> data = SyncPacketHelper.parse(packet);
-				Minecraft.INSTANCE.statHandler.server_stats$persist(data, clear);
+				ClientPlayerStatsImpl.getPlayerStats().persist(data, clear);
 				break;
 			}
 			case Constants.STATS_PACKET_RESET_CHANNEL: {
 				String data = ZeroPacketHelper.parse(packet);
-				Minecraft.INSTANCE.statHandler.server_stats$reset(data);
+				ClientPlayerStatsImpl.getPlayerStats().reset(data);
 				break;
 			}
 			case Constants.STATS_PACKET_AMEND_CHANNEL: {
 				Tuple<String, Long> data = PushPacketHelper.parse(packet);
-				Minecraft.INSTANCE.statHandler.server_stats$add(data.left(), data.right());
+				ClientPlayerStatsImpl.getPlayerStats().add(data.left(), data.right());
 				break;
 			}
 			case Constants.STATS_PACKET_FETCH_CHANNEL: {

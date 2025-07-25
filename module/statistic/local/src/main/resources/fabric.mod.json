@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_statistic_local",
+    "version": "${version}",
+    "name": "Local",
+    "description": "Track local statistics server-side.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "server",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_statistic_local/icon.png",
+    "mixins": [
+        "server_stats.statistic.local.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.0.0-beta.5 <=1.6.4"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}

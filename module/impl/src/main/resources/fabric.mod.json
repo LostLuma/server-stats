@@ -38,18 +38,12 @@
         },
         "comment": {
             "C_8730536": "Session",
-            "C_2854223": "PlayerStats",
             "C_9590849": "PlayerEntity",
             "C_1567607": "ServerPlayNetworkHandler"
         },
         "loom:injected_interfaces": {
             "net/minecraft/unmapped/C_8730536": [
                 "net/lostluma/server_stats/impl/ext/common/Identifiable"
-            ],
-            "net/minecraft/unmapped/C_2854223": [
-                "net/lostluma/server_stats/impl/ext/client/SyncedStats",
-                "net/lostluma/server_stats/impl/ext/common/Identifiable",
-                "net/lostluma/server_stats/impl/ext/common/StatEventHandler"
             ],
             "net/minecraft/unmapped/C_9590849": [
                 "net/lostluma/server_stats/impl/ext/player/PersistentStats",

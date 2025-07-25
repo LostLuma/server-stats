@@ -7,11 +7,9 @@ import net.lostluma.server_stats.util.Constants;
 import net.lostluma.server_stats.util.Tuple;
 import net.lostluma.server_stats.network.common.PushPacketHelper;
 import net.lostluma.server_stats.network.common.SyncPacketHelper;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.handler.ClientNetworkHandler;
 import net.minecraft.network.packet.CustomPayloadPacket;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -20,9 +18,6 @@ import java.util.Map;
 
 @Mixin(ClientNetworkHandler.class)
 public class ClientNetworkHandlerMixin {
-	@Shadow
-	private Minecraft minecraft;
-
 	@Inject(method = "handleCustomPayload", at = @At("HEAD"), cancellable = true)
 	private void handleCustomPayload(CustomPayloadPacket packet, CallbackInfo callbackInfo) {
 		String channel = packet.channel;
@@ -33,16 +28,16 @@ public class ClientNetworkHandlerMixin {
 				boolean clear = channel.equals(Constants.STATS_PACKET_SMALL_CHANNEL);
 
 				Map<String, Long> data = SyncPacketHelper.parse(packet);
-				this.minecraft.stats.server_stats$persist(data, clear);
+				ClientPlayerStatsImpl.getPlayerStats().persist(data, clear);
 				break;
 			}
 			case Constants.STATS_PACKET_RESET_CHANNEL: {
 				String data = ZeroPacketHelper.parse(packet);
-				this.minecraft.stats.server_stats$reset(data);
+				ClientPlayerStatsImpl.getPlayerStats().reset(data);
 			}
 			case Constants.STATS_PACKET_AMEND_CHANNEL: {
 				Tuple<String, Long> data = PushPacketHelper.parse(packet);
-				this.minecraft.stats.server_stats$add(data.left(), data.right());
+				ClientPlayerStatsImpl.getPlayerStats().add(data.left(), data.right());
 				break;
 			}
 			case Constants.STATS_PACKET_FETCH_CHANNEL: {

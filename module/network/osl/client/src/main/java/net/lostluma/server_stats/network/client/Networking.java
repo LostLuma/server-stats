@@ -13,22 +13,22 @@ public class Networking implements ClientModInitializer {
 	@Override
 	public void initializeClient() {
 		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_SMALL_CHANNEL, SyncStatsPacket::new, ((minecraft, handler, payload) -> {
-			minecraft.statHandler.server_stats$persist(payload.data(), true);
+			ClientPlayerStatsImpl.getPlayerStats().persist(payload.data(), true);
 			return true;
 		}));
 
 		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_LARGE_CHANNEL, SyncStatsPacket::new, ((minecraft, handler, payload) -> {
-			minecraft.statHandler.server_stats$persist(payload.data(), false);
+			ClientPlayerStatsImpl.getPlayerStats().persist(payload.data(), false);
 			return true;
 		}));
 
 		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_AMEND_CHANNEL, PushStatsPacket::new, (((minecraft, handler, payload) -> {
-			minecraft.statHandler.server_stats$add(payload.key(), payload.value());
+			ClientPlayerStatsImpl.getPlayerStats().add(payload.key(), payload.value());
 			return true;
 		})));
 
 		ClientPlayNetworking.registerListener(Constants.STATS_PACKET_RESET_CHANNEL, ZeroStatsPacket::new, (((minecraft, handler, payload) -> {
-			minecraft.statHandler.server_stats$reset(payload.key());
+			ClientPlayerStatsImpl.getPlayerStats().reset(payload.key());
 			return true;
 		})));
 

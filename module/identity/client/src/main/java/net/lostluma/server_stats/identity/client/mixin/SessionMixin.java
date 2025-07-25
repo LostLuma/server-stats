@@ -1,5 +1,6 @@
 package net.lostluma.server_stats.identity.client.mixin;
 
+import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
 import net.lostluma.server_stats.impl.ext.common.Identifiable;
 import net.lostluma.server_stats.util.Mojang;
 import net.minecraft.client.Session;
@@ -39,5 +40,7 @@ public class SessionMixin implements Identifiable {
 		} catch (IOException e) {
 			throw new RuntimeException("Failed to fetch UUID for " + this.username);
 		}
+
+		ClientPlayerStatsImpl.setSession(this);
 	}
 }
