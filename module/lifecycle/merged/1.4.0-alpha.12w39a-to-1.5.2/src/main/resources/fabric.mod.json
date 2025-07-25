@@ -22,7 +22,7 @@
         "server_stats.lifecycle.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.4-alpha.12.39.a <=1.6.4",
+        "minecraft": ">=1.4-alpha.12.39.a <=1.5.2",
         "server_stats_event": "=${version}"
     },
     "custom": {
