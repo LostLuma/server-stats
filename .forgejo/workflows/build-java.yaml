@@ -7,6 +7,12 @@ jobs:
     steps:
       - name: checkout repository
         uses: https://code.forgejo.org/actions/checkout@v4
+      - name: restore jdk installations
+        uses: https://code.forgejo.org/actions/cache/restore@v4
+        with:
+          path: |
+            /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
+          key: ${{ runner.os }}-java
       - name: setup jdk
         uses: https://github.com/actions/setup-java@v4
         with:
@@ -20,7 +26,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-Gradle
+          key: ${{ runner.os }}-gradle
       - name: build
         run: ./gradlew build --no-daemon --warning-mode=all
       - name: capture build artifacts
@@ -36,4 +42,11 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-Gradle
+          key: ${{ runner.os }}-gradle
+      - name: cache jdk installations
+        if: ${{ github.ref_name == 'stardust' }}
+        uses: https://code.forgejo.org/actions/cache/save@v4
+        with:
+          path: |
+            /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
+          key: ${{ runner.os }}-java
