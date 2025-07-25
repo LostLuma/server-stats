@@ -3,18 +3,24 @@ plugins {
 }
 
 repositories {
-	maven {
-		name = "Fabric"
-		url = uri("https://maven.fabricmc.net/")
+	fun exclusiveRepository(title: String, uri: String, pattern: String) {
+		exclusiveContent {
+			forRepository {
+				maven {
+					name = title
+					url = uri(uri)
+				}
+			}
+			filter {
+				includeGroupByRegex(pattern)
+			}
+		}
 	}
-	maven {
-		name = "Ornithe"
-		url = uri("https://maven.ornithemc.net/releases")
-	}
-	maven {
-		name = "Quilt"
-		url = uri("https://maven.quiltmc.org/repository/release")
-	}
+
+	exclusiveRepository("Fabric", "https://maven.fabricmc.net", "net\\.fabricmc.*")
+	exclusiveRepository("Ornithe", "https://maven.ornithemc.net/releases", "net\\.ornithemc.*|io\\.github\\.gaming32.*")
+	exclusiveRepository("Quilt", "https://maven.quiltmc.org/repository/release", "org.quiltmc.*")
+
 	gradlePluginPortal()
 }
 
