@@ -10,6 +10,11 @@ dependencies {
 	include(project(":module:api"))
 	include(project(":module:impl"))
 
+	include(project(":module:broadcast:client:1.0.0-beta.1.5.0-to-1.3.0-alpha.12w16a"))
+	include(project(":module:broadcast:client:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a"))
+	include(project(":module:broadcast:merged"))
+	include(project(":module:broadcast:server"))
+
 	include(project(":module:bugfix:achievement:adventuring-time-unlock"))
 	include(project(":module:bugfix:achievement:adventuring-time-persistence"))
 	include(project(":module:bugfix:achievement:overkill:1.0.0-to-1.1.0-alpha.11w48a"))
@@ -99,7 +104,8 @@ dependencies {
 	include(project(":module:lifecycle:client:1.0.0-beta.1.8.0-to-1.3.0-alpha.12w17a"))
 
 	include(project(":module:lifecycle:merged:1.3.2-to-1.4.0-alpha.12w38b"))
-	include(project(":module:lifecycle:merged:1.4.0-alpha.12w39a-to-1.6.4"))
+	include(project(":module:lifecycle:merged:1.4.0-alpha.12w39a-to-1.5.2"))
+	include(project(":module:lifecycle:merged:1.6.0-alpha.13w16a-to-1.6.4"))
 
 	include(project(":module:lifecycle:server:1.0.0-beta.1.5.0-to-1.1.0-alpha.11w50a"))
 	include(project(":module:lifecycle:server:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w17a"))
