@@ -36,7 +36,7 @@ jobs:
           path: build/libs
           if-no-files-found: error
       - name: cache downloaded dependencies
-        if: ${{ github.ref_name == 'stardust' }}
+        if: ${{ github.ref_name == 'stardust' && !cancelled() }}
         uses: https://code.forgejo.org/actions/cache/save@v4
         with:
           path: |
@@ -44,7 +44,7 @@ jobs:
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle
       - name: cache jdk installations
-        if: ${{ github.ref_name == 'stardust' }}
+        if: ${{ github.ref_name == 'stardust' && !cancelled() }}
         uses: https://code.forgejo.org/actions/cache/save@v4
         with:
           path: |
