@@ -4,6 +4,7 @@
     "package": "net.lostluma.server_stats.translation.client.mixin",
     "compatibilityLevel": "JAVA_8",
     "client": [
+        "InputPlayerEntityMixin",
         "LocalPlayerEntityMixin",
         "PlayerStatsMixin"
     ],
