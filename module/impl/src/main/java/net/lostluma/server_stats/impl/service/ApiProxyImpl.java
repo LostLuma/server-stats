@@ -26,30 +26,30 @@ public class ApiProxyImpl implements ApiProxy {
 	// ClientPlayerStats
 
 	@Override
-	public Result<DisplayStats, String> get() {
+	public Result<DisplayStats, String> getDisplay() {
 		return ClientPlayerStatsImpl.get();
 	}
 
 	@Override
-	public void fetch(String name, Consumer<Result<DisplayStats, String>> handler) {
+	public void fetchDisplay(String name, Consumer<Result<DisplayStats, String>> handler) {
 		ClientPlayerStatsImpl.fetch(name, handler);
 	}
 
 	@Override
-	public void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler) {
+	public void fetchDisplay(UUID identifier, Consumer<Result<DisplayStats, String>> handler) {
 		ClientPlayerStatsImpl.fetch(identifier, handler);
 	}
 
 	// ServerPlayerStats
 
 	@Override
-	public void get(String name, Consumer<Result<MutableStats, String>> handler) {
-		ServerPlayerStatsImpl.get(name, handler);
+	public void fetchMutable(String name, Consumer<Result<MutableStats, String>> handler) {
+		ServerPlayerStatsImpl.fetch(name, handler);
 	}
 
 	@Override
-	public void get(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
-		ServerPlayerStatsImpl.get(identifier, handler);
+	public void fetchMutable(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
+		ServerPlayerStatsImpl.fetch(identifier, handler);
 	}
 
 	// Registry

@@ -33,9 +33,9 @@ public class Networking implements ServerModInitializer {
 			UUID identifier = payload.identifier();
 
 			if (name != null) {
-				ServerPlayerStats.get(name, result -> this.handleStats(player, name, null, result));
+				ServerPlayerStats.fetch(name, result -> this.handleStats(player, name, null, result));
 			} else if (identifier != null) {
-				ServerPlayerStats.get(identifier, result -> this.handleStats(player, null, identifier, result));
+				ServerPlayerStats.fetch(identifier, result -> this.handleStats(player, null, identifier, result));
 			} else {
 				Logging.getLogger().warn("Received incomplete stats fetch packet from {}!", player);
 			}

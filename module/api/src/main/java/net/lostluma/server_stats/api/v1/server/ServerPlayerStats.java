@@ -8,30 +8,30 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
- * Utility for fetching on- and offline players' statistics on the server.
+ * Utility for fetching player statistics on the server.
  */
 public interface ServerPlayerStats {
 	/**
-	 * Get a player's statistics.
+	 * Fetch a player's statistics. The player may be offline.
 	 * <br>
 	 * Note: Callbacks passed to this method are accepted on the main thread.
 	 *
 	 * @param name The player's username.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
-	static void get(String name, Consumer<Result<MutableStats, String>> handler) {
-		ApiProxy.getInstance().get(name, handler);
+	static void fetch(String name, Consumer<Result<MutableStats, String>> handler) {
+		ApiProxy.getInstance().fetchMutable(name, handler);
 	}
 
 	/**
-	 * Get a player's statistics.
+	 * Fetch a player's statistics. The player may be offline.
 	 * <br>
 	 * Note: Callbacks passed to this method are accepted on the main thread.
 	 *
 	 * @param identifier The player's identifier.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
-	static void get(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
-		ApiProxy.getInstance().get(identifier, handler);
+	static void fetch(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
+		ApiProxy.getInstance().fetchMutable(identifier, handler);
 	}
 }

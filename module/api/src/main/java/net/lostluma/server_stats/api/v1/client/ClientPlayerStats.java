@@ -20,7 +20,7 @@ public interface ClientPlayerStats {
 	 * @return A view of the player's statistics, or an error, should no world be available.
 	 */
 	static Result<DisplayStats, String> get() {
-		return ApiProxy.getInstance().get();
+		return ApiProxy.getInstance().getDisplay();
 	}
 
 	/**
@@ -32,7 +32,7 @@ public interface ClientPlayerStats {
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
 	static void fetch(String name, Consumer<Result<DisplayStats, String>> handler) {
-		ApiProxy.getInstance().fetch(name, handler);
+		ApiProxy.getInstance().fetchDisplay(name, handler);
 	}
 
 	/**
@@ -44,6 +44,6 @@ public interface ClientPlayerStats {
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
 	static void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler) {
-		ApiProxy.getInstance().fetch(identifier, handler);
+		ApiProxy.getInstance().fetchDisplay(identifier, handler);
 	}
 }

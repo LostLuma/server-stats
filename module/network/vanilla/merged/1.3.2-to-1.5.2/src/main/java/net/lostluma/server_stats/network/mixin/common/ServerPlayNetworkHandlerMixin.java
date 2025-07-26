@@ -62,9 +62,9 @@ public abstract class ServerPlayNetworkHandlerMixin implements StatEventHandler 
 		UUID identifier = data.identifier;
 
 		if (name != null) {
-			ServerPlayerStats.get(name, result -> this.handleStats(name, null, result));
+			ServerPlayerStats.fetch(name, result -> this.handleStats(name, null, result));
 		} else if (identifier != null) {
-			ServerPlayerStats.get(identifier, result -> this.handleStats(null, identifier, result));
+			ServerPlayerStats.fetch(identifier, result -> this.handleStats(null, identifier, result));
 		} else {
 			Logging.getLogger().warn("Received incomplete stats fetch packet from {}!", this.player);
 		}

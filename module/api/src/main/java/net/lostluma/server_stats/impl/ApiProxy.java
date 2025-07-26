@@ -19,13 +19,13 @@ public interface ApiProxy {
 	}
 
 	// ClientPlayerStats
-	Result<DisplayStats, String> get();
-	void fetch(String name, Consumer<Result<DisplayStats, String>> handler);
-	void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler);
+	Result<DisplayStats, String> getDisplay();
+	void fetchDisplay(String name, Consumer<Result<DisplayStats, String>> handler);
+	void fetchDisplay(UUID identifier, Consumer<Result<DisplayStats, String>> handler);
 
 	// ServerPlayerStats
-	void get(String name, Consumer<Result<MutableStats, String>> handler);
-	void get(UUID identifier, Consumer<Result<MutableStats, String>> handler);
+	void fetchMutable(String name, Consumer<Result<MutableStats, String>> handler);
+	void fetchMutable(UUID identifier, Consumer<Result<MutableStats, String>> handler);
 
 	// Registry
 	Collection<ServerStatistic> statistics();

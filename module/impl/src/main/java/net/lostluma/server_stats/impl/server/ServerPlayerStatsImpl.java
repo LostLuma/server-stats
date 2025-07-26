@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 
 public class ServerPlayerStatsImpl {
 	// TODO: Skip username / identifier lookup if the player is online
-	public static void get(String name, Consumer<Result<MutableStats, String>> handler) {
+	public static void fetch(String name, Consumer<Result<MutableStats, String>> handler) {
 		Threads.execute(() -> {
 			UUID identifier;
 
@@ -24,11 +24,11 @@ public class ServerPlayerStatsImpl {
 				return;
 			}
 
-			get(name, identifier, handler);
+			fetch(name, identifier, handler);
 		});
 	}
 
-	public static void get(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
+	public static void fetch(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
 		Threads.execute(() -> {
 			String name;
 
@@ -39,11 +39,11 @@ public class ServerPlayerStatsImpl {
 				return;
 			}
 
-			get(name, identifier, handler);
+			fetch(name, identifier, handler);
 		});
 	}
 
-	private static void get(String name, UUID identifier, Consumer<Result<MutableStats, String>> handler) {
+	private static void fetch(String name, UUID identifier, Consumer<Result<MutableStats, String>> handler) {
 		PlayerStatsCache cache;
 
 		try {
