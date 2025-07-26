@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_provider_client",
+    "id": "server_stats_provider_server",
     "version": "${version}",
     "name": "Provider",
     "description": "Injected interface implementations for Minecraft classes.",
@@ -15,13 +15,12 @@
         "issues": "https://go.lostluma.net/server-stats-issues",
         "sources": "https://go.lostluma.net/server-stats-source"
     },
-    "environment": "client",
+    "environment": "server",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_provider_client/icon.png",
+    "icon": "assets/server_stats_provider_server/icon.png",
     "mixins": [
-        "server_stats.provider.client.mixins.json"
+        "server_stats.provider.server.mixins.json"
     ],
-    "accessWidener": "server_stats.provider.client.accesswidener",
     "depends": {
         "minecraft": ">=1.0.0-beta.5 <=1.3-alpha.12.17.a",
         "server_stats_api": "=${version}",

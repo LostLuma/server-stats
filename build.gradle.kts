@@ -123,6 +123,7 @@ dependencies {
 	include(project(":module:provider:client"))
 	include(project(":module:provider:common"))
 	include(project(":module:provider:merged"))
+	include(project(":module:provider:server"))
 
 	include(project(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-beta.1.7.3"))
 	include(project(":module:statistic:combat:1.0.0-beta.1.8.0-to-1.1.0-alpha.11w48a"))
@@ -154,23 +155,6 @@ dependencies {
 	include(project(":module:translation:server"))
 
 	include(project(":module:util"))
-
-	// b1.5.0 -> first version with statistics!
-	include(project(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client"))
-	include(project(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server"))
-	// b1.6.0 -> changed PlayerManager.respawn signature
-	include(project(":module:version:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server"))
-
-	// b1.8.0 -> added DamageSource, Minecraft.startGame signature changed
-	include(project(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client"))
-	include(project(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server"))
-
-	// Minecraft.changeDimension, PlayerManager.respawn signature changed
-	include(project(":module:version:1.0.0-to-1.3.0-alpha.12w17a-client"))
-	include(project(":module:version:1.0.1-to-1.3.0-alpha.12w17a-server"))
-	// The rest of the 1.3 snapshots are very weird
-	// Because Mojang was working on the client / server merge
-	include(project(":module:version:1.3.2-to-1.6.4"))
 
 	include(variantOf(libs.mixinextras) { classifier("slim")})
 }

@@ -7,7 +7,6 @@ import net.minecraft.entity.living.player.PlayerEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 
 import java.util.Collections;
 import java.util.Map;
@@ -18,14 +17,18 @@ import java.util.Map;
  */
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin implements PersistentStats, StatProvider {
-	@Unique
-	private @Nullable PersistentStats stats() {
-		return this.server_stats$stats();
+	/**
+	 * Dummy stat provider implementation, to ensure that
+	 * client-side actions such as dropping items does not cause crashes.
+	 */
+	@Override
+	public @Nullable PersistentStats server_stats$stats() {
+		return null;
 	}
 
 	@Override
 	public long get(@NotNull ServerStatistic stat) {
-		PersistentStats stats = this.stats();
+		PersistentStats stats = this.server_stats$stats();
 
 		if (stats == null) {
 			return 0L;
@@ -36,7 +39,7 @@ public class PlayerEntityMixin implements PersistentStats, StatProvider {
 
 	@Override
 	public long reset(@NotNull ServerStatistic stat) throws IllegalStateException {
-		PersistentStats stats = this.stats();
+		PersistentStats stats = this.server_stats$stats();
 
 		if (stats == null) {
 			return 0L;
@@ -47,7 +50,7 @@ public class PlayerEntityMixin implements PersistentStats, StatProvider {
 
 	@Override
 	public long increment(@NotNull ServerStatistic stat, long amount) throws IllegalStateException {
-		PersistentStats stats = this.stats();
+		PersistentStats stats = this.server_stats$stats();
 
 		if (stats == null) {
 			return 0L;
@@ -58,7 +61,7 @@ public class PlayerEntityMixin implements PersistentStats, StatProvider {
 
 	@Override
 	public void server_stats$save() {
-		PersistentStats stats = this.stats();
+		PersistentStats stats = this.server_stats$stats();
 
 		if (stats != null) {
 			stats.server_stats$save();
@@ -67,7 +70,7 @@ public class PlayerEntityMixin implements PersistentStats, StatProvider {
 
 	@Override
 	public void server_stats$close() {
-		PersistentStats stats = this.stats();
+		PersistentStats stats = this.server_stats$stats();
 
 		if (stats != null) {
 			stats.server_stats$close();
@@ -76,7 +79,7 @@ public class PlayerEntityMixin implements PersistentStats, StatProvider {
 
 	@Override
 	public @NotNull Map<String, Long> server_stats$values() {
-		PersistentStats stats = this.stats();
+		PersistentStats stats = this.server_stats$stats();
 
 		if (stats == null) {
 			return Collections.emptyMap();
@@ -87,7 +90,7 @@ public class PlayerEntityMixin implements PersistentStats, StatProvider {
 
 	@Override
 	public @NotNull String server_stats$serialize(boolean large) {
-		PersistentStats stats = this.stats();
+		PersistentStats stats = this.server_stats$stats();
 
 		if (stats == null) {
 			return "{}";

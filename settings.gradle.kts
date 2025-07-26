@@ -144,6 +144,7 @@ include(":module:network:vanilla:server")
 include(":module:provider:client")
 include(":module:provider:common")
 include(":module:provider:merged")
+include(":module:provider:server")
 
 include(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-beta.1.7.3")
 include(":module:statistic:combat:1.0.0-beta.1.8.0-to-1.1.0-alpha.11w48a")
@@ -173,15 +174,3 @@ include(":module:translation:merged")
 include(":module:translation:server")
 
 include(":module:util")
-
-include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3-client")
-include(":module:version:1.0.0-beta.1.5.0-to-1.0.0-beta.1.5.2-server")
-include(":module:version:1.0.0-beta.1.6.0-to-1.0.0-beta.1.7.3-server")
-
-include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-client")
-include(":module:version:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1-server")
-
-include(":module:version:1.0.0-to-1.3.0-alpha.12w17a-client")
-include(":module:version:1.0.1-to-1.3.0-alpha.12w17a-server")
-
-include(":module:version:1.3.2-to-1.6.4")

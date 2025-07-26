@@ -9,6 +9,7 @@
     "mixins": [
         "common.AchievementStatMixin",
         "common.PlayerEntityMixin",
+        "common.ServerPlayerEntityMixin",
         "common.StatMixin"
     ],
     "server": [],
