@@ -22,7 +22,7 @@
         "server_stats.statistic.local.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.5 <=1.6.4"
+        "minecraft": ">=1.0.0-beta.5 <=1.3-alpha.12.17.a"
     },
     "custom": {
         "modmenu": {

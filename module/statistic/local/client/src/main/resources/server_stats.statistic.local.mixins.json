@@ -3,12 +3,11 @@
     "minVersion": "0.8",
     "package": "net.lostluma.server_stats.statistic.local.mixin",
     "compatibilityLevel": "JAVA_8",
-    "mixins": [],
-    "client": [],
-    "server": [
-        "PlayerManagerMixin",
-        "ServerPlayNetworkHandlerMixin"
+    "client": [
+        "MinecraftMixin"
     ],
+    "mixins": [],
+    "server": [],
     "injectors": {
         "defaultRequire": 1
     }

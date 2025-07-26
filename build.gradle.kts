@@ -142,7 +142,10 @@ dependencies {
 	include(project(":module:statistic:item-transfer:1.9.0-alpha.15w33a-to-1.12.0-alpha.17w06a"))
 	include(project(":module:statistic:item-transfer:1.12.0-alpha.17w13a-to-1.12.2"))
 
-	include(project(":module:statistic:local"))
+	include(project(":module:statistic:local:client"))
+	include(project(":module:statistic:local:merged"))
+	include(project(":module:statistic:local:server"))
+
 	include(project(":module:statistic:movement"))
 
 	include(project(":module:translation:client"))

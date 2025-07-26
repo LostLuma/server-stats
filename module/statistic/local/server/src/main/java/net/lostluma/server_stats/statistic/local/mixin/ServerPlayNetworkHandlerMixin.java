@@ -1,4 +1,4 @@
-package net.lostluma.server_stats.mixin.client;
+package net.lostluma.server_stats.statistic.local.mixin;
 
 import net.minecraft.network.packet.CloseMenuPacket;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
@@ -16,7 +16,7 @@ public class ServerPlayNetworkHandlerMixin {
 	private ServerPlayerEntity player;
 
 	/**
-	 * Award the open inventory achievement server-side.
+	 * Award the open inventory achievement server-side when inventories.
 	 * This is not the most accurate, however will roughly track it correctly.
 	 */
 	@Inject(method = "handleCloseMenu", at = @At("HEAD"))
