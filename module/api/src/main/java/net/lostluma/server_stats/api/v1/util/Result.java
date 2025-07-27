@@ -1,5 +1,6 @@
 package net.lostluma.server_stats.api.v1.util;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.UnknownNullability;
 
 /**
@@ -12,11 +13,13 @@ public interface Result<T extends @UnknownNullability Object, Error> {
 	/**
 	 * @return Whether the operation succeeded.
 	 */
+	@Contract(pure = true)
 	boolean isOk();
 
 	/**
 	 * @return Whether the operation produced an error.
 	 */
+	@Contract(pure = true)
 	boolean isError();
 
 	/**
@@ -25,6 +28,7 @@ public interface Result<T extends @UnknownNullability Object, Error> {
 	 * @return The result value.
 	 * @throws IllegalStateException No value is available.
 	 */
+	@Contract(pure = true)
 	T value() throws IllegalStateException;
 
 	/**
@@ -33,5 +37,6 @@ public interface Result<T extends @UnknownNullability Object, Error> {
 	 * @return The error value.
 	 * @throws IllegalStateException No error is available.
 	 */
+	@Contract(pure = true)
 	Error error() throws IllegalStateException;
 }

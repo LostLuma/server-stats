@@ -2,6 +2,8 @@ package net.lostluma.server_stats.api.v1.statistic;
 
 import net.lostluma.server_stats.api.v1.util.convert.IntoServerStatistic;
 import net.lostluma.server_stats.impl.ApiProxy;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NonNls;
 
 import java.util.Optional;
 
@@ -14,14 +16,16 @@ public interface ServerStatistic {
 	 *
 	 * @return The namespace the statistic was registered with.
 	 */
-	String namespace();
+	@Contract(pure = true)
+	@NonNls String namespace();
 
 	/**
 	 * The statistic's unique identifier within its namespace.
 	 *
 	 * @return The identifier the statistic was registered with.
 	 */
-	String identifier();
+	@Contract(pure = true)
+	@NonNls String identifier();
 
 	/**
 	 * Look up a statistic from its namespace and path.
@@ -30,6 +34,7 @@ public interface ServerStatistic {
 	 * @param identifier The stat's identifier.
 	 * @return The statistic, if it exists. May be empty.
 	 */
+	@Contract(pure = true)
 	static Optional<ServerStatistic> get(String namespace, String identifier) {
 		return ApiProxy.getInstance().getStatistic(namespace, identifier);
 	}
@@ -40,6 +45,7 @@ public interface ServerStatistic {
 	 * @param statistic The vanilla statistic.
 	 * @return The converted statistic, which can be used with Server Stats APIs.
 	 */
+	@Contract(pure = true)
 	static ServerStatistic from(IntoServerStatistic statistic) {
 		return ApiProxy.getInstance().convertStatistic(statistic);
 	}
@@ -51,7 +57,8 @@ public interface ServerStatistic {
 	 * @param identifier A unique identifier within the namespace.
 	 * @return The statistic builder, used to construct the statistic.
 	 */
-	static Builder of(String namespace, String identifier) {
+	@Contract(value ="_, _ -> new", pure = true)
+	static Builder of(@NonNls String namespace, @NonNls String identifier) {
 		return ApiProxy.getInstance().buildStatistic(namespace, identifier);
 	}
 
@@ -61,6 +68,7 @@ public interface ServerStatistic {
 		 *
 		 * @return The newly-created statistic.
 		 */
+		@Contract("-> new")
 		ServerStatistic build();
 	}
 }

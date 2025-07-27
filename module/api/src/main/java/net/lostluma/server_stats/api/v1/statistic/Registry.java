@@ -1,6 +1,8 @@
 package net.lostluma.server_stats.api.v1.statistic;
 
 import net.lostluma.server_stats.impl.ApiProxy;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Collection;
 
@@ -17,7 +19,8 @@ public interface Registry {
 	 *
 	 * @return All currently registered statistics.
 	 */
-	static Collection<ServerStatistic> statistics() {
+	@Contract(pure = true)
+	static @Unmodifiable Collection<ServerStatistic> statistics() {
 		return ApiProxy.getInstance().statistics();
 	}
 
@@ -26,7 +29,8 @@ public interface Registry {
 	 *
 	 * @return All currently registered achievements.
 	 */
-	static Collection<ServerAchievement> achievements() {
+	@Contract(pure = true)
+	static @Unmodifiable Collection<ServerAchievement> achievements() {
 		return ApiProxy.getInstance().achievements();
 	}
 }

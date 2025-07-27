@@ -2,6 +2,8 @@ package net.lostluma.server_stats.api.v1.statistic;
 
 import net.lostluma.server_stats.api.v1.util.convert.IntoServerAchievement;
 import net.lostluma.server_stats.impl.ApiProxy;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NonNls;
 
 import java.util.Optional;
 
@@ -14,6 +16,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 *
 	 * @return The parent achievement, if set.
 	 */
+	@Contract(pure = true)
 	Optional<ServerAchievement> parent();
 
 	/**
@@ -23,6 +26,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param identifier The achievement's identifier.
 	 * @return The achievement, if it exists. May be empty.
 	 */
+	@Contract(pure = true)
 	static Optional<ServerAchievement> get(String namespace, String identifier) {
 		return ApiProxy.getInstance().getAchievement(namespace, identifier);
 	}
@@ -33,6 +37,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param achievement The vanilla achievement.
 	 * @return The converted achievement, which can be used with Server Stats APIs.
 	 */
+	@Contract(pure = true)
 	static ServerAchievement from(IntoServerAchievement achievement) {
 		return ApiProxy.getInstance().convertAchievement(achievement);
 	}
@@ -44,7 +49,8 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param identifier A unique identifier within the namespace.
 	 * @return The achievement builder, used to construct the achievement.
 	 */
-	static Builder of(String namespace, String identifier) {
+	@Contract(value ="_, _ -> new", pure = true)
+	static Builder of(@NonNls String namespace, @NonNls String identifier) {
 		return ApiProxy.getInstance().buildAchievement(namespace, identifier);
 	}
 
@@ -54,6 +60,7 @@ public interface ServerAchievement extends ServerStatistic {
 		 *
 		 * @return The newly-created achievement.
 		 */
+		@Contract("-> new")
 		ServerAchievement build();
 
 		/**
@@ -62,6 +69,7 @@ public interface ServerAchievement extends ServerStatistic {
 		 * @param parent An existing achievement.
 		 * @return The achievement builder instance.
 		 */
+		@Contract("_ -> this")
 		Builder parent(ServerAchievement parent);
 	}
 }

@@ -2,6 +2,7 @@ package net.lostluma.server_stats.api.v1.player;
 
 import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
+import org.jetbrains.annotations.Contract;
 
 /**
  * Read both vanilla and modded statistics.
@@ -21,6 +22,7 @@ public interface DisplayStats {
 	 * @param stat The statistic to retrieve.
 	 * @return The current value obtained by the player.
 	 */
+	@Contract(pure = true)
 	default long get(ServerStatistic stat) {
 		throw new RuntimeException("Interface implementation missing!");
 	}
@@ -31,6 +33,7 @@ public interface DisplayStats {
 	 * @param achievement The achievement to retrieve.
 	 * @return Whether the player has obtained the achievement.
 	 */
+	@Contract(pure = true)
 	default boolean isUnlocked(ServerAchievement achievement) {
 		return this.get(achievement) > 0;
 	}

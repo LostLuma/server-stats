@@ -3,6 +3,7 @@ package net.lostluma.server_stats.api.v1.server;
 import net.lostluma.server_stats.api.v1.player.MutableStats;
 import net.lostluma.server_stats.api.v1.util.Result;
 import net.lostluma.server_stats.impl.ApiProxy;
+import org.jetbrains.annotations.NonBlocking;
 
 import java.util.UUID;
 import java.util.function.Consumer;
@@ -19,6 +20,7 @@ public interface ServerPlayerStats {
 	 * @param name The player's username.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
+	@NonBlocking
 	static void fetch(String name, Consumer<Result<MutableStats, String>> handler) {
 		ApiProxy.getInstance().fetchMutable(name, handler);
 	}
@@ -31,6 +33,7 @@ public interface ServerPlayerStats {
 	 * @param identifier The player's identifier.
 	 * @param handler A callback receiving the statistics, or an error, once the request is completed.
 	 */
+	@NonBlocking
 	static void fetch(UUID identifier, Consumer<Result<MutableStats, String>> handler) {
 		ApiProxy.getInstance().fetchMutable(identifier, handler);
 	}
