@@ -57,7 +57,7 @@ public interface ServerStatistic {
 	 * @param identifier A unique identifier within the namespace.
 	 * @return The statistic builder, used to construct the statistic.
 	 */
-	@Contract(value ="_, _ -> new", pure = true)
+	@Contract(value = "_, _ -> new", pure = true)
 	static Builder of(@NonNls String namespace, @NonNls String identifier) {
 		return ApiProxy.getInstance().buildStatistic(namespace, identifier);
 	}

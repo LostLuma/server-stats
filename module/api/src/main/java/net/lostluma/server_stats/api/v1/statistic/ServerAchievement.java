@@ -49,7 +49,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 * @param identifier A unique identifier within the namespace.
 	 * @return The achievement builder, used to construct the achievement.
 	 */
-	@Contract(value ="_, _ -> new", pure = true)
+	@Contract(value = "_, _ -> new", pure = true)
 	static Builder of(@NonNls String namespace, @NonNls String identifier) {
 		return ApiProxy.getInstance().buildAchievement(namespace, identifier);
 	}
