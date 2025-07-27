@@ -6,6 +6,7 @@ import net.lostluma.server_stats.api.v1.util.Result;
 import net.lostluma.server_stats.entrypoint.server.ServerModInitializer;
 import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.network.common.RequestStatsPacket;
+import net.lostluma.server_stats.network.common.Versionpacket;
 import net.lostluma.server_stats.util.Constants;
 import net.lostluma.server_stats.network.common.SyncStatsPacket;
 import net.lostluma.server_stats.util.Logging;
@@ -23,6 +24,7 @@ public class Networking implements ServerModInitializer {
 	public void initializeServer() {
 		// Send player's own stats to them on login
 		ServerConnectionEvents.PLAY_READY.register((server, player) -> {
+			ServerPlayNetworking.send(player, Constants.PROTOCOL_BROADCAST_CHANNEL, new Versionpacket(Constants.MOD_VERSION));
 			ServerPlayNetworking.send(player, Constants.STATS_PACKET_SMALL_CHANNEL, new SyncStatsPacket(player, false));
 			ServerPlayNetworking.send(player, Constants.STATS_PACKET_LARGE_CHANNEL, new SyncStatsPacket(player, true));
 		});

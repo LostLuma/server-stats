@@ -2,6 +2,7 @@ package net.lostluma.server_stats.network.client.mixin;
 
 import net.lostluma.server_stats.impl.client.ClientPlayerStatsImpl;
 import net.lostluma.server_stats.network.common.RequestPacketHelper;
+import net.lostluma.server_stats.network.common.VersionPacketHelper;
 import net.lostluma.server_stats.network.common.ZeroPacketHelper;
 import net.lostluma.server_stats.util.Constants;
 import net.lostluma.server_stats.util.Tuple;
@@ -47,6 +48,11 @@ public class PacketHandlerMixin {
 				if (data != null) {
 					ClientPlayerStatsImpl.onResponse(data.username, data.identifier, data.values, data.errorMessage);
 				}
+				break;
+			}
+			case Constants.PROTOCOL_BROADCAST_CHANNEL: {
+				ClientPlayerStatsImpl.setServerVersion(VersionPacketHelper.parse(packet));
+
 				break;
 			}
 			default: {

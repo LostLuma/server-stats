@@ -1,6 +1,8 @@
 package net.lostluma.server_stats.network.mixin.common;
 
 import net.lostluma.server_stats.network.common.SyncPacketHelper;
+import net.lostluma.server_stats.network.common.VersionPacketHelper;
+import net.lostluma.server_stats.util.Constants;
 import net.minecraft.network.Connection;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.entity.living.player.ServerPlayerEntity;
@@ -13,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class PlayerManagerMixin {
 	@Inject(method = "onLogin", at = @At("TAIL"))
 	private void onLogin(Connection connection, ServerPlayerEntity player, CallbackInfo callbackInfo) {
+		connection.send(VersionPacketHelper.write(Constants.MOD_VERSION));
 		connection.send(SyncPacketHelper.write(player, false));
 		connection.send(SyncPacketHelper.write(player, true));
 	}

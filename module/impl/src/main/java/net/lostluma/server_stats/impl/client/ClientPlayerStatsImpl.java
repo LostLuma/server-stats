@@ -8,6 +8,7 @@ import net.lostluma.server_stats.impl.player.DisplayStatsImpl;
 import net.lostluma.server_stats.impl.server.PlayerStatsCache;
 import net.lostluma.server_stats.impl.service.ClientNetworking;
 import net.lostluma.server_stats.impl.util.ResultImpl;
+import net.lostluma.server_stats.util.Constants;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -20,6 +21,9 @@ public class ClientPlayerStatsImpl {
 	// And on merged Minecraft versions (=>1.3.2).
 	private static @Nullable Identifiable session;
 
+	// Server Stats version, if v1.4+ is installed
+	private static @Nullable String serverVersion;
+
 	// Null when outside a world, otherwise always present
 	private static @Nullable LocalDisplayStatsImpl playerStats;
 
@@ -29,6 +33,7 @@ public class ClientPlayerStatsImpl {
 	public static void setInWorld(boolean value) {
 		if (!value) {
 			playerStats = null;
+			serverVersion = null;
 		} else {
 			playerStats = new LocalDisplayStatsImpl(new HashMap<>(), session);
 
@@ -49,8 +54,13 @@ public class ClientPlayerStatsImpl {
 
 			if (cache != null && session != null) {
 				cache.get(playerStats);
+				serverVersion = Constants.MOD_VERSION;
 			}
 		}
+	}
+
+	public static void setServerVersion(String value) {
+		serverVersion = value;
 	}
 
 	public static void setSession(Identifiable value) {
@@ -59,6 +69,10 @@ public class ClientPlayerStatsImpl {
 
 	private static boolean isInWorld() {
 		return playerStats != null;
+	}
+
+	private static boolean fetchSupported() {
+		return serverVersion != null;
 	}
 
 	public static Result<DisplayStats, String> get() {
@@ -74,20 +88,24 @@ public class ClientPlayerStatsImpl {
 	}
 
 	public static void fetch(String name, Consumer<Result<DisplayStats, String>> handler) {
-		if (isInWorld()) {
+		if (!isInWorld()) {
+			handler.accept(ResultImpl.error("Currently not in a world."));
+		} else if (!fetchSupported()) {
+			handler.accept(ResultImpl.error("Server Stats 1.4 (or newer) not installed on server."));
+		} else {
 			nameRequests.put(name, handler);
 			ClientNetworking.INSTANCE.fetch(name);
-		} else {
-			handler.accept(ResultImpl.error("Currently not in a world."));
 		}
 	}
 
 	public static void fetch(UUID identifier, Consumer<Result<DisplayStats, String>> handler) {
-		if (isInWorld()) {
+		if (!isInWorld()) {
+			handler.accept(ResultImpl.error("Currently not in a world."));
+		} else if (!fetchSupported()) {
+			handler.accept(ResultImpl.error("Server Stats 1.4 (or newer) not installed on server."));
+		} else {
 			identifierRequests.put(identifier, handler);
 			ClientNetworking.INSTANCE.fetch(identifier);
-		} else {
-			handler.accept(ResultImpl.error("Currently not in a world."));
 		}
 	}
 

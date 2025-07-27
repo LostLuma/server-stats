@@ -4,6 +4,7 @@ import net.lostluma.server_stats.util.platform.Platform;
 
 public class Constants {
 	public static final String MOD_ID = "server_stats";
+	public static final String MOD_VERSION = getModVersion();
 	public static final String USER_AGENT = buildUserAgent();
 
 	// Server Stats 1.1+ 32 Bit stats sync
@@ -18,6 +19,13 @@ public class Constants {
 
 	// Server Stats 1.4+ player data fetch
 	public static final String STATS_PACKET_FETCH_CHANNEL = MOD_ID + "|f";
+
+	// Server Stats 1.4+ version broadcast
+	public static final String PROTOCOL_BROADCAST_CHANNEL = MOD_ID + "|v";
+
+	private static String getModVersion() {
+		return Platform.getModVersion("server_stats").toString();
+	}
 
 	private static String buildUserAgent() {
 		return String.format("Server Stats/%s (+%s)", Platform.getModVersion(MOD_ID), Platform.getHomepageUrl(MOD_ID));
