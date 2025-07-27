@@ -22,7 +22,7 @@
         "server_stats.bugfix.overkill.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.1-alpha.11.49.a <=1.8-alpha.14.31.a",
+        "minecraft": ">=1.6-alpha.13.26.a <=1.8-alpha.14.31.a",
         "server_stats_util": "=${version}"
     },
     "custom": {
