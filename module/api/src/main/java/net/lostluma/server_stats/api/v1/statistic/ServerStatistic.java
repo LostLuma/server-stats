@@ -48,7 +48,7 @@ public interface ServerStatistic {
 	 * Create a new statistic builder.
 	 *
 	 * @param namespace The namespace, most likely your mod id.
-	 * @param identifier A Unique identifier within the namespace.
+	 * @param identifier A unique identifier within the namespace.
 	 * @return The statistic builder, used to construct the statistic.
 	 */
 	static Builder of(String namespace, String identifier) {

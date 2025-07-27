@@ -41,7 +41,7 @@ public interface ServerAchievement extends ServerStatistic {
 	 * Create a new achievement builder.
 	 *
 	 * @param namespace The namespace, most likely your mod id.
-	 * @param identifier A Unique identifier within the namespace.
+	 * @param identifier A unique identifier within the namespace.
 	 * @return The achievement builder, used to construct the achievement.
 	 */
 	static Builder of(String namespace, String identifier) {
