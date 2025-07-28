@@ -23,7 +23,7 @@
     ],
     "accessWidener": "server_stats.bugfix.result_amount.accesswidener",
     "depends": {
-        "minecraft": ">=1.0.0-beta.6.0.r <=1.2-alpha.12.4.a"
+        "minecraft": ">=1.0.0-beta.6.0.0 <=1.2-alpha.12.4.a"
     },
     "custom": {
         "modmenu": {
