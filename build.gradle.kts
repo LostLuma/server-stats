@@ -194,12 +194,6 @@ publishMods {
 
 		minecraftVersionRange {
 			start = "b1.5"
-			end = "b1.8.1"
-			includeSnapshots = true
-		}
-
-		minecraftVersionRange {
-			start = "1.0"
 			end = "1.2.5"
 			// end = "12w17a" - missing on Modrinth!
 			includeSnapshots = true
