@@ -22,7 +22,7 @@
         "server_stats.bugfix.item_use.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.8 <=1.0.0-beta.8.1"
+        "minecraft": ">=1.0.0-beta.8.0.r <=1.0.0-beta.8.1"
     },
     "custom": {
         "modmenu": {

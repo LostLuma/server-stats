@@ -22,7 +22,7 @@
         "server_stats.bugfix.sniper_duel.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.8 <=1.1-alpha.12.1.a"
+        "minecraft": ">=1.0.0-beta.8.0.r <=1.1-alpha.12.1.a"
     },
     "custom": {
         "modmenu": {

@@ -2,7 +2,7 @@
 gson = "2.10.1"
 slf4j = "2.0.17"
 annotations = "26.0.2"
-fabric_loader = "0.16.14"
+fabric_loader = "0.17.0+local"
 
 ploceus = "1.10.16"
 fabric_loom = "1.10.5"

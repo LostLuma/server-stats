@@ -22,7 +22,7 @@
         "server_stats.statistic.combat.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.8 <=1.1.0-alpha.11.48.a",
+        "minecraft": ">=1.0.0-beta.8.0.r <=1.1.0-alpha.11.48.a",
         "server_stats_api": "=${version}"
     },
     "custom": {
