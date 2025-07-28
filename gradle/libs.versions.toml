@@ -7,8 +7,6 @@ fabric_loader = "0.17.0+local"
 ploceus = "1.10.16"
 fabric_loom = "1.10.5"
 
-mixinextras = "0.5.0-rc.2"
-
 mod_publish = "0.8.4"
 
 osl_bundle = "0.12.1"
@@ -22,8 +20,6 @@ annotations = { module = "org.jetbrains:annotations", version.ref = "annotations
 ploceus = { module = "net.ornithemc:ploceus", version.ref = "ploceus" }
 fabric_loom = { module = "net.fabricmc:fabric-loom", version.ref = "fabric_loom" }
 fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
-
-mixinextras = { module = "io.github.llamalad7:mixinextras-fabric", version.ref = "mixinextras" }
 
 osl_networking_server = { module = "net.ornithemc.osl:networking", version.ref = "osl_networking_server" }
 

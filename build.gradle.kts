@@ -160,8 +160,6 @@ dependencies {
 	include(project(":module:translation:server"))
 
 	include(project(":module:util"))
-
-	include(variantOf(libs.mixinextras) { classifier("slim")})
 }
 
 tasks.withType<Jar> {

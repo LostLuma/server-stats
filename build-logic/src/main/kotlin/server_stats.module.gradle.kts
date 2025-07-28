@@ -45,7 +45,4 @@ dependencies {
 	}
 
 	mappings(ploceus.featherMappings(project.property("feather_build").toString()))
-
-	implementation(libs.mixinextras)
-	annotationProcessor(libs.mixinextras)
 }
