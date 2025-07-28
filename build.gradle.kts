@@ -20,7 +20,8 @@ dependencies {
 	include(project(":module:bugfix:achievement:overkill:1.0.0-to-1.1.0-alpha.11w48a"))
 	include(project(":module:bugfix:achievement:overkill:1.1.0-alpha.11w49a-to-1.6.0-alpha.13w25c"))
 	include(project(":module:bugfix:achievement:overkill:1.6.0-alpha.13w26a-to-1.8.0-alpha.14w31a"))
-	include(project(":module:bugfix:achievement:sniper-duel"))
+	include(project(":module:bugfix:achievement:sniper-duel:1.0.0-beta.1.8.0-pre.1-to-1.0.0-beta.1.8.0-pre.1"))
+	include(project(":module:bugfix:achievement:sniper-duel:1.0.0-beta.1.8.0-pre.2-to-1.1-alpha.12w01a"))
 	include(project(":module:bugfix:achievement:the-end"))
 	include(project(":module:bugfix:achievement:tool-material:1.0.0-beta.1.5.0-to-1.3.2"))
 	include(project(":module:bugfix:achievement:tool-material:1.4.0-alpha.12w32a-to-1.6.4"))
@@ -46,7 +47,7 @@ dependencies {
 	include(project(":module:bugfix:statistic:drop-amount:1.8.0-alpha.14w10a-to-1.8.0-alpha.14w28b"))
 	include(project(":module:bugfix:statistic:drop-amount:1.8.0-alpha.14w29a-to-1.12.2"))
 	include(project(":module:bugfix:statistic:item-use:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3"))
-	include(project(":module:bugfix:statistic:item-use:1.0.0-beta.1.8.0-to-1.0.0-beta.1.8.1"))
+	include(project(":module:bugfix:statistic:item-use:1.0.0-beta.1.8.0-pre.1-to-1.0.0-beta.1.8.1"))
 	include(project(":module:bugfix:statistic:item-use:1.0.0-to-1.1.0"))
 	include(project(":module:bugfix:statistic:item-use:1.2.0-alpha.12w03a-to-1.2.0-alpha.12w03a"))
 	include(project(":module:bugfix:statistic:item-use:1.2.0-alpha.12w04a-to-1.3.0-alpha.12w16a"))
@@ -101,7 +102,7 @@ dependencies {
 	include(project(":module:identity:server"))
 
 	include(project(":module:lifecycle:client:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3"))
-	include(project(":module:lifecycle:client:1.0.0-beta.1.8.0-to-1.3.0-alpha.12w17a"))
+	include(project(":module:lifecycle:client:1.0.0-beta.1.8.0-pre.1-to-1.3.0-alpha.12w17a"))
 
 	include(project(":module:lifecycle:merged:1.3.2-to-1.4.0-alpha.12w38b"))
 	include(project(":module:lifecycle:merged:1.4.0-alpha.12w39a-to-1.5.2"))
@@ -126,7 +127,7 @@ dependencies {
 	include(project(":module:provider:server"))
 
 	include(project(":module:statistic:combat:1.0.0-beta.1.5.0-to-1.1.0-beta.1.7.3"))
-	include(project(":module:statistic:combat:1.0.0-beta.1.8.0-to-1.1.0-alpha.11w48a"))
+	include(project(":module:statistic:combat:1.0.0-beta.1.8.0-pre.1-to-1.1.0-alpha.11w48a"))
 	include(project(":module:statistic:combat:1.1.0-alpha.11w49a-to-1.1.0-alpha.11w50a"))
 	include(project(":module:statistic:combat:1.1.0-alpha.12w01a-to-1.6.4"))
 

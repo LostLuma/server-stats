@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_statistic_combat",
+    "id": "server_stats_bugfix_sniper_duel",
     "version": "${version}",
-    "name": "Combat",
-    "description": "Combat statistics backport.",
+    "name": "Sniper Duel",
+    "description": "Fix Sniper Duel achievement.",
     "authors": [
         "LostLuma"
     ],
@@ -17,13 +17,12 @@
     },
     "environment": "*",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_statistic_combat/icon.png",
+    "icon": "assets/server_stats_bugfix_sniper_duel/icon.png",
     "mixins": [
-        "server_stats.statistic.combat.mixins.json"
+        "server_stats.bugfix.sniper_duel.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.8.0.r <=1.1.0-alpha.11.48.a",
-        "server_stats_api": "=${version}"
+        "minecraft": ">=1.0.0-beta.8.0.1 <=1.0.0-beta.8.0.1"
     },
     "custom": {
         "modmenu": {

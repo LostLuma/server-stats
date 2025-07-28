@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.bugfix.sniper_duel.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "ProjectileDamageSourceMixin"
+    ],
+    "client": [],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

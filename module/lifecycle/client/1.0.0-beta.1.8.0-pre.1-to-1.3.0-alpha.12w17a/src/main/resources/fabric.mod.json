@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_bugfix_item_use",
+    "id": "server_stats_lifecycle",
     "version": "${version}",
-    "name": "Item Use",
-    "description": "Fix item use statistics tracking.",
+    "name": "Lifecycle",
+    "description": "Lifecycle hooks.",
     "authors": [
         "LostLuma"
     ],
@@ -15,14 +15,15 @@
         "issues": "https://go.lostluma.net/server-stats-issues",
         "sources": "https://go.lostluma.net/server-stats-source"
     },
-    "environment": "*",
+    "environment": "client",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_bugfix_item_use/icon.png",
+    "icon": "assets/server_stats_lifecycle/icon.png",
     "mixins": [
-        "server_stats.bugfix.item_use.mixins.json"
+        "server_stats.lifecycle.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.8.0.r <=1.0.0-beta.8.1"
+        "minecraft": ">=1.0.0-beta.8 <=1.3-alpha.12.17.a",
+        "server_stats_event": "=${version}"
     },
     "custom": {
         "modmenu": {
