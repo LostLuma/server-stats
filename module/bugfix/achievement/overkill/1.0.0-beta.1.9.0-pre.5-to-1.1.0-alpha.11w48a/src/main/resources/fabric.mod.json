@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_bugfix_overkill",
+    "version": "${version}",
+    "name": "Overkill",
+    "description": "Fix Overkill achievement description.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_bugfix_overkill/icon.png",
+    "mixins": [
+        "server_stats.bugfix.overkill.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.0.0-beta.9.0.5 <=1.1-alpha.11.48.a",
+        "server_stats_util": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
