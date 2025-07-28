@@ -1,9 +1,11 @@
 package net.lostluma.server_stats.api.v1.util.convert;
 
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
+
 /**
- * A type which may be converted into a {@code ServerStatistic}.
+ * A type which may be converted into a {@link ServerStatistic}.
  * <br>
- * To do so call {@code ServerStatistic::from} with the marked object.
+ * To do so call {@link ServerStatistic#from} with the marked object.
  * <br><br>
  * On applicable Minecraft versions {@code Stat} implements this interface.
  */

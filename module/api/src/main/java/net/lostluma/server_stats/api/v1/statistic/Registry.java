@@ -9,7 +9,7 @@ import java.util.Collection;
 /**
  * Utility for viewing registered statistics.
  * <br>
- * To look up a single statistic or achievement use {@code ServerStatistic.get} or {@code ServerAchievement.get} respectively.
+ * To look up a single statistic or achievement use {@link ServerStatistic#get} or {@link ServerAchievement#get} respectively.
  */
 public interface Registry {
 	/**

@@ -1,5 +1,6 @@
 package net.lostluma.server_stats.api.v1.player;
 
+import net.lostluma.server_stats.api.v1.server.ServerPlayerStats;
 import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
  * <br><br>
  * This interface is implemented on {@code PlayerEntity} via injected interfaces.
  * <br>
- * To view and modify offline players' statistics use {@code ServerPlayerStats.get} instead.
+ * To view and modify offline players' statistics use {@link ServerPlayerStats#fetch} instead.
  */
 public interface MutableStats extends DisplayStats {
 	/**

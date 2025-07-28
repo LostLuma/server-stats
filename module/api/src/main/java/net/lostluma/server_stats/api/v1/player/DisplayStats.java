@@ -1,5 +1,6 @@
 package net.lostluma.server_stats.api.v1.player;
 
+import net.lostluma.server_stats.api.v1.client.ClientPlayerStats;
 import net.lostluma.server_stats.api.v1.statistic.ServerAchievement;
 import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import org.jetbrains.annotations.Contract;
@@ -9,11 +10,11 @@ import org.jetbrains.annotations.Contract;
  * <br>
  * Unlike vanilla, values may be read as longs.
  * <br><br>
- * Viewing the client player's stats may be done via {@code ClientPlayerStats.get}.
+ * Viewing the client player's stats may be done via {@link ClientPlayerStats#get}.
  * <br>
  * On versions with the vanilla statistic system, it's also implemented on {@code PlayerStats} via injected interfaces.
  * <br><br>
- * To view other players' statistics, use {@code ClientPlayerStats.fetch} instead.
+ * To view other players' statistics, use {@link ClientPlayerStats#fetch} instead.
  */
 public interface DisplayStats {
 	/**

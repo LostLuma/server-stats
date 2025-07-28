@@ -40,7 +40,7 @@ public interface ServerStatistic {
 	}
 
 	/**
-	 * Get the {@code ServerStat} equivalent for a vanilla statistic.
+	 * Get the {@link ServerStatistic} equivalent for a vanilla statistic.
 	 *
 	 * @param statistic The vanilla statistic.
 	 * @return The converted statistic, which can be used with Server Stats APIs.
