@@ -207,9 +207,13 @@ publishMods {
 			includeSnapshots = true
 		}
 
-		requires {
+		optional("modmenu-ornithe")
+
+		optional {
 			slug = "osl"
 			version = libs.versions.osl.bundle.get()
 		}
+
+		incompatible("achievement-fix")
 	}
 }
