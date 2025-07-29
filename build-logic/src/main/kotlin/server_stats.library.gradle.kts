@@ -24,12 +24,7 @@ repositories {
 
 	mavenCentral()
 
-	mavenLocal()
-	maven {
-		name = "Fabric"
-		url = uri("https://maven.fabricmc.net")
-	}
-	// exclusiveRepository("Fabric", "https://maven.fabricmc.net", "net\\.fabricmc.*")
+	exclusiveRepository("Fabric", "https://maven.fabricmc.net", "net\\.fabricmc.*")
 	exclusiveRepository("Ornithe", "https://maven.ornithemc.net/releases", "net\\.ornithemc.*|io\\.github\\.gaming32.*")
 	exclusiveRepository("Quilt", "https://maven.quiltmc.org/repository/release", "org.quiltmc.*")
 }
