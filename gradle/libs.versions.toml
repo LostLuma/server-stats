@@ -9,6 +9,8 @@ fabric_loom = "1.10.5"
 
 mod_publish = "0.8.4"
 
+modmenu = "0.3.1+mcb1.7.3"
+
 osl_bundle = "0.12.1"
 osl_networking_server = "0.8.0+server-mcb1.5-mc11w48a"
 
@@ -21,6 +23,7 @@ ploceus = { module = "net.ornithemc:ploceus", version.ref = "ploceus" }
 fabric_loom = { module = "net.fabricmc:fabric-loom", version.ref = "fabric_loom" }
 fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
 
+modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
 osl_networking_server = { module = "net.ornithemc.osl:networking", version.ref = "osl_networking_server" }
 
 [plugins]

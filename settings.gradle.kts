@@ -94,6 +94,8 @@ include(":module:bugfix:statistic:sheep-shearing:1.7.0-alpha.13w36a-to-1.8.9")
 include(":module:bugfix:statistic:sheep-shearing:1.9.0-alpha.15w31a-to-1.10.2")
 include(":module:bugfix:statistic:sheep-shearing:1.11.0-alpha.16w32a-to-1.12.2")
 
+include(":module:compat:modmenu")
+
 include(":module:dfu")
 
 include(":module:entrypoint:client")

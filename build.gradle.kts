@@ -74,6 +74,8 @@ dependencies {
 	include(project(":module:bugfix:statistic:sheep-shearing:1.9.0-alpha.15w31a-to-1.10.2"))
 	include(project(":module:bugfix:statistic:sheep-shearing:1.11.0-alpha.16w32a-to-1.12.2"))
 
+	include(project(":module:compat:modmenu"))
+
 	include(project(":module:dfu"))
 
 	include(project(":module:entrypoint:client"))
