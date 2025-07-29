@@ -22,7 +22,7 @@
         "server_stats.entrypoint.client.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.5 <=1.3-alpha.12.17.a"
+        "minecraft": ">=0.31.20100327 <=1.3-alpha.12.17.a"
     },
     "custom": {
         "modmenu": {

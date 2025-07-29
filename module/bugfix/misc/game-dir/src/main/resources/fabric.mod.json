@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_identity",
+    "id": "server_stats_bugfix_game_dir",
     "version": "${version}",
-    "name": "Identity",
-    "description": "Player UUID support.",
+    "name": "Game Dir",
+    "description": "Fix Minecraft not respecting custom game directories.",
     "authors": [
         "LostLuma"
     ],
@@ -17,15 +17,12 @@
     },
     "environment": "client",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_identity/icon.png",
+    "icon": "assets/server_stats_bugfix_game_dir/icon.png",
     "mixins": [
-        "server_stats.identity.mixins.json"
+        "server_stats.bugfix.game_dir.mixins.json"
     ],
-    "accessWidener": "server_stats.identity.accesswidener",
     "depends": {
-        "minecraft": ">=1.0.0-beta.5 <=1.3-alpha.12.17.a",
-        "server_stats_impl": "=${version}",
-        "server_stats_util": "=${version}"
+        "minecraft": ">=0.31.20100327 <=0.31.20100608"
     },
     "custom": {
         "modmenu": {

@@ -19,7 +19,7 @@
     "license": "LGPL-3.0-or-later",
     "icon": "assets/server_stats_api/icon.png",
     "depends": {
-        "minecraft": ">=1.0.0-beta.5 <=1.6.4"
+        "minecraft": ">=0.31.20100327 <=1.6.4"
     },
     "custom": {
         "modmenu": {
