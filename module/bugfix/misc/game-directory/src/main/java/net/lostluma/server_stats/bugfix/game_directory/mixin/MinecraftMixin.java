@@ -1,4 +1,4 @@
-package net.lostluma.server_stats.bugfix.game_dir.mixin;
+package net.lostluma.server_stats.bugfix.game_directory.mixin;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.C_5664496;

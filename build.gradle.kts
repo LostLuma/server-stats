@@ -27,7 +27,7 @@ dependencies {
 	include(project(":module:bugfix:achievement:tool-material:1.4.0-alpha.12w32a-to-1.6.4"))
 	include(project(":module:bugfix:achievement:tool-material:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w36b"))
 
-	include(project(":module:bugfix:misc:game-dir"))
+	include(project(":module:bugfix:misc:game-directory"))
 
 	include(project(":module:bugfix:statistic:block-merging:1.0.0-beta.1.5.0-to-1.6.4"))
 	include(project(":module:bugfix:statistic:block-merging:1.7.0-alpha.13w36a-to-1.12.2"))

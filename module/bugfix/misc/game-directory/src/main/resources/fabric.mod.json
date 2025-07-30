@@ -1,8 +1,8 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_bugfix_game_dir",
+    "id": "server_stats_bugfix_game_directory",
     "version": "${version}",
-    "name": "Game Dir",
+    "name": "Game Directory",
     "description": "Fix Minecraft not respecting custom game directories.",
     "authors": [
         "LostLuma"
@@ -17,9 +17,9 @@
     },
     "environment": "client",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_bugfix_game_dir/icon.png",
+    "icon": "assets/server_stats_bugfix_game_directory/icon.png",
     "mixins": [
-        "server_stats.bugfix.game_dir.mixins.json"
+        "server_stats.bugfix.game_directory.mixins.json"
     ],
     "depends": {
         "minecraft": ">=0.31.20100327 <=0.31.20100608"
