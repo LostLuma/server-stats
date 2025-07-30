@@ -27,7 +27,13 @@ public class MinecraftMixin {
 	@Unique
 	private @Nullable Path path;
 
-	@Inject(method = "startGame", at = @At("HEAD"))
+	@Inject(
+		method = "startGame",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/storage/WorldStorageSource;get(Ljava/lang/String;Z)Lnet/minecraft/world/storage/WorldStorage;"
+		)
+	)
 	private void startGame(String worldDir, String worldName, long seed, CallbackInfo callbackInfo) {
 		this.path = Paths.get("saves", worldDir);
 		ServerWorldEvent.LOAD.dispatch(new ServerWorldEvent(this.path));
