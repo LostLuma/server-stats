@@ -24,7 +24,7 @@
         ]
     },
     "depends": {
-        "modmenu": ">=0.3.1",
+        "modmenu": ">=0.3.0",
         "server_stats_util": "=${version}"
     },
     "custom": {
