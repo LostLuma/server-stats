@@ -27,6 +27,8 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle
+      - name: install workarounds
+        run: ./workaround/broken-manifest.sh
       - name: build
         run: ./gradlew build --no-daemon --warning-mode=all
       - name: capture build artifacts
