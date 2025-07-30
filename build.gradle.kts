@@ -110,14 +110,20 @@ dependencies {
 	include(project(":module:identity:merged:1.7.0-alpha.13w39a-to-1.7.5"))
 	include(project(":module:identity:server"))
 
-	include(project(":module:lifecycle:client:1.0.0-beta.1.5.0-to-1.0.0-beta.1.7.3"))
+	include(project(":module:lifecycle:client:0.31.20100327-to-0.31.20100625-1917"))
+	include(project(":module:lifecycle:client:0.31.20100627-to-1.0.0-alpha.1.0.5"))
+	include(project(":module:lifecycle:client:1.0.0-alpha.1.0.6-to-1.0.0-alpha.1.1.2"))
+	include(project(":module:lifecycle:client:1.0.0-alpha.1.2.0-to-1.0.0-beta.1.2.0"))
+	include(project(":module:lifecycle:client:1.0.0-beta.1.3.0-to-1.0.0-beta.1.7.3"))
 	include(project(":module:lifecycle:client:1.0.0-beta.1.8.0-pre.1-to-1.3.0-alpha.12w17a"))
 
 	include(project(":module:lifecycle:merged:1.3.2-to-1.4.0-alpha.12w38b"))
 	include(project(":module:lifecycle:merged:1.4.0-alpha.12w39a-to-1.5.2"))
 	include(project(":module:lifecycle:merged:1.6.0-alpha.13w16a-to-1.6.4"))
 
-	include(project(":module:lifecycle:server:1.0.0-beta.1.5.0-to-1.1.0-alpha.11w50a"))
+	include(project(":module:lifecycle:server:1.0.0-alpha.0.1.0-to-1.0.0-beta.1.2.0"))
+	include(project(":module:lifecycle:server:1.0.0-beta.1.3.0-to-1.0.0-beta.1.3.0"))
+	include(project(":module:lifecycle:server:1.0.0-beta.1.4.0-to-1.1.0-alpha.11w50a"))
 	include(project(":module:lifecycle:server:1.1.0-alpha.12w01a-to-1.3.0-alpha.12w17a"))
 
 	include(project(":module:network:osl:client"))
