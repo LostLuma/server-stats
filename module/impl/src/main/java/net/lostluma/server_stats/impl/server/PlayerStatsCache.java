@@ -7,9 +7,12 @@ import net.lostluma.server_stats.impl.ext.player.PersistentStats;
 import net.lostluma.server_stats.impl.player.PersistentStatsImpl;
 import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
@@ -30,6 +33,12 @@ public class PlayerStatsCache {
 
 	private PlayerStatsCache(Path worldDir) {
 		this.path = worldDir.resolve("stats");
+
+		try {
+			Files.createDirectories(this.path);
+		} catch (IOException e) {
+			throw new UncheckedIOException("Unable to create stats directory!", e);
+		}
 	}
 
 	/**

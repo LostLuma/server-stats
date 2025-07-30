@@ -157,8 +157,6 @@ public class PersistentStatsImpl implements PersistentStats {
 		Path path = PlayerStatsCache.getInstance().getPath().resolve(this.identifier + ".json");
 
 		try {
-			Files.createDirectories(path.getParent());
-
 			// Create temporary file and move it to prevent
 			// Corrupting statistics files on server crash.
 			Path file = Files.createTempFile(temp, this.identifier.toString(), ".json", this.getDefaultFileAttributes());
