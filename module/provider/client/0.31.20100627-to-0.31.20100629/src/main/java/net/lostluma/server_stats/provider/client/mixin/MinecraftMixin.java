@@ -1,7 +1,6 @@
 package net.lostluma.server_stats.provider.client.mixin;
 
 import net.lostluma.server_stats.provider.client.Provider;
-import net.minecraft.client.MinecraftApplet;
 import net.minecraft.unmapped.C_5664496;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

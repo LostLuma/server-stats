@@ -142,7 +142,8 @@ dependencies {
 	include(project(":module:network:vanilla:server"))
 
 	include(project(":module:provider:client:0.31.20100327-to-0.31.20100625-1917"))
-	include(project(":module:provider:client:0.31.20100627-to-1.0.0-alpha.1.0.5"))
+	include(project(":module:provider:client:0.31.20100627-to-0.31.20100629"))
+	include(project(":module:provider:client:0.31.20100630-1340-to-1.0.0-alpha.1.0.5"))
 	include(project(":module:provider:client:1.0.0-alpha.1.0.6-to-1.0.0-beta.1.4.0"))
 	include(project(":module:provider:client:1.0.0-beta.1.5.0-to-1.3-alpha.12w17a"))
 	include(project(":module:provider:common:0.31.20100327-to-1.0.0-beta.1.4.0"))
