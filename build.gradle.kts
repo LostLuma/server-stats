@@ -10,7 +10,11 @@ dependencies {
 	include(project(":module:api"))
 	include(project(":module:impl"))
 
-	include(project(":module:broadcast:client:1.0.0-beta.1.5.0-to-1.3.0-alpha.12w16a"))
+	include(project(":module:broadcast:client:0.31.20100327-to-0.31.20100414"))
+	include(project(":module:broadcast:client:0.31.20100415-to-0.31.20100625-1917"))
+	include(project(":module:broadcast:client:0.31.20100627-to-0.31.20100629"))
+	include(project(":module:broadcast:client:0.31.20100630-1340-to-1.0.0-alpha.1.0.5"))
+	include(project(":module:broadcast:client:1.0.0-alpha.1.0.6-to-unknown"))
 	include(project(":module:broadcast:client:1.3.0-alpha.12w17a-to-1.3.0-alpha.12w17a"))
 	include(project(":module:broadcast:merged"))
 	include(project(":module:broadcast:server"))

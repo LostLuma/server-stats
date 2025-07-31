@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "server_stats_broadcast_server",
+    "id": "server_stats_broadcast_client",
     "version": "${version}",
     "name": "Broadcast",
     "description": "Announce earned achievements.",
@@ -15,14 +15,15 @@
         "issues": "https://go.lostluma.net/server-stats-issues",
         "sources": "https://go.lostluma.net/server-stats-source"
     },
-    "environment": "server",
+    "environment": "client",
     "license": "LGPL-3.0-or-later",
-    "icon": "assets/server_stats_broadcast_server/icon.png",
+    "icon": "assets/server_stats_broadcast_client/icon.png",
+    "accessWidener": "server_stats.broadcast.client.accesswidener",
     "mixins": [
-        "server_stats.broadcast.server.mixins.json"
+        "server_stats.broadcast.client.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-alpha.1.0 <=1.3-alpha.12.17.a",
+        "minecraft": ">=1.0.0-alpha.0.6 <=1.3-alpha.12.16.a",
         "server_stats_impl": "=${version}"
     },
     "custom": {
