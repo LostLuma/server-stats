@@ -137,8 +137,12 @@ dependencies {
 	include(project(":module:network:vanilla:merged:1.6.0-alpha.13w16a-to-1.6.4"))
 	include(project(":module:network:vanilla:server"))
 
-	include(project(":module:provider:client"))
-	include(project(":module:provider:common"))
+	include(project(":module:provider:client:0.31.20100327-to-0.31.20100625-1917"))
+	include(project(":module:provider:client:0.31.20100627-to-1.0.0-alpha.1.0.5"))
+	include(project(":module:provider:client:1.0.0-alpha.1.0.6-to-1.0.0-beta.1.4.0"))
+	include(project(":module:provider:client:1.0.0-beta.1.5.0-to-1.3-alpha.12w17a"))
+	include(project(":module:provider:common:0.31.20100327-to-1.0.0-beta.1.4.0"))
+	include(project(":module:provider:common:1.0.0-beta.1.5.0-to-1.3-alpha.12w17a"))
 	include(project(":module:provider:merged"))
 	include(project(":module:provider:server"))
 

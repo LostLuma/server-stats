@@ -42,6 +42,9 @@
             "C_1567607": "ServerPlayNetworkHandler"
         },
         "loom:injected_interfaces": {
+            "net/minecraft/client/C_8730536": [
+                "net/lostluma/server_stats/impl/ext/common/Identifiable"
+            ],
             "net/minecraft/unmapped/C_8730536": [
                 "net/lostluma/server_stats/impl/ext/common/Identifiable"
             ],
