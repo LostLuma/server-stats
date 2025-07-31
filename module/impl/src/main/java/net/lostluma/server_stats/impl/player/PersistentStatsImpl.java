@@ -142,6 +142,8 @@ public class PersistentStatsImpl implements PersistentStats {
 
 		if (Files.exists(uuid)) {
 			this.deserialize(uuid);
+		} else {
+			Files.write(uuid, "{}".getBytes(StandardCharsets.UTF_8));
 		}
 	}
 
