@@ -22,7 +22,7 @@
         "server_stats.lifecycle.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=0.31.20100327 <=0.31.20100625-1917",
+        "minecraft": ">=0.31.20100413 <=0.31.20100625-1917",
         "server_stats_event": "=${version}"
     },
     "custom": {

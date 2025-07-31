@@ -131,7 +131,8 @@ include(":module:identity:merged:1.7.0-alpha.13w39a-to-1.7.5")
 
 include(":module:identity:server")
 
-include(":module:lifecycle:client:0.31.20100327-to-0.31.20100625-1917")
+include(":module:lifecycle:client:0.31.20100327-to-0.31.20100330-1611")
+include(":module:lifecycle:client:0.31.20100413-to-0.31.20100625-1917")
 include(":module:lifecycle:client:0.31.20100627-to-1.0.0-alpha.1.0.5")
 include(":module:lifecycle:client:1.0.0-alpha.1.0.6-to-1.0.0-alpha.1.1.2")
 include(":module:lifecycle:client:1.0.0-alpha.1.2.0-to-1.0.0-beta.1.2.0")
