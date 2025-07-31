@@ -27,7 +27,7 @@ You can download the release version of Server Stats from either [Modrinth](http
 
 ## Supported Minecraft Versions
 
-Server Stats supports a wide range of Minecraft versions including some snapshots,  
+Server Stats supports a wide range of Minecraft versions including most snapshots,  
 however please note that some non-mainline versions are (currently) not supported.
 
 Officially supported versions:
@@ -35,7 +35,7 @@ Officially supported versions:
 - Beta 1.5 to 1.3-alpha.12w17a
 - Release 1.3.2 to Release 1.12.2
 
-Beta 1.6 Test Build 3 is also supported, other leaked builds are, however, not.
+Beta 1.6 Test Build 3 is also supported, other leaked builds are, however, not.  
 The mod may function on other versions without issue, but you will receive no support doing so.
 
 ## Mod Support
