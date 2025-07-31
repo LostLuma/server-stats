@@ -213,7 +213,9 @@ publishMods {
 		projectId = "shTz7pFB"
 
 		minecraftVersionRange {
-			start = "b1.5"
+			// Should start at inf-20100327, however
+			// Modrinth only has this Infdev version
+			start = "inf-20100618"
 			end = "1.2.5"
 			// end = "12w17a" - missing on Modrinth!
 			includeSnapshots = true
