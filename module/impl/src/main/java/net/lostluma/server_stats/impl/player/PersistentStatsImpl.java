@@ -12,6 +12,7 @@ import net.lostluma.server_stats.impl.server.PlayerStatsCache;
 import net.lostluma.server_stats.impl.service.ChatBroadcast;
 import net.lostluma.server_stats.impl.statistic.ServerStatisticImpl;
 import net.lostluma.server_stats.util.FSUtil;
+import net.lostluma.server_stats.util.Json;
 import net.lostluma.server_stats.util.Logging;
 import net.lostluma.server_stats.util.platform.Platform;
 
@@ -199,7 +200,9 @@ public class PersistentStatsImpl implements PersistentStats {
 			result.addProperty(counter.getKey(), counter.getValue());
 		}
 
-		return result.toString();
+		// Pretty print serialized
+		// When outputting to file
+		return Json.serialize(result) + "\n";
 	}
 
 	public String server_stats$serialize(boolean large) {
