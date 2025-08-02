@@ -7,6 +7,7 @@ import net.minecraft.unmapped.C_5664496;
 
 public class ChatBroadcastImpl implements ChatBroadcast {
 	@Override
+	@SuppressWarnings("unchecked")
 	public void announce(String message) {
 		C_5664496 minecraft = Broadcast.client;
 
@@ -16,7 +17,7 @@ public class ChatBroadcastImpl implements ChatBroadcast {
 
 		int max = 320;
 		int total = 0;
-		String part = "";
+		StringBuilder piece = new StringBuilder();
 
 		// Add message to GUI in 320-wide parts
 		for (int x = 0; x < message.length(); x++) {
@@ -25,17 +26,17 @@ public class ChatBroadcastImpl implements ChatBroadcast {
 
 			if (total + width <= max) {
 				total += width;
-				part += character;
+				piece.append(character);
 			} else {
-				minecraft.f_3501374.chatMessages.add(0, new ChatMessage(part));
+				minecraft.f_3501374.chatMessages.add(0, new ChatMessage(piece.toString()));
 
 				total = 0;
-				part = "";
+				piece = new StringBuilder();
 			}
 		}
 
-		if (!part.isEmpty()) {
-			minecraft.f_3501374.chatMessages.add(0, new ChatMessage(part));
+		if (piece.length() > 0) {
+			minecraft.f_3501374.chatMessages.add(0, new ChatMessage(piece.toString()));
 		}
 
 		// Limit chat history to 50 (same as vanilla)
