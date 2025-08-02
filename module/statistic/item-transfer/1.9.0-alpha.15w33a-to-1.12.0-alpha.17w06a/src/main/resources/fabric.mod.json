@@ -23,7 +23,8 @@
     ],
     "depends": {
         "minecraft": ">=1.9-alpha.15.33.a <=1.12.0-alpha.17.6.a",
-        "server_stats_api": "=${version}"
+        "server_stats_api": "=${version}",
+        "server_stats_util": "=${version}"
     },
     "custom": {
         "modmenu": {

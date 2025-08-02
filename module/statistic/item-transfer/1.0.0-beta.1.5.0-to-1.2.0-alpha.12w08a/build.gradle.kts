@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
 	implementation(project(":module:api"))
+	implementation(project(":module:util"))
 }

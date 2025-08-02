@@ -23,7 +23,8 @@
     ],
     "depends": {
         "minecraft": ">=1.7-alpha.13.38.a <=1.8-alpha.14.8.a",
-        "server_stats_api": "=${version}"
+        "server_stats_api": "=${version}",
+        "server_stats_util": "=${version}"
     },
     "custom": {
         "modmenu": {

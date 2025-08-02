@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
+import net.lostluma.server_stats.util.Constants;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ItemEntity.class)
 public class ItemEntityMixin {
 	@Unique
-	private static final ServerStatistic PICKUP = ServerStatistic.of("minecraft", "pickup").build();
+	private static final ServerStatistic PICKUP = ServerStatistic.of(Constants.MOD_ID, "pickup").build();
 
 	/**
 	 * Record the combined and per-item pickup statistic.

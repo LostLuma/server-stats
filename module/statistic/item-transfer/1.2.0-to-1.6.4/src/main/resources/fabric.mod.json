@@ -23,7 +23,8 @@
     ],
     "depends": {
         "minecraft": ">=1.2.0 <=1.6.4",
-        "server_stats_api": "=${version}"
+        "server_stats_api": "=${version}",
+        "server_stats_util": "=${version}"
     },
     "custom": {
         "modmenu": {
