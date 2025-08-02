@@ -24,7 +24,6 @@
     "accessWidener": "server_stats.provider.client.accesswidener",
     "depends": {
         "minecraft": ">=1.0.0-alpha.0.6 <=1.0.0-beta.4.1",
-        "server_stats_api": "=${version}",
         "server_stats_impl": "=${version}"
     },
     "custom": {

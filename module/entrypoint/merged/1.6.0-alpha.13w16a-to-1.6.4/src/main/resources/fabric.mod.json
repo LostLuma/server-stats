@@ -22,7 +22,8 @@
         "server_stats.entrypoint.merged.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.6-alpha.13.16.a <=1.6.4"
+        "minecraft": ">=1.6-alpha.13.16.a <=1.6.4",
+        "server_stats_entrypoint_common": "=${version}"
     },
     "custom": {
         "modmenu": {

@@ -22,7 +22,8 @@
         "server_stats.entrypoint.merged.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.3.2 <=1.5.2"
+        "minecraft": ">=1.3.2 <=1.5.2",
+        "server_stats_entrypoint_common": "=${version}"
     },
     "custom": {
         "modmenu": {

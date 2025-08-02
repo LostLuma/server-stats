@@ -23,7 +23,6 @@
     ],
     "depends": {
         "minecraft": ">=0.31.20100627 <=0.31.20100627",
-        "server_stats_api": "=${version}",
         "server_stats_impl": "=${version}"
     },
     "custom": {
