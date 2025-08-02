@@ -73,3 +73,7 @@ You can change this by shipping a texture in this location: ``assets/server_stat
 ### Using the Server Stats API
 
 Coming soon :3
+
+### Incompatible Mods
+
+- [Achievement Fix](https://modrinth.com/mod/achievement-fix): Server Stats contains the same (and more) bug fixes
