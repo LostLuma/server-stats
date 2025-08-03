@@ -6,6 +6,7 @@ import net.lostluma.server_stats.impl.error.NoContextAvailable;
 import net.lostluma.server_stats.impl.ext.common.Identifiable;
 import net.lostluma.server_stats.impl.player.DisplayStatsImpl;
 import net.lostluma.server_stats.impl.server.PlayerStatsCache;
+import net.lostluma.server_stats.impl.server.ServerPlayerStatsImpl;
 import net.lostluma.server_stats.impl.service.ClientNetworking;
 import net.lostluma.server_stats.impl.util.ResultImpl;
 import net.lostluma.server_stats.util.Constants;
@@ -17,6 +18,10 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 public class ClientPlayerStatsImpl {
+	// Whether the current world is a singleplayer
+	// World on a split Minecraft version (<1.3.2)
+	private static boolean splitSingleplayerWorld;
+
 	// Note: Only null before Minecraft class init
 	// And on merged Minecraft versions (=>1.3.2).
 	private static @Nullable Identifiable session;
@@ -54,7 +59,11 @@ public class ClientPlayerStatsImpl {
 
 			if (cache != null && session != null) {
 				cache.get(playerStats);
+
+				splitSingleplayerWorld = true;
 				serverVersion = Constants.MOD_VERSION;
+			} else {
+				splitSingleplayerWorld = false;
 			}
 		}
 	}
@@ -92,9 +101,22 @@ public class ClientPlayerStatsImpl {
 			handler.accept(ResultImpl.error("Currently not in a world."));
 		} else if (!fetchSupported()) {
 			handler.accept(ResultImpl.error("Server Stats 1.4 (or newer) not installed on server."));
-		} else {
+		} else if (!splitSingleplayerWorld) {
+			// Either a real server, or >=1.3.2
+			// So we can send packets to the other side
 			nameRequests.put(name, handler);
 			ClientNetworking.INSTANCE.fetch(name);
+		} else {
+			// A singleplayer world on Minecraft <1.3.2
+			ServerPlayerStatsImpl.fetch(name, result -> {
+				// Can't just return the same Result here
+				// Since Java generics can not downcast this
+				if (result.isOk()) {
+					handler.accept(ResultImpl.ok(result.value()));
+				} else {
+					handler.accept(ResultImpl.error(result.error()));
+				}
+			});
 		}
 	}
 
@@ -103,9 +125,22 @@ public class ClientPlayerStatsImpl {
 			handler.accept(ResultImpl.error("Currently not in a world."));
 		} else if (!fetchSupported()) {
 			handler.accept(ResultImpl.error("Server Stats 1.4 (or newer) not installed on server."));
-		} else {
+		} else if (!splitSingleplayerWorld) {
+			// Either a real server, or >=1.3.2
+			// So we can send packets to the other side
 			identifierRequests.put(identifier, handler);
 			ClientNetworking.INSTANCE.fetch(identifier);
+		} else {
+			// A singleplayer world on Minecraft <1.3.2
+			ServerPlayerStatsImpl.fetch(identifier, result -> {
+				// Can't just return the same Result here
+				// Since Java generics can not downcast this
+				if (result.isOk()) {
+					handler.accept(ResultImpl.ok(result.value()));
+				} else {
+					handler.accept(ResultImpl.error(result.error()));
+				}
+			});
 		}
 	}
 
