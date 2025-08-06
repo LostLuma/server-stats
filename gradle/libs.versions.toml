@@ -4,8 +4,8 @@ slf4j = "2.0.17"
 annotations = "26.0.2"
 fabric_loader = "0.17.0"
 
-ploceus = "1.10.16"
-fabric_loom = "1.10.5"
+ploceus = "1.11.5"
+fabric_loom = "1.11.5"
 
 mod_publish = "0.8.4"
 
