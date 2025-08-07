@@ -29,7 +29,7 @@ public class Achievements {
 		Version want = Version.of(startVersion);
 		Version game = Platform.getModVersion("minecraft");
 
-		if (want.compareTo(game) >= 0) {
+		if (want.compareTo(game) > 0) {
 			return null;
 		} else {
 			return ServerAchievement.of("minecraft", identifier).parent(parent).build();
