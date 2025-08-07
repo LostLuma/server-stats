@@ -194,6 +194,11 @@ include(":module:statistic:local:server")
 
 include(":module:statistic:movement")
 
+include(":module:statistic:vanilla:client:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0")
+include(":module:statistic:vanilla:common:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0")
+include(":module:statistic:vanilla:registry")
+include(":module:statistic:vanilla:server:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0")
+
 include(":module:translation:client")
 include(":module:translation:common")
 include(":module:translation:merged")

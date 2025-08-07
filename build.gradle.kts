@@ -175,6 +175,11 @@ dependencies {
 
 	include(project(":module:statistic:movement"))
 
+	include(project(":module:statistic:vanilla:client:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))
+	include(project(":module:statistic:vanilla:common:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))
+	include(project(":module:statistic:vanilla:registry"))
+	include(project(":module:statistic:vanilla:server:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))
+
 	include(project(":module:translation:client"))
 	include(project(":module:translation:common"))
 	include(project(":module:translation:merged"))

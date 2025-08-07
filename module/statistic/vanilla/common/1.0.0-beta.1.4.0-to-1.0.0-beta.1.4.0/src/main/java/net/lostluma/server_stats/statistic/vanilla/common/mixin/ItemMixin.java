@@ -1,0 +1,24 @@
+package net.lostluma.server_stats.statistic.vanilla.common.mixin;
+
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
+import net.minecraft.item.Item;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(Item.class)
+public class ItemMixin {
+	@Shadow
+	@Final
+	public int id;
+
+	@Inject(method = "<init>", at = @At("RETURN"))
+	private void init(CallbackInfo callbackInfo) {
+		ServerStatistic.of("minecraft", "useItem." + this.id).build();
+		ServerStatistic.of("minecraft", "breakItem." + this.id).build();
+		ServerStatistic.of("minecraft", "craftItem." + this.id).build();
+	}
+}
