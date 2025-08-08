@@ -1,0 +1,28 @@
+package net.lostluma.server_stats.statistic.combat.mixin.common;
+
+import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.living.player.PlayerEntity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(PlayerEntity.class)
+public class PlayerEntityMixin {
+	@Unique
+	private PlayerEntity player() {
+		return (PlayerEntity) (Object) this;
+	}
+
+	@Inject(method = "onKilled", at = @At("HEAD"))
+	private void onKilled(Entity entity, CallbackInfo callbackInfo) {
+		if (entity == null) {
+			return;
+		}
+
+		String type = entity.m_1061793();
+		ServerStatistic.get("minecraft", "entityKilledBy." + type).ifPresent(this.player()::increment);
+	}
+}

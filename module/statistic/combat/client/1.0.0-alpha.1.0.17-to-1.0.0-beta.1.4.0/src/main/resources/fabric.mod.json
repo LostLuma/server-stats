@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_statistic_combat",
+    "version": "${version}",
+    "name": "Combat",
+    "description": "Combat statistics backport.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "client",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_statistic_combat/icon.png",
+    "mixins": [
+        "server_stats.statistic.combat.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.0.0-alpha.0.17.2 <=1.0.0-beta.4.1",
+        "server_stats_api": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
