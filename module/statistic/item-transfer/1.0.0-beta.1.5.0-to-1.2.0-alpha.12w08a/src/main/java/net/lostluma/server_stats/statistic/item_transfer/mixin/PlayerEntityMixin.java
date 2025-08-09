@@ -21,7 +21,10 @@ public abstract class PlayerEntityMixin {
 	 */
 	@Inject(
 		method = "dropItem(Lnet/minecraft/item/ItemStack;Z)V",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V")
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;I)V"
+		)
 	)
 	private void dropItem(ItemStack itemStack, boolean dead, CallbackInfo callbackInfo) {
 		Optional<ServerStatistic> statistic = ServerStatistic.get("minecraft", "drop." + itemStack.itemId);

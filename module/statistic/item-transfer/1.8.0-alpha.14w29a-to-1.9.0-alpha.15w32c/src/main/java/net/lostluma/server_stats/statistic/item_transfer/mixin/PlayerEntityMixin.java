@@ -23,7 +23,10 @@ public abstract class PlayerEntityMixin {
 	 */
 	@Inject(
 		method = "dropItem(Lnet/minecraft/item/ItemStack;ZZ)Lnet/minecraft/entity/ItemEntity;",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;)V")
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/entity/living/player/PlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;)V"
+		)
 	)
 	private void dropItem(ItemStack itemStack, boolean velocityFromPlayerDirection, boolean thrownByPlayer, CallbackInfoReturnable<ItemEntity> callbackInfo) {
 		String identifier = Item.REGISTRY.getKey(itemStack.getItem()).toString().replace(":", ".");

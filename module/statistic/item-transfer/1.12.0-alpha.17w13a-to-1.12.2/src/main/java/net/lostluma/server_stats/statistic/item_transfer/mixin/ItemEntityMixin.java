@@ -23,7 +23,10 @@ public class ItemEntityMixin {
 	 */
 	@WrapOperation(
 		method = "onPlayerCollision",
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;m_4381741(Lnet/minecraft/item/ItemStack;)Z")
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/entity/player/PlayerInventory;m_4381741(Lnet/minecraft/item/ItemStack;)Z"
+		)
 	)
 	private boolean onPlayerCollision(PlayerInventory instance, ItemStack stack, Operation<Boolean> original, @Local(argsOnly = true) PlayerEntity player) {
 		int size = stack.getSize();

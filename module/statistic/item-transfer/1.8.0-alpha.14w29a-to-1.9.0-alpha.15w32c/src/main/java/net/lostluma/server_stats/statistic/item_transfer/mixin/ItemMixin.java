@@ -12,7 +12,10 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class ItemMixin {
 	@WrapOperation(
 		method = "<clinit>",
-		at = @At(value = "NEW", target = "()Lnet/minecraft/util/registry/IdRegistry;")
+		at = @At(
+			value = "NEW",
+			target = "()Lnet/minecraft/util/registry/IdRegistry;"
+		)
 	)
 	private static IdRegistry init(Operation<IdRegistry> original) {
 		IdRegistry result = original.call();
