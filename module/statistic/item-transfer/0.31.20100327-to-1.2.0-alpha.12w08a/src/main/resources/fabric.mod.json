@@ -22,7 +22,7 @@
         "server_stats.statistic.item_transfer.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.0.0-beta.5 <=1.2-alpha.12.08.a",
+        "minecraft": ">=0.31.20100327 <=1.2-alpha.12.08.a",
         "server_stats_api": "=${version}",
         "server_stats_util": "=${version}"
     },

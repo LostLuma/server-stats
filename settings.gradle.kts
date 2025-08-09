@@ -182,7 +182,7 @@ include(":module:statistic:combat:merged:1.1.0-alpha.12w01a-to-1.6.4")
 include(":module:statistic:combat:server:1.0.0-alpha.0.1.0-to-1.0.0-alpha.0.1.3")
 include(":module:statistic:combat:server:1.0.0-alpha.0.1.4-to-1.0.0-beta.1.4.0")
 
-include(":module:statistic:item-transfer:1.0.0-beta.1.5.0-to-1.2.0-alpha.12w08a")
+include(":module:statistic:item-transfer:0.31.20100327-to-1.2.0-alpha.12w08a")
 include(":module:statistic:item-transfer:1.2.0-to-1.6.4")
 include(":module:statistic:item-transfer:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w37b")
 include(":module:statistic:item-transfer:1.7.0-alpha.13w38a-to-1.8.0-alpha.14w05b")
