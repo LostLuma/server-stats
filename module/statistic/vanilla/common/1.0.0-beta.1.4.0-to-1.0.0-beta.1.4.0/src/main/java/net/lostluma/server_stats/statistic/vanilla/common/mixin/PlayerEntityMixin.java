@@ -120,7 +120,6 @@ public abstract class PlayerEntityMixin {
 	@Inject(method = "onKillEntity", at = @At("HEAD"))
 	private void onKillEntity(Entity victim, int score, CallbackInfo callbackInfo) {
 		PlayerEntity self = (PlayerEntity)(Object) this;
-		self.unlock(Achievements.KILL_ENEMY);
 
 		if (!(victim instanceof PlayerEntity)) {
 			self.increment(Statistics.MOBS_KILLED);

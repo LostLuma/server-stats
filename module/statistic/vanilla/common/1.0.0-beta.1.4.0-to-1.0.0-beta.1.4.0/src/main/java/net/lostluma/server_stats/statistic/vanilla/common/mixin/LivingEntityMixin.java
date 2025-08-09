@@ -4,6 +4,7 @@ import net.lostluma.server_stats.statistic.vanilla.registry.Achievements;
 import net.lostluma.server_stats.statistic.vanilla.registry.Statistics;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.living.LivingEntity;
+import net.minecraft.entity.living.mob.hostile.HostileEntity;
 import net.minecraft.entity.living.mob.passive.animal.PigEntity;
 import net.minecraft.entity.living.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,7 +17,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class LivingEntityMixin {
 	@Inject(method = "onKilled", at = @At("HEAD"))
 	private void onKilled(Entity entity, CallbackInfo callbackInfo) {
-		if (entity instanceof PlayerEntity) {
+		LivingEntity self = (LivingEntity)(Object) this;
+
+		if (self instanceof HostileEntity && entity instanceof PlayerEntity) {
 			((PlayerEntity) entity).unlock(Achievements.KILL_ENEMY);
 		}
 	}
