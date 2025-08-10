@@ -178,7 +178,10 @@ dependencies {
 	include(project(":module:statistic:local:merged"))
 	include(project(":module:statistic:local:server"))
 
-	include(project(":module:statistic:movement"))
+	include(project(":module:statistic:movement:client:1.0.0-alpha.1.1.0-to-1.0.0-beta.1.4.0"))
+	include(project(":module:statistic:movement:merged:1.0.0-beta.1.5.0-to-1.8.0-alpha.14w08a"))
+	include(project(":module:statistic:movement:server:1.0.0-alpha.0.2.6-to-1.0.0-beta.1.1.0"))
+	include(project(":module:statistic:movement:server:1.0.0-beta.1.2.0-to-1.0.0-beta.1.4.0"))
 
 	include(project(":module:statistic:vanilla:client:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))
 	include(project(":module:statistic:vanilla:common:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))

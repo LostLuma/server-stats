@@ -1,0 +1,34 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_statistic_movement",
+    "version": "${version}",
+    "name": "Movement",
+    "description": "Distance sneaked and sprinted statistics backport.",
+    "authors": [
+        "LostLuma"
+    ],
+    "contributors": [
+        "Pixaurora"
+    ],
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "server",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_statistic_movement/icon.png",
+    "mixins": [
+        "server_stats.statistic.movement.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.0.0-alpha.2.6 <=1.0.0-beta.1.2",
+        "server_stats_api": "=${version}",
+        "server_stats_util": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
