@@ -3,7 +3,7 @@ on: [ push, pull_request ]
 
 jobs:
   build:
-    runs-on: lostluma-linux-docker
+    runs-on: amd64-linux-docker
     steps:
       - name: checkout repository
         uses: https://code.forgejo.org/actions/checkout@v4
