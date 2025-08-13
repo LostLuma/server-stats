@@ -183,9 +183,13 @@ dependencies {
 	include(project(":module:statistic:movement:server:1.0.0-alpha.0.2.6-to-1.0.0-beta.1.1.0"))
 	include(project(":module:statistic:movement:server:1.0.0-beta.1.2.0-to-1.0.0-beta.1.4.0"))
 
+	include(project(":module:statistic:vanilla:client:1.0.0-beta.1.0.0-to-1.0.0-beta.1.3.0"))
 	include(project(":module:statistic:vanilla:client:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))
+	include(project(":module:statistic:vanilla:common:1.0.0-beta.1.0.0-to-1.0.0-beta.1.1.0"))
+	include(project(":module:statistic:vanilla:common:1.0.0-beta.1.2.0-to-1.0.0-beta.1.3.0"))
 	include(project(":module:statistic:vanilla:common:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))
 	include(project(":module:statistic:vanilla:registry"))
+	include(project(":module:statistic:vanilla:server:1.0.0-beta.1.0.0-to-1.0.0-beta.1.3.0"))
 	include(project(":module:statistic:vanilla:server:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0"))
 
 	include(project(":module:translation:client"))

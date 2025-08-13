@@ -1,0 +1,4 @@
+accessWidener v2 named
+
+accessible field net/minecraft/entity/Entity inWater Z
+accessible field net/minecraft/item/ItemStack metadata I
