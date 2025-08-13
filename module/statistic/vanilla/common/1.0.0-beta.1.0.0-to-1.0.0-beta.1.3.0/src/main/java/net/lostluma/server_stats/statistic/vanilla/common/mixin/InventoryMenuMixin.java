@@ -107,6 +107,11 @@ public class InventoryMenuMixin {
 	private void awardStatistics(PlayerEntity player, ItemStack stack, int amount) {
 		int itemId = stack.itemId;
 
+		// Cake is added in Beta 1.2, not Beta 1.0
+		if (Achievements.CRAFT_CAKE != null && itemId == 354) {
+			player.unlock(Achievements.CRAFT_CAKE);
+		}
+
 		if (itemId == Item.BREAD.id) {
 			player.unlock(Achievements.CRAFT_BREAD);
 		}

@@ -204,8 +204,7 @@ include(":module:statistic:movement:server:1.0.0-beta.1.2.0-to-1.0.0-beta.1.4.0"
 
 include(":module:statistic:vanilla:client:1.0.0-beta.1.0.0-to-1.0.0-beta.1.3.0")
 include(":module:statistic:vanilla:client:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0")
-include(":module:statistic:vanilla:common:1.0.0-beta.1.0.0-to-1.0.0-beta.1.1.0")
-include(":module:statistic:vanilla:common:1.0.0-beta.1.2.0-to-1.0.0-beta.1.3.0")
+include(":module:statistic:vanilla:common:1.0.0-beta.1.0.0-to-1.0.0-beta.1.3.0")
 include(":module:statistic:vanilla:common:1.0.0-beta.1.4.0-to-1.0.0-beta.1.4.0")
 include(":module:statistic:vanilla:registry")
 include(":module:statistic:vanilla:server:1.0.0-beta.1.0.0-to-1.0.0-beta.1.3.0")
