@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Adventuring Time Unlock",
     "description": "Fix Adventuring Time achievement unlocking.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "API",
     "description": "An interface for other mods.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

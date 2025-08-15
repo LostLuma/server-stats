@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Mod Menu",
     "description": "Mod Menu integration.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

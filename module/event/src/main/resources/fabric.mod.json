@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Event",
     "description": "Internal event system.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

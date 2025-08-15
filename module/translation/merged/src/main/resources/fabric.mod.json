@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Translation",
     "description": "Translate between vanilla and modded statistic systems.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

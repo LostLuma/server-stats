@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Doubled Distance",
     "description": "Fix walking statistic increasing when sneaking or walking.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

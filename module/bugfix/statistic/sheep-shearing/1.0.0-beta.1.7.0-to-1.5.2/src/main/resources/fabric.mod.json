@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Sheep Shearing",
     "description": "Fix sheep shearing statistic tracking.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

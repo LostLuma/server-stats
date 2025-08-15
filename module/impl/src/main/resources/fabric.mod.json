@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Implementation",
     "description": "Internal API implementation.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

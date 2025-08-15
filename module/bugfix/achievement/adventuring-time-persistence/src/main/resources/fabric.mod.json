@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Adventuring Time Persistence",
     "description": "Fix Adventuring Time achievement persistence.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

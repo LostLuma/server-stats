@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Damage Attribution",
     "description": "Fix Fishing Rod attack attribution.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",

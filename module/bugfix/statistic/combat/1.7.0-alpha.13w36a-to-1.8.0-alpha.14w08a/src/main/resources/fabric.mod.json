@@ -4,12 +4,6 @@
     "version": "${version}",
     "name": "Combat",
     "description": "Fix combat stats for certain mobs being missing.",
-    "authors": [
-        "LostLuma"
-    ],
-    "contributors": [
-        "Pixaurora"
-    ],
     "contact": {
         "homepage": "https://go.lostluma.net/server-stats",
         "issues": "https://go.lostluma.net/server-stats-issues",
