@@ -5,7 +5,13 @@
     "name": "Server Stats",
     "description": "Implementation of server-side statistics for legacy versions of Minecraft.",
     "authors": [
-        "LostLuma"
+        {
+            "name": "LostLuma",
+            "contact": {
+                "email": "lilly@lostluma.net",
+                "homepage": "https://lostluma.net"
+            }
+        }
     ],
     "contributors": [
         "Pixaurora"
