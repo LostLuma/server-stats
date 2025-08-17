@@ -15,6 +15,9 @@ Server Stats contains bug fixes for most achievement- and statistic-related issu
 To find out whether a specific bug is fixed with Server Stats take a look at the [bugfix source code directory](https://code.lostluma.net/LostLuma/server-stats/src/branch/stardust/module/bugfix).
 
 > [!WARNING]
+> Server Stats disallows putting items back into the furnace result slot in Beta 1.5 and before.
+
+> [!WARNING]
 > Infdev versions from `20100327` to `20100608` do not support custom game directories, causing issues  
 > when using multiple instances. Server Stats sets the game directory to the instance directory on startup.
 
