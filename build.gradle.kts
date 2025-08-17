@@ -74,6 +74,7 @@ dependencies {
 	include(project(":module:bugfix:statistic:pickup-amount:1.9.0-alpha.15w33a-to-1.12.0-alpha.17w06a"))
 	include(project(":module:bugfix:statistic:pickup-amount:1.12.0-alpha.17w13a-to-1.12.2"))
 	include(project(":module:bugfix:statistic:result-amount"))
+	include(project(":module:bugfix:statistic:result-forging"))
 	include(project(":module:bugfix:statistic:sheep-shearing:1.0.0-beta.1.7.0-to-1.5.2"))
 	include(project(":module:bugfix:statistic:sheep-shearing:1.6.0-alpha.13w16a-to-1.6.4"))
 	include(project(":module:bugfix:statistic:sheep-shearing:1.7.0-alpha.13w36a-to-1.8.9"))

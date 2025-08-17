@@ -41,7 +41,7 @@ public class InventoryMenuMixin {
 			return;
 		}
 
-		if (slot == null || slot.getClass() == InventorySlot.class) {
+		if (slot == null || !slot.server_stats$isResultSlot()) {
 			return;
 		}
 

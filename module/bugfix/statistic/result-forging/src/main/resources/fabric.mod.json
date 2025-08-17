@@ -1,0 +1,31 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_bugfix_result_forging",
+    "version": "${version}",
+    "name": "Result Forging",
+    "description": "Fix furnace output result forging.",
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_bugfix_result_forging/icon.png",
+    "mixins": [
+        "server_stats.bugfix.result_forging.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.0.0-beta.5 <=1.0.0-beta.5.2"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        },
+        "loom:injected_interfaces": {
+            "net/minecraft/unmapped/C_2711798": [
+                "net/lostluma/server_stats/bugfix/result_forging/duck/DuckInventorySlot"
+            ]
+        }
+    }
+}
