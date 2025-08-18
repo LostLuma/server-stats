@@ -51,6 +51,9 @@ Server Stats supports a wide range of Minecraft versions including most snapshot
 However, non-mainline versions (such as April Fools) are currently not supported.  
 The mod may function on these versions without issue, but they have not been validated.
 
+> [!WARNING]
+> Collection of some vanilla statistics, such as items crafted, is not supported on Alpha servers.
+
 ## Mod Support
 
 Server Stats is intended to be usable in conjunction with mods adding their own statistics by default.
