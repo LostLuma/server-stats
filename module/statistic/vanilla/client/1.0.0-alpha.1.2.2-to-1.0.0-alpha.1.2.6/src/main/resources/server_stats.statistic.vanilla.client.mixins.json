@@ -1,0 +1,28 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.statistic.vanilla.client.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "client": [
+        "BoatItemMixin",
+        "BowItemMixin",
+        "BucketItemMixin",
+        "FishingBobberEntityMixin",
+        "FishingRodItemMixin",
+        "FurnaceScreenMixin",
+        "InstantConsumableItemMixin",
+        "InventoryMenuScreenMixin",
+        "InventorySlotMixin",
+        "ItemEntityMixin",
+        "ItemStackMixin",
+        "MinecraftMixin",
+        "PlayerEntityMixin",
+        "SingleplayerInteractionManagerMixin",
+        "SurvivalInventoryScreenMixin"
+    ],
+    "mixins": [],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

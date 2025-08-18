@@ -16,9 +16,9 @@ public class Statistics {
 	public static final ServerStatistic CM_CLIMB = ServerStatistic.of("minecraft", "climbOneCm").build();
 	public static final ServerStatistic CM_FLOWN = ServerStatistic.of("minecraft", "flyOneCm").build();
 	public static final ServerStatistic CM_DOVE = ServerStatistic.of("minecraft", "diveOneCm").build();
-	public static final ServerStatistic CM_MINECART = registerConditionally("minecartOneCm", "0.31.20100624");
-	public static final ServerStatistic CM_SAILED = registerConditionally("boatOneCm", "1.0.0-alpha.0.6");
-	public static final ServerStatistic CM_PIG = registerConditionally("pigOneCm", "0.31.20100625-1917");
+	public static final ServerStatistic CM_MINECART = registerConditionally("minecartOneCm", "0.31.20100624", "0.31.20100624");
+	public static final ServerStatistic CM_SAILED = registerConditionally("boatOneCm", "1.0.0-alpha.0.6", "1.0.0-alpha.2.4");
+	public static final ServerStatistic CM_PIG = registerConditionally("pigOneCm", "0.31.20100625-1917", "0.31.20100625-1917");
 	public static final ServerStatistic JUMPS = ServerStatistic.of("minecraft", "jump").build();
 	public static final ServerStatistic DROPS = ServerStatistic.of("minecraft", "drop").build();
 	public static final ServerStatistic DAMAGE_DEALT = ServerStatistic.of("minecraft", "damageDealt").build();
@@ -26,7 +26,7 @@ public class Statistics {
 	public static final ServerStatistic DEATHS = ServerStatistic.of("minecraft", "deaths").build();
 	public static final ServerStatistic MOBS_KILLED = ServerStatistic.of("minecraft", "mobKills").build();
 	public static final ServerStatistic PLAYERS_KILLED = ServerStatistic.of("minecraft", "playerKills").build();
-	public static final ServerStatistic CATCH_FISH = registerConditionally("fishCaught", "1.0.0-alpha.1.1");
+	public static final ServerStatistic CATCH_FISH = registerConditionally("fishCaught", "1.0.0-alpha.1.1", "1.0.0-alpha.2.4");
 
 	public static void init() {}
 
@@ -70,8 +70,15 @@ public class Statistics {
 		}
 	}
 
-	private static @Nullable ServerStatistic registerConditionally(String identifier, String startVersion) {
-		Version want = Version.of(startVersion);
+	private static @Nullable ServerStatistic registerConditionally(String identifier, String clientStartVersion, String serverStartVersion) {
+		Version want;
+
+		if (Platform.getEnvironment() == Platform.Environment.CLIENT) {
+			want = Version.of(clientStartVersion);
+		} else {
+			want = Version.of(serverStartVersion);
+		}
+
 		Version game = Platform.getModVersion("minecraft");
 
 		if (want.compareTo(game) > 0) {
