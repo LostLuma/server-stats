@@ -1,0 +1,28 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_statistic_item_transfer_server",
+    "version": "${version}",
+    "name": "Item Transfer",
+    "description": "Per-item drop and pickup statistics backport",
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "server",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_statistic_item_transfer_server/icon.png",
+    "mixins": [
+        "server_stats.statistic.item_transfer.server.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=1.0.0-alpha.1.0 <=1.0.0-alpha.2.8",
+        "server_stats_api": "=${version}",
+        "server_stats_util": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
