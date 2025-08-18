@@ -111,7 +111,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
 	@Inject(method = "dropItem(Lnet/minecraft/item/ItemStack;Z)V", at = @At("HEAD"))
 	private void dropItem(ItemStack stack, boolean dead, CallbackInfo callbackInfo) {
-		if (this.isAlive()) {
+		if (this.isAlive() && stack != null) {
 			((PlayerEntity)(Object) this).increment(Statistics.DROPS, stack.size);
 		}
 	}

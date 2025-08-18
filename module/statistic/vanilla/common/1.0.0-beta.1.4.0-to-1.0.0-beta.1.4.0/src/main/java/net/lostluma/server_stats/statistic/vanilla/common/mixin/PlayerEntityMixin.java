@@ -107,7 +107,7 @@ public abstract class PlayerEntityMixin {
 
 	@Inject(method = "dropItem(Lnet/minecraft/item/ItemStack;Z)V", at = @At("HEAD"))
 	private void dropItem(ItemStack stack, boolean dead, CallbackInfo callbackInfo) {
-		if (!this.isDead()) {
+		if (!this.isDead() && stack != null) {
 			((PlayerEntity)(Object) this).increment(Statistics.DROPS, stack.size);
 		}
 	}
