@@ -129,7 +129,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 		)
 	)
 	private void attack(ItemStack instance, LivingEntity target, Operation<Void> original) {
-		((PlayerEntity)(Object) this).increment(Statistics.useItem(instance.itemId));
+		ItemStack copy = instance.copy();
 		original.call(instance, target);
+
+		if (!ItemStack.matches(copy, instance)) {
+			((PlayerEntity)(Object) this).increment(Statistics.useItem(instance.itemId));
+		}
 	}
 }

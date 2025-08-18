@@ -2,6 +2,7 @@ package net.lostluma.server_stats.statistic.vanilla.client.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.lostluma.server_stats.statistic.vanilla.client.util.ItemStackUtil;
 import net.lostluma.server_stats.statistic.vanilla.registry.Statistics;
 import net.minecraft.client.entity.living.player.InputPlayerEntity;
 import net.minecraft.entity.living.LivingEntity;
@@ -20,7 +21,11 @@ public class InputPlayerEntityMixin {
 		)
 	)
 	private void attack(ItemStack instance, LivingEntity target, Operation<Void> original) {
-		((PlayerEntity)(Object) this).increment(Statistics.useItem(instance.itemId));
+		ItemStack copy = instance.copy();
 		original.call(instance, target);
+
+		if (!ItemStackUtil.matches(copy, instance)) {
+			((PlayerEntity)(Object) this).increment(Statistics.useItem(instance.itemId));
+		}
 	}
 }

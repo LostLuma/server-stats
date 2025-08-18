@@ -3,6 +3,7 @@ package net.lostluma.server_stats.statistic.vanilla.client.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.lostluma.server_stats.statistic.vanilla.client.Vanilla;
+import net.lostluma.server_stats.statistic.vanilla.client.util.ItemStackUtil;
 import net.lostluma.server_stats.statistic.vanilla.registry.Statistics;
 import net.minecraft.client.C_5664496;
 import net.minecraft.client.entity.living.player.InputPlayerEntity;
@@ -43,8 +44,12 @@ public class MinecraftMixin {
 		)
 	)
 	private void handleMouseClick0(Item instance, ItemStack stack, Operation<Void> original) {
+		ItemStack copy = ItemStackUtil.copy(stack);
 		original.call(instance, stack);
-		this.f_6058446.increment(Statistics.useItem(stack.itemId));
+
+		if (!ItemStackUtil.matches(copy, stack)) {
+			this.f_6058446.increment(Statistics.useItem(stack.itemId));
+		}
 
 		if (stack.size == 0) {
 			this.f_6058446.increment(Statistics.breakItem(stack.itemId));

@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.lostluma.server_stats.api.v1.statistic.ServerStatistic;
 import net.lostluma.server_stats.statistic.vanilla.registry.Achievements;
 import net.lostluma.server_stats.statistic.vanilla.registry.Statistics;
+import net.lostluma.server_stats.statistic.vanilla.server.util.ItemStackUtil;
 import net.lostluma.server_stats.statistic.vanilla.server.util.Position;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.living.LivingEntity;
@@ -35,8 +36,12 @@ public class PlayerEntityMixin {
 		)
 	)
 	private void attack(ItemStack instance, LivingEntity target, Operation<Void> original) {
-		((PlayerEntity)(Object) this).increment(Statistics.useItem(instance.itemId));
+		ItemStack copy = instance.copy();
 		original.call(instance, target);
+
+		if (!ItemStackUtil.matches(copy, instance)) {
+			((PlayerEntity)(Object) this).increment(Statistics.useItem(instance.itemId));
+		}
 	}
 
 	@Inject(method = "tickAI", at = @At("HEAD"))
