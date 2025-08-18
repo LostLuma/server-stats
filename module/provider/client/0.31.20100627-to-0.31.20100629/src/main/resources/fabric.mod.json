@@ -16,7 +16,7 @@
         "server_stats.provider.client.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=0.31.20100627 <=0.31.20100627",
+        "minecraft": ">=0.31.20100627 <=0.31.20100629",
         "server_stats_impl": "=${version}"
     },
     "custom": {
