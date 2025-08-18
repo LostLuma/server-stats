@@ -1,0 +1,34 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_statistic_vanilla_client",
+    "version": "${version}",
+    "name": "Vanilla",
+    "description": "Vanilla statistic backport.",
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "client",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_statistic_vanilla_client/icon.png",
+    "accessWidener": "server_stats.statistic.vanilla.client.accesswidener",
+    "mixins": [
+        "server_stats.statistic.vanilla.client.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=0.31.20100615 <=0.31.20100618",
+        "server_stats_api": "=${version}",
+        "server_stats_statistic_vanilla_registry": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        },
+        "loom:injected_interfaces": {
+            "net/minecraft/unmapped/C_2711798": [
+                "net/lostluma/server_stats/statistic/vanilla/client/duck/DuckInventorySlot"
+            ]
+        }
+    }
+}

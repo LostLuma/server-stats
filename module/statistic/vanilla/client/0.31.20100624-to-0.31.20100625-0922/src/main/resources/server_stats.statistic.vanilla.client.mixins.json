@@ -1,0 +1,27 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.lostluma.server_stats.statistic.vanilla.client.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "client": [
+        "BlockMixin",
+        "BowItemMixin",
+        "BucketItemMixin",
+        "FurnaceScreenMixin",
+        "InstantConsumableItemMixin",
+        "InventoryMenuScreenMixin",
+        "InventorySlotMixin",
+        "ItemEntityMixin",
+        "ItemMixin",
+        "LivingEntityMixin",
+        "MinecraftMixin",
+        "PlayerEntityMixin",
+        "SingleplayerInteractionManagerMixin",
+        "SurvivalInventoryScreenMixin"
+    ],
+    "mixins": [],
+    "server": [],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

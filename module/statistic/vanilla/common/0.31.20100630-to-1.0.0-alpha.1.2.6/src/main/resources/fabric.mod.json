@@ -1,0 +1,29 @@
+{
+    "schemaVersion": 1,
+    "id": "server_stats_statistic_vanilla_common",
+    "version": "${version}",
+    "name": "Vanilla",
+    "description": "Vanilla statistic backport.",
+    "contact": {
+        "homepage": "https://go.lostluma.net/server-stats",
+        "issues": "https://go.lostluma.net/server-stats-issues",
+        "sources": "https://go.lostluma.net/server-stats-source"
+    },
+    "environment": "*",
+    "license": "LGPL-3.0-or-later",
+    "icon": "assets/server_stats_statistic_vanilla_common/icon.png",
+    "accessWidener": "server_stats.statistic.vanilla.common.accesswidener",
+    "mixins": [
+        "server_stats.statistic.vanilla.common.mixins.json"
+    ],
+    "depends": {
+        "minecraft": ">=0.31.20100630 <=1.0.0-alpha.2.8",
+        "server_stats_api": "=${version}",
+        "server_stats_statistic_vanilla_registry": "=${version}"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "server_stats"
+        }
+    }
+}
