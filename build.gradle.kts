@@ -113,7 +113,8 @@ dependencies {
 	include(project(":module:identity:merged:1.6.0-alpha.13w16a-to-1.6.4"))
 	include(project(":module:identity:merged:1.7.0-alpha.13w36a-to-1.7.0-alpha.13w38c"))
 	include(project(":module:identity:merged:1.7.0-alpha.13w39a-to-1.7.5"))
-	include(project(":module:identity:server"))
+	include(project(":module:identity:server:1.0.0-alpha.0.1.0-to-1.0.0-beta.1.4.0"))
+	include(project(":module:identity:server:1.0.0-beta.1.5.0-to-1.3.0-alpha.12w17a"))
 
 	include(project(":module:lifecycle:client:0.31.20100327-to-0.31.20100330-1611"))
 	include(project(":module:lifecycle:client:0.31.20100413-to-0.31.20100625-1917"))
