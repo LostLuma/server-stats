@@ -204,6 +204,11 @@ include(":module:statistic:movement:merged:1.0.0-beta.1.5.0-to-1.8.0-alpha.14w08
 include(":module:statistic:movement:server:1.0.0-alpha.0.2.6-to-1.0.0-beta.1.1.0")
 include(":module:statistic:movement:server:1.0.0-beta.1.2.0-to-1.0.0-beta.1.4.0")
 
+include(":module:statistic:sheep-shearing:0.31.20100327-to-1.0.0-beta.1.6.6")
+include(":module:statistic:sheep-shearing:1.0.0-beta.1.7.0-to-1.5.2")
+include(":module:statistic:sheep-shearing:1.6.0-alpha.13w16a-to-1.8.9")
+include(":module:statistic:sheep-shearing:1.9.0-alpha.15w31a-to-1.12.2")
+
 include(":module:statistic:vanilla:client:0.31.20100327-to-0.31.20100330")
 include(":module:statistic:vanilla:client:0.31.20100413-to-0.31.20100420")
 include(":module:statistic:vanilla:client:0.31.20100607-to-0.31.20100611")
