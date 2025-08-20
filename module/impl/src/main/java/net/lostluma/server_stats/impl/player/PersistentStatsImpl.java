@@ -15,6 +15,7 @@ import net.lostluma.server_stats.util.FSUtil;
 import net.lostluma.server_stats.util.Json;
 import net.lostluma.server_stats.util.Logging;
 import net.lostluma.server_stats.util.platform.Platform;
+import net.lostluma.server_stats.util.platform.Version;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -91,11 +92,7 @@ public class PersistentStatsImpl implements PersistentStats {
 		}
 
 		if (value == 0 && stat instanceof ServerAchievement) {
-			ServerAchievement achievement = (ServerAchievement) stat;
-			// TODO: Replace with translated achievement name, once that's possible
-			ChatBroadcast.INSTANCE.announce(
-				"§c" + this.username + "§r has earned the achievement §a" + achievement.identifier() + "§r"
-			);
+			this.announceAchievement((ServerAchievement) stat);
 		}
 
 		return value;
@@ -111,6 +108,22 @@ public class PersistentStatsImpl implements PersistentStats {
 
 	private String getKey(ServerStatistic stat) {
 		return ((ServerStatisticImpl) stat).key();
+	}
+
+	private void announceAchievement(ServerAchievement achievement) {
+		// TODO: Replace with translated achievement name, once that's possible
+		Version game = Platform.getModVersion("minecraft");
+		Version chatColor = Version.of("1.0.0-alpha.0.12");
+
+		String message;
+
+		if (game.compareTo(chatColor) < 0) {
+			message = this.username + " has earned the achievement " + achievement.identifier();
+		} else {
+			message = "§c" + this.username + "§r has earned the achievement §a" + achievement.identifier();
+		}
+
+		ChatBroadcast.INSTANCE.announce(message);
 	}
 
 	@Override
