@@ -26,6 +26,13 @@ To find out whether a specific bug is fixed with Server Stats take a look at the
 As Server Stats is also intended to be used by players eventually upgrading to Minecraft 1.8 (and beyond!)  
 it also includes a statistics upgrade system to convert ID-based statistics to resource location based ones.
 
+### New Statistics
+
+Server Stats adds some new statistics that do not exist in vanilla Minecraft:
+
+- Sheep Sheared: Amount of times wool was harvested from sheep
+- Items Picked Up: Tracks the combined amount of items picked up
+
 ## Information
 
 To see your own statistics you can either install Server Stats on the client as well as the server to sync  
