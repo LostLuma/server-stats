@@ -22,6 +22,7 @@ import java.util.UUID;
 public class PlayerStatsCache {
 	// Stats storage directory
 	private final Path path;
+	private boolean initialized;
 
 	private final Map<UUID, PersistentStatsImpl> stats = new HashMap<>();
 
@@ -33,12 +34,6 @@ public class PlayerStatsCache {
 
 	private PlayerStatsCache(Path worldDir) {
 		this.path = worldDir.resolve("stats");
-
-		try {
-			Files.createDirectories(this.path);
-		} catch (IOException e) {
-			throw new UncheckedIOException("Unable to create stats directory!", e);
-		}
 	}
 
 	/**
@@ -112,6 +107,7 @@ public class PlayerStatsCache {
 
 	public PersistentStats get(String name, UUID identifier) {
 		synchronized (this) {
+			this.initialize();
 			PersistentStatsImpl stats = this.stats.get(identifier);
 
 			if (stats == null) {
@@ -128,6 +124,20 @@ public class PlayerStatsCache {
 			this.referenceCounts.put(identifier, this.referenceCounts.getOrDefault(identifier, 0) + 1);
 
 			return proxy;
+		}
+	}
+
+	private void initialize() {
+		if (this.initialized) {
+			return;
+		}
+
+		this.initialized = true;
+
+		try {
+			Files.createDirectories(this.path);
+		} catch (IOException e) {
+			throw new UncheckedIOException("Unable to create stats directory!", e);
 		}
 	}
 
