@@ -17,7 +17,7 @@
         "server_stats.statistic.vanilla.common.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=0.31.20100630 <=1.0.0-alpha.2.8",
+        "minecraft": ">=0.31.20100630-1340 <=1.0.0-alpha.2.8",
         "server_stats_api": "=${version}",
         "server_stats_statistic_vanilla_registry": "=${version}"
     },
