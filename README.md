@@ -6,6 +6,8 @@ Implementation of server-side (per world) statistics for legacy versions of Mine
 
 ## Features
 
+### General
+
 Allows recording player statistics on older versions using the modern statistics system introduced in 1.7.  
 Without Server Stats statistics are stored client-side, shared between all worlds, and can randomly reset.
 
