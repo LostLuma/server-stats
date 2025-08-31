@@ -5,36 +5,36 @@ jobs:
   build:
     runs-on: amd64-linux-docker
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: https://code.forgejo.org/actions/checkout@v5
-      - name: restore jdk installations
+      - name: Restore jdk installations
         uses: https://code.forgejo.org/actions/cache/restore@v4
         with:
           path: |
             /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
           key: ${{ runner.os }}-java
-      - name: setup jdk
+      - name: Setup jdk
         uses: https://github.com/actions/setup-java@v5
         with:
           java-version: |
             8
             21
           distribution: temurin
-      - name: setup gradle
+      - name: Setup Gradle
         uses: https://github.com/gradle/actions/setup-gradle@v4.4.2
         with:
           cache-read-only: ${{ forge.ref_name != forge.event.repository.default_branch }}
-      - name: install workarounds
+      - name: Install workarounds
         run: ./workaround/broken-manifest.sh
-      - name: build
+      - name: Build
         run: ./gradlew build --warning-mode=all
-      - name: capture build artifacts
+      - name: Capture build artifacts
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: server-stats-artifacts.zip
           path: build/libs
           if-no-files-found: error
-      - name: cache jdk installations
+      - name: Cache jdk installations
         if: ${{ github.ref_name == 'stardust' && !cancelled() }}
         uses: https://code.forgejo.org/actions/cache/save@v4
         with:
