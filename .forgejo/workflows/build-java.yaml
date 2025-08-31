@@ -14,7 +14,7 @@ jobs:
             /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
           key: ${{ runner.os }}-java
       - name: setup jdk
-        uses: https://github.com/actions/setup-java@v4
+        uses: https://github.com/actions/setup-java@v5
         with:
           java-version: |
             8
