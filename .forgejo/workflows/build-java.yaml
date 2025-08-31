@@ -20,31 +20,20 @@ jobs:
             8
             21
           distribution: temurin
-      - name: restore cached dependencies
-        uses: https://code.forgejo.org/actions/cache/restore@v4
+      - name: setup gradle
+        uses: https://github.com/gradle/actions/setup-gradle@v4.4.2
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle
+          cache-read-only: ${{ forge.ref_name != forge.event.repository.default_branch }}
       - name: install workarounds
         run: ./workaround/broken-manifest.sh
       - name: build
-        run: ./gradlew build --no-daemon --warning-mode=all
+        run: ./gradlew build --warning-mode=all
       - name: capture build artifacts
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: server-stats-artifacts.zip
           path: build/libs
           if-no-files-found: error
-      - name: cache downloaded dependencies
-        if: ${{ github.ref_name == 'stardust' && !cancelled() }}
-        uses: https://code.forgejo.org/actions/cache/save@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle
       - name: cache jdk installations
         if: ${{ github.ref_name == 'stardust' && !cancelled() }}
         uses: https://code.forgejo.org/actions/cache/save@v4
