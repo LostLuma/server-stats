@@ -11,10 +11,19 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.function.Consumer;
 
 public class Platform {
 	private static final FabricLoader loader = FabricLoader.getInstance();
 	private static final String BASE_DATA_PATH = "assets/" + Constants.MOD_ID + "/data";
+
+	public static Path getGameDir() {
+		return loader.getGameDir();
+	}
+
+	public static boolean isDevelopmentEnvironment() {
+		return loader.isDevelopmentEnvironment();
+	}
 
 	public static Version getModVersion(String modId) {
 		ModContainer container = getModContainer(modId);
@@ -53,6 +62,10 @@ public class Platform {
 		ModContainer container = getModContainer(Constants.MOD_ID);
 		Path path = container.findPath(BASE_DATA_PATH + "/" + name).get();
 		return new Gson().fromJson(new String(Files.readAllBytes(path), StandardCharsets.UTF_8), type);
+	}
+
+	public static <T> void invokeEntrypoints(String name, Class<T> type, Consumer<? super T> consumer) {
+		loader.invokeEntrypoints(name, type, consumer);
 	}
 
 	private static ModContainer getModContainer(String modId) {

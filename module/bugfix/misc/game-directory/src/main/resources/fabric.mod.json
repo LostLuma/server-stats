@@ -16,7 +16,8 @@
         "server_stats.bugfix.game_directory.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=0.31.20100327 <=0.31.20100608"
+        "minecraft": ">=0.31.20100327 <=0.31.20100608",
+        "server_stats_util": "=${version}"
     },
     "custom": {
         "modmenu": {

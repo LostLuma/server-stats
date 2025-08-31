@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
 	implementation(project(":module:entrypoint:common"))
+	implementation(project(":module:util"))
 }

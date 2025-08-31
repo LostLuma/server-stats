@@ -17,7 +17,8 @@
     ],
     "depends": {
         "minecraft": ">=0.31.20100327 <=1.3-alpha.12.17.a",
-        "server_stats_entrypoint_common": "=${version}"
+        "server_stats_entrypoint_common": "=${version}",
+        "server_stats_util": "=${version}"
     },
     "custom": {
         "modmenu": {

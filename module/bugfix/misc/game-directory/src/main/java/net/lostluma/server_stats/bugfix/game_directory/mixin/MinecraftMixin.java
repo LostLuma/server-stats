@@ -1,6 +1,6 @@
 package net.lostluma.server_stats.bugfix.game_directory.mixin;
 
-import net.fabricmc.loader.api.FabricLoader;
+import net.lostluma.server_stats.util.platform.Platform;
 import net.minecraft.client.C_5664496;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,5 +16,5 @@ public class MinecraftMixin {
 	 */
 	@Shadow
 	@SuppressWarnings("unused")
-	private File f_9479876 = FabricLoader.getInstance().getGameDir().toFile();
+	private File f_9479876 = Platform.getGameDir().toFile();
 }

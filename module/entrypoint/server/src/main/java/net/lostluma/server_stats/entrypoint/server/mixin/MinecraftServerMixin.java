@@ -1,8 +1,8 @@
 package net.lostluma.server_stats.entrypoint.server.mixin;
 
-import net.fabricmc.loader.api.FabricLoader;
 import net.lostluma.server_stats.entrypoint.common.ModInitializer;
 import net.lostluma.server_stats.entrypoint.server.ServerModInitializer;
+import net.lostluma.server_stats.util.platform.Platform;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,13 +17,13 @@ public class MinecraftServerMixin {
 	 */
 	@Inject(method = "main", at = @At("HEAD"))
 	private static void main(CallbackInfo callbackInfo) {
-		FabricLoader.getInstance().invokeEntrypoints(
+		Platform.invokeEntrypoints(
 			ServerModInitializer.KEY,
 			ServerModInitializer.class,
 			ServerModInitializer::initializeServer
 		);
 
-		FabricLoader.getInstance().invokeEntrypoints(
+		Platform.invokeEntrypoints(
 			ModInitializer.KEY,
 			ModInitializer.class,
 			ModInitializer::initialize
